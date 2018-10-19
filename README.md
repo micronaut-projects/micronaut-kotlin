@@ -3,11 +3,11 @@
 This project contains a collection of subprojects that improve Micronaut with Kotlin
 
 
-## Micronaut Kotr
+## Micronaut Ktor
 
 
 
-The kotr subproject adds support for the kotr webserver. 
+The [ktor](https://ktor.io) subproject adds support for the kotr webserver. 
 
 
 ### Using the Snapshot (`build.gradle`):
