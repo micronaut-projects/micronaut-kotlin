@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: io.micronaut:micronaut-buffer-netty:1.0.0.RC3">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-buffer-netty/1.0.0.RC3/3453b80c6c70039ebd800a757164b3474cf509df/micronaut-buffer-netty-1.0.0.RC3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-buffer-netty/1.0.0.RC3/1d9f362f3c7b1ce54fefc3e8ef9877e6900dd03b/micronaut-buffer-netty-1.0.0.RC3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

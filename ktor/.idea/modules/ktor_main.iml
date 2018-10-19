@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module external.linked.project.id=":ktor:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="io.micronaut.kotlin" external.system.module.type="sourceSet" external.system.module.version="1.0.0.BUILD-SNAPSHOT" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="kotlin-language" name="Kotlin">
+      <configuration version="3" platform="JVM 1.8" useProjectSettings="false">
+        <compilerSettings />
+        <compilerArguments>
+          <option name="destination" value="$MODULE_DIR$/../../build/classes/kotlin/main" />
+          <option name="classpath" value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-http-server/1.0.0.RC3/74782e0294aaa9318d54895469d440ce416ba04c/micronaut-http-server-1.0.0.RC3.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-runtime/1.0.0.RC3/fb10f1cfb1f954d885eb2685b989d896d69efe6b/micronaut-runtime-1.0.0.RC3.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-router/1.0.0.RC3/5f3f48432494b42ee267e8ce0c9ca278479d4e53/micronaut-router-1.0.0.RC3.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-websocket/1.0.0.RC3/210b4d507638689153ad29b128e1cc5ae29b2e28/micronaut-websocket-1.0.0.RC3.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-http/1.0.0.RC3/4e423f8af41d63c05c5a0ee08d29524137e14a68/micronaut-http-1.0.0.RC3.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-aop/1.0.0.RC3/980eff47c5b65fe5a851deebdba3d791a2c9afcc/micronaut-aop-1.0.0.RC3.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-inject/1.0.0.RC3/bdb2a6337f799c55828d93c6533fd5f24f440b5f/micronaut-inject-1.0.0.RC3.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-netty/1.0.0-beta-1/74ec790e1cad28438fe3d5212422ff6a7e31751f/ktor-server-netty-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-tomcat/1.0.0-beta-1/fc7377a3838be6247598a9b817cc039bb4589ebc/ktor-server-tomcat-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-jetty/1.0.0-beta-1/3b492528e3dc976d6be22607bb87cac9520fced6/ktor-server-jetty-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-servlet/1.0.0-beta-1/7ad336ea011f2dc87a062e35164b5c635b527419/ktor-server-servlet-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-host-common/1.0.0-beta-1/9e32336b5a5fa3ce7ca324a0d3a993f192eafb85/ktor-server-host-common-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core/1.0.0-beta-1/36a9463721dc17c09a506eb8d7c2316796af743d/ktor-server-core-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-cio/1.0.0-beta-1/75646e2e0268b426686159c4f71178cc6cc0fd42/ktor-http-cio-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http-jvm/1.0.0-beta-1/65508c74959720df2793d75bc0adc51f34cc3d36/ktor-http-jvm-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-network/1.0.0-beta-1/281b8928708170f3d85806c686c0ce03974297fd/ktor-network-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils-jvm/1.0.0-beta-1/c65d8b56ff1a52c9a8fe08bb33a4bb8fc25b0a55/ktor-utils-jvm-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.3.0-rc-131/d367125312c6ba346e1796e2b76c964527c22d2/kotlin-stdlib-jdk8-1.3.0-rc-131.jar:/Users/graemerocher/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/Users/graemerocher/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-core/1.0.0.RC3/52e532e0fec8cc6ab01ae7352280b9163114587/micronaut-core-1.0.0.RC3.jar:/Users/graemerocher/.m2/repository/org/yaml/snakeyaml/1.23/snakeyaml-1.23.jar:/Users/graemerocher/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.0-rc-131/e827567cb68fdaf2841657b0c1d7cad3d2eecd0a/kotlin-stdlib-jdk7-1.3.0-rc-131.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.3.0-rc-131/b2107839c53c30dd033ec2edd30fdb74badf3dd4/kotlin-reflect-1.3.0-rc-131.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-jdk8/0.30.2-eap13/e1bc148fcc0d8e5f4d76dd533b81d44bd080535e/kotlinx-coroutines-jdk8-0.30.2-eap13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-io-jvm/0.1.0-alpha-19-rc13/1c0b9e99bcb0d7809904742969393bad99d015d2/kotlinx-coroutines-io-jvm-0.1.0-alpha-19-rc13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core/0.30.2-eap13/7454a7b74b0f74713d0c3a3fa0258214e2eafeae/kotlinx-coroutines-core-0.30.2-eap13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-io-jvm/0.1.0-alpha-19-rc13/a4d1c45309695d5b8d7f1405b9dfda15d6230f1b/kotlinx-io-jvm-0.1.0-alpha-19-rc13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.0-rc-131/219a38148b4e8116d9cc2153c8a471754997e38d/kotlin-stdlib-1.3.0-rc-131.jar:/Users/graemerocher/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/Users/graemerocher/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/com.typesafe/config/1.3.1/2cf7a6cc79732e3bdf1647d7404279900ca63eb0/config-1.3.1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.1.24.Final/c0c0d9d20402e4493083447052b59d5680e88b2e/netty-codec-http2-4.1.24.Final.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-alpn-java-server/9.4.11.v20180605/945e87a1ed91d7881e6264cb6e5b2467408f8650/jetty-alpn-java-server-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.alpn/alpn-api/1.1.3.v20160715/a1bf3a937f91b4c953acd13e8c9552347adc2198/alpn-api-1.1.3.v20160715.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-catalina/9.0.10/41be27a7e2860e4a54b8ead2fd9f1a6b558bc097/tomcat-catalina-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat.embed/tomcat-embed-core/9.0.10/fbf9dbc97babe8425332e6baf3925e8f726f3d7b/tomcat-embed-core-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-alpn-openjdk8-server/9.4.11.v20180605/c1f528c935510d6aba2ddf7026d96cd43cdfb62e/jetty-alpn-openjdk8-server-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-alpn-server/9.4.11.v20180605/ec3b6afab2c074141f0faa71446bc41c6146f44b/jetty-alpn-server-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.http2/http2-server/9.4.11.v20180605/6b3026400e31de4eac4735a6845a893f7f021160/http2-server-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-server/9.4.11.v20180605/58353c2f27515b007fc83ae22002feb34fc24714/jetty-server-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-servlets/9.4.11.v20180605/8301f94a8b8e4a8ed7c065984b18c02c4206b920/jetty-servlets-9.4.11.v20180605.jar:/Users/graemerocher/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/Users/graemerocher/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jdk8/2.9.7/jackson-datatype-jdk8-2.9.7.jar:/Users/graemerocher/.m2/repository/com/fasterxml/jackson/datatype/jackson-datatype-jsr310/2.9.7/jackson-datatype-jsr310-2.9.7.jar:/Users/graemerocher/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.9.7/jackson-databind-2.9.7.jar:/Users/graemerocher/.m2/repository/io/reactivex/rxjava2/rxjava/2.2.2/rxjava-2.2.2.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.2/323964c36556eb0e6209f65c1cef72b53b461ab8/reactive-streams-1.0.2.jar:/Users/graemerocher/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-http/1.0.0-beta-1/971a38e8badde2c9da4d77b5c87821262e64af80/ktor-http-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-utils/1.0.0-beta-1/a12cce549fa0892ca383ea6c6328fe73563584cb/ktor-utils-1.0.0-beta-1.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-io/0.1.0-alpha-19-rc13/64e3b614ce16f9f47e1f821d5a12a5cdd1550a49/kotlinx-coroutines-io-0.1.0-alpha-19-rc13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-coroutines-core-common/0.30.2-eap13/d60b56a014b3dbcf9215c4ea980e3e9cd84a08bb/kotlinx-coroutines-core-common-0.30.2-eap13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/kotlinx-io/0.1.0-alpha-19-rc13/54d823e25d2a9b48530d3a4f015dda267968bf/kotlinx-io-0.1.0-alpha-19-rc13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-common/0.11.10-eap13/47bda3184d78ed1aac1becad1f72d5237d16770b/atomicfu-common-0.11.10-eap13.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.0-rc-131/968bbc5a9c06748302e5216fc09a9f31469d0d6d/kotlin-stdlib-common-1.3.0-rc-131.jar:/Users/graemerocher/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.24.Final/8f20009953b2c7c3d860cef928007bc01aa58ac/netty-codec-http-4.1.24.Final.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.24.Final/bad56e7da211c5ebe031ae155cb648b1065c7bb6/netty-handler-4.1.24.Final.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jsp-api/9.0.10/cca43cbe5434bf5f97bedcfafd99dd928b0f1cbd/tomcat-jsp-api-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-util-scan/9.0.10/f29471b3225af6af1b48b9b4d7807dbdf58dc12b/tomcat-util-scan-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-api/9.0.10/db488d3b1be8038642d04f55c33d4e09d811d62d/tomcat-api-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-coyote/9.0.10/66d96b90a4d7cc938051b99a337aeab026345cd5/tomcat-coyote-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/9.0.10/4d777ea6db65200f639bc99bc98dda025dd93a73/tomcat-servlet-api-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-util/9.0.10/546912376c04f2f8cb40851cbacc8a5cda4d4d07/tomcat-util-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/9.0.10/85c2214ee9fd3f4e3a38a8e5e5d288a9dfcf918d/tomcat-juli-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-annotations-api/9.0.10/18836b46b76d385615a738d5136fdbdaf9b0f32c/tomcat-annotations-api-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jni/9.0.10/c6ab0fed72326c407afafb60fb97e439c08627f6/tomcat-jni-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-jaspic-api/9.0.10/e76cec950eeb2d30324d497e17310e47fb89b3a3/tomcat-jaspic-api-9.0.10.jar:/Users/graemerocher/.m2/repository/javax/servlet/javax.servlet-api/3.1.0/javax.servlet-api-3.1.0.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.http2/http2-common/9.4.11.v20180605/c3505689e5be699d04298dde534f431382feaa83/http2-common-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty.http2/http2-hpack/9.4.11.v20180605/485673fa87b67e1e89986ba8668f7154fd071682/http2-hpack-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-http/9.4.11.v20180605/20c35f5336befe35b0bd5c4a63e07170fe7872d7/jetty-http-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-io/9.4.11.v20180605/d164de1dac18c4ca80a1b783d879c97449909c3b/jetty-io-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-continuation/9.4.11.v20180605/31f1e347d013356317164b86bbbc2a6ce5c5e871/jetty-continuation-9.4.11.v20180605.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.eclipse.jetty/jetty-util/9.4.11.v20180605/f0f25aa2f27d618a04bc7356fa247ae4a05245b3/jetty-util-9.4.11.v20180605.jar:/Users/graemerocher/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.9.0/jackson-annotations-2.9.0.jar:/Users/graemerocher/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.9.7/jackson-core-2.9.7.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.24.Final/290857e5103956bbda11836e33245f2439226b77/netty-codec-4.1.24.Final.jar:/Users/graemerocher/.m2/repository/io/netty/netty-transport/4.1.24.Final/netty-transport-4.1.24.Final.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.24.Final/e354bed2e60b568307138e403f55ba241c1c16d2/netty-buffer-4.1.24.Final.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-el-api/9.0.10/dc7f74312f56d2649361e88e14a98cd9c71440c7/tomcat-el-api-9.0.10.jar:/Users/graemerocher/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.24.Final/dbc1e5b50d31aed883ea3beeb6489e1977d0687f/netty-resolver-4.1.24.Final.jar:/Users/graemerocher/.m2/repository/io/netty/netty-common/4.1.24.Final/netty-common-4.1.24.Final.jar" />
+          <option name="noStdlib" value="true" />
+          <option name="noReflect" value="true" />
+          <option name="moduleName" value="ktor" />
+          <option name="jvmTarget" value="1.8" />
+          <option name="addCompilerBuiltIns" value="true" />
+          <option name="loadBuiltInsFromDependencies" value="true" />
+          <option name="languageVersion" value="1.3" />
+          <option name="apiVersion" value="1.3" />
+          <option name="pluginOptions">
+            <array />
+          </option>
+          <option name="pluginClasspaths">
+            <array>
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-annotation-processing-gradle/1.3.0-rc-131/5705111fd119ea48d18c14f03aeb1621d94ca3ed/kotlin-annotation-processing-gradle-1.3.0-rc-131.jar" />
+              <option value="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-scripting-compiler-embeddable/1.3.0-rc-131/639f6d51a6349a4b079ff9077afc8bf84afc8f78/kotlin-scripting-compiler-embeddable-1.3.0-rc-131.jar" />
+            </array>
+          </option>
+          <option name="coroutinesState" value="enable" />
+        </compilerArguments>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../build/generated/source/kapt/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../build/generated/source/kapt/main" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../build/generated/source/kaptKotlin/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../build/generated/source/kaptKotlin/main" isTestSource="false" generated="true" />
+    </content>
+    <content url="file://$MODULE_DIR$/../../src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/kotlin" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Gradle: kaptGeneratedClasses">
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../build/tmp/kapt3/classes/main" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-http-server:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-runtime:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-router:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-websocket:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-http:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-aop:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-inject:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-core:2.9.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.9.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.0-rc-131" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.3.0-rc-131" level="project" />
+    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-classic:1.2.3" level="project" />
+    <orderEntry type="library" name="Gradle: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Gradle: io.micronaut:micronaut-core:1.0.0.RC3" level="project" />
+    <orderEntry type="library" name="Gradle: org.yaml:snakeyaml:1.23" level="project" />
+    <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.3.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.3.0-rc-131" level="project" />
+    <orderEntry type="library" name="Gradle: org.reactivestreams:reactive-streams:1.0.2" level="project" />
+    <orderEntry type="library" name="Gradle: io.reactivex.rxjava2:rxjava:2.2.2" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.9.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.7" level="project" />
+    <orderEntry type="library" name="Gradle: com.fasterxml.jackson.datatype:jackson-datatype-jdk8:2.9.7" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.0-rc-131" level="project" />
+    <orderEntry type="library" name="Gradle: ch.qos.logback:logback-core:1.2.3" level="project" />
+    <orderEntry type="library" name="Gradle: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Gradle: javax.validation:validation-api:2.0.1.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: com.typesafe:config:1.3.1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-http:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:kotlinx-io-jvm:0.1.0-alpha-19-rc13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core:0.30.2-eap13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-alpn-openjdk8-server:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-jaspic-api:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-utils:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-http:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-api:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-buffer:4.1.24.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-server:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-jdk8:0.30.2-eap13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-server-jetty:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-el-api:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-juli:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty.http2:http2-server:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-catalina:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-server-servlet:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-alpn-java-server:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-servlets:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-transport:4.1.24.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-util:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-io:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-alpn-server:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-server-tomcat:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-annotations-api:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-jni:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-utils-jvm:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-http-jvm:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-coyote:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty.alpn:alpn-api:1.1.3.v20160715" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:atomicfu-common:0.11.10-eap13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-handler:4.1.24.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty.http2:http2-hpack:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat.embed:tomcat-embed-core:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-jsp-api:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:kotlinx-io:0.1.0-alpha-19-rc13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-io:0.1.0-alpha-19-rc13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-server-core:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-servlet-api:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-http-cio:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-core-common:0.30.2-eap13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty.http2:http2-common:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-codec-http2:4.1.24.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.eclipse.jetty:jetty-continuation:9.4.11.v20180605" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-network:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-codec:4.1.24.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-server-host-common:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-codec-http:4.1.24.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.ktor:ktor-server-netty:1.0.0-beta-1" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlin:kotlin-reflect:1.3.0-rc-131" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-util-scan:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apache.tomcat:tomcat-util:9.0.10" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.jetbrains.kotlinx:kotlinx-coroutines-io-jvm:0.1.0-alpha-19-rc13" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-resolver:4.1.24.Final" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Gradle: io.netty:netty-common:4.1.24.Final" level="project" />
+  </component>
+</module>

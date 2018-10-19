@@ -1,0 +1,56 @@
+// build.gradle
+
+buildscript {
+    ext.kotlin_version = '1.3.0-rc-131'
+    ext.ktor_version = '1.0.0-beta-1'
+
+    repositories {
+        mavenCentral()
+        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE"
+    }
+}
+
+apply plugin:"io.spring.dependency-management"
+apply plugin: 'kotlin'
+apply plugin:"kotlin-kapt"
+
+sourceCompatibility = 1.8
+compileKotlin { kotlinOptions.jvmTarget = "1.8" }
+compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
+
+kotlin { experimental { coroutines "enable" } }
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven { url "https://dl.bintray.com/kotlin/ktor" }
+    maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
+}
+
+dependencies {
+    annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
+    kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
+    kaptTest "io.micronaut:micronaut-inject-java:$micronautVersion"
+
+    compile "io.micronaut:micronaut-http-server:$micronautVersion"
+    compile "io.micronaut:micronaut-inject:$micronautVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    compileOnly "io.ktor:ktor-server-netty:$ktor_version"
+    compileOnly "io.ktor:ktor-server-tomcat:$ktor_version"
+    compileOnly "io.ktor:ktor-server-jetty:$ktor_version"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+
+    testCompile "io.ktor:ktor-server-netty:$ktor_version"
+    testCompile "io.micronaut:micronaut-http-client:$micronautVersion"
+    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.0.RC1"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
+    runtime "ch.qos.logback:logback-classic:1.2.3"
+}
+
+test {
+    useJUnitPlatform()
+}

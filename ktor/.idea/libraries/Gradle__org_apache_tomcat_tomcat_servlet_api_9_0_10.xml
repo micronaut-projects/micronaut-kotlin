@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.apache.tomcat:tomcat-servlet-api:9.0.10">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/9.0.10/4d777ea6db65200f639bc99bc98dda025dd93a73/tomcat-servlet-api-9.0.10.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/9.0.10/13a0f69c7f40d223a61802f6f8dbf7d3eb3c2bc3/tomcat-servlet-api-9.0.10-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
