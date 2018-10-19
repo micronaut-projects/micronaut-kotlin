@@ -1,66 +1,42 @@
-# Micronaut Test
+# Micronaut Kotlin
 
-This project provides testing extension for JUnit 5 and Spock to make it easier to test Micronaut applications.
+This project contains a collection of subprojects that improve Micronaut with Kotlin
 
-For more information see the [Documentation](https://micronaut-projects.github.io/micronaut-test/latest/guide/index.html).
 
-Example Spock Test:
+## Micronaut Kotr
 
-```groovy
-import io.micronaut.test.annotation.MicronautTest
-import spock.lang.*
-import javax.inject.Inject
+The kotr subproject adds support for the kotr webserver. Example:
 
-@MicronautTest 
-class MathServiceSpec extends Specification {
+```kotlin
+import io.ktor.application.*
+import io.ktor.http.*
+import io.ktor.response.*
+import io.ktor.routing.*
+import io.ktor.server.engine.*
+import io.ktor.server.netty.NettyApplicationEngine
+import io.micronaut.ktor.KotrApplication
+import org.slf4j.LoggerFactory
+import javax.inject.Singleton
 
-    @Inject
-    MathService mathService // 
+@Singleton
+class App(val greetingService: GreetingService) : KotrApplication<NettyApplicationEngine.Configuration>({
+    routing {
+        get("/") {
+            call.respondText(greetingService.greet(), ContentType.Text.Plain)
+        }
+        get("/demo") {
+            call.respondText(greetingService.greet())
+        }
+    }
+}) {
+    init {
+        applicationEngineEnvironment {
+            log = LoggerFactory.getLogger(App::class.java)
+        }
 
-    @Unroll
-    void "should compute #num times 4"() { 
-        when:
-        def result = mathService.compute(num)
-
-        then:
-        result == expected
-
-        where:
-        num | expected
-        2   | 8
-        3   | 12
+        applicationEngine {
+            workerGroupSize = 10
+        }
     }
 }
-```
-
-Example JUnit 5 Test:
-
-```java
-import io.micronaut.test.annotation.MicronautTest;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.CsvSource;
-
-import javax.inject.Inject;
-
-
-@MicronautTest // <1>
-class MathServiceTest {
-
-    @Inject
-    MathService mathService; // <2>
-
-
-    @ParameterizedTest
-    @CsvSource({"2,8", "3,12"})
-    void testComputeNumToSquare(Integer num, Integer square) {
-        final Integer result = mathService.compute(num); // <3>
-
-        Assertions.assertEquals(
-                square,
-                result
-        );
-    }
-}
-
 ```

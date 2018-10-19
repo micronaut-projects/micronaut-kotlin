@@ -45,7 +45,8 @@
           <entry key="gradle" value="6" />
           <entry key="gradlew" value="1" />
           <entry key="java" value="24" />
-          <entry key="kt" value="183" />
+          <entry key="kt" value="184" />
+          <entry key="md" value="2" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
@@ -55,7 +56,8 @@
           <entry key="Groovy" value="6" />
           <entry key="HOCON" value="5" />
           <entry key="JAVA" value="24" />
-          <entry key="Kotlin" value="183" />
+          <entry key="Kotlin" value="184" />
+          <entry key="Markdown" value="2" />
           <entry key="PLAIN_TEXT" value="2" />
           <entry key="SPI" value="1" />
           <entry key="XML" value="3" />
@@ -67,6 +69,7 @@
           <entry key="conf" value="62" />
           <entry key="gradle" value="221" />
           <entry key="kt" value="5062" />
+          <entry key="md" value="198" />
           <entry key="xml" value="3" />
         </counts>
       </usages-collector>
@@ -75,6 +78,7 @@
           <entry key="Groovy" value="221" />
           <entry key="HOCON" value="62" />
           <entry key="Kotlin" value="5062" />
+          <entry key="Markdown" value="198" />
           <entry key="SPI" value="5" />
           <entry key="XML" value="3" />
         </counts>
@@ -83,104 +87,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/io/micronaut/ktor/KotrApplication.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/kotlin/app/Main.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/kotlin/io/micronaut/ktor/config/HoconPropertySourceLoaderTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-              <folding>
-                <element signature="e#34#162#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/kotlin/app/App.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding>
-                <element signature="e#13#298#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core/1.0.0-beta-1/36a9463721dc17c09a506eb8d7c2316796af743d/ktor-server-core-1.0.0-beta-1.jar!/io/ktor/routing/RoutingBuilderKt.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="17" column="167" selection-start-line="17" selection-start-column="158" selection-end-line="17" selection-end-column="167" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core/1.0.0-beta-1/b10465ca97b47c678fd55361d10f550aa8635bb8/ktor-server-core-1.0.0-beta-1-sources.jar!/io/ktor/routing/Routing.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="643">
-              <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
-              <folding>
-                <element signature="e#25#179#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/kotlin/io/micronaut/ktor/factory/MicronautKotrApplication.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="79" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="79" />
-              <folding>
-                <element signature="e#35#681#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/kotlin/app/AppTest.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/kotlin/app/GreetingService.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+        <entry file="file://$PROJECT_DIR$/../README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="110">
+                <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+                <folding>
+                  <element signature="e#0#285#0" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -783,7 +700,7 @@
         <entry key="$PROJECT_DIR$/../.gradle" value="0" />
         <entry key="$PROJECT_DIR$/../build.gradle" value="2774179594" />
         <entry key="$PROJECT_DIR$/.gradle" value="0" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1860949138" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="2605272899" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="307973072" />
         <entry key="$PROJECT_DIR$/../settings.gradle" value="3116266843" />
       </map>
@@ -1390,6 +1307,7 @@
         <option value="$PROJECT_DIR$/src/test/kotlin/app/Main.kt" />
         <option value="$PROJECT_DIR$/src/test/kotlin/app/GreetingService.kt" />
         <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/../README.md" />
       </list>
     </option>
   </component>
@@ -1477,7 +1395,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539942025285" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539942242502" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1593,12 +1511,12 @@
       <workItem from="1539846738542" duration="1149000" />
       <workItem from="1539860462411" duration="9370000" />
       <workItem from="1539871946554" duration="9418000" />
-      <workItem from="1539935672322" duration="6332000" />
+      <workItem from="1539935672322" duration="6549000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26269000" />
+    <option name="totallyTimeSpent" value="26486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="24" width="2527" height="1417" extended-state="0" />
@@ -1622,7 +1540,7 @@
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="CheckStyle" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="11" visible="true" weight="0.32981133" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32981133" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1658,13 +1576,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.0-rc-131/fd8f4c4467e9dfe200c4807833fdd2f4654e0dc/kotlin-stdlib-common-1.3.0-rc-131-sources.jar!/kotlin/util/Standard.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-runtime/1.0.0.RC3/2c719ba207d3de243efcb26073c5dc681e1b8319/micronaut-runtime-1.0.0.RC3-sources.jar!/io/micronaut/runtime/Micronaut.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="302">
@@ -1956,20 +1867,10 @@
         <state relative-caret-position="-826" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/io/micronaut/ktor/factory/MicronautKotrApplication.kt">
+    <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="79" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="79" />
-          <folding>
-            <element signature="e#35#681#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/kotlin/app/AppTest.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        <state relative-caret-position="833">
+          <caret line="42" column="58" lean-forward="true" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
         </state>
       </provider>
     </entry>
@@ -1990,6 +1891,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/io/micronaut/ktor/KotrApplication.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core/1.0.0-beta-1/36a9463721dc17c09a506eb8d7c2316796af743d/ktor-server-core-1.0.0-beta-1.jar!/io/ktor/routing/RoutingBuilderKt.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="309">
@@ -1997,10 +1905,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/kotlin/io/micronaut/ktor/KotrApplication.kt">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core/1.0.0-beta-1/b10465ca97b47c678fd55361d10f550aa8635bb8/ktor-server-core-1.0.0-beta-1-sources.jar!/io/ktor/routing/Routing.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="19" column="8" selection-start-line="19" selection-start-column="8" selection-end-line="19" selection-end-column="8" />
+        <state relative-caret-position="1080">
+          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
+          <folding>
+            <element signature="e#25#179#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/kotlin/io/micronaut/ktor/factory/MicronautKotrApplication.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" column="79" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="79" />
+          <folding>
+            <element signature="e#35#681#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/kotlin/app/AppTest.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -2011,30 +1939,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.ktor/ktor-server-core/1.0.0-beta-1/b10465ca97b47c678fd55361d10f550aa8635bb8/ktor-server-core-1.0.0-beta-1-sources.jar!/io/ktor/routing/Routing.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="643">
-          <caret line="101" column="16" selection-start-line="101" selection-start-column="16" selection-end-line="101" selection-end-column="16" />
-          <folding>
-            <element signature="e#25#179#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/kotlin/app/App.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        <state relative-caret-position="44">
+          <caret line="2" selection-start-line="2" selection-end-line="32" selection-end-column="1" />
           <folding>
             <element signature="e#13#298#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+    <entry file="file://$PROJECT_DIR$/../README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="110">
+            <caret line="5" column="17" lean-forward="true" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+            <folding>
+              <element signature="e#0#285#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
