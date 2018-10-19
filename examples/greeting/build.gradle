@@ -29,20 +29,27 @@ kotlin { experimental { coroutines "enable" } }
 repositories {
     mavenCentral()
     jcenter()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/"}
     maven { url "https://dl.bintray.com/kotlin/ktor" }
     maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
 }
 
+dependencyManagement {
+    imports {
+        mavenBom 'io.micronaut:micronaut-bom:1.0.0.RC3'
+    }
+}
+
 dependencies {
-    annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
-    kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
-    kaptTest "io.micronaut:micronaut-inject-java:$micronautVersion"
+    annotationProcessor "io.micronaut:micronaut-inject-java"
+    kapt "io.micronaut:micronaut-inject-java"
+    kaptTest "io.micronaut:micronaut-inject-java"
 
     compile project(":ktor")
     compile "io.ktor:ktor-server-netty:$ktor_version"
     runtime "ch.qos.logback:logback-classic:1.2.3"
 
-    testCompile "io.micronaut:micronaut-http-client:$micronautVersion"
+    testCompile "io.micronaut:micronaut-http-client"
     testCompile "io.micronaut.test:micronaut-test-junit5:1.0.0.RC1"
     testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
     runtime "ch.qos.logback:logback-classic:1.2.3"

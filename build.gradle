@@ -56,7 +56,9 @@ subprojects { Project subproject ->
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
 
-    if (!subproject.name.contains("example")) {
+    
+    if (!subproject.toString().contains("example")) {
+    
         apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-core/01e2b1ef1255b584e9e5c1965d334e1190e2ade5/gradle/publishing.gradle"    
         bintray.publish = true
     }
