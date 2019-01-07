@@ -1,3 +1,3 @@
-include "runtime"
+include "kotlin-runtime"
 include "ktor"
 include "examples:greeting"

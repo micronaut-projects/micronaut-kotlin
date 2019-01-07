@@ -2,10 +2,16 @@
 
 This project contains a collection of subprojects that improve Micronaut with Kotlin
 
-## Micronaut 
+## Micronaut Kotlin Runtime
+
+The `micronaut-kotlin-runtime` dependency adds a few features to specific to Kotlin including:
+
+* Support for [HOCON](https://github.com/lightbend/config/blob/master/HOCON.md) properties files (example `src/main/resources/application.conf`)
+* The necessary [Jackson dependencies](https://github.com/FasterXML/jackson-module-kotlin)
+
+This module can be used in Micronaut or Ktor applications (see below)
 
 ## Micronaut Ktor
-
 
 
 The [ktor](https://ktor.io) subproject adds support for the kotr webserver. 
@@ -13,40 +19,11 @@ The [ktor](https://ktor.io) subproject adds support for the kotr webserver.
 
 ### Using the Snapshot (`build.gradle`):
 
-To use the snapshot configure the following in your build (see the "examples/greeting" directory for an example).
-
-```groovy
-
-repositories {
-    mavenCentral()
-    jcenter()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/"}
-    maven { url "https://dl.bintray.com/kotlin/ktor" }
-    maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
-}
-dependencyManagement {
-    imports {
-        mavenBom 'io.micronaut:micronaut-bom:1.0.0.RC3'
-    }
-}
-dependencies {
-    annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
-    kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
-    kaptTest "io.micronaut:micronaut-inject-java:$micronautVersion"
-
-    compile "io.micronaut.kotlin:micronaut-ktor:1.0.0.BUILD-SNAPSHOT"
-    compile "io.ktor:ktor-server-netty:$ktor_version"
-    runtime "ch.qos.logback:logback-classic:1.2.3"
-
-    testCompile "io.micronaut:micronaut-http-client:$micronautVersion"
-    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.0.RC1"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
-    runtime "ch.qos.logback:logback-classic:1.2.3"
-}
-
-```
+To use the snapshot configure the following in your build (see the [examples/greeting](https://github.com/micronaut-projects/micronaut-kotlin/tree/master/examples/greeting) directory for an example).
 
 ### Example
+
+Once you have configured Ktor integration you typically define routes in one or means beans that are dependency injected with other components:
 
 ```kotlin
 import io.ktor.application.*
