@@ -7,15 +7,17 @@ import io.ktor.server.engine.connector
 import io.ktor.util.KtorExperimentalAPI
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory
+import io.micronaut.context.env.Environment
 import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.ktor.KotrApplication
-import io.micronaut.ktor.env.MicronautKotrEnviroment
 import io.micronaut.ktor.env.MicronautKotrEnvironmentConfig
 import javax.inject.Singleton
 
 @Factory
 class KotrMicronautApplicationFactory {
+
+
 
     @Singleton
     @Bean
@@ -28,7 +30,7 @@ class KotrMicronautApplicationFactory {
     @KtorExperimentalAPI
     fun applicationEngineEnvironment(
             builder : ApplicationEngineEnvironmentBuilder,
-            env : MicronautKotrEnviroment,
+            env : Environment,
             serverConfiguration: HttpServerConfiguration) : ApplicationEngineEnvironment {
         val connectors = builder.connectors
         if (connectors.isEmpty()) {
@@ -44,7 +46,7 @@ class KotrMicronautApplicationFactory {
         return ApplicationEngineEnvironmentReloading(
                 env.classLoader,
                 builder.log,
-                MicronautKotrEnvironmentConfig(env = env.micronautEnv),
+                MicronautKotrEnvironmentConfig(env = env),
                 connectors,
                 builder.modules,
                 builder.watchPaths

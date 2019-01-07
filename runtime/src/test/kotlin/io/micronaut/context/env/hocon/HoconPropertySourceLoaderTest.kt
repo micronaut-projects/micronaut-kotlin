@@ -1,7 +1,6 @@
-package io.micronaut.ktor.config
+package io.micronaut.context.env.hocon
 
 import io.micronaut.context.env.DefaultEnvironment
-import io.micronaut.context.env.Environment
 import org.junit.jupiter.api.Test
 
 class HoconPropertySourceLoaderTest {

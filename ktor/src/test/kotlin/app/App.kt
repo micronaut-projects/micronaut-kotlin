@@ -4,7 +4,6 @@ import io.ktor.application.*
 import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
-import io.ktor.server.engine.*
 import io.ktor.server.netty.NettyApplicationEngine
 import io.micronaut.ktor.KotrApplication
 import org.slf4j.LoggerFactory

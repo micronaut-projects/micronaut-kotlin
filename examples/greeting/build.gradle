@@ -1,42 +1,26 @@
-// build.gradle
-
-buildscript {
-    ext.kotlin_version = '1.3.0-rc-131'
-    ext.ktor_version = '1.0.0-beta-1'
-
-    repositories {
-        mavenCentral()
-        maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
-    }
-    dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.5.RELEASE"
-    }
+plugins {
+    id "io.spring.dependency-management"
+    id "com.github.johnrengelman.shadow" version "4.0.2"
+    id "org.jetbrains.kotlin.jvm" version "1.3.11"
+    id "org.jetbrains.kotlin.kapt" version "1.3.11"
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.3.11"
+    id "application"
 }
-
-apply plugin:"io.spring.dependency-management"
-apply plugin: 'kotlin'
-apply plugin:'application'
-apply plugin:"kotlin-kapt"
 
 mainClassName = 'app.MainKt'
 sourceCompatibility = 1.8
 compileKotlin { kotlinOptions.jvmTarget = "1.8" }
 compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
 
-kotlin { experimental { coroutines "enable" } }
-
 repositories {
     mavenCentral()
     jcenter()
     maven { url "https://oss.sonatype.org/content/repositories/snapshots/"}
-    maven { url "https://dl.bintray.com/kotlin/ktor" }
-    maven { url "https://dl.bintray.com/kotlin/kotlin-eap" }
 }
 
 dependencyManagement {
     imports {
-        mavenBom 'io.micronaut:micronaut-bom:1.0.0.RC3'
+        mavenBom 'io.micronaut:micronaut-bom:1.0.2'
     }
 }
 
@@ -50,10 +34,31 @@ dependencies {
     runtime "ch.qos.logback:logback-classic:1.2.3"
 
     testCompile "io.micronaut:micronaut-http-client"
-    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.0.RC1"
+    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.1"
     testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
     runtime "ch.qos.logback:logback-classic:1.2.3"
 }
+
+allOpen {
+    annotation("io.micronaut.aop.Around")
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+        //Will retain parameter names for Java reflection
+        javaParameters = true
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = '1.8'
+        javaParameters = true
+    }
+}
+
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
 
 test {
     useJUnitPlatform()

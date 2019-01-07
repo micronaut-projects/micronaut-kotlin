@@ -1,4 +1,4 @@
-package io.micronaut.ktor.config
+package io.micronaut.context.env.hocon
 
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
