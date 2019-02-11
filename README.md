@@ -14,7 +14,7 @@ This module can be used in Micronaut or Ktor applications (see below)
 ## Micronaut Ktor
 
 
-The [ktor](https://ktor.io) subproject adds support for the kotr webserver. 
+The [ktor](https://ktor.io) subproject adds support for the ktor webserver. 
 
 
 ### Using the Snapshot (`build.gradle`):
@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory
 import javax.inject.Singleton
 
 @Singleton
-class App(val greetingService: GreetingService) : KotrApplication<NettyApplicationEngine.Configuration>({
+class App(val greetingService: GreetingService) : KtorApplication<NettyApplicationEngine.Configuration>({
     routing {
         get("/") {
             call.respondText(greetingService.greet(), ContentType.Text.Plain)
