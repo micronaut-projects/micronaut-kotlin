@@ -1,21 +1,23 @@
 package app
 
+// tag::imports[]
 import io.ktor.application.call
-import io.ktor.http.ContentType
-import io.ktor.response.respondText
-import io.ktor.routing.get
-import io.ktor.routing.routing
+import io.ktor.response.respond
+import io.ktor.routing.*
 import io.micronaut.ktor.KtorApplicationBuilder
 import javax.inject.Singleton
+// end::imports[]
 
+// tag::class[]
 @Singleton
-class GreetingRoutes(val greetingService: GreetingService) : KtorApplicationBuilder({
-    routing {
+class GreetingRoutes(val greetingService: GreetingService) : KtorApplicationBuilder({ // <1>
+    routing { // <2>
         get("/") {
-            call.respondText(greetingService.greet(), ContentType.Text.Plain)
+            call.respond(greetingService.greet())
         }
         get("/demo") {
-            call.respondText(greetingService.greet())
+            call.respond(greetingService.greet())
         }
     }
 })
+// end::class[]

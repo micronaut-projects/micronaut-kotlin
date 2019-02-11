@@ -15,12 +15,18 @@
  */
 package app
 
+// tag::imports[]
 import javax.inject.Singleton
+// end::imports[]
 
+// tag::class[]
 @Singleton
 class GreetingService {
 
-    fun greet() : String {
-        return "Hello World"
+    fun greet() : Greeting {
+        return Greeting("Hello World")
     }
 }
+
+data class Greeting(val message: String)
+// end::class[]

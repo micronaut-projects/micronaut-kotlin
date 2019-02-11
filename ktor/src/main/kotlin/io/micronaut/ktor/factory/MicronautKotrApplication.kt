@@ -40,6 +40,7 @@ class KtorMicronautApplicationFactory {
     fun applicationEngineEnvironmentBuilder(
             ktorApplication: KtorApplication<*>,
             ktorApplicationBuilders: List<KtorApplicationBuilder>) : ApplicationEngineEnvironmentBuilder {
+        ktorApplication.init()
         ktorApplicationBuilders.forEach {
             ktorApplication.environment.modules.add(it.builder)
         }

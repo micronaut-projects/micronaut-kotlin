@@ -1,0 +1,5 @@
+https://ktor.io/[Ktor] is a Kotlin framework for building connected applications. The `micronaut-ktor` module includes support for using Ktor as the server instead of Micronaut's native HTTP server.
+
+This allows users familiar with Ktor to use Micronaut features such as Dependency Injection, AOP, configuration management and so on.
+
+TIP: See the https://github.com/micronaut-projects/micronaut-kotlin/tree/master/examples/greeting[Example application] which demonstrates how to setup a Micronaut Ktor application

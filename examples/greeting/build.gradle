@@ -6,7 +6,7 @@ plugins {
     id "application"
 }
 
-mainClassName = 'app.MainKt'
+mainClassName = 'app.ApplicationKt'
 sourceCompatibility = 1.8
 compileKotlin { kotlinOptions.jvmTarget = "1.8" }
 compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
@@ -29,13 +29,13 @@ dependencies {
     kaptTest "io.micronaut:micronaut-inject-java"
 
     compile project(":ktor")
+    compile "io.ktor:ktor-jackson:$ktor_version"
     compile "io.ktor:ktor-server-netty:$ktor_version"
     runtime "ch.qos.logback:logback-classic:1.2.3"
 
     testCompile "io.micronaut:micronaut-http-client"
-    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.1"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
-    runtime "ch.qos.logback:logback-classic:1.2.3"
+    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.2"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.3.0"
 }
 
 allOpen {

@@ -34,7 +34,7 @@ class GreetingTest {
     fun testApp() {
         assertEquals(
                 "Hello World",
-                client.hello().blockingGet()
+                client.hello().blockingGet().message
         )
     }
 }
@@ -42,5 +42,5 @@ class GreetingTest {
 @Client("/")
 interface GreetingClient {
     @Get("/demo")
-    fun hello() : Single<String>
+    fun hello() : Single<Greeting>
 }

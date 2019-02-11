@@ -15,26 +15,20 @@
  */
 package io.micronaut.ktor
 
-import io.ktor.application.Application
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.ApplicationEngineEnvironmentBuilder
 import io.micronaut.runtime.Micronaut
 
-abstract class KtorApplication<TConfiguration : ApplicationEngine.Configuration> {
+/**
+ * Allows configuring the Ktor application engine.
+ *
+ * @author
+ * @since 1.0
+ */
+abstract class KtorApplication<TConfiguration : ApplicationEngine.Configuration>(val builder: KtorApplication<TConfiguration>.() -> Unit) {
+
     var environment : ApplicationEngineEnvironmentBuilder = ApplicationEngineEnvironmentBuilder()
     var configuration : TConfiguration.() -> Unit = {}
-
-    /**
-     * Default constructor
-     */
-    constructor()
-
-    /**
-     * Constructor with a builder argument
-     */
-    constructor(builder: Application.() -> Unit) {
-        this.environment.modules.add(builder)
-    }
 
     fun applicationEngineEnvironment(builder: ApplicationEngineEnvironmentBuilder.() -> Unit): ApplicationEngineEnvironmentBuilder {
         return environment.apply(builder)
@@ -43,6 +37,10 @@ abstract class KtorApplication<TConfiguration : ApplicationEngine.Configuration>
     fun applicationEngine(builder: TConfiguration.() -> Unit): KtorApplication<TConfiguration> {
         configuration = builder
         return this
+    }
+
+    fun init() {
+        builder(this)
     }
 }
 

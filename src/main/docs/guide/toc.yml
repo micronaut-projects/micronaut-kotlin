@@ -2,3 +2,7 @@ introduction:
   title: Introduction
 runtime:
   title: Kotlin Runtime Support
+ktor:
+  title: Ktor Support
+  ktorApplication: The KtorApplication class
+  ktorModules: Defining Ktor Modules
