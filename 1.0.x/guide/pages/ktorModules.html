@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>3.2 Defining Ktor Modules 1.0.0.M1</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
+    <script type="text/javascript">
+function addJsClass() {
+    var classes = document.body.className.split(" ");
+    classes.push("js");
+    document.body.className = classes.join(" ");
+}
+    </script>
+</head>
+
+<body class="body" onload="addJsClass();">
+<div id="navigation">
+    <div class="navTitle">
+        
+        Micronaut Kotlin Integrations
+    </div>
+    <div class="navLinks">
+        <ul>
+            <li>
+                <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)">
+                    <a href="../../guide/index.html" class="button">Table of contents</a>
+
+                    <div id="nav-summary-childs" style="display:none;">
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../../guide/introduction.html"><strong>1</strong><span>Introduction</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../../guide/runtime.html"><strong>2</strong><span>Kotlin Runtime Support</span></a>
+                        </div>
+                        
+                        <div class="toc-item" style="margin-left:0"><a href="../../guide/ktor.html"><strong>3</strong><span>Ktor Support</span></a>
+                        </div>
+                        
+                    </div>
+                </div>
+            </li>
+            <li class="separator selected">
+                <a id="ref-button" onclick="localToggle(); return false;" href="#">Quick Reference</a>
+            </li>
+        </ul>
+    </div>
+
+
+</div>
+
+<table id="colset" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td id="col1">
+            <div id="main" class="corner-all">
+
+                
+                    <div class="toc-item prev-left"><a href="../../guide/runtime.html">&lt;&lt; <strong>2</strong><span>Kotlin Runtime Support</span></a></div>
+                
+
+                <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
+
+                
+
+
+                <div class="project">
+                    <h1>3.2 Defining Ktor Modules</h1>
+
+                    <p><strong>Version:</strong> 1.0.0.M1</p>
+                </div>
+
+                
+
+                
+
+<h2 id="ktorModules">3.2 Defining Ktor Modules</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktorModules.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code>. Modules can be used to define routes or install Ktor features.</p>
+</div>
+<div class="paragraph">
+<p>For example the following will install the Jackson feature (when <code>ktor-jackson</code> is on the classpath):</p>
+</div>
+<div class="listingblock">
+<div class="title">Installing Features</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import com.fasterxml.jackson.databind.SerializationFeature
+import io.ktor.application.install
+import io.ktor.features.ContentNegotiation
+import io.ktor.jackson.jackson
+import io.micronaut.ktor.KtorApplicationBuilder
+import javax.inject.Singleton
+
+@Singleton
+class GreetingConfiguration : KtorApplicationBuilder( { <i class="conum" data-value="1"></i><b>(1)</b>
+    install(ContentNegotiation) { <i class="conum" data-value="2"></i><b>(2)</b>
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT)
+        }
+    }
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The class subclasses <code>KtorApplicationBuilder</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>ContentNegotiation</code> feature is installed and Jackson configured</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To build application routes you can use the <code>routing</code> module provided by Ktor:</p>
+</div>
+<div class="listingblock">
+<div class="title">Defining Routes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.application.call
+import io.ktor.response.respond
+import io.ktor.routing.*
+import io.micronaut.ktor.KtorApplicationBuilder
+import javax.inject.Singleton
+
+@Singleton
+class GreetingRoutes(val greetingService: GreetingService) : KtorApplicationBuilder({ <i class="conum" data-value="1"></i><b>(1)</b>
+    routing { <i class="conum" data-value="2"></i><b>(2)</b>
+        get("/") {
+            call.respond(greetingService.greet())
+        }
+        get("/demo") {
+            call.respond(greetingService.greet())
+        }
+    }
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The class again subclasses <code>KtorApplicationBuilder</code> and uses dependency injection to reference <code>GreetingService</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The routing module is used to build the application routes</td>
+</tr>
+</table>
+</div>
+
+
+                <div style="clear:both;margin-top:15px;"></div>
+                
+                    <div class="toc-item prev-left"><a href="../../guide/runtime.html">&lt;&lt; <strong>2</strong><span>Kotlin Runtime Support</span></a></div>
+                
+                <div style="clear:both"></div>
+            </div>
+        </td>
+        <td id="col2">
+            <div class="local clearfix">
+                <div class="local-title">
+                    <a href="../../guide/index.html" target="mainFrame">Quick Reference</a>
+                    <span class="toggle">(<a href="#" onclick="localToggle(); return false;">hide</a>)</span>
+                </div>
+                <div class="menu">
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<div id="footer">
+    
+    
+</div>
+
+<script type="text/javascript" src="../js/docs.js"></script>
+
+</body>
+</html>
