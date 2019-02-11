@@ -1,8 +1,1 @@
-This project implements integration between the latest beta of Kotr and Micronaut.
-
-Example:
-
-[source,kotlin]
-----
-include::ktor/src/test/kotlin/app/App.kt[]
-----
+This project provides various extensions and improvements to the Micronaut and Kotlin experience.
