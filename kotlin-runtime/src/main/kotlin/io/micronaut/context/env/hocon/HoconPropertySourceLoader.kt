@@ -21,16 +21,27 @@ import com.typesafe.config.ConfigValue
 import io.micronaut.context.env.PropertySource
 import io.micronaut.context.env.PropertySourceLoader
 import io.micronaut.core.io.ResourceLoader
+import io.micronaut.core.reflect.ClassUtils
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.nio.charset.StandardCharsets
 import java.util.*
 import kotlin.collections.LinkedHashMap
 
+/**
+ * A PropertySourceLoader that supports config4k.
+ *
+ * @author graemerocher
+ * @since 1.1
+ */
 class HoconPropertySourceLoader : PropertySourceLoader {
 
     override fun getExtensions(): MutableSet<String> {
         return Collections.singleton("conf")
+    }
+
+    override fun isEnabled(): Boolean {
+        return ClassUtils.isPresent("com.typesafe.config.Config", HoconPropertySourceLoader::class.java.classLoader)
     }
 
     override fun read(name: String?, input: InputStream?): MutableMap<String, Any> {
@@ -41,7 +52,7 @@ class HoconPropertySourceLoader : PropertySourceLoader {
             for (entry in entrySet) {
                 val key = entry.key
                 val value = entry.value
-                map.put(key, value.unwrapped())
+                map[key] = value.unwrapped()
             }
         }
         return Collections.emptyMap()
@@ -52,14 +63,14 @@ class HoconPropertySourceLoader : PropertySourceLoader {
             if (environmentName != null) {
                 val qualifiedName = "$resourceName-$environmentName"
                 val resource = resourceLoader?.getResource("$qualifiedName.conf")
-                if (resource != null && resource.isPresent()) {
+                if (resource != null && resource.isPresent) {
                     val url = resource.get()
                     val config = ConfigFactory.parseURL(url)
                     return Optional.of(ConfigPropertySource(qualifiedName, config))
                 }
             } else {
                 val resource = resourceLoader?.getResource("$resourceName.conf")
-                if (resource != null && resource.isPresent()) {
+                if (resource != null && resource.isPresent) {
                     val url = resource.get()
                     val config = ConfigFactory.parseURL(url)
                     return Optional.of(ConfigPropertySource(resourceName, config))
@@ -70,7 +81,7 @@ class HoconPropertySourceLoader : PropertySourceLoader {
     }
 }
 
-class ConfigPropertySource(val sourceName: String, val config: Config) : PropertySource {
+class ConfigPropertySource(private val sourceName: String, private val config: Config) : PropertySource {
     override fun getName(): String {
         return sourceName
     }

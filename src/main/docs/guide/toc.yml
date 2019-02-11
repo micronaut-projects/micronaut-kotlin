@@ -1,2 +1,4 @@
 introduction:
   title: Introduction
+runtime:
+  title: Kotlin Runtime Support

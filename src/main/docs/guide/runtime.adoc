@@ -1,0 +1,17 @@
+The `micronaut-kotlin-runtime` dependency adds the following features:
+
+* Support for defining configuration with https://github.com/config4k/config4k[config4k].
+* A runtime dependency on `jackson-module-kotlin`
+
+To enable the above features add the dependency to your build:
+
+dependency:io.micronaut.kotlin:micronaut-kotlin-runtime:{version}[]
+
+=== Config4k Support
+
+https://github.com/config4k/config4k[Config4k] is a type safe configuration format for Kotlin based on https://github.com/lightbend/config/blob/master/HOCON.md[HOCON (Human-Optimized Config Object Notation)]. Configuration files are defined using the `conf` extension. The following an example configuration file:
+
+.An Example `src/main/resources/application.conf`
+----
+include::kotlin-runtime/src/test/resources/application.conf[]
+----
