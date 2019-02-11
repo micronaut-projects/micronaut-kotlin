@@ -15,25 +15,32 @@
  */
 package app
 
+import io.micronaut.http.annotation.Get
 import io.micronaut.http.client.RxHttpClient
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.annotation.MicronautTest
+import io.reactivex.Single
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
 import javax.inject.Inject
 
 @MicronautTest
-class AppTest {
+class GreetingTest {
 
     @Inject
-    @field:Client("/")
-    lateinit var client : RxHttpClient
+    lateinit var client : GreetingClient
 
     @Test
     fun testApp() {
         assertEquals(
                 "Hello World",
-                client.toBlocking().retrieve("/demo")
+                client.hello().blockingGet()
         )
     }
+}
+
+@Client("/")
+interface GreetingClient {
+    @Get("/demo")
+    fun hello() : Single<String>
 }

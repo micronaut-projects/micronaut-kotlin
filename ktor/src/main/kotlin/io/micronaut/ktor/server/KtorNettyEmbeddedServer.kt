@@ -16,23 +16,23 @@
 package io.micronaut.ktor.server
 
 import io.ktor.server.engine.ApplicationEngineEnvironment
-import io.ktor.server.tomcat.Tomcat
-import io.ktor.server.tomcat.TomcatApplicationEngine
+import io.ktor.server.netty.Netty
+import io.ktor.server.netty.NettyApplicationEngine
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.server.HttpServerConfiguration
-import io.micronaut.ktor.KotrApplication
+import io.micronaut.ktor.KtorApplication
 import javax.inject.Singleton
 
 @Singleton
-@Requires(classes = arrayOf(Tomcat::class))
-class KotrTomcatEmbeddedServer(
+@Requires(classes = [Netty::class])
+class KtorNettyEmbeddedServer(
         override val ctx: ApplicationContext,
         override val serverConfiguration: HttpServerConfiguration,
         override val engineEnvironment: ApplicationEngineEnvironment,
-        val kotrApplication: KotrApplication<TomcatApplicationEngine.Configuration>) : AbstractKotrEmbeddedServer(
+        val ktorApplication: KtorApplication<NettyApplicationEngine.Configuration>) : AbstractKtorEmbeddedServer(
         ctx,
         serverConfiguration,
         engineEnvironment,
-        Tomcat.create(engineEnvironment, kotrApplication.configuration)
+        Netty.create(engineEnvironment, ktorApplication.configuration)
 )

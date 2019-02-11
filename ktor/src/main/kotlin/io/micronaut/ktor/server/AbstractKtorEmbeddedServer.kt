@@ -21,13 +21,21 @@ import io.micronaut.context.ApplicationContext
 import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.runtime.ApplicationConfiguration
 import io.micronaut.runtime.server.EmbeddedServer
+import io.micronaut.runtime.server.event.ServerShutdownEvent
+import io.micronaut.runtime.server.event.ServerStartupEvent
 import java.net.URI
 import java.net.URL
 import java.util.*
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
-abstract class AbstractKotrEmbeddedServer(
+/**
+ * Implementation of the EmbeddedServer interface for Ktor.
+ *
+ * @author graemerocher
+ * @since 1.0
+ */
+abstract class AbstractKtorEmbeddedServer(
         open val ctx: ApplicationContext,
         open val serverConfiguration: HttpServerConfiguration,
         open val engineEnvironment: ApplicationEngineEnvironment,
@@ -77,6 +85,7 @@ abstract class AbstractKotrEmbeddedServer(
     override fun start(): EmbeddedServer {
         if (running.compareAndSet(false, true)) {
             applicationEngine.start()
+            ctx.publishEvent(ServerStartupEvent(this))
         }
         return this
     }
@@ -84,6 +93,7 @@ abstract class AbstractKotrEmbeddedServer(
     override fun stop(): EmbeddedServer {
         if (running.compareAndSet(true, false)) {
             applicationEngine.stop(1, 5, TimeUnit.SECONDS)
+            ctx.publishEvent(ServerShutdownEvent(this))
         }
         return this
     }

@@ -22,8 +22,14 @@ import io.micronaut.context.env.Environment
 import io.micronaut.core.type.Argument
 import java.util.*
 
+/**
+ * Implementation of the ApplicationConfig interface for Micronaut Ktor.
+ *
+ * @author graemerocher
+ * @since 1.0
+ */
 @io.ktor.util.KtorExperimentalAPI
-class MicronautKotrEnvironmentConfig(val env : Environment, val prefix : String? = "") : ApplicationConfig {
+class MicronautKotrEnvironmentConfig(val env : Environment, private val prefix : String? = "") : ApplicationConfig {
 
     @io.ktor.util.KtorExperimentalAPI
     override fun config(path: String): ApplicationConfig {
@@ -43,7 +49,7 @@ class MicronautKotrEnvironmentConfig(val env : Environment, val prefix : String?
     override fun property(path: String): ApplicationConfigValue {
         val fullPath = if(prefix == null) path else "$prefix.$path"
         if (env.containsProperty(fullPath)) {
-            return KotrApplicationConfigValue(fullPath, env)
+            return KtorApplicationConfigValue(fullPath, env)
         } else {
             throw ApplicationConfigurationException("No configuration found for path: $path")
         }
@@ -53,7 +59,7 @@ class MicronautKotrEnvironmentConfig(val env : Environment, val prefix : String?
     override fun propertyOrNull(path: String): ApplicationConfigValue? {
         val fullPath = "$prefix.$path"
         return if (env.containsProperty(fullPath)) {
-            KotrApplicationConfigValue(fullPath, env)
+            KtorApplicationConfigValue(fullPath, env)
         } else {
             null
         }
@@ -61,7 +67,7 @@ class MicronautKotrEnvironmentConfig(val env : Environment, val prefix : String?
 
     @Suppress("UNCHECKED_CAST")
     @io.ktor.util.KtorExperimentalAPI
-    class KotrApplicationConfigValue(val prop : String, val env: Environment) : ApplicationConfigValue {
+    class KtorApplicationConfigValue(private val prop : String, private val env: Environment) : ApplicationConfigValue {
         override fun getList(): List<String> {
             val requiredProperty = env.getProperty(prop, Argument.of(List::class.java, String::class.java))
             return requiredProperty as List<String>

@@ -15,31 +15,38 @@
  */
 package io.micronaut.ktor.factory
 
-import io.ktor.server.engine.ApplicationEngineEnvironment
-import io.ktor.server.engine.ApplicationEngineEnvironmentBuilder
-import io.ktor.server.engine.ApplicationEngineEnvironmentReloading
-import io.ktor.server.engine.connector
+import io.ktor.server.engine.*
 import io.ktor.util.KtorExperimentalAPI
 import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.env.Environment
+import io.micronaut.core.annotation.Internal
 import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.http.server.HttpServerConfiguration
-import io.micronaut.ktor.KotrApplication
+import io.micronaut.ktor.KtorApplication
+import io.micronaut.ktor.KtorApplicationBuilder
 import io.micronaut.ktor.env.MicronautKotrEnvironmentConfig
 import javax.inject.Singleton
 
+/**
+ * The Ktor factory
+ */
 @Factory
-class KotrMicronautApplicationFactory {
-
-
+@Internal
+class KtorMicronautApplicationFactory {
 
     @Singleton
     @Bean
-    fun applicationEngineEnvironmentBuilder(kotrApplication: KotrApplication<*>) : ApplicationEngineEnvironmentBuilder {
-        return kotrApplication.environment
+    fun applicationEngineEnvironmentBuilder(
+            ktorApplication: KtorApplication<*>,
+            ktorApplicationBuilders: List<KtorApplicationBuilder>) : ApplicationEngineEnvironmentBuilder {
+        ktorApplicationBuilders.forEach {
+            ktorApplication.environment.modules.add(it.builder)
+        }
+        return ktorApplication.environment
     }
 
+    @EngineAPI
     @Singleton
     @Bean
     @KtorExperimentalAPI

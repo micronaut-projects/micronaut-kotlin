@@ -20,12 +20,12 @@ import io.ktor.http.*
 import io.ktor.response.*
 import io.ktor.routing.*
 import io.ktor.server.netty.NettyApplicationEngine
-import io.micronaut.ktor.KotrApplication
+import io.micronaut.ktor.KtorApplication
 import org.slf4j.LoggerFactory
 import javax.inject.Singleton
 
 @Singleton
-class App(val greetingService: GreetingService) : KotrApplication<NettyApplicationEngine.Configuration>({
+class App(val greetingService: GreetingService) : KtorApplication<NettyApplicationEngine.Configuration>({
     routing {
         get("/") {
             call.respondText(greetingService.greet(), ContentType.Text.Plain)
