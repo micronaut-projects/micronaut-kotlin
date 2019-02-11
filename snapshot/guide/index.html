@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Micronaut Kotlin Integrations</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
+    <link rel="stylesheet" href="../css/highlight/agate.css">
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/guide.js"></script>
+    <script src="../js/multi-language-sample.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="../css/multi-language-sample.css"/>
+    <script src="../js/docs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
+    <script type="text/javascript">
+        function addJsClass(el) {
+            var classes = document.body.className.split(" ");
+            classes.push("js");
+            document.body.className = classes.join(" ");
+        }
+    </script>
+
+</head>
+
+<body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
+
+<div id="table-of-content-nav-link" class="desktop">
+    <a title="Collapse/Open Table of contents" title="Hide Table of Contents" href="javascript:hideTableOfContents();" class="button">[ + ]</a>
+</div>
+
+<div id="main">
+    <div id="navigation" class="no-print">
+        <div class="navTitle">
+            <span id="logo"><a href="http://micronaut.io" title="Go to Micronaut Website"><img src="../img/micronaut-logo-white.svg" alt="Micronaut"/></a></span>
+        </div>
+        <div class="navLinks">
+            <ul>
+                    <li>
+                        <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)" class="desktop">
+                            <a href="../guide/index.html" class="button">Table of contents</a>
+                            <div id="nav-summary-childs" style="display:none;">
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#runtime"><strong>2</strong><span>Kotlin Runtime Support</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#ktor"><strong>3</strong><span>Ktor Support</span></a></div>
+                                
+                            </div>
+                        </div>
+                    </li>
+
+                <li id="table-of-content-nav-link-mobile" class="mobile">
+                    <a title="Scroll to Table of contents" href="javascript:scrollToTop();" class="button">Toc</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Configuration Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Conf</a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+    
+    <div id="table-of-content">
+        <div class="toc-content">
+
+        <h2>Table of Contents</h2>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-introduction"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-runtime"><a href="#runtime"><strong>2</strong><span>Kotlin Runtime Support</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-ktor"><a href="#ktor"><strong>3</strong><span>Ktor Support</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorApplication"><a href="#ktorApplication"><strong>3.1</strong><span>The KtorApplication class</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorModules"><a href="#ktorModules"><strong>3.2</strong><span>Defining Ktor Modules</span></a></div>
+        
+        </div>
+    </div>
+    
+    <div class="docs-content">
+    <div class="project">
+        <h1>Micronaut Kotlin Integrations</h1>
+        <p></p>
+        <p>Includes extensions to Micronaut for Kotlin</p>
+        <p><strong>Version:</strong> 1.0.0.BUILD-SNAPSHOT</p>
+    </div>
+    
+
+<h1 id="introduction">1 Introduction</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/introduction.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>This project provides various extensions and improvements to the Micronaut and Kotlin experience.</p>
+</div>
+
+
+<h1 id="runtime">2 Kotlin Runtime Support</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/runtime.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>The <code>micronaut-kotlin-runtime</code> dependency adds the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for defining configuration with <a href="https://github.com/config4k/config4k">config4k</a>.</p>
+</li>
+<li>
+<p>A runtime dependency on <code>jackson-module-kotlin</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To enable the above features add the dependency to your build:</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.kotlin:micronaut-kotlin-runtime:1.0.0.BUILD-SNAPSHOT'</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-kotlin-runtime&lt;/artifactId&gt;
+    &lt;version&gt;1.0.0.BUILD-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
+</div>
+<div class="sect2">
+<h3 id="_config4k_support">Config4k Support</h3>
+<div class="paragraph">
+<p><a href="https://github.com/config4k/config4k">Config4k</a> is a type safe configuration format for Kotlin based on <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON (Human-Optimized Config Object Notation)</a>. Configuration files are defined using the <code>conf</code> extension. The following an example configuration file:</p>
+</div>
+<div class="listingblock">
+<div class="title">An Example <code>src/main/resources/application.conf</code></div>
+<div class="content">
+<pre>micronaut {
+  server {
+    port = 8081
+  }
+}</pre>
+</div>
+</div>
+</div>
+
+
+<h1 id="ktor">3 Ktor Support</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktor.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p><a href="https://ktor.io/">Ktor</a> is a Kotlin framework for building connected applications. The <code>micronaut-ktor</code> module includes support for using Ktor as the server instead of Micronaut&#8217;s native HTTP server.</p>
+</div>
+<div class="paragraph">
+<p>This allows users familiar with Ktor to use Micronaut features such as Dependency Injection, AOP, configuration management and so on.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See the <a href="https://github.com/micronaut-projects/micronaut-kotlin/tree/master/examples/greeting">Example application</a> which demonstrates how to setup a Micronaut Ktor application
+</td>
+</tr>
+</table>
+</div>
+
+
+<h2 id="ktorApplication">3.1 The KtorApplication class</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktor/ktorApplication.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>The entry point for a Micronaut Ktor application is an <code>Application</code> class. An example class can be seen below:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>Application</code> class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.server.netty.NettyApplicationEngine
+import io.micronaut.ktor.*
+import org.slf4j.LoggerFactory
+import javax.inject.Singleton
+
+@Singleton
+class Application : KtorApplication&lt;NettyApplicationEngine.Configuration&gt;({ <i class="conum" data-value="1"></i><b>(1)</b>
+    applicationEngineEnvironment { <i class="conum" data-value="2"></i><b>(2)</b>
+        log = LoggerFactory.getLogger(Application::class.java)
+    }
+
+    applicationEngine { <i class="conum" data-value="3"></i><b>(3)</b>
+        workerGroupSize = 10
+    }
+})
+
+fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)</b>
+    runApplication(args)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>Application</code> class extends <code>io.micronaut.ktor.KtorApplication</code> and provides the server type (in this case Netty).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>You can optionally configure the <a href="https://ktor.io/advanced/engines.html">ApplicationEngineEnvironment</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>You can optionally configure the <code>ApplicationEngine</code>. In this case <code>NettyApplicationEngine</code> instance&#8217;s <code>workerGroupSize</code> is set to <code>10</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>A <code>main</code> method is defined for running the application within a runnable JAR</td>
+</tr>
+</table>
+</div>
+
+
+<h2 id="ktorModules">3.2 Defining Ktor Modules</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktorModules.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code>. Modules can be used to define routes or install Ktor features.</p>
+</div>
+<div class="paragraph">
+<p>For example the following will install the Jackson feature (when <code>ktor-jackson</code> is on the classpath):</p>
+</div>
+<div class="listingblock">
+<div class="title">Installing Features</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import com.fasterxml.jackson.databind.SerializationFeature
+import io.ktor.application.install
+import io.ktor.features.ContentNegotiation
+import io.ktor.jackson.jackson
+import io.micronaut.ktor.KtorApplicationBuilder
+import javax.inject.Singleton
+
+@Singleton
+class GreetingConfiguration : KtorApplicationBuilder( { <i class="conum" data-value="1"></i><b>(1)</b>
+    install(ContentNegotiation) { <i class="conum" data-value="2"></i><b>(2)</b>
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT)
+        }
+    }
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The class subclasses <code>KtorApplicationBuilder</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>ContentNegotiation</code> feature is installed and Jackson configured</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To build application routes you can use the <code>routing</code> module provided by Ktor:</p>
+</div>
+<div class="listingblock">
+<div class="title">Defining Routes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.application.call
+import io.ktor.response.respond
+import io.ktor.routing.*
+import io.micronaut.ktor.KtorApplicationBuilder
+import javax.inject.Singleton
+
+@Singleton
+class GreetingRoutes(val greetingService: GreetingService) : KtorApplicationBuilder({ <i class="conum" data-value="1"></i><b>(1)</b>
+    routing { <i class="conum" data-value="2"></i><b>(2)</b>
+        get("/") {
+            call.respond(greetingService.greet())
+        }
+        get("/demo") {
+            call.respond(greetingService.greet())
+        }
+    }
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The class again subclasses <code>KtorApplicationBuilder</code> and uses dependency injection to reference <code>GreetingService</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The routing module is used to build the application routes</td>
+</tr>
+</table>
+</div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
