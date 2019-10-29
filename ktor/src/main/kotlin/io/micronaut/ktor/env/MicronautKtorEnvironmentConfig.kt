@@ -29,12 +29,12 @@ import java.util.*
  * @since 1.0
  */
 @io.ktor.util.KtorExperimentalAPI
-class MicronautKotrEnvironmentConfig(val env : Environment, private val prefix : String? = "") : ApplicationConfig {
+class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix : String? = "") : ApplicationConfig {
 
     @io.ktor.util.KtorExperimentalAPI
     override fun config(path: String): ApplicationConfig {
         if (env.containsProperties(path)) {
-            return MicronautKotrEnvironmentConfig(env, path)
+            return MicronautKtorEnvironmentConfig(env, path)
         } else {
             throw ApplicationConfigurationException("No configuration found for path: $path")
         }

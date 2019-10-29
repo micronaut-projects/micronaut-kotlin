@@ -27,7 +27,7 @@ import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.ktor.KtorApplication
 import io.micronaut.ktor.KtorApplicationBuilder
 import io.micronaut.ktor.KtorRoutingBuilder
-import io.micronaut.ktor.env.MicronautKotrEnvironmentConfig
+import io.micronaut.ktor.env.MicronautKtorEnvironmentConfig
 import javax.inject.Singleton
 
 /**
@@ -80,7 +80,7 @@ class KtorMicronautApplicationFactory {
         return ApplicationEngineEnvironmentReloading(
                 env.classLoader,
                 builder.log,
-                MicronautKotrEnvironmentConfig(env = env),
+                MicronautKtorEnvironmentConfig(env = env),
                 connectors,
                 builder.modules,
                 builder.watchPaths
