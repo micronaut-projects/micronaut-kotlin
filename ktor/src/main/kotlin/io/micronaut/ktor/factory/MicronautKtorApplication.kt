@@ -15,6 +15,7 @@
  */
 package io.micronaut.ktor.factory
 
+import io.ktor.routing.routing
 import io.ktor.server.engine.*
 import io.ktor.util.KtorExperimentalAPI
 import io.micronaut.context.annotation.Bean
@@ -25,6 +26,7 @@ import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.ktor.KtorApplication
 import io.micronaut.ktor.KtorApplicationBuilder
+import io.micronaut.ktor.KtorRoutingBuilder
 import io.micronaut.ktor.env.MicronautKotrEnvironmentConfig
 import javax.inject.Singleton
 
@@ -39,11 +41,20 @@ class KtorMicronautApplicationFactory {
     @Bean
     fun applicationEngineEnvironmentBuilder(
             ktorApplication: KtorApplication<*>,
-            ktorApplicationBuilders: List<KtorApplicationBuilder>) : ApplicationEngineEnvironmentBuilder {
+            ktorApplicationBuilders: List<KtorApplicationBuilder>,
+            ktorRoutingBuilders: List<KtorRoutingBuilder>) : ApplicationEngineEnvironmentBuilder {
         ktorApplication.init()
+
         ktorApplicationBuilders.forEach {
             ktorApplication.environment.modules.add(it.builder)
         }
+
+        ktorRoutingBuilders.forEach {
+            ktorApplication.environment.modules.add {
+                routing { it.builder(this) }
+            }
+        }
+
         return ktorApplication.environment
     }
 
