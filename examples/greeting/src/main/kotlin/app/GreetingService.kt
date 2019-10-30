@@ -22,9 +22,8 @@ import javax.inject.Singleton
 // tag::class[]
 @Singleton
 class GreetingService {
-
-    fun greet() : Greeting {
-        return Greeting("Hello World")
+    fun greet(name: String = "World"): Greeting {
+        return Greeting("Hello $name")
     }
 }
 

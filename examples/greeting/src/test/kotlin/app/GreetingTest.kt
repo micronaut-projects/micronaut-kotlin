@@ -16,7 +16,7 @@
 package app
 
 import io.micronaut.http.annotation.Get
-import io.micronaut.http.client.RxHttpClient
+import io.micronaut.http.annotation.Post
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.annotation.MicronautTest
 import io.reactivex.Single
@@ -26,21 +26,31 @@ import javax.inject.Inject
 
 @MicronautTest
 class GreetingTest {
-
     @Inject
-    lateinit var client : GreetingClient
+    lateinit var client: GreetingClient
 
     @Test
-    fun testApp() {
+    fun testHelloGet() {
         assertEquals(
-                "Hello World",
-                client.hello().blockingGet().message
+            "Hello World",
+            client.hello().blockingGet().message
+        )
+    }
+
+    @Test
+    fun testHelloPost() {
+        assertEquals(
+            "Hello Micronaut",
+            client.hello(name = "Micronaut").blockingGet().message
         )
     }
 }
 
 @Client("/")
 interface GreetingClient {
-    @Get("/demo")
-    fun hello() : Single<Greeting>
+    @Get("/")
+    fun hello(): Single<Greeting>
+
+    @Post("/")
+    fun hello(name: String): Single<Greeting>
 }
