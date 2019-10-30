@@ -1,21 +1,26 @@
 package app
 
 import io.ktor.application.call
+import io.ktor.auth.authenticate
+import io.ktor.http.ContentType
 import io.ktor.response.respondText
 import io.ktor.routing.get
-import io.ktor.routing.routing
-import io.ktor.http.ContentType
-import io.micronaut.ktor.KtorApplicationBuilder
+import io.micronaut.ktor.KtorRoutingBuilder
 import javax.inject.Singleton
 
 @Singleton
-class GreetingRoutes(private val greetingService: GreetingService) : KtorApplicationBuilder({
-    routing {
-        get("/") {
-            call.respondText(greetingService.greet(), ContentType.Text.Plain)
+class GreetingRoutes(private val greetingService: GreetingService) : KtorRoutingBuilder({
+    authenticate {
+        get("/authenticated") {
+            call.respondText("Hello from authenticated route")
         }
-        get("/demo") {
-            call.respondText(greetingService.greet())
-        }
+    }
+
+    get("/") {
+        call.respondText(greetingService.greet(), ContentType.Text.Plain)
+    }
+
+    get("/demo") {
+        call.respondText(greetingService.greet())
     }
 })

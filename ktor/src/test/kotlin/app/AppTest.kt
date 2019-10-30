@@ -17,9 +17,11 @@ package app
 
 import io.micronaut.http.client.RxHttpClient
 import io.micronaut.http.client.annotation.Client
+import io.micronaut.http.client.exceptions.HttpClientResponseException
 import io.micronaut.test.annotation.MicronautTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.assertThrows
 import javax.inject.Inject
 
 @MicronautTest
@@ -27,13 +29,22 @@ class AppTest {
 
     @Inject
     @field:Client("/")
-    lateinit var client : RxHttpClient
+    lateinit var client: RxHttpClient
 
     @Test
     fun testApp() {
         assertEquals(
-                "Hello World",
-                client.toBlocking().retrieve("/demo")
+            "Hello World",
+            client.toBlocking().retrieve("/demo")
         )
+    }
+
+    @Test
+    fun testFeatureDependentRoute() {
+        val exception = assertThrows<HttpClientResponseException>() {
+            client.toBlocking().retrieve("/authenticated")
+        }
+
+        assertEquals("Unauthorized", exception.message)
     }
 }
