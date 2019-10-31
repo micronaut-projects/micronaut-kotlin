@@ -25,7 +25,7 @@ dependencies {
     compile "io.micronaut:micronaut-inject:$micronautVersion"
     compile 'com.typesafe:config:1.4.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    testCompile "io.micronaut.test:micronaut-test-junit5:1.0.1"
+    testCompile "io.micronaut.test:micronaut-test-junit5:1.1.1"
     testRuntime "org.junit.jupiter:junit-jupiter-engine:5.5.2"
     testRuntime "ch.qos.logback:logback-classic:1.2.3"
 }
