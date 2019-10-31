@@ -19,7 +19,7 @@ dependencies {
     kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
     kaptTest "io.micronaut:micronaut-inject-java:$micronautVersion"
 
-    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.8", {
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.10.0", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
     compile "io.micronaut:micronaut-inject:$micronautVersion"
