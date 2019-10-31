@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 // tag::class[]
 @Singleton
-class GreetingConfiguration : KtorApplicationBuilder( { // <1>
+class GreetingConfiguration : KtorApplicationBuilder({ // <1>
     install(ContentNegotiation) { // <2>
         jackson {
             enable(SerializationFeature.INDENT_OUTPUT)

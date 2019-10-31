@@ -1,6 +1,6 @@
-To define Ktor modules you can create classes that subclass `io.micronaut.ktor.KtorApplicationBuilder`. Modules can be used to define routes or install Ktor features.
+To define Ktor modules you can create classes that subclass `io.micronaut.ktor.KtorApplicationBuilder` to install features or `io.micronaut.ktor.KtorRoutingBuilder` to configure routes.
 
-For example the following will install the Jackson feature (when `ktor-jackson` is on the classpath):
+For example, the following will install the Jackson feature (when `ktor-jackson` is on the classpath):
 
 .Installing Features
 [source,kotlin]
@@ -10,10 +10,10 @@ include::examples/greeting/src/main/kotlin/app/GreetingConfiguration.kt[tags=imp
 include::examples/greeting/src/main/kotlin/app/GreetingConfiguration.kt[tags=class]
 ----
 
-<1> The class subclasses `KtorApplicationBuilder`
-<2> The `ContentNegotiation` feature is installed and Jackson configured
+<1> The class subclasses `KtorApplicationBuilder`.
+<2> The `ContentNegotiation` feature is installed and Jackson configured.
 
-To build application routes you can use the `routing` module provided by Ktor:
+To build application routes you can use the `KtorRoutingBuilder`:
 
 .Defining Routes
 [source,kotlin]
@@ -23,5 +23,5 @@ include::examples/greeting/src/main/kotlin/app/GreetingRoutes.kt[tags=imports]
 include::examples/greeting/src/main/kotlin/app/GreetingRoutes.kt[tags=class]
 ----
 
-<1> The class again subclasses `KtorApplicationBuilder` and uses dependency injection to reference `GreetingService`.
-<2> The routing module is used to build the application routes
+<1> The class subclasses `KtorRoutingBuilder` and uses dependency injection to reference `GreetingService`.
+<2> The routing DSL is used to build the application routes.
