@@ -97,7 +97,7 @@
         <h1>Micronaut Kotlin Integrations</h1>
         <p></p>
         <p>Includes extensions to Micronaut for Kotlin</p>
-        <p><strong>Version:</strong> 1.0.0.M1</p>
+        <p><strong>Version:</strong> 1.0.0.M2</p>
     </div>
     
 
@@ -112,6 +112,35 @@
 
 <div class="paragraph">
 <p>This project provides various extensions and improvements to the Micronaut and Kotlin experience.</p>
+</div>
+<div class="sect2">
+<h3 id="_release_history">Release History</h3>
+<div class="sect3">
+<h4 id="_1_0_0_m2">1.0.0.M2</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for auto config of Jackson Kotlin Module even if module scan is disabled</p>
+</li>
+<li>
+<p>Improved separation of route and application building in Kotr support</p>
+</li>
+<li>
+<p>Dependency Upgrades</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_1_0_0_m1">1.0.0.M1</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Initial Milestone</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -143,7 +172,7 @@
 <div class="paragraph">
 <p>        <div class="listingblock multi-language-sample">
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.kotlin:micronaut-kotlin-runtime:1.0.0.M1'</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle">compile <span class="hljs-string">'io.micronaut.kotlin:micronaut-kotlin-runtime:1.0.0.M2'</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -151,7 +180,7 @@
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
     &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-kotlin-runtime&lt;/artifactId&gt;
-    &lt;version&gt;1.0.0.M1&lt;/version&gt;
+    &lt;version&gt;1.0.0.M2&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -272,10 +301,10 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 
 
 <div class="paragraph">
-<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code>. Modules can be used to define routes or install Ktor features.</p>
+<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code> to install features or <code>io.micronaut.ktor.KtorRoutingBuilder</code> to configure routes.</p>
 </div>
 <div class="paragraph">
-<p>For example the following will install the Jackson feature (when <code>ktor-jackson</code> is on the classpath):</p>
+<p>For example, the following will install the Jackson feature (when <code>ktor-jackson</code> is on the classpath):</p>
 </div>
 <div class="listingblock">
 <div class="title">Installing Features</div>
@@ -288,7 +317,7 @@ import io.micronaut.ktor.KtorApplicationBuilder
 import javax.inject.Singleton
 
 @Singleton
-class GreetingConfiguration : KtorApplicationBuilder( { <i class="conum" data-value="1"></i><b>(1)</b>
+class GreetingConfiguration : KtorApplicationBuilder({ <i class="conum" data-value="1"></i><b>(1)</b>
     install(ContentNegotiation) { <i class="conum" data-value="2"></i><b>(2)</b>
         jackson {
             enable(SerializationFeature.INDENT_OUTPUT)
@@ -301,48 +330,52 @@ class GreetingConfiguration : KtorApplicationBuilder( { <i class="conum" data-va
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The class subclasses <code>KtorApplicationBuilder</code></td>
+<td>The class subclasses <code>KtorApplicationBuilder</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <code>ContentNegotiation</code> feature is installed and Jackson configured</td>
+<td>The <code>ContentNegotiation</code> feature is installed and Jackson configured.</td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>To build application routes you can use the <code>routing</code> module provided by Ktor:</p>
+<p>To build application routes you can use the <code>KtorRoutingBuilder</code>:</p>
 </div>
 <div class="listingblock">
 <div class="title">Defining Routes</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.application.call
+import io.ktor.request.receive
 import io.ktor.response.respond
 import io.ktor.routing.*
-import io.micronaut.ktor.KtorApplicationBuilder
+import io.micronaut.ktor.KtorRoutingBuilder
 import javax.inject.Singleton
 
 @Singleton
-class GreetingRoutes(val greetingService: GreetingService) : KtorApplicationBuilder({ <i class="conum" data-value="1"></i><b>(1)</b>
-    routing { <i class="conum" data-value="2"></i><b>(2)</b>
-        get("/") {
-            call.respond(greetingService.greet())
-        }
-        get("/demo") {
-            call.respond(greetingService.greet())
-        }
+class GreetingRoutes(private val greetingService: GreetingService) : KtorRoutingBuilder({ <i class="conum" data-value="1"></i><b>(1)</b>
+    get("/") {
+        call.respond(greetingService.greet())
     }
-})</code></pre>
+
+    post("/") {
+        val name = call.receive&lt;CustomGreetingRequest&gt;().name
+
+        call.respond(greetingService.greet(name))
+    }
+})
+
+data class CustomGreetingRequest(val name: String)</code></pre>
 </div>
 </div>
 <div class="colist arabic">
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The class again subclasses <code>KtorApplicationBuilder</code> and uses dependency injection to reference <code>GreetingService</code>.</td>
+<td>The class subclasses <code>KtorRoutingBuilder</code> and uses dependency injection to reference <code>GreetingService</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The routing module is used to build the application routes</td>
+<td>The routing DSL is used to build the application routes.</td>
 </tr>
 </table>
 </div>
