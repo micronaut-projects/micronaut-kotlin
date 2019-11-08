@@ -34,14 +34,15 @@ dependencies {
     kapt "io.micronaut:micronaut-inject-java"
     kaptTest "io.micronaut:micronaut-inject-java"
 
-    compile project(":ktor")
-    compile "io.ktor:ktor-jackson:$ktor_version"
-    compile "io.ktor:ktor-server-netty:$ktor_version"
-    runtime "ch.qos.logback:logback-classic:1.2.3"
+    implementation "io.micronaut:micronaut-inject"
+    implementation project(":ktor")
+    implementation "io.ktor:ktor-jackson:$ktor_version"
+    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
 
-    testCompile "io.micronaut:micronaut-http-client"
-    testCompile "io.micronaut.test:micronaut-test-junit5:1.1.2"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+    testImplementation "io.micronaut:micronaut-http-client"
+    testImplementation "io.micronaut.test:micronaut-test-junit5:1.1.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.5.2"
 }
 
 allOpen {

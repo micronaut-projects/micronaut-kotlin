@@ -21,13 +21,13 @@ dependencies {
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.10.0", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
-    compile "io.micronaut:micronaut-inject:$micronautVersion"
-    compile 'com.typesafe:config:1.4.0'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
-    testRuntime "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    testCompile "io.micronaut.test:micronaut-test-junit5:1.1.2"
-    testCompile "org.junit.jupiter:junit-jupiter-engine:5.5.2"
-    testRuntime "ch.qos.logback:logback-classic:1.2.3"
+    implementation "io.micronaut:micronaut-inject:$micronautVersion"
+    implementation 'com.typesafe:config:1.4.0'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testImplementation "io.micronaut.test:micronaut-test-junit5:1.1.2"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
 }
 
 test {
