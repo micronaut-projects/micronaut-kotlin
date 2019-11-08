@@ -17,7 +17,6 @@ compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
 dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
     kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
-    kaptTest "io.micronaut:micronaut-inject-java:$micronautVersion"
 
     compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.10.0", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
@@ -25,8 +24,9 @@ dependencies {
     compile "io.micronaut:micronaut-inject:$micronautVersion"
     compile 'com.typesafe:config:1.4.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    testRuntime "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompile "io.micronaut.test:micronaut-test-junit5:1.1.2"
-    testRuntime "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+    testCompile "org.junit.jupiter:junit-jupiter-engine:5.5.2"
     testRuntime "ch.qos.logback:logback-classic:1.2.3"
 }
 
