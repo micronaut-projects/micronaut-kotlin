@@ -18,7 +18,7 @@ dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java:$micronautVersion"
     kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
 
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.10.0", {
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.10.1", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
     implementation "io.micronaut:micronaut-inject:$micronautVersion"
