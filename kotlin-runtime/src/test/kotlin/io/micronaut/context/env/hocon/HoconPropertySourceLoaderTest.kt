@@ -45,5 +45,15 @@ class HoconPropertySourceLoaderTest {
 
         System.clearProperty("test-property")
     }
+  
+    fun testPropertySourceLoaderEnvironmentVariable() {
+        val env = DefaultEnvironment()
+        env.start()
+
+        val value = env.getProperty("custom.user", String::class.java)
+        assert(
+                value.get() == System.getProperty("user.name")
+        )
+    }
 
 }

@@ -25,6 +25,7 @@ import io.micronaut.core.io.ResourceLoader
 import io.micronaut.core.reflect.ClassUtils
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.net.URL
 import java.nio.charset.StandardCharsets
 import java.util.*
 import kotlin.collections.LinkedHashMap
@@ -49,7 +50,7 @@ class HoconPropertySourceLoader : PropertySourceLoader {
         val config = ConfigFactory.parseReader(InputStreamReader(input, StandardCharsets.UTF_8))
         if (name != null) {
             val entrySet = config.entrySet()
-            val map : MutableMap<String, Any> = LinkedHashMap()
+            val map: MutableMap<String, Any> = LinkedHashMap()
             for (entry in entrySet) {
                 val key = entry.key
                 val value = entry.value
@@ -65,21 +66,24 @@ class HoconPropertySourceLoader : PropertySourceLoader {
                 val qualifiedName = "$resourceName-$environmentName"
                 val resource = resourceLoader?.getResource("$qualifiedName.conf")
                 if (resource != null && resource.isPresent) {
-                    val url = resource.get()
-                    val config = ConfigFactory.parseURL(url)
+                    val config = resource.get().parseConfig()
                     return Optional.of(ConfigPropertySource(qualifiedName, config))
                 }
             } else {
                 val resource = resourceLoader?.getResource("$resourceName.conf")
                 if (resource != null && resource.isPresent) {
-                    val url = resource.get()
-                    val config = ConfigFactory.parseURL(url)
+                    val config = resource.get().parseConfig()
                     return Optional.of(ConfigPropertySource(resourceName, config))
                 }
             }
         }
         return Optional.empty()
     }
+
+    private fun URL.parseConfig(): Config =
+            ConfigFactory
+                    .parseURL(this)
+                    .resolve()
 }
 
 class ConfigPropertySource(private val sourceName: String, private val config: Config) : PropertySource {
