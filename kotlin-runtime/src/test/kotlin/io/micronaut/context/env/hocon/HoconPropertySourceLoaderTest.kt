@@ -20,7 +20,6 @@ import org.junit.jupiter.api.Test
 
 class HoconPropertySourceLoaderTest {
 
-
     @Test
     fun testPropertySourceLoader() {
         val env = DefaultEnvironment()
@@ -31,4 +30,20 @@ class HoconPropertySourceLoaderTest {
                 value.get().toInt() == 8081
         )
     }
+
+    @Test
+    fun testPropertySourceLoaderOrder() {
+        System.setProperty("test-property", "good value")
+
+        val env = DefaultEnvironment()
+        env.start()
+
+        val value = env.getProperty("test-property", String::class.java)
+        assert(
+                value.get() == "good value"
+        )
+
+        System.clearProperty("test-property")
+    }
+
 }

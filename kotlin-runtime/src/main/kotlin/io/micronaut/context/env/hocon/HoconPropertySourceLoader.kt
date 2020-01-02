@@ -18,6 +18,7 @@ package io.micronaut.context.env.hocon
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import com.typesafe.config.ConfigValue
+import io.micronaut.context.env.EnvironmentPropertySource
 import io.micronaut.context.env.PropertySource
 import io.micronaut.context.env.PropertySourceLoader
 import io.micronaut.core.io.ResourceLoader
@@ -82,6 +83,11 @@ class HoconPropertySourceLoader : PropertySourceLoader {
 }
 
 class ConfigPropertySource(private val sourceName: String, private val config: Config) : PropertySource {
+
+    override fun getOrder(): Int {
+        return EnvironmentPropertySource.POSITION - 100
+    }
+
     override fun getName(): String {
         return sourceName
     }
