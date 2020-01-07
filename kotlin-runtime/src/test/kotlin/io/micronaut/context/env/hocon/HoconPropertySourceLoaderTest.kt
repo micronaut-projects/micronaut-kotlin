@@ -32,6 +32,20 @@ class HoconPropertySourceLoaderTest {
     }
 
     @Test
+    fun testPropertySourceLoaderOrder() {
+        System.setProperty("test-property", "good value")
+
+        val env = DefaultEnvironment()
+        env.start()
+
+        val value = env.getProperty("test-property", String::class.java)
+        assert(
+                value.get() == "good value"
+        )
+
+        System.clearProperty("test-property")
+    }
+  
     fun testPropertySourceLoaderEnvironmentVariable() {
         val env = DefaultEnvironment()
         env.start()
