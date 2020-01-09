@@ -1,9 +1,9 @@
 package io.micronaut.runtime
 
-import io.micronaut.runtime.Micronaut
+import io.micronaut.context.ApplicationContext
 
-inline fun <reified T : Any> startApplication(vararg args: String, initializer: Micronaut.() -> Unit = {}) {
-    Micronaut.build(*args)
+inline fun <reified T : Any> startApplication(vararg args: String, initializer: Micronaut.() -> Unit = {}): ApplicationContext {
+    return Micronaut.build(*args)
         .mainClass(T::class.java)
         .apply(initializer)
         .start()
