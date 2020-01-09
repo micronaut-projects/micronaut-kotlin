@@ -7,6 +7,23 @@ To enable the above features add the dependency to your build:
 
 dependency:io.micronaut.kotlin:micronaut-kotlin-runtime:{version}[]
 
+=== Kotlin Extensions
+
+Micronaut Kotlin extensions are top-level or extension functions that simplifies things for Kotlin developers.
+For example, there are generic `startApplication<AppClass>` with configuration lambda and generic `mapError<ExceptionClass>`.
+
+.An Example `src/main/kotlin/SimpleApplication.kt`
+----
+object Application
+
+fun main(args: Array<String>) {
+    startApplication<Application>(*args) {
+        packages("org.example.app")
+        mapError<RuntimeException> { 500 }
+    }
+}
+----
+
 === Config4k Support
 
 https://github.com/config4k/config4k[Config4k] is a type safe configuration format for Kotlin based on https://github.com/lightbend/config/blob/master/HOCON.md[HOCON (Human-Optimized Config Object Notation)]. Configuration files are defined using the `conf` extension. The following an example configuration file:
@@ -15,3 +32,4 @@ https://github.com/config4k/config4k[Config4k] is a type safe configuration form
 ----
 include::kotlin-runtime/src/test/resources/application.conf[]
 ----
+
