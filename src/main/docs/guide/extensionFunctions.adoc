@@ -1,0 +1,27 @@
+The `micronaut-kotlin-extension-functions` dependency adds a variety of convenience functions to make using
+micronaut with kotlin more user-friendly.
+
+For example, https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters[reified type parameters]
+help alleviate the need for using `::class.java` in many places where it would otherwise be required.
+
+Thus, through defining a reified extension function to something like `BlockingHttpClient` like so:
+
+.Example HttpClient Extensions
+[source,kotlin]
+----
+include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/HttpClientExtensions.kt[tags=clientFunctionSingle]
+
+include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/HttpClientExtensions.kt[tags=clientFunctionList]
+----
+
+We are able to use the client a little more succinctly, as shown in this test:
+
+.Test Demonstrating Client Extension usage
+[source,kotlin]
+----
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/ReifiedTypeExtensionTest.kt[tags=usingClientFunctions]
+----
+
+Full documentation of the provided extension functions is planned for release soon.
+
+For the time being, please see the sources in this project's `kotlin-extension-functions` module.

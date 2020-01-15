@@ -12,14 +12,24 @@ import org.junit.jupiter.api.Test
 class ReifiedTypeExtensionTest {
 
     @Test
-    fun testBlockingHttpClient() {
+    fun testBlockingHttpClientExtensions() {
+        // tag::usingClientFunctions[]
         val embeddedServer = ApplicationContext.run(EmbeddedServer::class.java)
-        val client = embeddedServer.applicationContext.createBean(HttpClient::class.java, embeddedServer.url)
-        val heroListConventional = client.toBlocking().retrieve(HttpRequest.GET<Any>("/books"), Argument.listOf(Hero::class.java))
-        assertEquals(heroListConventional.size, 3)
-        assertTrue(heroListConventional.find { it.alterEgo == "Diana Prince" } != null)
-        val heroListReified = client.toBlocking().retrieveList<Hero>(HttpRequest.GET<Any>("/books"))
-        assertEquals(heroListConventional, heroListReified)
+        val client = embeddedServer.applicationContext.createBean(HttpClient::class.java, embeddedServer.url).toBlocking()
 
+        // Test single object retrieve extension
+        val getOneConventional = client.retrieve(HttpRequest.GET<Any>("/heroes/any"), Argument.of(Hero::class.java))
+        val getOneReified = client.retrieve<Hero>(HttpRequest.GET<Any>("/heroes/any"))
+        assertEquals(getOneConventional, getOneReified)
+
+        // Test list retrieve extension
+        val heroListConventional = client.retrieve(HttpRequest.GET<Any>("/heroes/list"), Argument.listOf(Hero::class.java))
+        assertEquals(heroListConventional.size, 3)
+        assertTrue(heroListConventional.find { it.alterEgo == "Diana Prince" } != null) // Let's make sure Wonder Woman is there!
+        val heroListReified = client.retrieveList<Hero>(HttpRequest.GET<Any>("/heroes/list"))
+        assertEquals(heroListConventional, heroListReified)
+        val heroListByType : List<Hero> = client.retrieveList(HttpRequest.GET<Any>("/heroes/list"))
+        assertEquals(heroListByType, heroListReified)
+        // end::usingClientFunctions[]
     }
 }

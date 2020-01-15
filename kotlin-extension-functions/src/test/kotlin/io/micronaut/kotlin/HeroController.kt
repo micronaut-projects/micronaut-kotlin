@@ -5,10 +5,22 @@ import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get
 import java.time.LocalDateTime
 
-@Controller("/books")
+@Controller("/heroes")
 class HeroController {
 
-    @Get
+    @Get("/any")
+    fun getOne(): HttpResponse<Hero> {
+        return HttpResponse.ok(
+                Hero(
+                        0L,
+                        "Black Panther",
+                        "T'Challa",
+                        LocalDateTime.of(1966,7,1,0,0)
+                )
+        )
+    }
+
+    @Get("/list")
     fun list(): HttpResponse<List<Hero>> {
         return HttpResponse.ok(listOf(
                 Hero(
