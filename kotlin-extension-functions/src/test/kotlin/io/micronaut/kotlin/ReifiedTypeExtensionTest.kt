@@ -1,5 +1,6 @@
 package io.micronaut.kotlin
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import io.micronaut.context.ApplicationContext
 import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
@@ -33,5 +34,14 @@ class ReifiedTypeExtensionTest {
         // end::usingClientFunctions[]
         client.close()
         embeddedServer.close()
+    }
+
+    object Application
+
+    @Test
+    fun testStartApplication() {
+        startApplication<Application>().use {
+            assertTrue(it.containsBean(ObjectMapper::class.java))
+        }
     }
 }

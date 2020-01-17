@@ -26,6 +26,7 @@ dependencies {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
     implementation "io.micronaut:micronaut-inject:$micronautVersion"
+    implementation "io.micronaut:micronaut-runtime:$micronautVersion"
     implementation "io.micronaut:micronaut-http-server:$micronautVersion"
     implementation "io.micronaut:micronaut-http-client:$micronautVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
