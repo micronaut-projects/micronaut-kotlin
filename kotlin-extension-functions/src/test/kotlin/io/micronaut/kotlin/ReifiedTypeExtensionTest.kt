@@ -19,7 +19,7 @@ class ReifiedTypeExtensionTest {
 
         // Test single object retrieve extension
         val getOneConventional = client.retrieve(HttpRequest.GET<Any>("/heroes/any"), Argument.of(Hero::class.java))
-        val getOneReified = client.retrieve<Hero>(HttpRequest.GET<Any>("/heroes/any"))
+        val getOneReified = client.retrieveObject<Hero>(HttpRequest.GET<Any>("/heroes/any"))
         assertEquals(getOneConventional, getOneReified)
 
         // Test list retrieve extension
@@ -31,5 +31,7 @@ class ReifiedTypeExtensionTest {
         val heroListByType : List<Hero> = client.retrieveList(HttpRequest.GET<Any>("/heroes/list"))
         assertEquals(heroListByType, heroListReified)
         // end::usingClientFunctions[]
+        client.close()
+        embeddedServer.close()
     }
 }

@@ -22,6 +22,8 @@ We are able to use the client a little more succinctly, as shown in this test:
 include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/ReifiedTypeExtensionTest.kt[tags=usingClientFunctions]
 ----
 
-Full documentation of the provided extension functions is planned for release soon.
+NOTE: You will need to import the functions like this: `import io.micronaut.kotlin.retrieveObject`
 
-For the time being, please see the sources in this project's `kotlin-extension-functions` module.
+Full documentation of the provided extension functions can be found via https://micronaut-projects.github.io/micronaut-kotlin/latest/guide/[the dokka docs for this project].
+
+WARNING: Do be aware when defining extension functions in this project or your own, an extension that shadows a member function may have unexpected behavior, and does not throw a compiler error but rather warns.
