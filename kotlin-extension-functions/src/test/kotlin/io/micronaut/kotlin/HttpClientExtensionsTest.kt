@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
-class ReifiedTypeExtensionTest {
+class HttpClientExtensionsTest {
 
     @Test
     fun testBlockingHttpClientExtensions() {
