@@ -11,7 +11,7 @@ import io.micronaut.context.env.PropertySource
  * @param environments The environments to use
  * @return The running bean
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T : AutoCloseable> run(vararg environments: String): T = ApplicationContext.run(T::class.java, *environments)
 
@@ -24,7 +24,7 @@ inline fun <reified T : AutoCloseable> run(vararg environments: String): T = App
  * @param environments The environments to use
  * @return The running bean
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T : AutoCloseable> run(properties: Map<String, Any?>, vararg environments: String): T =
         ApplicationContext.run(T::class.java, properties, *environments)
@@ -38,7 +38,7 @@ inline fun <reified T : AutoCloseable> run(properties: Map<String, Any?>, vararg
  * @param environments The environments to use
  * @return The running bean
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T : AutoCloseable> run(propertySource: PropertySource, vararg environments: String): T =
         ApplicationContext.run(T::class.java, propertySource, *environments)
@@ -50,7 +50,7 @@ inline fun <reified T : AutoCloseable> run(propertySource: PropertySource, varar
  * @param T The type
  * @return The running [ApplicationContext]
  * @author Alejandro Gomez
- * @since 0.0.2
+ * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(): ApplicationContext = ApplicationContext.build(T::class.java).start()
 
@@ -62,7 +62,7 @@ inline fun <reified T> buildAndStart(): ApplicationContext = ApplicationContext.
  * @param propertySources The property sources to include
  * @return The running [ApplicationContext]
  * @author Alejandro Gomez
- * @since 0.0.2
+ * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(vararg propertySources: PropertySource): ApplicationContext =
         ApplicationContext.build(T::class.java).propertySources(*propertySources).start()
@@ -75,7 +75,7 @@ inline fun <reified T> buildAndStart(vararg propertySources: PropertySource): Ap
  * @param environments The environments to use
  * @return The running [ApplicationContext]
  * @author Alejandro Gomez
- * @since 0.0.2
+ * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(vararg environments: String): ApplicationContext = ApplicationContext.build(T::class.java, *environments).start()
 
@@ -88,7 +88,7 @@ inline fun <reified T> buildAndStart(vararg environments: String): ApplicationCo
  * @param environments The environments to use
  * @return The running [ApplicationContext]
  * @author Alejandro Gomez
- * @since 0.0.2
+ * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(properties: Map<String, Any?>, vararg environments: String): ApplicationContext =
         ApplicationContext.build(properties, *environments).mainClass(T::class.java).start()
@@ -102,7 +102,7 @@ inline fun <reified T> buildAndStart(properties: Map<String, Any?>, vararg envir
  * @param environments The environments to use
  * @return The running [ApplicationContext]
  * @author Alejandro Gomez
- * @since 0.0.2
+ * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(propertySource: PropertySource, vararg environments: String): ApplicationContext =
         ApplicationContext.build(T::class.java, *environments).propertySources(propertySource).start()

@@ -23,7 +23,7 @@ inline fun <reified T : Any> startApplication(vararg args: String, initializer: 
  * @param args The arguments
  * @return The [ApplicationContext]
  * @author Alejandro Gomez
- * @since 0.0.3
+ * @since 1.0.0
  */
 inline fun <reified T> mnRun(vararg args: String): ApplicationContext = Micronaut.run(T::class.java, *args)
 
@@ -33,7 +33,7 @@ inline fun <reified T> mnRun(vararg args: String): ApplicationContext = Micronau
  * @param T The main class
  * @return This builder
  * @author Alejandro Gomez
- * @since 0.0.9
+ * @since 1.0.0
  */
 inline fun <reified T> Micronaut.mainClass(): Micronaut = mainClass(T::class.java)
 

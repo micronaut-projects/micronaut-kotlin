@@ -13,7 +13,7 @@ import kotlin.reflect.KClass
  * @param Q The stereotype type
  * @return The [BeanDefinition]
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getStereotypedBeanDefinition(): BeanDefinition<T> =
         getBeanDefinition(T::class.java, qualifierByStereotype<T, Q>())
@@ -24,7 +24,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getStereot
  * @param T The bean type
  * @return True if contained
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanDefinitionRegistry.containsBean() = containsBean(T::class.java)
 
@@ -34,7 +34,7 @@ inline fun <reified T> BeanDefinitionRegistry.containsBean() = containsBean(T::c
  * @param t The bean type
  * @return True if contained
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 operator fun BeanDefinitionRegistry.contains(t: KClass<out Any>) = containsBean(t.java)
 
@@ -45,7 +45,7 @@ operator fun BeanDefinitionRegistry.contains(t: KClass<out Any>) = containsBean(
  * @param Q The stereotype type
  * @return True if contained
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.containsStereotypedBean() =
         containsBean(T::class.java, qualifierByStereotype<T, Q>())
@@ -56,7 +56,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.containsSt
  * @param t The pair containing the bean type and the stereotype type
  * @return True if contained
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 operator fun BeanDefinitionRegistry.contains(t: Pair<KClass<out Any>, KClass<out Annotation>>) =
         containsBean(t.first.java, Qualifiers.byStereotype(t.second.java))
@@ -68,7 +68,7 @@ operator fun BeanDefinitionRegistry.contains(t: Pair<KClass<out Any>, KClass<out
  * @param Q The stereotype type
  * @return The [BeanDefinition] or null if not present
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findStereotypedBeanDefinition(): BeanDefinition<T>? =
         findBeanDefinition(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
@@ -79,7 +79,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findStereo
  * @param T The bean type
  * @return A [Collection] of the [BeanDefinition]s
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanDefinitionRegistry.getBeanDefinitions(): Collection<BeanDefinition<T>> = getBeanDefinitions(T::class.java)
 
@@ -89,7 +89,7 @@ inline fun <reified T> BeanDefinitionRegistry.getBeanDefinitions(): Collection<B
  * @param Q The stereotype type
  * @return A [Collection] of the [BeanDefinition]s
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified Q : Annotation> BeanDefinitionRegistry.getStereotypedBeanDefinitions(): Collection<BeanDefinition<out Any>> =
         getBeanDefinitions(qualifierByStereotype<Any, Q>())
@@ -100,7 +100,7 @@ inline fun <reified Q : Annotation> BeanDefinitionRegistry.getStereotypedBeanDef
  * @param T The bean type
  * @return A [Collection] of the [BeanRegistration]s
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanDefinitionRegistry.getBeanRegistrations(): Collection<BeanRegistration<T>> = getBeanRegistrations(T::class.java)
 
@@ -133,7 +133,7 @@ inline fun <reified Q : Annotation> BeanDefinitionRegistry.getStereotypedActiveB
  * @param Q The stereotype type
  * @return The original [BeanDefinition] or null if not present
  * @author Alejandro Gomez
- * @since 0.0.9
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyTargetBeanDefinition(): BeanDefinition<T>? =
         findProxyTargetBeanDefinition(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
@@ -145,7 +145,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyT
  * @param Q The stereotype type
  * @return The original [BeanDefinition] or null if not present
  * @author Alejandro Gomez
- * @since 0.0.9
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyBeanDefinition(): BeanDefinition<T>? =
         findProxyBeanDefinition(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
@@ -157,7 +157,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyB
  * @param Q The stereotype type
  * @return The original [BeanDefinition]
  * @author Alejandro Gomez
- * @since 0.0.9
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getProxyTargetBeanDefinition(): BeanDefinition<T> =
         getProxyTargetBeanDefinition(T::class.java, qualifierByStereotype<T, Q>())
@@ -168,7 +168,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getProxyTa
  * @param T The bean type
  * @return The [BeanDefinition]
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanDefinitionRegistry.getBeanDefinition(): BeanDefinition<T> = getBeanDefinition(T::class.java)
 
@@ -178,7 +178,7 @@ inline fun <reified T> BeanDefinitionRegistry.getBeanDefinition(): BeanDefinitio
  * @param T The bean type
  * @return The [BeanDefinition] or null if not present
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanDefinitionRegistry.findBeanDefinition(): BeanDefinition<T>? = findBeanDefinition(T::class.java).orElse(null)
 
@@ -191,7 +191,7 @@ inline fun <reified T> BeanDefinitionRegistry.findBeanDefinition(): BeanDefiniti
  * @param inject Whether the singleton should be injected
  * @return The [BeanDefinitionRegistry]
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T, inject: Boolean): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton, qualifierByStereotype<T, Q>(), inject)
@@ -204,7 +204,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerSt
  * @param singleton The singleton bean
  * @return The [BeanDefinitionRegistry]
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton, qualifierByStereotype<T, Q>())
@@ -216,7 +216,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerSt
  * @param singleton The singleton bean
  * @return The [BeanDefinitionRegistry]
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanDefinitionRegistry.registerNotStereotypedSingleton(singleton: T): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton)

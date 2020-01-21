@@ -10,7 +10,7 @@ import kotlin.streams.asSequence
  * @param T The bean type
  * @return The bean instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanLocator.getBean(): T = getBean(T::class.java)
 
@@ -21,7 +21,7 @@ inline fun <reified T> BeanLocator.getBean(): T = getBean(T::class.java)
  * @param Q The stereotype type
  * @return The bean instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBean(): T =
         getBean(T::class.java, qualifierByStereotype<T, Q>())
@@ -32,7 +32,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBean():
  * @param T The bean type
  * @return The bean instance or null
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanLocator.findBean(): T? = findBean(T::class.java).orElse(null)
 
@@ -43,7 +43,7 @@ inline fun <reified T> BeanLocator.findBean(): T? = findBean(T::class.java).orEl
  * @param Q The stereotype type
  * @return The bean instance or null
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanLocator.findStereotypedBean(): T? =
         findBean(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
@@ -54,7 +54,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.findStereotypedBean()
  * @param T The bean type
  * @return A [Collection] of bean instances
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanLocator.getBeansOfType(): Collection<T> = getBeansOfType(T::class.java)
 
@@ -65,7 +65,7 @@ inline fun <reified T> BeanLocator.getBeansOfType(): Collection<T> = getBeansOfT
  * @param Q The stereotype type
  * @return A [Collection] of bean instances
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBeansOfType(): Collection<T> =
         getBeansOfType(T::class.java, qualifierByStereotype<T, Q>())
@@ -76,7 +76,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBeansOf
  * @param T The bean type
  * @return A [Stream] of bean instances
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanLocator.streamOfType(): Stream<T> = streamOfType(T::class.java)
 
@@ -86,7 +86,7 @@ inline fun <reified T> BeanLocator.streamOfType(): Stream<T> = streamOfType(T::c
  * @param T The bean type
  * @return A [Sequence] of bean instances
  * @author Alejandro Gomez
- * @since 0.0.2
+ * @since 1.0.0
  */
 inline fun <reified T> BeanLocator.sequenceOfType(): Sequence<T> = streamOfType(T::class.java).asSequence()
 
@@ -97,7 +97,7 @@ inline fun <reified T> BeanLocator.sequenceOfType(): Sequence<T> = streamOfType(
  * @param Q The stereotype type
  * @return A [Stream] of bean instances
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanLocator.streamOfStereotypedType(): Stream<T> =
         streamOfType(T::class.java, qualifierByStereotype<T, Q>())
@@ -109,7 +109,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.streamOfStereotypedTy
  * @param Q The stereotype type
  * @return A [Sequence] of bean instances
  * @author Alejandro Gomez
- * @since 0.0.2
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanLocator.sequenceOfStereotypedType(): Sequence<T> =
         streamOfType(T::class.java, qualifierByStereotype<T, Q>()).asSequence()
@@ -121,7 +121,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.sequenceOfStereotyped
  * @param Q The stereotype type
  * @return The original bean instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanLocator.getProxyTargetBean(): T =
         getProxyTargetBean(T::class.java, qualifierByStereotype<T, Q>())
@@ -132,6 +132,6 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.getProxyTargetBean():
  * @param T The bean type
  * @return The bean instance or null
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanLocator.findOrInstantiateBean(): T? = findOrInstantiateBean(T::class.java).orElse(null)

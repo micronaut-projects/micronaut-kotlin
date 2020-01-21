@@ -12,7 +12,7 @@ import java.util.stream.Stream
  * @param candidates The candidates
  * @return A [Stream] of bean instances
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, BT : BeanType<T>> Qualifier<T>.reduce(candidates: Stream<BT>): Stream<BT> = reduce(T::class.java, candidates)
 
@@ -24,6 +24,6 @@ inline fun <reified T, BT : BeanType<T>> Qualifier<T>.reduce(candidates: Stream<
  * @param candidates The candidates
  * @return The qualified candidate or null
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, BT : BeanType<T>> Qualifier<T>.qualify(candidates: Stream<BT>): BT? = qualify(T::class.java, candidates).orElse(null)

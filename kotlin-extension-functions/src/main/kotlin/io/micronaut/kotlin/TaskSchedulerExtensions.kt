@@ -12,7 +12,7 @@ import java.util.concurrent.ScheduledFuture
  * @param command The task to execute
  * @return a [ScheduledFuture] that can be used to extract the result or cancel
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <V> TaskScheduler.scheduleCallable(cron: String, crossinline command: () -> V): ScheduledFuture<V> =
         schedule(cron, Callable<V> { command.invoke() })
@@ -24,7 +24,7 @@ inline fun <V> TaskScheduler.scheduleCallable(cron: String, crossinline command:
  * @param command The task to execute
  * @return a [ScheduledFuture] that can be used to the extract result or cancel
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <V> TaskScheduler.scheduleCallable(delay: Duration, crossinline command: () -> V): ScheduledFuture<V> =
         schedule(delay, Callable<V> { command.invoke() })

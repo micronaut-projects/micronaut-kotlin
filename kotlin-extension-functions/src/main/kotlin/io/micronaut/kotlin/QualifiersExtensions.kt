@@ -13,7 +13,7 @@ import io.micronaut.inject.qualifiers.Qualifiers
  * @param metadata The metadata
  * @return The [Qualifier]
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> qualifierByAnnotation(metadata: AnnotationMetadata): Qualifier<T> =
         Qualifiers.byAnnotation(metadata, Q::class.java)
@@ -26,6 +26,6 @@ inline fun <reified T, reified Q : Annotation> qualifierByAnnotation(metadata: A
  * @param Q The stereotype type
  * @return The [Qualifier]
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> qualifierByStereotype(): Qualifier<T> = Qualifiers.byStereotype(Q::class.java)

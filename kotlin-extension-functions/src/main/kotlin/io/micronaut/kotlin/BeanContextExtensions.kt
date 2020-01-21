@@ -8,7 +8,7 @@ import io.micronaut.context.BeanContext
  * @param T The bean type
  * @return The instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanContext.createBean(): T = createBean(T::class.java)
 
@@ -19,7 +19,7 @@ inline fun <reified T> BeanContext.createBean(): T = createBean(T::class.java)
  * @param Q The stereotype type
  * @return The instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean(): T = createBean(T::class.java, qualifierByStereotype<T, Q>())
 
@@ -31,7 +31,7 @@ inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean
  * @param argumentValues The argument values
  * @return The instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean(argumentValues: Map<String, Any>): T =
         createBean(T::class.java, qualifierByStereotype<T, Q>(), argumentValues)
@@ -44,7 +44,7 @@ inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean
  * @param args The argument values
  * @return The instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean(vararg args: Any): T =
         createBean(T::class.java, qualifierByStereotype<T, Q>(), *args)
@@ -56,7 +56,7 @@ inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean
  * @param argumentValues The argument values
  * @return The instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanContext.createBean(argumentValues: Map<String, Any>): T = createBean(T::class.java, argumentValues)
 
@@ -67,7 +67,7 @@ inline fun <reified T> BeanContext.createBean(argumentValues: Map<String, Any>):
  * @param args The argument values
  * @return The instance
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanContext.createBean(vararg args: Any): T = createBean(T::class.java, *args)
 
@@ -77,6 +77,6 @@ inline fun <reified T> BeanContext.createBean(vararg args: Any): T = createBean(
  * @param T The bean type
  * @return The destroy instance or null if no such bean exists
  * @author Alejandro Gomez
- * @since 0.0.1
+ * @since 1.0.0
  */
 inline fun <reified T> BeanContext.destroyBean(): T? = destroyBean(T::class.java)
