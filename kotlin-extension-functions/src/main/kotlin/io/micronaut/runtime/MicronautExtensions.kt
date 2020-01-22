@@ -1,7 +1,6 @@
-package io.micronaut.kotlin
+package io.micronaut.runtime
 
 import io.micronaut.context.ApplicationContext
-import io.micronaut.runtime.Micronaut
 
 /**
  *

@@ -1,7 +1,5 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
-import io.micronaut.context.ApplicationContext
-import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.inject.qualifiers.Qualifiers

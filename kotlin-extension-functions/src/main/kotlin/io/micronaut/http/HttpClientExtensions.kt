@@ -1,7 +1,6 @@
-package io.micronaut.kotlin
+package io.micronaut.http
 
 import io.micronaut.core.type.Argument
-import io.micronaut.http.HttpRequest
 import io.micronaut.http.client.BlockingHttpClient
 
 /**

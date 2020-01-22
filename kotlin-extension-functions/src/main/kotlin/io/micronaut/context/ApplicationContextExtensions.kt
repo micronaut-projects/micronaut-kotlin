@@ -1,6 +1,5 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
-import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.PropertySource
 
 /**

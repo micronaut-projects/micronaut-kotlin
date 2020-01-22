@@ -1,6 +1,5 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
-import io.micronaut.context.Qualifier
 import io.micronaut.inject.BeanType
 import java.util.stream.Stream
 

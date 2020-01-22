@@ -1,6 +1,5 @@
-package io.micronaut.kotlin
+package io.micronaut.scheduling
 
-import io.micronaut.scheduling.TaskScheduler
 import java.time.Duration
 import java.util.concurrent.Callable
 import java.util.concurrent.ScheduledFuture

@@ -1,4 +1,4 @@
-package io.micronaut.kotlin
+package io.micronaut.inject
 
 import io.micronaut.context.annotation.Context
 import io.micronaut.core.annotation.AnnotationMetadata

@@ -1,4 +1,4 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Prototype

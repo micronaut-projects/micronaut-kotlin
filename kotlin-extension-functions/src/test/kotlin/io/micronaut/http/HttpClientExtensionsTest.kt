@@ -1,11 +1,11 @@
-package io.micronaut.kotlin
+package io.micronaut.http
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.micronaut.context.ApplicationContext
 import io.micronaut.core.type.Argument
-import io.micronaut.http.HttpRequest
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.http.client.HttpClient
+import io.micronaut.runtime.startApplication
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test

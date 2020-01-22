@@ -1,19 +1,13 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
 
-import io.micronaut.context.ApplicationContext
-import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.context.annotation.Prototype
 import io.micronaut.context.annotation.Requires
 import io.micronaut.inject.qualifiers.Qualifiers
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertFalse
-import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.Assertions.assertSame
-import org.junit.jupiter.api.Assertions.assertTrue
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import javax.inject.Singleton
@@ -130,7 +124,6 @@ class BeanDefinitionRegistryExtensionsTest {
         val singleton = TestFactory.Baz()
         context.registerStereotypedSingleton<TestFactory.Baz, Singleton>(singleton, false)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
-        // TODO
         assertNull(context.getBean(TestFactory.Baz::class.java).foo)
     }
 
@@ -139,8 +132,7 @@ class BeanDefinitionRegistryExtensionsTest {
         val singleton = TestFactory.Baz()
         context.registerStereotypedSingleton<TestFactory.Baz, Singleton>(singleton, true)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
-        // TODO
-        // assertNotNull(context.getBean(TestFactory.Baz::class.java).foo)
+        assertNotNull(context.getBean(TestFactory.Baz::class.java).foo)
     }
 
     @Test

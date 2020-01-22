@@ -1,10 +1,9 @@
-package io.micronaut.kotlin
+package io.micronaut.runtime
 
 
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.context.annotation.Prototype
-import io.micronaut.runtime.Micronaut
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull
 import org.junit.jupiter.api.Test

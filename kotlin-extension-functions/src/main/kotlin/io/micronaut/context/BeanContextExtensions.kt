@@ -1,6 +1,6 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
-import io.micronaut.context.BeanContext
+import io.micronaut.inject.qualifierByStereotype
 
 /**
  * Extension for [BeanContext.createBean] providing a `createBean<Foo>()` variant.

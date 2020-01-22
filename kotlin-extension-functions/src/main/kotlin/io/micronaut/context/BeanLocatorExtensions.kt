@@ -1,6 +1,6 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
-import io.micronaut.context.BeanLocator
+import io.micronaut.inject.qualifierByStereotype
 import java.util.stream.Stream
 import kotlin.streams.asSequence
 

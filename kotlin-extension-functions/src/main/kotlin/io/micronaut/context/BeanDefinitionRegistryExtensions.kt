@@ -1,8 +1,7 @@
-package io.micronaut.kotlin
+package io.micronaut.context
 
-import io.micronaut.context.BeanDefinitionRegistry
-import io.micronaut.context.BeanRegistration
 import io.micronaut.inject.BeanDefinition
+import io.micronaut.inject.qualifierByStereotype
 import io.micronaut.inject.qualifiers.Qualifiers
 import kotlin.reflect.KClass
 
