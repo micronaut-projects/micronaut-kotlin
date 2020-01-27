@@ -129,11 +129,10 @@ class BeanDefinitionRegistryExtensionsTest {
 
     @Test
     fun registerStereotypedSingletonWithInjectionEnabled() {
-        val singleton = TestFactory.Baz()
+        val singleton = TestFactory.Baz(TestFactory.Foo())
         context.registerStereotypedSingleton<TestFactory.Baz, Singleton>(singleton, true)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
-        // TODO figure out why this isn't working
-//        assertNotNull(context.getBean(TestFactory.Baz::class.java).foo)
+        assertNotNull(context.getBean(TestFactory.Baz::class.java).foo)
     }
 
     @Test

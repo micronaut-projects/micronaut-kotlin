@@ -26,7 +26,6 @@ class MicronautExtensionsTest {
     @Test
     fun mnRun() {
         val context = mnRun<TestFactory>("-baz=1")
-        // TODO
         val foo = context.createBean(TestFactory.Foo::class.java, mapOf("baz" to 1))
         assertNotNull(foo)
         assertEquals(1, foo.baz)
@@ -35,10 +34,9 @@ class MicronautExtensionsTest {
 
     @Test
     fun mainClass() {
-        val context = Micronaut.build().mainClass<TestFactory>().build()
+        val context = Micronaut.build().mainClass<TestFactory>().build().start()
         assertNotNull(context)
-        // TODO
-        // assertNotNull(context.getBean(TestFactory.Bar::class.java))
+        assertNotNull(context.getBean<TestFactory.Bar>())
     }
 
     @Test
@@ -46,12 +44,6 @@ class MicronautExtensionsTest {
         val customMappedErrorCode = 42
         val context = Micronaut.build().mapError<NullPointerException> { customMappedErrorCode }.build()
         assertNotNull(context)
-        // TODO finish implementing this test
-//        val client = context.createBean<HttpClient>().toBlocking()
-//        val response = client.exchange<Any, Any>(HttpRequest.GET<Any>("/sample"))
-//        assertEquals(response.status.code, customMappedErrorCode)
-//        client.close()
-//        context.close()
     }
 
     @Factory
@@ -62,13 +54,5 @@ class MicronautExtensionsTest {
 
         @Singleton
         class Bar
-    }
-
-    @Controller("/sample")
-    class SampleController {
-        @Get
-        fun testMapErrorHandler(): HttpResponse<String> {
-            throw NullPointerException()
-        }
     }
 }
