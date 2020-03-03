@@ -26,9 +26,9 @@ dependencies {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
     implementation "io.micronaut:micronaut-inject:$micronautVersion"
-    implementation "io.micronaut:micronaut-runtime:$micronautVersion"
-    implementation "io.micronaut:micronaut-http-server:$micronautVersion"
-    implementation "io.micronaut:micronaut-http-client:$micronautVersion"
+    compileOnly "io.micronaut:micronaut-runtime:$micronautVersion"
+    compileOnly "io.micronaut:micronaut-http-server:$micronautVersion"
+    compileOnly "io.micronaut:micronaut-http-client:$micronautVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
@@ -39,6 +39,11 @@ dependencies {
     testImplementation "org.mockito:mockito-junit-jupiter:3.2.4"
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
     testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
+
+    testImplementation "io.micronaut:micronaut-runtime:$micronautVersion"
+    testImplementation "io.micronaut:micronaut-http-server:$micronautVersion"
+    testImplementation "io.micronaut:micronaut-http-client:$micronautVersion"
+
     kaptTest "io.micronaut:micronaut-inject-java:$micronautVersion"
 }
 
