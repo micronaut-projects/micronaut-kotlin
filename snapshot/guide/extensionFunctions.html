@@ -2,7 +2,7 @@
                       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
-    <title>2 Kotlin Runtime Support 1.0.0.BUILD-SNAPSHOT</title>
+    <title>4 Kotlin Extension Functions 1.0.0.BUILD-SNAPSHOT</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8"/>
     <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8"/>
@@ -59,18 +59,16 @@ function addJsClass() {
             <div id="main" class="corner-all">
 
                 
-                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
+                    <div class="toc-item prev-left"><a href="../guide/ktor.html">&lt;&lt; <strong>3</strong><span>Ktor Support</span></a></div>
                 
 
                 <span id='toggle-col1' class="toggle">(<a href="#" onclick="localToggle(); return false;">Quick Reference</a>)</span>
 
                 
-                    <div class="toc-item next-right"><a href="../guide/ktor.html"><strong>3</strong><span>Ktor Support</span> >></a></div>
-                
 
 
                 <div class="project">
-                    <h1>2 Kotlin Runtime Support</h1>
+                    <h1>4 Kotlin Extension Functions</h1>
 
                     <p><strong>Version:</strong> 1.0.0.BUILD-SNAPSHOT</p>
                 </div>
@@ -79,82 +77,92 @@ function addJsClass() {
 
                 
 
-<h1 id="runtime">2 Kotlin Runtime Support</h1>
+<h1 id="extensionFunctions">4 Kotlin Extension Functions</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/runtime.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/extensionFunctions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
 
 
 <div class="paragraph">
-<p>The <code>micronaut-kotlin-runtime</code> dependency adds the following features:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Support for defining configuration with <a href="https://github.com/config4k/config4k">config4k</a>.</p>
-</li>
-<li>
-<p>A runtime dependency on <code>jackson-module-kotlin</code></p>
-</li>
-</ul>
+<p>The <code>micronaut-kotlin-extension-functions</code> dependency adds a variety of convenience functions to make using
+micronaut with kotlin more user-friendly.</p>
 </div>
 <div class="paragraph">
-<p>To enable the above features add the dependency to your build:</p>
+<p>For example, <a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters">reified type parameters</a>
+help alleviate the need for using <code>::class.java</code> in many places where it would otherwise be required.</p>
 </div>
 <div class="paragraph">
-<p>        <div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="gradle-groovy">compile <span class="hljs-string">'io.micronaut.kotlin:micronaut-kotlin-runtime:1.0.0.BUILD-SNAPSHOT'</span></code></pre>
-</div>
-</div>
-        <div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle-kotlin">compile(<span class="hljs-string">"io.micronaut.kotlin:micronaut-kotlin-runtime:1.0.0.BUILD-SNAPSHOT")</span></code></pre>
-</div>
-</div>
-<div class="listingblock multi-language-sample">
-<div class="content">
-<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
-    &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
-    &lt;artifactId&gt;micronaut-kotlin-runtime&lt;/artifactId&gt;
-    &lt;version&gt;1.0.0.BUILD-SNAPSHOT&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
-</div>
-</div>
-</p>
-</div>
-<div class="sect2">
-<h3 id="_config4k_support">Config4k Support</h3>
-<div class="paragraph">
-<p><a href="https://github.com/config4k/config4k">Config4k</a> is a type safe configuration format for Kotlin based on <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON (Human-Optimized Config Object Notation)</a>. Configuration files are defined using the <code>conf</code> extension. The following an example configuration file:</p>
+<p>Thus, through defining a reified extension function to something like <code>BlockingHttpClient</code> like so:</p>
 </div>
 <div class="listingblock">
-<div class="title">An Example <code>src/main/resources/application.conf</code></div>
+<div class="title">Example HttpClient Extensions</div>
 <div class="content">
-<pre>micronaut {
-  server {
-    port = 8081
-  }
-}
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Unresolved directive in &lt;stdin&gt; - include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/HttpClientExtensions.kt[tags=clientFunctionSingle]
 
-test-property = "bad-value"
-
-custom {
-  user = ${USER}
-}</pre>
+Unresolved directive in &lt;stdin&gt; - include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/HttpClientExtensions.kt[tags=clientFunctionList]</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>We are able to use the client a little more succinctly, as shown in this test:</p>
+</div>
+<div class="listingblock">
+<div class="title">Test Demonstrating Client Extension usage</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Unresolved directive in &lt;stdin&gt; - include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/ReifiedTypeExtensionTest.kt[tags=usingClientFunctions]</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>As another example, you can use a generic <code>startApplication&lt;AppClass&gt;</code> with a configuration lambda and generic <code>mapError&lt;ExceptionClass&gt;</code>, as you would might use <code>Micronaut.build().mainClass(App::class.java).start()</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">An Example <code>src/main/kotlin/SimpleApplication.kt</code> using the extension function.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">object Application
+
+fun main(args: Array&lt;String&gt;) {
+    startApplication&lt;Application&gt;(*args) {
+        packages("org.example.app")
+        mapError&lt;RuntimeException&gt; { 500 }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to import the functions like this: <code>import io.micronaut.kotlin.FUNCTION_NAME</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Full documentation of the provided extension functions can be found via <a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/">the dokka docs for this project</a>.</p>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do be aware when defining extension functions in this project or your own, an extension that shadows a member function may have unexpected behavior, and does not throw a compiler error but rather warns.
+See <a href="https://discuss.kotlinlang.org/t/why-is-shadowed-extension-not-an-error/7209/11">this Kotlin discussion topic</a> for the latest information.
+</td>
+</tr>
+</table>
 </div>
 
 
                 <div style="clear:both;margin-top:15px;"></div>
                 
-                    <div class="toc-item prev-left"><a href="../guide/introduction.html">&lt;&lt; <strong>1</strong><span>Introduction</span></a></div>
-                
-                    <div class="toc-item next-right"><a href="../guide/ktor.html"><strong>3</strong><span>Ktor Support</span> >></a></div>
+                    <div class="toc-item prev-left"><a href="../guide/ktor.html">&lt;&lt; <strong>3</strong><span>Ktor Support</span></a></div>
                 
                 <div style="clear:both"></div>
             </div>
