@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         maven { url "https://repo.grails.org/grails/core" }
+        jcenter()
     }
     dependencies {
         classpath "org.grails:grails-gradle-plugin:$grailsVersion"
@@ -11,6 +12,7 @@ buildscript {
         classpath 'io.github.groovylang.groovydoc:groovydoc-gradle-plugin:1.0.1'
         classpath "io.micronaut.docs:micronaut-docs-asciidoc-extensions:$micronautDocsVersion"
         classpath "io.micronaut.docs:micronaut-docs-gradle-plugins:$micronautDocsVersion"
+        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
     }
 }
 
@@ -19,13 +21,14 @@ plugins {
 }
 
 repositories {
-
     maven { url "https://repo.grails.org/grails/core" }
     maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+    jcenter() // or maven { url 'https://dl.bintray.com/kotlin/dokka' }
 }
 
-version project.projectVersion
+apply plugin: 'org.jetbrains.dokka'
 
+version project.projectVersion
 
 ext {
     distInstallDir = file("$buildDir/dist-tmp")
@@ -129,3 +132,5 @@ allprojects {
     }
     apply from: rootProject.file('gradle/license.gradle')
 }
+
+docs.dependsOn(['dokka'])

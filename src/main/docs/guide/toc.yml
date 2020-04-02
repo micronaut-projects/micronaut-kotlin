@@ -6,3 +6,5 @@ ktor:
   title: Ktor Support
   ktorApplication: The KtorApplication class
   ktorModules: Defining Ktor Modules
+extensionFunctions:
+  title: Kotlin Extension Functions
