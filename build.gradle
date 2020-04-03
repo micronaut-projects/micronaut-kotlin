@@ -22,8 +22,6 @@ plugins {
 
 repositories {
     maven { url "https://repo.grails.org/grails/core" }
-    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
-    jcenter() // or maven { url 'https://dl.bintray.com/kotlin/dokka' }
 }
 
 apply plugin: 'org.jetbrains.dokka'
@@ -50,12 +48,10 @@ subprojects { Project subproject ->
 
     
     repositories {
-        mavenLocal()
-        maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
         maven { url "https://repo.grails.org/grails/core" }
     }
     
-    apply plugin: "java"
+    apply plugin: "java-library"
     apply plugin: "kotlin"
 
 
@@ -65,7 +61,7 @@ subprojects { Project subproject ->
     
     if (!subproject.toString().contains("example")) {
 
-        apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-build/02a1aab7ec29ae19e6c9464ee9ea9676ea697a21/publishing.gradle"
+        apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-build/v${micronautBuildVersion}/publishing.gradle"
         bintray.publish = true
     }
     
@@ -118,7 +114,7 @@ subprojects { Project subproject ->
     task allDeps(type: DependencyReportTask) {}
 }
 
-apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-docs/v1.0.3/gradle/docs.gradle"
+apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-docs/v${micronautDocsVersion}/gradle/docs.gradle"
 
 
 allprojects {
