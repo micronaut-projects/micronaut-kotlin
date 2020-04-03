@@ -18,16 +18,4 @@ class KotlinModuleFactoryTest {
         }
     }
 
-    @Test
-    fun testModuleScanDisabled() {
-        ApplicationContext.run(
-                mapOf("jackson.module-scan" to false)
-        ).use {
-            val objectMapper = it.getBean(ObjectMapper::class.java)
-            val moduleIds = objectMapper.registeredModuleIds
-            // found by bean context creation
-            assert(moduleIds.contains(KotlinModule::class.java.name))
-            assert(it.containsBean(KotlinModule::class.java))
-        }
-    }
 }

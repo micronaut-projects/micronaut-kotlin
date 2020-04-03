@@ -26,7 +26,6 @@ import io.micronaut.runtime.server.event.ServerStartupEvent
 import java.net.URI
 import java.net.URL
 import java.util.*
-import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -92,7 +91,7 @@ abstract class AbstractKtorEmbeddedServer(
 
     override fun stop(): EmbeddedServer {
         if (running.compareAndSet(true, false)) {
-            applicationEngine.stop(1, 5, TimeUnit.SECONDS)
+            applicationEngine.stop(1000, 5000)
             ctx.publishEvent(ServerShutdownEvent(this))
         }
         return this

@@ -18,14 +18,12 @@ compileKotlin { kotlinOptions.jvmTarget = "1.8" }
 compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
 
 repositories {
-    mavenCentral()
     jcenter()
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/"}
 }
 
 dependencyManagement {
     imports {
-        mavenBom 'io.micronaut:micronaut-bom:1.2.9'
+        mavenBom 'io.micronaut:micronaut-bom:1.3.3'
     }
 }
 
@@ -41,8 +39,8 @@ dependencies {
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
 
     testImplementation "io.micronaut:micronaut-http-client"
-    testImplementation "io.micronaut.test:micronaut-test-junit5:1.1.2"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+    testImplementation "io.micronaut.test:micronaut-test-junit5"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine"
 }
 
 allOpen {
