@@ -23,7 +23,7 @@ jobs:
       env:
          BINTRAY_USER: ${{ secrets.BINTRAY_USER }}
          BINTRAY_KEY: ${{ secrets.BINTRAY_KEY }}
-      run: ./gradlew bintrayUpload docs
+      run: ./gradlew bintrayUpload  && ./gradlew docs
     - name: Publish to Github Pages
       if: success()
       uses: micronaut-projects/github-pages-deploy-action@master
