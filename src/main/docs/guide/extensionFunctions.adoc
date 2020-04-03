@@ -1,6 +1,8 @@
 The `micronaut-kotlin-extension-functions` dependency adds a variety of convenience functions to make using
 micronaut with kotlin more user-friendly.
 
+dependency:io.micronaut.kotlin:micronaut-kotlin-extension-functions:{version}[]
+
 For example, https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters[reified type parameters]
 help alleviate the need for using `::class.java` in many places where it would otherwise be required.
 
@@ -9,9 +11,9 @@ Thus, through defining a reified extension function to something like `BlockingH
 .Example HttpClient Extensions
 [source,kotlin]
 ----
-include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/HttpClientExtensions.kt[tags=clientFunctionSingle]
+include::kotlin-extension-functions/src/main/kotlin/io/micronaut/http/HttpClientExtensions.kt[tags=clientFunctionSingle]
 
-include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/HttpClientExtensions.kt[tags=clientFunctionList]
+include::kotlin-extension-functions/src/main/kotlin/io/micronaut/http/HttpClientExtensions.kt[tags=clientFunctionList]
 ----
 
 We are able to use the client a little more succinctly, as shown in this test:
@@ -19,7 +21,7 @@ We are able to use the client a little more succinctly, as shown in this test:
 .Test Demonstrating Client Extension usage
 [source,kotlin]
 ----
-include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/ReifiedTypeExtensionTest.kt[tags=usingClientFunctions]
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/http/HttpClientExtensionsTest.kt[tags=usingClientFunctions, indent="0"]
 ----
 
 As another example, you can use a generic `startApplication<AppClass>` with a configuration lambda and generic `mapError<ExceptionClass>`, as you would might use `Micronaut.build().mainClass(App::class.java).start()`.
