@@ -33,7 +33,7 @@ dependencies {
     testImplementation "io.ktor:ktor-server-netty:$ktor_version"
     testImplementation "io.micronaut:micronaut-http-client:$micronautVersion"
     testImplementation "io.micronaut.test:micronaut-test-junit5:1.1.2"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.5.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.6.1"
     testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
 }
 
