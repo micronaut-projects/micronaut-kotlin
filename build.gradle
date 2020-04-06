@@ -108,6 +108,9 @@ subprojects { Project subproject ->
         documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
         documentation "org.codehaus.groovy:groovy-dateutil:$groovyVersion"
 
+        implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+        annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+        testAnnotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
     }
 
 
