@@ -1,13 +1,3 @@
-buildscript {
-    repositories {
-        mavenCentral()
-    }
-    dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:1.0.9.RELEASE"
-    }
-}
-
-apply plugin:"io.spring.dependency-management"
 apply plugin:"kotlin-kapt"
 
 sourceCompatibility = 1.8
