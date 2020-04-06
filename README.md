@@ -7,6 +7,6 @@ This project includes integrations between [Micronaut](http://micronaut.io) and 
 
 ## Documentation
 
-See the [Documentation](https://micronaut-projects.github.io/micronaut-kotlin/latest/guide) for more information.
+See the [Documentation](https://micronaut-projects.github.io/micronaut-kotlin/1.0.x/guide) for more information.
 
 See the [Snapshot Documentation](https://micronaut-projects.github.io/micronaut-kotlin/snapshot/guide) for the current development docs.
