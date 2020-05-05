@@ -18,6 +18,7 @@ package io.micronaut.context.env.hocon
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import com.typesafe.config.ConfigValue
+import io.micronaut.context.env.ActiveEnvironment
 import io.micronaut.context.env.EnvironmentPropertySource
 import io.micronaut.context.env.PropertySource
 import io.micronaut.context.env.PropertySourceLoader
@@ -60,9 +61,10 @@ class HoconPropertySourceLoader : PropertySourceLoader {
         return Collections.emptyMap()
     }
 
-    override fun load(resourceName: String?, resourceLoader: ResourceLoader?, environmentName: String?): Optional<PropertySource> {
+    override fun loadEnv(resourceName: String?, resourceLoader: ResourceLoader?, activeEnvironment: ActiveEnvironment?): Optional<PropertySource> {
         if (resourceName != null) {
-            if (environmentName != null) {
+            if (activeEnvironment != null) {
+                val environmentName = activeEnvironment.name
                 val qualifiedName = "$resourceName-$environmentName"
                 val resource = resourceLoader?.getResource("$qualifiedName.conf")
                 if (resource != null && resource.isPresent) {
@@ -78,6 +80,10 @@ class HoconPropertySourceLoader : PropertySourceLoader {
             }
         }
         return Optional.empty()
+    }
+
+    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
+        return loadEnv(resourceName, resourceLoader, null)
     }
 
     private fun URL.parseConfig(): Config =

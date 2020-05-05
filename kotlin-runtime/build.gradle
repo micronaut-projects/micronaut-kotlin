@@ -17,6 +17,7 @@ dependencies {
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testImplementation "io.micronaut.test:micronaut-test-junit5"
     testImplementation "org.junit.jupiter:junit-jupiter-engine"
+    testImplementation "io.micronaut:micronaut-runtime"
     testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
 }
 
