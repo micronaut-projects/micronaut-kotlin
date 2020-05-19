@@ -59,7 +59,7 @@ jobs:
           branch: master # Or 1.3.x etc
           # Refers to the key in the BOM (gradle.properties)
           properties: |
-            micronautXXXVersion=${{ steps.release_version.outputs.release_version }} 
+            micronautKotlinVersion=${{ steps.release_version.outputs.release_version }} 
           version: ${{ steps.release_version.outputs.release_version }} 
         continue-on-error: true
       - name: Run post-release
