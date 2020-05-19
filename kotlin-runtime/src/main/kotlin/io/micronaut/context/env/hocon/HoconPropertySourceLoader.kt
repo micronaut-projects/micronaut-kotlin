@@ -18,10 +18,7 @@ package io.micronaut.context.env.hocon
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import com.typesafe.config.ConfigValue
-import io.micronaut.context.env.ActiveEnvironment
-import io.micronaut.context.env.EnvironmentPropertySource
-import io.micronaut.context.env.PropertySource
-import io.micronaut.context.env.PropertySourceLoader
+import io.micronaut.context.env.*
 import io.micronaut.core.io.ResourceLoader
 import io.micronaut.core.order.Ordered
 import io.micronaut.core.reflect.ClassUtils
@@ -42,6 +39,10 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
 
     override fun getExtensions(): MutableSet<String> {
         return Collections.singleton("conf")
+    }
+
+    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
+        return load(resourceName, resourceLoader, Environment.DEFAULT_NAME)
     }
 
     override fun isEnabled(): Boolean {
