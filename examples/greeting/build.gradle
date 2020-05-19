@@ -8,7 +8,6 @@ buildscript {
 }
 
 apply plugin: "application"
-apply plugin: "io.spring.dependency-management"
 apply plugin: "kotlin-kapt"
 apply plugin: "kotlin-allopen"
 
@@ -21,13 +20,13 @@ repositories {
     jcenter()
 }
 
-dependencyManagement {
-    imports {
-        mavenBom 'io.micronaut:micronaut-bom:1.3.5'
-    }
-}
 
 dependencies {
+    implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    kapt enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    kaptTest enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+
     annotationProcessor "io.micronaut:micronaut-inject-java"
     kapt "io.micronaut:micronaut-inject-java"
     kaptTest "io.micronaut:micronaut-inject-java"
