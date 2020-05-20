@@ -42,7 +42,7 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
     }
 
     override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
-        return load(resourceName, resourceLoader, Environment.DEFAULT_NAME)
+        return load(resourceName, resourceLoader, null)
     }
 
     override fun isEnabled(): Boolean {

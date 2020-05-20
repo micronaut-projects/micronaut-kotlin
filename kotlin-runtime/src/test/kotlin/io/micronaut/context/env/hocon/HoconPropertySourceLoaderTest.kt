@@ -15,45 +15,45 @@
  */
 package io.micronaut.context.env.hocon
 
-import io.micronaut.context.env.DefaultEnvironment
+import io.micronaut.context.ApplicationContext
 import org.junit.jupiter.api.Test
 
 class HoconPropertySourceLoaderTest {
 
     @Test
     fun testPropertySourceLoader() {
-        val env = DefaultEnvironment()
-        env.start()
+        ApplicationContext.run().use {
+            val value = it.getProperty("micronaut.server.port", Integer::class.java)
+            assert(
+                    value.get().toInt() == 8081
+            )
+        }
 
-        val value = env.getProperty("micronaut.server.port", Integer::class.java)
-        assert(
-                value.get().toInt() == 8081
-        )
     }
 
     @Test
     fun testPropertySourceLoaderOrder() {
         System.setProperty("test-property", "good value")
 
-        val env = DefaultEnvironment()
-        env.start()
+        ApplicationContext.run().use {
+            val value = it.getProperty("test-property", String::class.java)
+            assert(
+                    value.get() == "good value"
+            )
+        }
 
-        val value = env.getProperty("test-property", String::class.java)
-        assert(
-                value.get() == "good value"
-        )
 
         System.clearProperty("test-property")
     }
   
     fun testPropertySourceLoaderEnvironmentVariable() {
-        val env = DefaultEnvironment()
-        env.start()
+        ApplicationContext.run().use {
+            val value = it.getProperty("custom.user", String::class.java)
+            assert(
+                    value.get() == System.getProperty("user.name")
+            )
 
-        val value = env.getProperty("custom.user", String::class.java)
-        assert(
-                value.get() == System.getProperty("user.name")
-        )
+        }
     }
 
 }
