@@ -29,7 +29,7 @@ repositories {
     maven { url "https://repo.grails.org/grails/core" }
 }
 
-apply plugin: 'org.jetbrains.dokka'
+
 
 version project.projectVersion
 
@@ -58,7 +58,7 @@ subprojects { Project subproject ->
     
     apply plugin: "java-library"
     apply plugin: "kotlin"
-
+    apply plugin: 'org.jetbrains.dokka'
 
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
@@ -137,4 +137,4 @@ allprojects {
     apply from: rootProject.file('gradle/license.gradle')
 }
 
-docs.dependsOn(['dokka'])
+docs.dependsOn(subprojects.collect { it.tasks.findByName("dokka")})
