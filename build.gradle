@@ -12,12 +12,13 @@ buildscript {
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
         classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
         classpath "io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.21.2"
-        classpath "de.marcphilipp.gradle:nexus-publish-plugin:0.4.0"        
+        classpath "de.marcphilipp.gradle:nexus-publish-plugin:0.4.0"
         classpath 'io.github.groovylang.groovydoc:groovydoc-gradle-plugin:1.0.1'
         classpath "io.micronaut.docs:micronaut-docs-asciidoc-extensions:$micronautDocsVersion"
         classpath "io.micronaut.docs:micronaut-docs-gradle-plugins:$micronautDocsVersion"
         classpath "io.spring.nohttp:nohttp-gradle:0.0.4.RELEASE"
-        classpath "com.github.ben-manes:gradle-versions-plugin:0.28.0"        
+        classpath "com.github.jengelman.gradle.plugins:shadow:5.1.0"
+        classpath "com.github.ben-manes:gradle-versions-plugin:0.28.0"   
     }
 }
 
@@ -56,15 +57,20 @@ subprojects { Project subproject ->
         maven { url "https://repo.grails.org/grails/core" }
     }
     
-    apply plugin: "java-library"
+
     apply plugin: "kotlin"
-    apply plugin: 'org.jetbrains.dokka'
+    apply plugin:"java-library"
+    apply plugin: 'idea'
+    boolean isExample = subproject.toString().contains("example")
+    if (!isExample) {
+        apply plugin: "com.github.ben-manes.versions"
+    }
 
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
 
     
-    if (!subproject.toString().contains("example")) {
+    if (!isExample) {
 
         apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-build/v${micronautBuildVersion}/publishing.gradle"
         bintray.publish = true
@@ -109,13 +115,43 @@ subprojects { Project subproject ->
             }
         }
     }
+
+
+    if (!isExample) {
+        dependencyUpdates {      
+          rejectVersionIf { mod ->
+            mod.candidate.version ==~ /.+(-|\.?)(b|M|RC)\d.*/ ||
+                ["alpha", "beta", "milestone", "preview"].any { mod.candidate.version.toLowerCase(Locale.ENGLISH).contains(it) } ||
+                 mod.candidate.group == 'io.micronaut' // managed by the micronaut version
+          }
+          outputFormatter = { result ->
+            if (!result.outdated.dependencies.isEmpty()) {
+                def upgradeVersions = result.outdated.dependencies
+                if (!upgradeVersions.isEmpty()) {
+                  println "\nThe following dependencies have later ${revision} versions:"
+                  upgradeVersions.each { dep ->
+                    def currentVersion = dep.version
+                    println " - ${dep.group}:${dep.name} [${currentVersion} -> ${dep.available[revision]}]"
+                    if (dep.projectUrl != null) {
+                      println "     ${dep.projectUrl}"
+                    }
+                  }
+                  throw new GradleException('Abort, there are dependencies to update.')
+                }                        
+            }
+          }
+        }
+        check.dependsOn('dependencyUpdates')        
+    }
+    
+
     dependencies {
         documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
         documentation "org.codehaus.groovy:groovy-dateutil:$groovyVersion"
 
-        implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-        annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-        testAnnotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+        implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
+        annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
+        testAnnotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
     }
 
 

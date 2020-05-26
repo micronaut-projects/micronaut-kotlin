@@ -22,10 +22,10 @@ repositories {
 
 
 dependencies {
-    implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-    annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-    kapt enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-    kaptTest enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
+    implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
+    annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
+    kapt platform("io.micronaut:micronaut-bom:$micronautVersion")
+    kaptTest platform("io.micronaut:micronaut-bom:$micronautVersion")
 
     annotationProcessor "io.micronaut:micronaut-inject-java"
     kapt "io.micronaut:micronaut-inject-java"
@@ -38,8 +38,8 @@ dependencies {
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
 
     testImplementation "io.micronaut:micronaut-http-client"
-    testImplementation "io.micronaut.test:micronaut-test-junit5"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine"
+    testImplementation "io.micronaut.test:micronaut-test-junit5:1.1.5"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.6.2"
 }
 
 allOpen {
