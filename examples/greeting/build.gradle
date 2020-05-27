@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
     }
 }
 
@@ -33,8 +33,8 @@ dependencies {
 
     implementation "io.micronaut:micronaut-inject"
     implementation project(":ktor")
-    implementation "io.ktor:ktor-jackson:$ktor_version"
-    implementation "io.ktor:ktor-server-netty:$ktor_version"
+    implementation "io.ktor:ktor-jackson:$ktorVersion"
+    implementation "io.ktor:ktor-server-netty:$ktorVersion"
     runtimeOnly "ch.qos.logback:logback-classic:1.2.3"
 
     testImplementation "io.micronaut:micronaut-http-client"

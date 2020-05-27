@@ -28,9 +28,9 @@ dependencies {
     compileOnly "io.micronaut:micronaut-runtime:$micronautVersion"
     compileOnly "io.micronaut:micronaut-http-server:$micronautVersion"
     compileOnly "io.micronaut:micronaut-http-client:$micronautVersion"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
-    testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     testImplementation "io.micronaut:micronaut-http-server-netty"
     testImplementation "io.micronaut.test:micronaut-test-junit5:1.1.5"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:5.6.2"
