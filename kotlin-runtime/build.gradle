@@ -9,7 +9,7 @@ dependencies {
     kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
 
     api "io.micronaut:micronaut-inject:$micronautVersion"
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.11.0", {
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.11.1", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
     implementation 'com.typesafe:config:1.4.0'
