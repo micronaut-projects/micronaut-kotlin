@@ -28,6 +28,7 @@
 <body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
 
 <div id="table-of-content-nav-link" class="desktop">
+    <a id="theme-switcher" title="Switch to dark theme" href="javascript:switchTheme(true)"><i class="fa fa-moon-o"></i></a>
     <a title="Collapse/Open Table of contents" title="Hide Table of Contents" href="javascript:hideTableOfContents();" class="button">[ + ]</a>
 </div>
 
@@ -38,8 +39,7 @@
         </div>
         <div class="navLinks">
             <ul>
-                    <li>
-                        <div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)" class="desktop">
+                    <li><div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)" class="desktop">
                             <a href="../guide/index.html" class="button">Table of contents</a>
                             <div id="nav-summary-childs" style="display:none;">
                                 
@@ -58,7 +58,7 @@
                 <li id="table-of-content-nav-link-mobile" class="mobile">
                     <a title="Scroll to Table of contents" href="javascript:scrollToTop();" class="button">Toc</a>
                 </li>
-<!--                 <li class="desktop">
+                <li class="desktop">
                     <a title="Go to API documentation" href="../api/index.html" class="button">API Reference</a>
                 </li>
                 <li class="mobile">
@@ -70,7 +70,6 @@
                 <li class="mobile">
                     <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Conf</a>
                 </li>
- -->
             </ul>
 
         </div>
@@ -104,8 +103,7 @@
         <p><strong>Version:</strong> <select style='max-width: 200px' onChange='window.document.location.href=this.options[this.selectedIndex].value;'><option selected='selected' value='https://micronaut-projects.github.io/micronaut-kotlin/snapshot/guide/index.html'>SNAPSHOT</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.1/guide/index.html'>1.0.1</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0/guide/index.html'>1.0.0</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0.RC5/guide/index.html'>1.0.0.RC5</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0.RC4/guide/index.html'>1.0.0.RC4</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0.RC3/guide/index.html'>1.0.0.RC3</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0.RC2/guide/index.html'>1.0.0.RC2</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0.RC1/guide/index.html'>1.0.0.RC1</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0.M2/guide/index.html'>1.0.0.M2</option><option value='https://micronaut-projects.github.io/micronaut-kotlin/1.0.0.M1/guide/index.html'>1.0.0.M1</option></select></p>
     </div>
     
-
-<h1 id="introduction">1 Introduction</h1>
+<h1 id="introduction"><a class="anchor" href="#introduction"></a>1 Introduction</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/introduction.adoc"'>
@@ -157,8 +155,7 @@
 </div>
 </div>
 
-
-<h1 id="runtime">2 Kotlin Runtime Support</h1>
+<h1 id="runtime"><a class="anchor" href="#runtime"></a>2 Kotlin Runtime Support</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/runtime.adoc"'>
@@ -224,8 +221,7 @@ custom {
 </div>
 </div>
 
-
-<h1 id="ktor">3 Ktor Support</h1>
+<h1 id="ktor"><a class="anchor" href="#ktor"></a>3 Ktor Support</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktor.adoc"'>
@@ -253,8 +249,7 @@ See the <a href="https://github.com/micronaut-projects/micronaut-kotlin/tree/mas
 </table>
 </div>
 
-
-<h2 id="ktorApplication">3.1 The KtorApplication class</h2>
+<h2 id="ktorApplication"><a class="anchor" href="#ktorApplication"></a>3.1 The KtorApplication class</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktor/ktorApplication.adoc"'>
@@ -311,8 +306,7 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 </table>
 </div>
 
-
-<h2 id="ktorModules">3.2 Defining Ktor Modules</h2>
+<h2 id="ktorModules"><a class="anchor" href="#ktorModules"></a>3.2 Defining Ktor Modules</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktorModules.adoc"'>
@@ -401,8 +395,7 @@ data class CustomGreetingRequest(val name: String)</code></pre>
 </table>
 </div>
 
-
-<h1 id="extensionFunctions">4 Kotlin Extension Functions</h1>
+<h1 id="extensionFunctions"><a class="anchor" href="#extensionFunctions"></a>4 Kotlin Extension Functions</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/extensionFunctions.adoc"'>
