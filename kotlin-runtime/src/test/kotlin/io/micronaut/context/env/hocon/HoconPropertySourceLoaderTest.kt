@@ -60,4 +60,19 @@ class HoconPropertySourceLoaderTest {
         }
     }
 
+    @Test
+    fun testExternalPropertySourceLoader() {
+        System.setProperty("micronaut.config.files", "classpath:config_file.conf")
+
+        ApplicationContext.run().use {
+            val value = it.getProperty("micronaut.server.port", Integer::class.java)
+            assert(
+                    value.get().toInt() == 8082
+            )
+        }
+
+
+        System.clearProperty("micronaut.config.files")
+    }
+
 }
