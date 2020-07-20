@@ -83,6 +83,7 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
                 val value = entry.value
                 map[key] = value.unwrapped()
             }
+            return map
         }
         return Collections.emptyMap()
     }
