@@ -1,11 +1,11 @@
 /*
- * Copyright 2017-2019 original authors
+ * Copyright 2017-2020 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -23,6 +23,7 @@ import io.micronaut.context.env.EnvironmentPropertySource
 import io.micronaut.context.env.PropertySource
 import io.micronaut.context.env.PropertySourceLoader
 import io.micronaut.core.io.ResourceLoader
+import io.micronaut.core.order.Ordered
 import io.micronaut.core.reflect.ClassUtils
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -37,14 +38,38 @@ import kotlin.collections.LinkedHashMap
  * @author graemerocher
  * @since 1.1
  */
-class HoconPropertySourceLoader : PropertySourceLoader {
+class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
 
     override fun getExtensions(): MutableSet<String> {
         return Collections.singleton("conf")
     }
 
+    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
+        return load(resourceName, resourceLoader, null)
+    }
+
     override fun isEnabled(): Boolean {
         return ClassUtils.isPresent("com.typesafe.config.Config", HoconPropertySourceLoader::class.java.classLoader)
+    }
+
+    override fun loadEnv(resourceName: String?, resourceLoader: ResourceLoader?, activeEnvironment: ActiveEnvironment?): Optional<PropertySource> {
+        if (resourceName != null) {
+            if (activeEnvironment != null) {
+                val qualifiedName = "$resourceName-${activeEnvironment.name}"
+                val resource = resourceLoader?.getResource("$qualifiedName.conf")
+                if (resource != null && resource.isPresent) {
+                    val config = resource.get().parseConfig()
+                    return Optional.of(ConfigPropertySource(qualifiedName, config))
+                }
+            } else {
+                val resource = resourceLoader?.getResource("$resourceName.conf")
+                if (resource != null && resource.isPresent) {
+                    val config = resource.get().parseConfig()
+                    return Optional.of(ConfigPropertySource(resourceName, config))
+                }
+            }
+        }
+        return Optional.empty()
     }
 
     override fun read(name: String?, input: InputStream?): MutableMap<String, Any> {

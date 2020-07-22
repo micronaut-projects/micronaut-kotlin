@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2020 original authors
+ * Copyright 2017-$YEAR original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,17 +13,3 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.http
-
-import java.time.LocalDateTime
-
-data class Hero(
-        val id: Long,
-        val name: String,
-        val alterEgo: String,
-        val dateCreated: LocalDateTime
-) {
-    fun equals(other: Hero): Boolean {
-        return this.id == other.id && this.name == other.name && this.alterEgo == other.alterEgo
-    }
-}

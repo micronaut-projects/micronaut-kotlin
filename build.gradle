@@ -1,135 +1,34 @@
 buildscript {
     repositories {
-        maven { url "https://repo.grails.org/grails/core" }
         jcenter()
+        maven { url "https://dl.bintray.com/micronaut/core-releases-local" }
+        maven { url "https://repo.grails.org/grails/core" }
     }
     dependencies {
-        classpath "org.grails:grails-gradle-plugin:$grailsVersion"
-        classpath "org.grails:grails-docs:$grailsVersion"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.5'
-        classpath 'com.bmuschko:gradle-nexus-plugin:2.3.1'
-        classpath 'io.github.groovylang.groovydoc:groovydoc-gradle-plugin:1.0.1'
-        classpath "io.micronaut.docs:micronaut-docs-asciidoc-extensions:$micronautDocsVersion"
-        classpath "io.micronaut.docs:micronaut-docs-gradle-plugins:$micronautDocsVersion"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
+
+        classpath "io.micronaut.build:micronaut-gradle-plugins:2.0.5"
     }
 }
-
-plugins {
-    id 'com.github.hierynomus.license' version '0.15.0' apply false
-}
-
-repositories {
-    maven { url "https://repo.grails.org/grails/core" }
-}
-
-apply plugin: 'org.jetbrains.dokka'
-
-version project.projectVersion
-
-ext {
-    distInstallDir = file("$buildDir/dist-tmp")
-    homeBinDir = file("bin")
-    homeLibDir = file("lib")
-    homeSrcDir = file("src")
-}
-
-
 
 subprojects { Project subproject ->
+    group "io.micronaut.kotlin"
 
-    version project.projectVersion
-	group "io.micronaut.kotlin"
-    ext {
-        isConfiguration = subproject.projectDir.parentFile.name == 'configurations'
-        isBuildSnapshot = version.toString().endsWith("-SNAPSHOT")
-    }
-
-    
-    repositories {
-        maven { url "https://repo.grails.org/grails/core" }
-    }
-    
-    apply plugin: "java-library"
+    apply plugin: "io.micronaut.build.common"
     apply plugin: "kotlin"
+    apply plugin: 'org.jetbrains.dokka'
 
 
-    sourceCompatibility = '1.8'
-    targetCompatibility = '1.8'
-
-    
-    if (!subproject.toString().contains("example")) {
-
-        apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-build/v${micronautBuildVersion}/publishing.gradle"
-        bintray.publish = true
-    }
-    
-    jar {
-        manifest {
-            attributes('Automatic-Module-Name': "${subproject.group}.${subproject.name}".replaceAll('[^\\w\\.\\$_]', "_"))
-            attributes('Implementation-Version': projectVersion)
-            attributes('Implementation-Title': 'Micronaut Kotlin')
-        }
+    if (subproject.parent.name == "examples" || subproject.name == "examples") {
+        return
     }
 
-
-    tasks.withType(Test) {
-        jvmArgs '-Duser.country=US'
-        jvmArgs '-Duser.language=en'
-        testLogging {
-            exceptionFormat = 'full'
-        }
-        afterSuite {
-            System.out.print(".")
-            System.out.flush()
-        }
-
-        reports.html.enabled = !System.getenv("TRAVIS")
-        reports.junitXml.enabled = !System.getenv("TRAVIS")
-
-    }
-
-    configurations {
-        documentation
-        all {
-            resolutionStrategy.eachDependency { DependencyResolveDetails details ->
-                String group = details.requested.group
-                if(group == 'org.codehaus.groovy') {
-                    details.useVersion(groovyVersion)
-                }
-                if(group == 'org.ow2.asm') {
-                    details.useVersion(asmVersion)
-                }
-            }
-        }
-    }
-    dependencies {
-        documentation "org.codehaus.groovy:groovy-templates:$groovyVersion"
-        documentation "org.codehaus.groovy:groovy-dateutil:$groovyVersion"
-
-        implementation enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-        annotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-        testAnnotationProcessor enforcedPlatform("io.micronaut:micronaut-bom:$micronautVersion")
-    }
-
-
-    task allDeps(type: DependencyReportTask) {}
+    apply plugin: "io.micronaut.build.dependency-updates"
+    apply plugin: "io.micronaut.build.publishing"
 }
 
-apply from:"https://raw.githubusercontent.com/micronaut-projects/micronaut-docs/v${micronautDocsVersion}/gradle/docs.gradle"
+apply plugin: "io.micronaut.build.docs"
+docs.dependsOn(subprojects.collect { it.tasks.findByName("dokka")})
 
 
-allprojects {
-    apply plugin: 'idea'
-
-    idea {
-        module {
-            outputDir file('build/classes/java/main')
-            testOutputDir file('build/classes/groovy/test')
-        }
-    }
-    apply from: rootProject.file('gradle/license.gradle')
-}
-
-docs.dependsOn(['dokka'])

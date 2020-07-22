@@ -1,11 +1,11 @@
 /*
- * Copyright 2017-2019 original authors
+ * Copyright 2017-2020 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ * https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -17,6 +17,7 @@ package io.micronaut.context.env.hocon
 
 import io.micronaut.context.env.DefaultEnvironment
 import io.micronaut.runtime.Micronaut
+import io.micronaut.context.ApplicationContext
 import org.junit.jupiter.api.Test
 
 class HoconPropertySourceLoaderTest {
@@ -25,25 +26,25 @@ class HoconPropertySourceLoaderTest {
     fun testPropertySourceLoader() {
         val env = DefaultEnvironment(Micronaut.build())
         env.start()
-
-        val value = env.getProperty("micronaut.server.port", Integer::class.java)
-        assert(
-                value.get().toInt() == 8081
-        )
+        ApplicationContext.run().use {
+            val value = it.getProperty("micronaut.server.port", Integer::class.java)
+            assert(
+                    value.get().toInt() == 8081
+            )
+        }
     }
 
     @Test
     fun testPropertySourceLoaderOrder() {
         System.setProperty("test-property", "good value")
-
         val env = DefaultEnvironment(Micronaut.build())
         env.start()
-
-        val value = env.getProperty("test-property", String::class.java)
-        assert(
-                value.get() == "good value"
-        )
-
+        ApplicationContext.run().use {
+            val value = it.getProperty("test-property", String::class.java)
+            assert(
+                    value.get() == "good value"
+            )
+        }
         System.clearProperty("test-property")
     }
 
@@ -51,11 +52,12 @@ class HoconPropertySourceLoaderTest {
     fun testPropertySourceLoaderEnvironmentVariable() {
         val env = DefaultEnvironment(Micronaut.build())
         env.start()
-
-        val value = env.getProperty("custom.user", String::class.java)
-        assert(
-                value.get() == System.getProperty("user.name")
-        )
+        ApplicationContext.run().use {
+            val value = it.getProperty("custom.user", String::class.java)
+            assert(
+                    value.get() == System.getProperty("user.name")
+            )
+        }
     }
 
 }
