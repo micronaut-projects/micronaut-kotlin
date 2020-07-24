@@ -18,7 +18,10 @@ package io.micronaut.context.env.hocon
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import com.typesafe.config.ConfigValue
-import io.micronaut.context.env.*
+import io.micronaut.context.env.ActiveEnvironment
+import io.micronaut.context.env.EnvironmentPropertySource
+import io.micronaut.context.env.PropertySource
+import io.micronaut.context.env.PropertySourceLoader
 import io.micronaut.core.io.ResourceLoader
 import io.micronaut.core.order.Ordered
 import io.micronaut.core.reflect.ClassUtils
@@ -40,9 +43,9 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
     override fun getExtensions(): MutableSet<String> {
         return Collections.singleton("conf")
     }
-
+    
     override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
-        return load(resourceName, resourceLoader, null)
+        return loadEnv(resourceName, resourceLoader, null)
     }
 
     override fun isEnabled(): Boolean {
@@ -52,7 +55,8 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
     override fun loadEnv(resourceName: String?, resourceLoader: ResourceLoader?, activeEnvironment: ActiveEnvironment?): Optional<PropertySource> {
         if (resourceName != null) {
             if (activeEnvironment != null) {
-                val qualifiedName = "$resourceName-${activeEnvironment.name}"
+                val environmentName = activeEnvironment.name
+                val qualifiedName = "$resourceName-$environmentName"
                 val resource = resourceLoader?.getResource("$qualifiedName.conf")
                 if (resource != null && resource.isPresent) {
                     val config = resource.get().parseConfig()
@@ -81,26 +85,6 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
             }
         }
         return Collections.emptyMap()
-    }
-
-    override fun load(resourceName: String?, resourceLoader: ResourceLoader?, environmentName: String?): Optional<PropertySource> {
-        if (resourceName != null) {
-            if (environmentName != null) {
-                val qualifiedName = "$resourceName-$environmentName"
-                val resource = resourceLoader?.getResource("$qualifiedName.conf")
-                if (resource != null && resource.isPresent) {
-                    val config = resource.get().parseConfig()
-                    return Optional.of(ConfigPropertySource(qualifiedName, config))
-                }
-            } else {
-                val resource = resourceLoader?.getResource("$resourceName.conf")
-                if (resource != null && resource.isPresent) {
-                    val config = resource.get().parseConfig()
-                    return Optional.of(ConfigPropertySource(resourceName, config))
-                }
-            }
-        }
-        return Optional.empty()
     }
 
     private fun URL.parseConfig(): Config =

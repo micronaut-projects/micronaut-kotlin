@@ -19,16 +19,21 @@ subprojects { Project subproject ->
     apply plugin: "kotlin"
     apply plugin: 'org.jetbrains.dokka'
 
-
     if (subproject.parent.name == "examples" || subproject.name == "examples") {
         return
     }
 
     apply plugin: "io.micronaut.build.dependency-updates"
     apply plugin: "io.micronaut.build.publishing"
+  
+    tasks.withType(Test) {
+        useJUnitPlatform()
+    }
 }
 
 apply plugin: "io.micronaut.build.docs"
+apply plugin: "io.micronaut.build.dependency-updates"
+
 docs.dependsOn(subprojects.collect { it.tasks.findByName("dokka")})
 
 
