@@ -8,7 +8,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
 
-        classpath "io.micronaut.build:micronaut-gradle-plugins:2.0.5"
+        classpath "io.micronaut.build:micronaut-gradle-plugins:2.0.6"
     }
 }
 
@@ -25,10 +25,6 @@ subprojects { Project subproject ->
 
     apply plugin: "io.micronaut.build.dependency-updates"
     apply plugin: "io.micronaut.build.publishing"
-  
-    tasks.withType(Test) {
-        useJUnitPlatform()
-    }
 }
 
 apply plugin: "io.micronaut.build.docs"
