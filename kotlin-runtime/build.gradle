@@ -8,6 +8,8 @@ dependencies {
     annotationProcessor "io.micronaut:micronaut-inject-java"
     kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
 
+    compileOnly "org.graalvm.nativeimage:svm"
+
     api "io.micronaut:micronaut-inject:$micronautVersion"
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.11.2", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
