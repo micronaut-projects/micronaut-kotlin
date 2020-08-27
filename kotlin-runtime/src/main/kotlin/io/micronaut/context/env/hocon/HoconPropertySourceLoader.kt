@@ -36,20 +36,55 @@ import kotlin.collections.LinkedHashMap
  * A PropertySourceLoader that supports config4k.
  *
  * @author graemerocher
+ * @author Marcelo Liberato
  * @since 1.1
  */
 class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
 
+    private val impl by lazy {
+        ClassUtils
+                .forName("io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl", HoconPropertySourceLoader::class.java.classLoader)
+                .get()
+                .newInstance() as PropertySourceLoader
+    }
+
     override fun getExtensions(): MutableSet<String> {
         return Collections.singleton("conf")
-    }
-    
-    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
-        return loadEnv(resourceName, resourceLoader, null)
     }
 
     override fun isEnabled(): Boolean {
         return ClassUtils.isPresent("com.typesafe.config.Config", HoconPropertySourceLoader::class.java.classLoader)
+    }
+
+    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
+        return if(isEnabled) {
+            impl.load(resourceName, resourceLoader)
+        } else {
+            Optional.empty()
+        }
+    }
+
+    override fun read(name: String?, input: InputStream?): MutableMap<String, Any> {
+        return if(isEnabled) {
+            return impl.read(name, input)
+        } else {
+            Collections.emptyMap()
+        }
+    }
+
+    override fun loadEnv(resourceName: String?, resourceLoader: ResourceLoader?, activeEnvironment: ActiveEnvironment?): Optional<PropertySource> {
+        return if(isEnabled) {
+            return impl.loadEnv(resourceName, resourceLoader, activeEnvironment)
+        } else {
+            Optional.empty()
+        }
+    }
+}
+
+class HoconPropertySourceLoaderImpl : PropertySourceLoader, Ordered {
+
+    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
+        return loadEnv(resourceName, resourceLoader, null)
     }
 
     override fun loadEnv(resourceName: String?, resourceLoader: ResourceLoader?, activeEnvironment: ActiveEnvironment?): Optional<PropertySource> {
