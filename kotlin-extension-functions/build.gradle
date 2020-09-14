@@ -33,7 +33,7 @@ dependencies {
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
     testImplementation "io.micronaut:micronaut-http-server-netty"
     testImplementation "io.micronaut.test:micronaut-test-junit5:1.2.3"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.6.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.7.0"
     testImplementation "org.mockito:mockito-core:3.5.10"
     testImplementation "org.mockito:mockito-junit-jupiter:3.5.10"
 
