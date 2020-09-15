@@ -1,5 +1,6 @@
 introduction:
   title: Introduction
+releaseHistory: Release History
 runtime:
   title: Kotlin Runtime Support
 ktor:
@@ -8,3 +9,4 @@ ktor:
   ktorModules: Defining Ktor Modules
 extensionFunctions:
   title: Kotlin Extension Functions
+repository: Repository
