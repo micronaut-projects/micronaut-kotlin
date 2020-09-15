@@ -45,11 +45,13 @@
                                 
                                 <div class="toc-item" style="margin-left:0"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#runtime"><strong>2</strong><span>Kotlin Runtime Support</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#ktor"><strong>3</strong><span>Ktor Support</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#runtime"><strong>3</strong><span>Kotlin Runtime Support</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#extensionFunctions"><strong>4</strong><span>Kotlin Extension Functions</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#ktor"><strong>4</strong><span>Ktor Support</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#extensionFunctions"><strong>5</strong><span>Kotlin Extension Functions</span></a></div>
                                 
                             </div>
                         </div>
@@ -82,15 +84,17 @@
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-introduction"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-runtime"><a href="#runtime"><strong>2</strong><span>Kotlin Runtime Support</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-releaseHistory"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-ktor"><a href="#ktor"><strong>3</strong><span>Ktor Support</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-runtime"><a href="#runtime"><strong>3</strong><span>Kotlin Runtime Support</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorApplication"><a href="#ktorApplication"><strong>3.1</strong><span>The KtorApplication class</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-ktor"><a href="#ktor"><strong>4</strong><span>Ktor Support</span></a></div>
         
-        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorModules"><a href="#ktorModules"><strong>3.2</strong><span>Defining Ktor Modules</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorApplication"><a href="#ktorApplication"><strong>4.1</strong><span>The KtorApplication class</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-extensionFunctions"><a href="#extensionFunctions"><strong>4</strong><span>Kotlin Extension Functions</span></a></div>
+        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorModules"><a href="#ktorModules"><strong>4.2</strong><span>Defining Ktor Modules</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-extensionFunctions"><a href="#extensionFunctions"><strong>5</strong><span>Kotlin Extension Functions</span></a></div>
         
         </div>
     </div>
@@ -115,47 +119,24 @@
 <div class="paragraph">
 <p>This project provides various extensions and improvements to the Micronaut and Kotlin experience.</p>
 </div>
-<div class="sect2">
-<h3 id="_release_history">Release History</h3>
-<div class="sect3">
-<h4 id="_1_0_0_rc1">1.0.0.RC1</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>First version of <code>micronaut-kotlin-extension-functions</code> module</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_1_0_0_m2">1.0.0.M2</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Support for auto config of Jackson Kotlin Module even if module scan is disabled</p>
-</li>
-<li>
-<p>Improved separation of route and application building in Kotr support</p>
-</li>
-<li>
-<p>Dependency Upgrades</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_1_0_0_m1">1.0.0.M1</h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Initial Milestone</p>
-</li>
-</ul>
-</div>
-</div>
+
+<h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>2 Release History</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/releaseHistory.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
 </div>
 
-<h1 id="runtime"><a class="anchor" href="#runtime"></a>2 Kotlin Runtime Support</h1>
+
+<div class="paragraph">
+<p>For this project, you can find a list of releases (with release notes) here:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/micronaut-projects/micronaut-kotlin/releases">https://github.com/micronaut-projects/micronaut-kotlin/releases</a></p>
+</div>
+
+<h1 id="runtime"><a class="anchor" href="#runtime"></a>3 Kotlin Runtime Support</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/runtime.adoc"'>
@@ -221,7 +202,7 @@ custom {
 </div>
 </div>
 
-<h1 id="ktor"><a class="anchor" href="#ktor"></a>3 Ktor Support</h1>
+<h1 id="ktor"><a class="anchor" href="#ktor"></a>4 Ktor Support</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktor.adoc"'>
@@ -249,7 +230,7 @@ See the <a href="https://github.com/micronaut-projects/micronaut-kotlin/tree/mas
 </table>
 </div>
 
-<h2 id="ktorApplication"><a class="anchor" href="#ktorApplication"></a>3.1 The KtorApplication class</h2>
+<h2 id="ktorApplication"><a class="anchor" href="#ktorApplication"></a>4.1 The KtorApplication class</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktor/ktorApplication.adoc"'>
@@ -306,7 +287,7 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 </table>
 </div>
 
-<h2 id="ktorModules"><a class="anchor" href="#ktorModules"></a>3.2 Defining Ktor Modules</h2>
+<h2 id="ktorModules"><a class="anchor" href="#ktorModules"></a>4.2 Defining Ktor Modules</h2>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/ktorModules.adoc"'>
@@ -395,7 +376,7 @@ data class CustomGreetingRequest(val name: String)</code></pre>
 </table>
 </div>
 
-<h1 id="extensionFunctions"><a class="anchor" href="#extensionFunctions"></a>4 Kotlin Extension Functions</h1>
+<h1 id="extensionFunctions"><a class="anchor" href="#extensionFunctions"></a>5 Kotlin Extension Functions</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/extensionFunctions.adoc"'>
