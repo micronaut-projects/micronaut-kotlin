@@ -1,17 +1,1 @@
 This project provides various extensions and improvements to the Micronaut and Kotlin experience.
-
-=== Release History
-
-==== 1.0.0.RC1
-
-* First version of `micronaut-kotlin-extension-functions` module
-
-==== 1.0.0.M2
-
-* Support for auto config of Jackson Kotlin Module even if module scan is disabled
-* Improved separation of route and application building in Kotr support
-* Dependency Upgrades
-
-==== 1.0.0.M1
-
-* Initial Milestone
