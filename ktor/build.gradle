@@ -20,7 +20,7 @@ dependencies {
     testImplementation "io.ktor:ktor-auth:$ktorVersion"
     testImplementation "io.ktor:ktor-server-netty:$ktorVersion"
     testImplementation "io.micronaut:micronaut-http-client"
-    testImplementation "io.micronaut.test:micronaut-test-junit5:1.2.3"
+    testImplementation "io.micronaut.test:micronaut-test-junit5:2.0.0"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
 }
