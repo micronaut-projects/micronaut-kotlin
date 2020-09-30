@@ -34,7 +34,6 @@ class HoconFeature: Feature {
 
     override fun beforeAnalysis(access: BeforeAnalysisAccess) {
         access.findClassByName("com.typesafe.config.Config")?.let {
-            registerClassForRuntimeReflection(it)
             registerClassForRuntimeReflection(HoconPropertySourceLoaderImpl::class.java)
         }
     }
