@@ -46,4 +46,14 @@ class QualifiersExtensionsTest {
         assertEquals(result::class, Qualifiers.byAnnotation<Context>(metadata, Context::class.java)::class)
         assertEquals((result as Named).name, (Qualifiers.byAnnotation<Context>(metadata, Context::class.java) as Named).name)
     }
+
+    @Test
+    fun qualifierByName() {
+        // given
+        val name = "foo"
+        // when
+        val result = qualifierByName<Any>(name)
+        // then
+        assertEquals(name, (result as Named).name)
+    }
 }

@@ -97,6 +97,13 @@ class BeanContextTest {
     }
 
     @Test
+    fun getBeanByName() {
+        assertThrows<NoSuchBeanException> { context.getBean<TestFactory.Foo>("invalid") }
+        assertThrows<NoSuchBeanException> { context.getBean<TestFactory.Qux>("foo") }
+        assertNotNull(context.getBean<TestFactory.Foo>("foo"))
+    }
+
+    @Test
     fun getStereotypedBean() {
         assertThrows<NoSuchBeanException> { context.getStereotypedBean<TestFactory.Qux, Context>() }
         assertNotNull(context.getStereotypedBean<TestFactory.Foo, Prototype>())
