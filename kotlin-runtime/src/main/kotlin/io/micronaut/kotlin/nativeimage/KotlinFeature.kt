@@ -36,7 +36,7 @@ class KotlinFeature: Feature {
                 "kotlin.internal.JRE8PlatformImplementations",
                 "kotlin.internal.jdk7.JDK7PlatformImplementations",
                 "kotlin.internal.JRE7PlatformImplementations")
-                .forEach { AutomaticFeatureUtils.registerClassForRuntimeReflection(access, it) }
+                .forEach { AutomaticFeatureUtils.registerClassForRuntimeReflectiveInstantiation(access, it) }
     }
 
 }
