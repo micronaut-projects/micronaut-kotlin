@@ -36,7 +36,24 @@ class KotlinFeature: Feature {
                 "kotlin.internal.JRE8PlatformImplementations",
                 "kotlin.internal.jdk7.JDK7PlatformImplementations",
                 "kotlin.internal.JRE7PlatformImplementations")
-                .forEach { AutomaticFeatureUtils.registerClassForRuntimeReflection(access, it) }
+                .forEach { AutomaticFeatureUtils.registerClassForRuntimeReflectiveInstantiation(access, it) }
+
+        AutomaticFeatureUtils.registerConstructorsForRuntimeReflection(
+                access,
+                "kotlin.reflect.jvm.internal.ReflectionFactoryImpl"
+        )
+
+        AutomaticFeatureUtils.registerAllForRuntimeReflection(
+                access,
+                "kotlin.KotlinVersion"
+        )
+
+        AutomaticFeatureUtils.registerClassForRuntimeReflection(access, "kotlin.KotlinVersion\$Companion")
+
+        AutomaticFeatureUtils.addResourcePatterns(
+                "META-INF/.*.kotlin_module\$",
+                ".*.kotlin_builtins"
+        )
     }
 
 }
