@@ -44,3 +44,15 @@ inline fun <reified T, reified Q : Annotation> qualifierByAnnotation(metadata: A
  * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> qualifierByStereotype(): Qualifier<T> = Qualifiers.byStereotype(Q::class.java)
+
+/**
+ *  Top level function acting as a Kotlin shortcut allowing to write `qualifierByName<Foo>(name)`
+ *  instead of `Qualifiers.byStereotype(Bar::class.java)`.
+ *
+ * @param T The component type
+ * @param name The name
+ * @return The [Qualifier]
+ * @author Luiz Picanço
+ * @since 2.1.2
+ */
+inline fun <reified T> qualifierByName(name: String): Qualifier<T> = Qualifiers.byName(name)

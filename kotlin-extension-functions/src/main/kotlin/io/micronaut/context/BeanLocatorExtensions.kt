@@ -15,6 +15,7 @@
  */
 package io.micronaut.context
 
+import io.micronaut.inject.qualifierByName
 import io.micronaut.inject.qualifierByStereotype
 import java.util.stream.Stream
 import kotlin.streams.asSequence
@@ -28,6 +29,17 @@ import kotlin.streams.asSequence
  * @since 1.0.0
  */
 inline fun <reified T> BeanLocator.getBean(): T = getBean(T::class.java)
+
+/**
+ * Extension for [BeanLocator.getBean] providing a `getBean<Foo>(name)` variant.
+ *
+ * @param T The bean type
+ * @param name The bean name
+ * @return The bean instance
+ * @author Luiz Picanço
+ * @since 2.1.2
+ */
+inline fun <reified T> BeanLocator.getBean(name: String): T = getBean(T::class.java, qualifierByName(name))
 
 /**
  * Extension for [BeanLocator.getBean] providing a `getStereotypedBean<Foo, Bar>()` variant.
