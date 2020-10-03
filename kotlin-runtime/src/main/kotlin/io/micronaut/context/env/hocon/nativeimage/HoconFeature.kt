@@ -18,9 +18,9 @@ package io.micronaut.context.env.hocon.nativeimage
 import com.oracle.svm.core.annotate.AutomaticFeature
 import io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl
 import io.micronaut.core.annotation.Internal
+import io.micronaut.core.graal.AutomaticFeatureUtils
 import org.graalvm.nativeimage.hosted.Feature
 import org.graalvm.nativeimage.hosted.Feature.BeforeAnalysisAccess
-import org.graalvm.nativeimage.hosted.RuntimeReflection
 
 /**
  * Kotlin feature to configure platform initialization and reflection details for native image.
@@ -34,13 +34,7 @@ class HoconFeature: Feature {
 
     override fun beforeAnalysis(access: BeforeAnalysisAccess) {
         access.findClassByName("com.typesafe.config.Config")?.let {
-            registerClassForRuntimeReflection(HoconPropertySourceLoaderImpl::class.java)
+            AutomaticFeatureUtils.registerClassForRuntimeReflectionAndReflectiveInstantiation(HoconPropertySourceLoaderImpl::class.java)
         }
     }
-
-    private fun registerClassForRuntimeReflection(clazz: Class<*>) {
-        RuntimeReflection.register(clazz)
-        RuntimeReflection.registerForReflectiveInstantiation(clazz)
-    }
-
 }
