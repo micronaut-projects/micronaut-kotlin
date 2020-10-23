@@ -14,7 +14,7 @@ dependencies {
     implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.11.3", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
-    implementation 'com.typesafe:config:1.4.0'
+    implementation 'com.typesafe:config:1.4.1'
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
