@@ -1,4 +1,5 @@
-apply plugin:"kotlin-kapt"
+apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'kotlin-kapt'
 
 sourceCompatibility = 1.8
 compileKotlin { kotlinOptions.jvmTarget = "1.8" }

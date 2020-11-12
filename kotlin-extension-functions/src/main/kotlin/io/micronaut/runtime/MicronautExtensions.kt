@@ -18,7 +18,15 @@ package io.micronaut.runtime
 import io.micronaut.context.ApplicationContext
 
 /**
+ *  Top level function acting as a Kotlin shortcut allowing to write `startApplication<Foo>(args) { // Initializer function }`
+ *  instead of `Micronaut.build(*args).mainClass(Foo::class.java).apply({ // Initializer }).start()`.
  *
+ * @param T The application class
+ * @param args The arguments
+ * @param initializer Some function you want to apply to the build
+ * @return The [ApplicationContext]
+ * @author Will Buck
+ * @since 2.3.1
  */
 // tag:startApplication
 inline fun <reified T : Any> startApplication(vararg args: String, initializer: Micronaut.() -> Unit = {}): ApplicationContext {
@@ -53,6 +61,12 @@ inline fun <reified T> Micronaut.mainClass(): Micronaut = mainClass(T::class.jav
 
 /**
  * Extension for [Micronaut.mapError] providing a `mapError<FooException>(mapper)` variant.
+ *
+ * @param T The throwable error type
+ * @param mapper the mapping function
+ * @return The [Micronaut] entrypoint class
+ * @author Will Buck
+ * @since 2.3.1
  */
 inline fun <reified T : Throwable> Micronaut.mapError(noinline mapper: (T) -> Int): Micronaut {
     return this.mapError(T::class.java, mapper)

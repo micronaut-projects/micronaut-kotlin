@@ -41,7 +41,7 @@ fun main(args: Array<String>) {
 
 NOTE: You will need to import the functions like this: `import io.micronaut.kotlin.FUNCTION_NAME`
 
-Full documentation of the provided extension functions can be found via https://micronaut-projects.github.io/micronaut-kotlin/latest/api/[the dokka docs for this project].
+Full documentation of the provided extension functions can be found via https://micronaut-projects.github.io/micronaut-kotlin/latest/api/index.html[the dokka docs for this project].
 
 WARNING: Do be aware when defining extension functions in this project or your own, an extension that shadows a member function may have unexpected behavior, and does not throw a compiler error but rather warns.
 See https://discuss.kotlinlang.org/t/why-is-shadowed-extension-not-an-error/7209/11[this Kotlin discussion topic] for the latest information.
