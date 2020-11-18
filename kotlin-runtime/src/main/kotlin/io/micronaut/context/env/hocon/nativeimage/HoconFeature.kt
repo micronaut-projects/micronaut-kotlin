@@ -16,7 +16,6 @@
 package io.micronaut.context.env.hocon.nativeimage
 
 import com.oracle.svm.core.annotate.AutomaticFeature
-import io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl
 import io.micronaut.core.annotation.Internal
 import io.micronaut.core.graal.AutomaticFeatureUtils
 import org.graalvm.nativeimage.hosted.Feature
@@ -34,7 +33,7 @@ class HoconFeature: Feature {
 
     override fun beforeAnalysis(access: BeforeAnalysisAccess) {
         access.findClassByName("com.typesafe.config.Config")?.let {
-            AutomaticFeatureUtils.registerClassForRuntimeReflectionAndReflectiveInstantiation(HoconPropertySourceLoaderImpl::class.java)
+            AutomaticFeatureUtils.registerClassForRuntimeReflectionAndReflectiveInstantiation(access, "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl")
         }
     }
 }
