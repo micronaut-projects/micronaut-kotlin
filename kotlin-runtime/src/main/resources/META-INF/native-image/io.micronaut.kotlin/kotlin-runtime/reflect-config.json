@@ -1,0 +1,73 @@
+[
+  {
+    "name": "kotlin.Metadata",
+    "allDeclaredMethods": true
+  },
+  {
+    "name": "kotlin.KotlinVersion",
+    "allDeclaredFields": true,
+    "allDeclaredMethods": true,
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "kotlin.KotlinVersion[]"
+  },
+  {
+    "name": "kotlin.KotlinVersion$Companion"
+  },
+  {
+    "name": "kotlin.KotlinVersion$Companion[]"
+  },
+  {
+    "name": "kotlin.jvm.internal.DefaultConstructorMarker"
+  },
+  {
+    "name": "kotlin.reflect.jvm.internal.ReflectionFactoryImpl",
+    "allDeclaredConstructors": true
+  },
+  {
+    "name": "java.lang.String"
+  },
+  {
+    "name": "java.util.List"
+  },
+  {
+    "name": "java.util.Set"
+  },
+  {
+    "name": "java.util.Map"
+  },
+  {
+    "name": "java.math.BigDecimal"
+  },
+  {
+    "name": "java.math.BigInteger"
+  },
+  {
+    "name": "java.time.Instant"
+  },
+  {
+    "name": "java.time.YearMonth"
+  },
+  {
+    "name": "java.time.MonthDay"
+  },
+  {
+    "name": "java.time.LocalDate"
+  },
+  {
+    "name": "java.time.LocalTime"
+  },
+  {
+    "name": "java.time.LocalDateTime"
+  },
+  {
+    "name": "java.time.Duration"
+  },
+  {
+    "name": "java.time.Period"
+  },
+  {
+    "name": "java.time.ZoneId"
+  }
+]

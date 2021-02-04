@@ -1,0 +1,12 @@
+{
+  "resources": {
+    "includes": [
+      {
+        "pattern": "META-INF/.*.kotlin_module$"
+      },
+      {
+        "pattern": ".*.kotlin_builtins"
+      }
+    ]
+  }
+}
