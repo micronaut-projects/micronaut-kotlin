@@ -5,9 +5,20 @@
 
 This project includes integrations between [Micronaut](http://micronaut.io) and [Kotlin](https://kotlinlang.org/) and [Ktor](https://ktor.io/).
 
+## Quick Start
+
+To get started quickly with Micronaut + Kotlin you can use [Micronaut Launch](https://micronaut.io/launch/) either via the web browser or `curl` to create a correctly configured application with a Gradle build:
+
+```bash
+$ curl https://launch.micronaut.io/demo.zip?lang=kotlin -o demo.zip
+$ unzip demo.zip -d demo
+$ cd demo
+$ ./gradlew run -t --watch-fs
+```
+
 ## Documentation
 
-See the [Documentation](https://micronaut-projects.github.io/micronaut-kotlin/1.0.x/guide) for more information.
+See the [Documentation](https://micronaut-projects.github.io/micronaut-kotlin/latest/guide) for more information.
 
 See the [Snapshot Documentation](https://micronaut-projects.github.io/micronaut-kotlin/snapshot/guide) for the current development docs.
 
