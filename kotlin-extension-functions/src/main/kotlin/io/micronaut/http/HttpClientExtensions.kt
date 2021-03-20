@@ -20,17 +20,33 @@ import io.micronaut.http.client.BlockingHttpClient
 
 /**
  * Shortcut to create an argument of the given type
+ *
+ * @param T The argument type
+ * @return An [Argument<T>]
+ * @author Will Buck
+ * @since 1.0.0
  */
 inline fun <reified T: Any> argumentOf(): Argument<T> = Argument.of(T::class.java)
 
 /**
- * Shortcut to create an argument of a list of the given type
+ * Shortcut to create an argument of a list the given type
+ *
+ * @param T The argument type
+ * @return An [Argument<List<<T>>]
+ * @author Will Buck
+ * @since 1.0.0
  */
 inline fun <reified T: Any> argumentOfList(): Argument<List<T>> = Argument.listOf(T::class.java)
 
 /**
  * Perform an HTTP request for the given request object emitting the full HTTP response from returned
  * Publisher and converting the response body to the specified type.
+ *
+ * @param T The argument type
+ * @param request The [HttpRequest] you want to perform
+ * @return The response from the client as an instance of T
+ * @author Will Buck
+ * @since 1.0.0
  */
 // tag::clientFunctionSingle[]
 inline fun <reified T: Any> BlockingHttpClient.retrieveObject(request: HttpRequest<Any>): T =
@@ -40,6 +56,12 @@ inline fun <reified T: Any> BlockingHttpClient.retrieveObject(request: HttpReque
 /**
  * Perform an HTTP request for the given request object emitting the full HTTP response from returned
  * Publisher and converting the response body to a list of the specified type.
+ *
+ * @param T The argument type
+ * @param request The [HttpRequest] you want to perform
+ * @return The response from the client as an instance of List<T>
+ * @author Will Buck
+ * @since 1.0.0
  */
 // tag::clientFunctionList[]
 inline fun <reified T: Any> BlockingHttpClient.retrieveList(request: HttpRequest<Any>): List<T> =

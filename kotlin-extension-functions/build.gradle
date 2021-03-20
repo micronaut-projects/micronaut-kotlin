@@ -2,12 +2,9 @@ buildscript {
     repositories {
         jcenter()
     }
-    dependencies {
-        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
-    }
 }
 repositories {
-    jcenter() // or maven { url 'https://dl.bintray.com/kotlin/dokka' }
+    jcenter()
 }
 
 apply plugin: 'org.jetbrains.dokka'
@@ -50,9 +47,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-
-dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/docs/api"
 }
