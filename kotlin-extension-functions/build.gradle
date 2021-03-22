@@ -2,12 +2,9 @@ buildscript {
     repositories {
         jcenter()
     }
-    dependencies {
-        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
-    }
 }
 repositories {
-    jcenter() // or maven { url 'https://dl.bintray.com/kotlin/dokka' }
+    jcenter()
 }
 
 apply plugin: 'org.jetbrains.dokka'
@@ -22,7 +19,7 @@ dependencies {
     kapt "io.micronaut:micronaut-inject-java:$micronautVersion"
 
     api "io.micronaut:micronaut-inject:$micronautVersion"
-    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.12.1", {
+    implementation "com.fasterxml.jackson.module:jackson-module-kotlin:2.12.2", {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
     compileOnly "io.micronaut:micronaut-runtime:$micronautVersion"
@@ -50,9 +47,4 @@ dependencies {
 
 test {
     useJUnitPlatform()
-}
-
-dokka {
-    outputFormat = 'html'
-    outputDirectory = "$buildDir/docs/api"
 }

@@ -207,7 +207,7 @@ inline fun <reified T> BeanDefinitionRegistry.findBeanDefinition(): BeanDefiniti
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T, inject: Boolean): BeanDefinitionRegistry =
+inline fun <reified T: Any, reified Q : Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T, inject: Boolean): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton, qualifierByStereotype<T, Q>(), inject)
 
 /**
@@ -220,7 +220,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerSt
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T): BeanDefinitionRegistry =
+inline fun <reified T: Any, reified Q: Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton, qualifierByStereotype<T, Q>())
 
 /**
@@ -232,5 +232,5 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.registerSt
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanDefinitionRegistry.registerNotStereotypedSingleton(singleton: T): BeanDefinitionRegistry =
+inline fun <reified T: Any> BeanDefinitionRegistry.registerNotStereotypedSingleton(singleton: T): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton)
