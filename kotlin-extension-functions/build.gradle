@@ -1,12 +1,3 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-}
-repositories {
-    jcenter()
-}
-
 apply plugin: 'org.jetbrains.dokka'
 apply plugin:"kotlin-kapt"
 
