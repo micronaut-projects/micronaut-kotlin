@@ -42,7 +42,8 @@ jobs:
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
-        run: ./gradlew publishToSonatype docs --no-daemon
+        # Edited below to add MaxMetaspace for dokka workaround
+        run: ./gradlew publishToSonatype docs --no-daemon -Dorg.gradle.jvmargs="-XX:MaxMetaspaceSize=350m"
       - name: Determine docs target repository
         uses: haya14busa/action-cond@v1
         id: docs_target

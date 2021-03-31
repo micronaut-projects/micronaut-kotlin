@@ -4,10 +4,17 @@ buildscript {
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
 
         classpath "io.micronaut.build.internal:micronaut-gradle-plugins:3.0.3"
     }
+}
+
+plugins {
+    id("org.jetbrains.dokka") version "${dokka_version}"
+}
+
+repositories {
+    jcenter() // or maven(url="https://dl.bintray.com/kotlin/dokka")
 }
 
 subprojects { Project subproject ->
@@ -21,7 +28,6 @@ subprojects { Project subproject ->
 
 apply plugin: "io.micronaut.build.internal.docs"
 apply plugin: "io.micronaut.build.internal.dependency-updates"
-apply plugin: 'org.jetbrains.dokka'
 
 tasks.named("dokkaHtmlMultiModule") {
     outputDirectory.set(new File("${rootProject.buildDir}/docs/api"))
