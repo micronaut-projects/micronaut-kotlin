@@ -69,5 +69,8 @@
   },
   {
     "name": "java.time.ZoneId"
+  },
+  {
+    "name": "com.fasterxml.jackson.module.kotlin.UnsignedNumbersKt"
   }
 ]
