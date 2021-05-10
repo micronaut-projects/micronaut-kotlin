@@ -1,12 +1,12 @@
 buildscript {
     repositories {
-        maven { url "https://repo.grails.org/grails/core" }
+        mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.jetbrains.dokka:dokka-gradle-plugin:${dokka_version}"
-
-        classpath "io.micronaut.build.internal:micronaut-gradle-plugins:3.0.4"
+        classpath "io.micronaut.build.internal:micronaut-gradle-plugins:4.0.0.RC5"
     }
 }
 
