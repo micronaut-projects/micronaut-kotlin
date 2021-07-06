@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.scheduling
+package io.micronaut.kotlin.scheduling
 
+import io.micronaut.scheduling.TaskScheduler
 import java.time.Duration
 import java.util.concurrent.Callable
 import java.util.concurrent.ScheduledFuture

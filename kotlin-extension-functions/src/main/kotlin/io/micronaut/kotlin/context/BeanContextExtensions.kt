@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.context
+package io.micronaut.kotlin.context
 
-import io.micronaut.inject.qualifierByStereotype
+import io.micronaut.context.BeanContext
+import io.micronaut.kotlin.inject.qualifierByStereotype
 
 /**
  * Extension for [BeanContext.createBean] providing a `createBean<Foo>()` variant.

@@ -13,10 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.context
+package io.micronaut.kotlin.context
 
-import io.micronaut.inject.qualifierByName
-import io.micronaut.inject.qualifierByStereotype
+import io.micronaut.context.BeanLocator
+import io.micronaut.kotlin.inject.qualifierByName
+import io.micronaut.kotlin.inject.qualifierByStereotype
 import java.util.stream.Stream
 import kotlin.streams.asSequence
 

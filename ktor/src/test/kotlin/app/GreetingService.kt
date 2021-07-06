@@ -15,7 +15,7 @@
  */
 package app
 
-import javax.inject.Singleton
+import jakarta.inject.Singleton
 
 @Singleton
 class GreetingService {

@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.context
+package io.micronaut.kotlin.context
 
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Prototype
@@ -49,10 +49,10 @@ class ApplicationContextTest {
     @Test
     fun runWithPropertySourceAndEnvironment() {
         val context = run<TestFactory>(
-                MapPropertySource(
-                        "bar",
-                        mapOf("bar.enabled" to "true")
-                ), "baz"
+            MapPropertySource(
+                "bar",
+                mapOf("bar.enabled" to "true")
+            ), "baz"
         )
         assertNotNull(context)
     }
@@ -68,7 +68,7 @@ class ApplicationContextTest {
     @Test
     fun buildAndStartWithProperties() {
         val context =
-                buildAndStart<TestFactory>(mapOf("bar.enabled" to "true"))
+            buildAndStart<TestFactory>(mapOf("bar.enabled" to "true"))
         assertNotNull(context.getBean(TestFactory.Foo::class.java))
         assertNotNull(context.getBean(TestFactory.Bar::class.java))
         assertFalse(context.findBean(TestFactory.Baz::class.java).isPresent)
@@ -77,8 +77,8 @@ class ApplicationContextTest {
     @Test
     fun buildAndStartWithPropertySource() {
         val context = buildAndStart<TestFactory>(
-                MapPropertySource("foo", mapOf("foo.enabled" to "true")),
-                MapPropertySource("bar", mapOf("bar.enabled" to "true"))
+            MapPropertySource("foo", mapOf("foo.enabled" to "true")),
+            MapPropertySource("bar", mapOf("bar.enabled" to "true"))
         )
         assertNotNull(context.getBean(TestFactory.Foo::class.java))
         assertNotNull(context.getBean(TestFactory.Bar::class.java))
@@ -96,7 +96,7 @@ class ApplicationContextTest {
     @Test
     fun buildAndStartWithPropertiesAndEnvironment() {
         val context =
-                buildAndStart<TestFactory>(mapOf("bar.enabled" to "true"), "baz")
+            buildAndStart<TestFactory>(mapOf("bar.enabled" to "true"), "baz")
         assertNotNull(context.getBean(TestFactory.Foo::class.java))
         assertNotNull(context.getBean(TestFactory.Bar::class.java))
         assertNotNull(context.getBean(TestFactory.Baz::class.java))
@@ -105,10 +105,10 @@ class ApplicationContextTest {
     @Test
     fun buildAndStartWithPropertySourceAndEnvironment() {
         val context = buildAndStart<TestFactory>(
-                MapPropertySource(
-                        "bar",
-                        mapOf("bar.enabled" to "true")
-                ), "baz"
+            MapPropertySource(
+                "bar",
+                mapOf("bar.enabled" to "true")
+            ), "baz"
         )
         assertNotNull(context.getBean(TestFactory.Foo::class.java))
         assertNotNull(context.getBean(TestFactory.Bar::class.java))

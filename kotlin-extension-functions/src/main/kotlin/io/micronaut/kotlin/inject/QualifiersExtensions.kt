@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.inject
+package io.micronaut.kotlin.inject
 
 import io.micronaut.context.Qualifier
 import io.micronaut.core.annotation.AnnotationMetadata
@@ -44,6 +44,18 @@ inline fun <reified T, reified Q : Annotation> qualifierByAnnotation(metadata: A
  * @since 1.0.0
  */
 inline fun <reified T, reified Q : Annotation> qualifierByStereotype(): Qualifier<T> = Qualifiers.byStereotype(Q::class.java)
+
+/**
+ *  Top level function acting as a Kotlin shortcut allowing to write `qualifierByStereotype<Foo>(string)`
+ *  instead of `Qualifiers.byStereotype(string)`.
+ *
+ * @param T The component type
+ * @param name The stereotype name
+ * @return The [Qualifier]
+ * @author James Kleeh
+ * @since 3.0.0
+ */
+inline fun <reified T> qualifierByStereotype(name: String): Qualifier<T> = Qualifiers.byStereotype(name)
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `qualifierByName<Foo>(name)`

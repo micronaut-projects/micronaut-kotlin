@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.context
+package io.micronaut.kotlin.context
 
+import io.micronaut.context.Qualifier
 import io.micronaut.inject.BeanType
 import java.util.stream.Stream
 

@@ -13,10 +13,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.context
+package io.micronaut.kotlin.context
 
+import io.micronaut.context.BeanDefinitionRegistry
+import io.micronaut.context.BeanRegistration
 import io.micronaut.inject.BeanDefinition
-import io.micronaut.inject.qualifierByStereotype
+import io.micronaut.kotlin.inject.qualifierByStereotype
 import io.micronaut.inject.qualifiers.Qualifiers
 import kotlin.reflect.KClass
 
@@ -64,6 +66,19 @@ operator fun BeanDefinitionRegistry.contains(t: KClass<out Any>) = containsBean(
 inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.containsStereotypedBean() =
         containsBean(T::class.java, qualifierByStereotype<T, Q>())
 
+
+/**
+ * Extension for [BeanDefinitionRegistry.containsBean] providing a `containsStereotypedBean<Foo, Bar>()` variant.
+ *
+ * @param T The bean type
+ * @param name The stereotype name
+ * @return True if contained
+ * @author James Kleeh
+ * @since 3.0.0
+ */
+inline fun <reified T> BeanDefinitionRegistry.containsStereotypedBean(name: String) =
+        containsBean(T::class.java, qualifierByStereotype<T>(name))
+
 /**
  * Extension for [BeanDefinitionRegistry.containsBean] providing a `(Foo::class to Prototype::class) in registry` variant.
  *
@@ -72,7 +87,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.containsSt
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-operator fun BeanDefinitionRegistry.contains(t: Pair<KClass<out Any>, KClass<out Annotation>>) =
+inline operator fun <reified T: Any, reified Q : Annotation> BeanDefinitionRegistry.contains(t: Pair<KClass<T>, KClass<Q>>) =
         containsBean(t.first.java, Qualifiers.byStereotype(t.second.java))
 
 /**
@@ -210,6 +225,21 @@ inline fun <reified T> BeanDefinitionRegistry.findBeanDefinition(): BeanDefiniti
 inline fun <reified T: Any, reified Q : Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T, inject: Boolean): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton, qualifierByStereotype<T, Q>(), inject)
 
+
+/**
+ * Extension for [BeanDefinitionRegistry.registerSingleton] providing a `registerStereotypedSingleton<Foo, Bar>(singleton, true)` variant.
+ *
+ * @param T The bean type
+ * @param singleton The singleton bean
+ * @param name The name of the stereotype
+ * @param inject Whether the singleton should be injected
+ * @return The [BeanDefinitionRegistry]
+ * @author James Kleeh
+ * @since 3.0.0
+ */
+inline fun <reified T: Any> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T, name: String, inject: Boolean): BeanDefinitionRegistry =
+        registerSingleton(T::class.java, singleton, qualifierByStereotype<T>(name), inject)
+
 /**
  * Extension for [BeanDefinitionRegistry.registerSingleton] providing a `registerStereotypedSingleton<Foo, Bar>(singleton)` variant.
  *
@@ -222,6 +252,20 @@ inline fun <reified T: Any, reified Q : Annotation> BeanDefinitionRegistry.regis
  */
 inline fun <reified T: Any, reified Q: Annotation> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T): BeanDefinitionRegistry =
         registerSingleton(T::class.java, singleton, qualifierByStereotype<T, Q>())
+
+
+/**
+ * Extension for [BeanDefinitionRegistry.registerSingleton] providing a `registerStereotypedSingleton<Foo, Bar>(singleton)` variant.
+ *
+ * @param T The bean type
+ * @param singleton The singleton bean
+ * @param name The stereotype name
+ * @return The [BeanDefinitionRegistry]
+ * @author James Kleeh
+ * @since 3.0.0
+ */
+inline fun <reified T: Any> BeanDefinitionRegistry.registerStereotypedSingleton(singleton: T, name: String): BeanDefinitionRegistry =
+        registerSingleton(T::class.java, singleton, qualifierByStereotype<T>(name))
 
 /**
  * Extension for [BeanDefinitionRegistry.registerSingleton] providing a `registerNotStereotypedSingleton<Foo>(singleton)` variant.

@@ -21,7 +21,7 @@ import io.ktor.http.ContentType
 import io.ktor.response.respondText
 import io.ktor.routing.get
 import io.micronaut.ktor.KtorRoutingBuilder
-import javax.inject.Singleton
+import jakarta.inject.Singleton
 
 @Singleton
 class GreetingRoutes(private val greetingService: GreetingService) : KtorRoutingBuilder({

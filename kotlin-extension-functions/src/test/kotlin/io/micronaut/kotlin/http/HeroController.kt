@@ -13,9 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.http
+package io.micronaut.kotlin.http
 
-import io.micronaut.http.Hero
+import io.micronaut.kotlin.http.Hero
 import io.micronaut.http.HttpResponse
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Get

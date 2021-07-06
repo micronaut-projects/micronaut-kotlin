@@ -13,9 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.runtime
+package io.micronaut.kotlin.runtime
 
 import io.micronaut.context.ApplicationContext
+import io.micronaut.runtime.Micronaut
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `startApplication<Foo>(args) { // Initializer function }`

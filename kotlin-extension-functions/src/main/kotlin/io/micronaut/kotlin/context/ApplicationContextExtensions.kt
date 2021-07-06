@@ -13,8 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.context
+package io.micronaut.kotlin.context
 
+import io.micronaut.context.ApplicationContext
 import io.micronaut.context.env.PropertySource
 
 /**
@@ -27,7 +28,8 @@ import io.micronaut.context.env.PropertySource
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T : AutoCloseable> run(vararg environments: String): T = ApplicationContext.run(T::class.java, *environments)
+inline fun <reified T : AutoCloseable> run(vararg environments: String): T =
+        ApplicationContext.run(T::class.java, *environments)
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `run<Foo>(props, "env")`
@@ -91,7 +93,10 @@ inline fun <reified T> buildAndStart(vararg propertySources: PropertySource): Ap
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> buildAndStart(vararg environments: String): ApplicationContext = ApplicationContext.build(T::class.java, *environments).start()
+inline fun <reified T> buildAndStart(vararg environments: String): ApplicationContext = ApplicationContext.build(
+        T::class.java,
+        *environments
+).start()
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `buildAndStart<Foo>("env")`

@@ -22,7 +22,7 @@ import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.ktor.KtorApplication
-import javax.inject.Singleton
+import jakarta.inject.Singleton
 
 @Singleton
 @Requires(classes = arrayOf(Tomcat::class))

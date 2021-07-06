@@ -17,8 +17,6 @@ package io.micronaut.ktor.factory
 
 import io.ktor.routing.routing
 import io.ktor.server.engine.*
-import io.ktor.util.KtorExperimentalAPI
-import io.micronaut.context.annotation.Bean
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.env.Environment
 import io.micronaut.core.annotation.Internal
@@ -28,7 +26,7 @@ import io.micronaut.ktor.KtorApplication
 import io.micronaut.ktor.KtorApplicationBuilder
 import io.micronaut.ktor.KtorRoutingBuilder
 import io.micronaut.ktor.env.MicronautKtorEnvironmentConfig
-import javax.inject.Singleton
+import jakarta.inject.Singleton
 
 /**
  * The Ktor factory
@@ -38,7 +36,6 @@ import javax.inject.Singleton
 class KtorMicronautApplicationFactory {
 
     @Singleton
-    @Bean
     fun applicationEngineEnvironmentBuilder(
             ktorApplication: KtorApplication<*>,
             ktorApplicationBuilders: List<KtorApplicationBuilder>,
@@ -60,8 +57,6 @@ class KtorMicronautApplicationFactory {
 
     @EngineAPI
     @Singleton
-    @Bean
-    @KtorExperimentalAPI
     fun applicationEngineEnvironment(
             builder : ApplicationEngineEnvironmentBuilder,
             env : Environment,

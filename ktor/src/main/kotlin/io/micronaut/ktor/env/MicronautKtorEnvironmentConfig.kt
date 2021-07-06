@@ -28,10 +28,8 @@ import java.util.*
  * @author graemerocher
  * @since 1.0
  */
-@io.ktor.util.KtorExperimentalAPI
 class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix : String? = "") : ApplicationConfig {
 
-    @io.ktor.util.KtorExperimentalAPI
     override fun config(path: String): ApplicationConfig {
         if (env.containsProperties(path)) {
             return MicronautKtorEnvironmentConfig(env, path)
@@ -40,12 +38,10 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
         }
     }
 
-    @io.ktor.util.KtorExperimentalAPI
     override fun configList(path: String): List<ApplicationConfig> {
         return Collections.singletonList(config(path))
     }
 
-    @io.ktor.util.KtorExperimentalAPI
     override fun property(path: String): ApplicationConfigValue {
         val fullPath = if(prefix == null) path else "$prefix.$path"
         if (env.containsProperty(fullPath)) {
@@ -55,7 +51,6 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
         }
     }
 
-    @io.ktor.util.KtorExperimentalAPI
     override fun propertyOrNull(path: String): ApplicationConfigValue? {
         val fullPath = "$prefix.$path"
         return if (env.containsProperty(fullPath)) {
@@ -66,7 +61,6 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     }
 
     @Suppress("UNCHECKED_CAST")
-    @io.ktor.util.KtorExperimentalAPI
     class KtorApplicationConfigValue(private val prop : String, private val env: Environment) : ApplicationConfigValue {
         override fun getList(): List<String> {
             val requiredProperty = env.getProperty(prop, Argument.of(List::class.java, String::class.java))
