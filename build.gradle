@@ -16,6 +16,11 @@ subprojects { Project subproject ->
     apply plugin: "io.micronaut.build.internal.common"
     apply plugin: "kotlin"
     apply plugin: "io.micronaut.build.internal.dependency-updates"
+
+    if (subproject.parent.name == "examples" || subproject.name == "examples") {
+        return
+    }
+
     apply plugin: "io.micronaut.build.internal.publishing"
 }
 
@@ -37,3 +42,14 @@ task renameDokkaRootFile(type: Copy) {
 renameDokkaRootFile.dependsOn(dokkaHtmlMultiModule)
 
 docs.dependsOn(renameDokkaRootFile)
+
+def prepareGuideHotfix = tasks.register("prepareGuideHotfix") {
+    doLast {
+        file("${buildDir}/doc-resources").mkdirs()
+    }
+}
+
+tasks.named('publishGuide') {
+    dependsOn(prepareGuideHotfix)
+    dependsOn(tasks.javadoc)
+}

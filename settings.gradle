@@ -2,3 +2,9 @@ include "kotlin-runtime"
 include "ktor"
 include "kotlin-extension-functions"
 include "examples:greeting"
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
