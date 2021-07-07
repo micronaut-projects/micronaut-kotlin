@@ -18,14 +18,15 @@ package app
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 import io.micronaut.http.client.annotation.Client
-import io.micronaut.test.annotation.MicronautTest
+import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import io.reactivex.Single
+import jakarta.inject.Inject
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
-import javax.inject.Inject
 
 @MicronautTest
 class GreetingTest {
+
     @Inject
     lateinit var client: GreetingClient
 

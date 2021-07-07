@@ -19,7 +19,7 @@ import io.ktor.application.install
 import io.ktor.auth.Authentication
 import io.ktor.auth.basic
 import io.micronaut.ktor.KtorApplicationBuilder
-import javax.inject.Singleton
+import jakarta.inject.Singleton
 
 @Singleton
 class AuthenticationBuilder : KtorApplicationBuilder({

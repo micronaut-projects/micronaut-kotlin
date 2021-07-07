@@ -17,8 +17,8 @@ package app
 
 import io.ktor.server.netty.NettyApplicationEngine
 import io.micronaut.ktor.KtorApplication
+import jakarta.inject.Singleton
 import org.slf4j.LoggerFactory
-import javax.inject.Singleton
 
 @Singleton
 class App(val greetingService: GreetingService) : KtorApplication<NettyApplicationEngine.Configuration>({

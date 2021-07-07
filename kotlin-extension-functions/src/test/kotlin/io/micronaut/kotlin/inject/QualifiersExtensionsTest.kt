@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.inject
+package io.micronaut.kotlin.inject
 
 import io.micronaut.context.annotation.Context
 import io.micronaut.core.annotation.AnnotationMetadata
@@ -31,7 +31,7 @@ class QualifiersExtensionsTest {
     fun qualifierByStereotype() {
         // given
         // when
-        val result = qualifierByStereotype<Any, Context>()
+        val result = io.micronaut.kotlin.inject.qualifierByStereotype<Any, Context>()
         // then
         assertEquals(result::class, Qualifiers.byStereotype<Any>(Context::class.java)::class)
     }
@@ -41,7 +41,7 @@ class QualifiersExtensionsTest {
         // given
         val metadata = AnnotationMetadata.EMPTY_METADATA
         // when
-        val result = qualifierByAnnotation<Any, Context>(metadata)
+        val result = io.micronaut.kotlin.inject.qualifierByAnnotation<Any, Context>(metadata)
         // then
         assertEquals(result::class, Qualifiers.byAnnotation<Context>(metadata, Context::class.java)::class)
         assertEquals((result as Named).name, (Qualifiers.byAnnotation<Context>(metadata, Context::class.java) as Named).name)
@@ -52,7 +52,7 @@ class QualifiersExtensionsTest {
         // given
         val name = "foo"
         // when
-        val result = qualifierByName<Any>(name)
+        val result = io.micronaut.kotlin.inject.qualifierByName<Any>(name)
         // then
         assertEquals(name, (result as Named).name)
     }

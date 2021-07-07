@@ -13,14 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.http
+package io.micronaut.kotlin.http
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import io.micronaut.context.ApplicationContext
 import io.micronaut.core.type.Argument
+import io.micronaut.http.HttpRequest
 import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.http.client.HttpClient
-import io.micronaut.runtime.startApplication
+import io.micronaut.kotlin.http.retrieveList
+import io.micronaut.kotlin.http.retrieveObject
+import io.micronaut.kotlin.runtime.startApplication
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test

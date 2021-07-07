@@ -18,8 +18,8 @@ package app
 // tag::imports[]
 import io.ktor.server.netty.NettyApplicationEngine
 import io.micronaut.ktor.*
+import jakarta.inject.Singleton
 import org.slf4j.LoggerFactory
-import javax.inject.Singleton
 // end::imports[]
 
 // tag::class[]

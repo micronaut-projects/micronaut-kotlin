@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.micronaut.context
+package io.micronaut.kotlin.context
 
 
+import io.micronaut.context.ApplicationContext
+import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.context.annotation.Prototype
 import io.micronaut.context.annotation.Requires
 import io.micronaut.inject.qualifiers.Qualifiers
+import jakarta.inject.Singleton
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import javax.inject.Singleton
 
 /**
  * @author Alejandro Gomez
@@ -36,7 +38,7 @@ class BeanDefinitionRegistryExtensionsTest {
 
     @BeforeEach
     fun setUp() {
-        context = ApplicationContext.build(TestFactory::class.java).start()
+        context = ApplicationContext.builder(TestFactory::class.java).start()
     }
 
     @Test
@@ -61,8 +63,8 @@ class BeanDefinitionRegistryExtensionsTest {
     fun containsStereotypedBean() {
         assertEquals(context.containsBean(TestFactory.Foo::class.java, Qualifiers.byStereotype(Prototype::class.java)),
                 context.containsStereotypedBean<TestFactory.Foo, Prototype>())
-        assertEquals(context.containsBean(TestFactory.Foo::class.java, Qualifiers.byStereotype(Singleton::class.java)),
-                context.containsStereotypedBean<TestFactory.Foo, Singleton>())
+        assertEquals(context.containsBean(TestFactory.Foo::class.java, Qualifiers.byStereotype("javax.inject.Singleton")),
+                context.containsStereotypedBean<TestFactory.Foo>("javax.inject.Singleton"))
     }
 
     @Test
@@ -105,19 +107,19 @@ class BeanDefinitionRegistryExtensionsTest {
 
     @Test
     fun findProxyTargetBeanDefinition() {
-        assertEquals(context.findProxyTargetBeanDefinition(TestFactory.Foo::class.java, Qualifiers.byStereotype<TestFactory.Foo>(Prototype::class.java))
+        assertEquals(context.findProxyTargetBeanDefinition(TestFactory.Foo::class.java, Qualifiers.byStereotype(Prototype::class.java))
                 .orElse(null), context.findProxyTargetBeanDefinition<TestFactory.Foo, Prototype>())
     }
 
     @Test
     fun findProxyBeanDefinition() {
-        assertEquals(context.findProxyBeanDefinition(TestFactory.Foo::class.java, Qualifiers.byStereotype<TestFactory.Foo>(Prototype::class.java))
+        assertEquals(context.findProxyBeanDefinition(TestFactory.Foo::class.java, Qualifiers.byStereotype(Prototype::class.java))
                 .orElse(null), context.findProxyBeanDefinition<TestFactory.Foo, Prototype>())
     }
 
     @Test
     fun getProxyTargetBeanDefinition() {
-        assertEquals(context.getProxyTargetBeanDefinition(TestFactory.Foo::class.java, Qualifiers.byStereotype<TestFactory.Foo>(Prototype::class.java)),
+        assertEquals(context.getProxyTargetBeanDefinition(TestFactory.Foo::class.java, Qualifiers.byStereotype(Prototype::class.java)),
                 context.getProxyTargetBeanDefinition<TestFactory.Foo, Prototype>())
     }
 
@@ -129,7 +131,7 @@ class BeanDefinitionRegistryExtensionsTest {
     @Test
     fun registerStereotypedSingleton() {
         val singleton = TestFactory.Baz()
-        context.registerStereotypedSingleton<TestFactory.Baz, Singleton>(singleton)
+        context.registerNotStereotypedSingleton(singleton)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
         assertNull(context.getBean(TestFactory.Baz::class.java).foo)
     }
@@ -137,7 +139,7 @@ class BeanDefinitionRegistryExtensionsTest {
     @Test
     fun registerStereotypedSingletonWithInjectionDisabled() {
         val singleton = TestFactory.Baz()
-        context.registerStereotypedSingleton<TestFactory.Baz, Singleton>(singleton, false)
+        context.registerStereotypedSingleton(singleton, "javax.inject.Singleton", false)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
         assertNull(context.getBean(TestFactory.Baz::class.java).foo)
     }
@@ -145,7 +147,7 @@ class BeanDefinitionRegistryExtensionsTest {
     @Test
     fun registerStereotypedSingletonWithInjectionEnabled() {
         val singleton = TestFactory.Baz(TestFactory.Foo())
-        context.registerStereotypedSingleton<TestFactory.Baz, Singleton>(singleton, true)
+        context.registerStereotypedSingleton(singleton, "javax.inject.Singleton", true)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
         assertNotNull(context.getBean(TestFactory.Baz::class.java).foo)
     }

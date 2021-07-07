@@ -15,11 +15,10 @@
  */
 package io.micronaut.jackson.kotlin
 
-import com.fasterxml.jackson.databind.Module
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires
-import javax.inject.Singleton
+import jakarta.inject.Singleton
 
 /**
  * Automatically configures KotlinModule if module scan is disabled.
