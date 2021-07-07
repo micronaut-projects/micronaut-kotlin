@@ -42,3 +42,14 @@ task renameDokkaRootFile(type: Copy) {
 renameDokkaRootFile.dependsOn(dokkaHtmlMultiModule)
 
 docs.dependsOn(renameDokkaRootFile)
+
+def prepareGuideHotfix = tasks.register("prepareGuideHotfix") {
+    doLast {
+        file("${buildDir}/doc-resources").mkdirs()
+    }
+}
+
+tasks.named('publishGuide') {
+    dependsOn(prepareGuideHotfix)
+    dependsOn(tasks.javadoc)
+}
