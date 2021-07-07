@@ -68,7 +68,7 @@ inline fun <reified T : AutoCloseable> run(propertySource: PropertySource, varar
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> buildAndStart(): ApplicationContext = ApplicationContext.build(T::class.java).start()
+inline fun <reified T> buildAndStart(): ApplicationContext = ApplicationContext.builder(T::class.java).start()
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `buildAndStart<Foo>(mapOf("foo" to "bar"))`
@@ -81,7 +81,7 @@ inline fun <reified T> buildAndStart(): ApplicationContext = ApplicationContext.
  * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(vararg propertySources: PropertySource): ApplicationContext =
-        ApplicationContext.build(T::class.java).propertySources(*propertySources).start()
+        ApplicationContext.builder(T::class.java).propertySources(*propertySources).start()
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `buildAndStart<Foo>("env")`
@@ -93,7 +93,7 @@ inline fun <reified T> buildAndStart(vararg propertySources: PropertySource): Ap
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> buildAndStart(vararg environments: String): ApplicationContext = ApplicationContext.build(
+inline fun <reified T> buildAndStart(vararg environments: String): ApplicationContext = ApplicationContext.builder(
         T::class.java,
         *environments
 ).start()
@@ -110,7 +110,7 @@ inline fun <reified T> buildAndStart(vararg environments: String): ApplicationCo
  * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(properties: Map<String, Any?>, vararg environments: String): ApplicationContext =
-        ApplicationContext.build(properties, *environments).mainClass(T::class.java).start()
+        ApplicationContext.builder(properties, *environments).mainClass(T::class.java).start()
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `buildAndStart<Foo>("env")`
@@ -124,4 +124,4 @@ inline fun <reified T> buildAndStart(properties: Map<String, Any?>, vararg envir
  * @since 1.0.0
  */
 inline fun <reified T> buildAndStart(propertySource: PropertySource, vararg environments: String): ApplicationContext =
-        ApplicationContext.build(T::class.java, *environments).propertySources(propertySource).start()
+        ApplicationContext.builder(T::class.java, *environments).propertySources(propertySource).start()
