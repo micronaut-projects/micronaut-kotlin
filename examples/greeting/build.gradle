@@ -35,6 +35,7 @@ dependencies {
     testImplementation "io.micronaut:micronaut-http-client"
     testImplementation "io.micronaut.test:micronaut-test-junit5:2.3.7"
     testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testImplementation "io.projectreactor:reactor-core"
 }
 
 allOpen {

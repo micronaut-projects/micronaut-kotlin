@@ -78,7 +78,7 @@ abstract class AbstractKtorEmbeddedServer(
         val connectors = engineEnvironment.connectors
         val first = connectors.first()
 
-        return first.type.name.toLowerCase(Locale.ENGLISH)
+        return first.type.name.lowercase(Locale.ENGLISH)
     }
 
     override fun start(): EmbeddedServer {

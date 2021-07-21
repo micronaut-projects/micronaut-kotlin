@@ -19,10 +19,11 @@ import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Post
 import io.micronaut.http.client.annotation.Client
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
-import io.reactivex.Single
 import jakarta.inject.Inject
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+import org.reactivestreams.Publisher
+import reactor.core.publisher.Flux
 
 @MicronautTest
 class GreetingTest {
@@ -34,7 +35,7 @@ class GreetingTest {
     fun testHelloGet() {
         assertEquals(
             "Hello World",
-            client.hello().blockingGet().message
+            Flux.from(client.hello()).blockFirst()!!.message
         )
     }
 
@@ -42,16 +43,17 @@ class GreetingTest {
     fun testHelloPost() {
         assertEquals(
             "Hello Micronaut",
-            client.hello(name = "Micronaut").blockingGet().message
+            Flux.from(client.hello(name = "Micronaut")).blockFirst()!!.message
         )
     }
 }
 
 @Client("/")
 interface GreetingClient {
+
     @Get("/")
-    fun hello(): Single<Greeting>
+    fun hello(): Publisher<Greeting>
 
     @Post("/")
-    fun hello(name: String): Single<Greeting>
+    fun hello(name: String): Publisher<Greeting>
 }

@@ -41,7 +41,7 @@ class QualifierExtensionsTest {
         // val context = DefaultBeanContext().start()
         // val foo = TestFactory.Foo()
         // context.registerSingleton(foo)
-        context = ApplicationContext.build(TestFactory::class.java).start()
+        context = ApplicationContext.builder(TestFactory::class.java).start()
     }
 
     @Test

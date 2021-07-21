@@ -23,6 +23,7 @@ import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.context.annotation.Prototype
 import io.micronaut.context.annotation.Requires
+import io.micronaut.core.annotation.AnnotationUtil
 import io.micronaut.inject.qualifiers.Qualifiers
 import jakarta.inject.Singleton
 import org.junit.jupiter.api.Assertions.*
@@ -63,8 +64,8 @@ class BeanDefinitionRegistryExtensionsTest {
     fun containsStereotypedBean() {
         assertEquals(context.containsBean(TestFactory.Foo::class.java, Qualifiers.byStereotype(Prototype::class.java)),
                 context.containsStereotypedBean<TestFactory.Foo, Prototype>())
-        assertEquals(context.containsBean(TestFactory.Foo::class.java, Qualifiers.byStereotype("javax.inject.Singleton")),
-                context.containsStereotypedBean<TestFactory.Foo>("javax.inject.Singleton"))
+        assertEquals(context.containsBean(TestFactory.Foo::class.java, Qualifiers.byStereotype(AnnotationUtil.SINGLETON)),
+                context.containsStereotypedBean<TestFactory.Foo>(AnnotationUtil.SINGLETON))
     }
 
     @Test
@@ -139,7 +140,7 @@ class BeanDefinitionRegistryExtensionsTest {
     @Test
     fun registerStereotypedSingletonWithInjectionDisabled() {
         val singleton = TestFactory.Baz()
-        context.registerStereotypedSingleton(singleton, "javax.inject.Singleton", false)
+        context.registerStereotypedSingleton(singleton, AnnotationUtil.SINGLETON, false)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
         assertNull(context.getBean(TestFactory.Baz::class.java).foo)
     }
@@ -147,7 +148,7 @@ class BeanDefinitionRegistryExtensionsTest {
     @Test
     fun registerStereotypedSingletonWithInjectionEnabled() {
         val singleton = TestFactory.Baz(TestFactory.Foo())
-        context.registerStereotypedSingleton(singleton, "javax.inject.Singleton", true)
+        context.registerStereotypedSingleton(singleton, AnnotationUtil.SINGLETON, true)
         assertSame(singleton, context.getBean(TestFactory.Baz::class.java))
         assertNotNull(context.getBean(TestFactory.Baz::class.java).foo)
     }
