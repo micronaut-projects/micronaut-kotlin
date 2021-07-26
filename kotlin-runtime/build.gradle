@@ -23,7 +23,7 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     testImplementation "io.micronaut:micronaut-runtime"
 
-    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
+    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.4-groovyless"
 }
 
 test {
