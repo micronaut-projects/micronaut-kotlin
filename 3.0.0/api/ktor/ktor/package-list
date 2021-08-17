@@ -1,0 +1,76 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:io.micronaut.ktor.env////PointingToDeclaration/ktor/io.micronaut.ktor.env/index.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig.KtorApplicationConfigValue///PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/-ktor-application-config-value/index.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig.KtorApplicationConfigValue/KtorApplicationConfigValue/#kotlin.String#io.micronaut.context.env.Environment/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/-ktor-application-config-value/-ktor-application-config-value.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig.KtorApplicationConfigValue/getList/#/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/-ktor-application-config-value/get-list.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig.KtorApplicationConfigValue/getString/#/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/-ktor-application-config-value/get-string.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig///PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/index.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig/MicronautKtorEnvironmentConfig/#io.micronaut.context.env.Environment#kotlin.String?/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/-micronaut-ktor-environment-config.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig/config/#kotlin.String/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/config.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig/configList/#kotlin.String/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/config-list.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig/env/#/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/env.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig/property/#kotlin.String/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/property.html
+$dokka.location:io.micronaut.ktor.env/MicronautKtorEnvironmentConfig/propertyOrNull/#kotlin.String/PointingToDeclaration/ktor/io.micronaut.ktor.env/-micronaut-ktor-environment-config/property-or-null.html
+$dokka.location:io.micronaut.ktor.factory////PointingToDeclaration/ktor/io.micronaut.ktor.factory/index.html
+$dokka.location:io.micronaut.ktor.factory/KtorMicronautApplicationFactory///PointingToDeclaration/ktor/io.micronaut.ktor.factory/-ktor-micronaut-application-factory/index.html
+$dokka.location:io.micronaut.ktor.factory/KtorMicronautApplicationFactory/KtorMicronautApplicationFactory/#/PointingToDeclaration/ktor/io.micronaut.ktor.factory/-ktor-micronaut-application-factory/-ktor-micronaut-application-factory.html
+$dokka.location:io.micronaut.ktor.factory/KtorMicronautApplicationFactory/applicationEngineEnvironment/#io.ktor.server.engine.ApplicationEngineEnvironmentBuilder#io.micronaut.context.env.Environment#io.micronaut.http.server.HttpServerConfiguration/PointingToDeclaration/ktor/io.micronaut.ktor.factory/-ktor-micronaut-application-factory/application-engine-environment.html
+$dokka.location:io.micronaut.ktor.factory/KtorMicronautApplicationFactory/applicationEngineEnvironmentBuilder/#io.micronaut.ktor.KtorApplication[*]#kotlin.collections.List[io.micronaut.ktor.KtorApplicationBuilder]#kotlin.collections.List[io.micronaut.ktor.KtorRoutingBuilder]/PointingToDeclaration/ktor/io.micronaut.ktor.factory/-ktor-micronaut-application-factory/application-engine-environment-builder.html
+$dokka.location:io.micronaut.ktor.server////PointingToDeclaration/ktor/io.micronaut.ktor.server/index.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer///PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/index.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/AbstractKtorEmbeddedServer/#io.micronaut.context.ApplicationContext#io.micronaut.http.server.HttpServerConfiguration#io.ktor.server.engine.ApplicationEngineEnvironment#io.ktor.server.engine.ApplicationEngine/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/-abstract-ktor-embedded-server.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/applicationEngine/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/application-engine.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/ctx/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/ctx.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/engineEnvironment/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/engine-environment.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/getApplicationConfiguration/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/get-application-configuration.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/getApplicationContext/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/get-application-context.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/getHost/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/get-host.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/getPort/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/get-port.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/getScheme/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/get-scheme.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/getURI/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/get-u-r-i.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/getURL/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/get-u-r-l.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/isRunning/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/is-running.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/running/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/running.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/serverConfiguration/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/server-configuration.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/start/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/start.html
+$dokka.location:io.micronaut.ktor.server/AbstractKtorEmbeddedServer/stop/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-abstract-ktor-embedded-server/stop.html
+$dokka.location:io.micronaut.ktor.server/KtorJettyEmbeddedServer///PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-jetty-embedded-server/index.html
+$dokka.location:io.micronaut.ktor.server/KtorJettyEmbeddedServer/KtorJettyEmbeddedServer/#io.micronaut.context.ApplicationContext#io.micronaut.http.server.HttpServerConfiguration#io.ktor.server.engine.ApplicationEngineEnvironment#io.micronaut.ktor.KtorApplication[io.ktor.server.engine.ApplicationEngine.Configuration]/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-jetty-embedded-server/-ktor-jetty-embedded-server.html
+$dokka.location:io.micronaut.ktor.server/KtorJettyEmbeddedServer/ctx/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-jetty-embedded-server/ctx.html
+$dokka.location:io.micronaut.ktor.server/KtorJettyEmbeddedServer/engineEnvironment/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-jetty-embedded-server/engine-environment.html
+$dokka.location:io.micronaut.ktor.server/KtorJettyEmbeddedServer/ktorApplication/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-jetty-embedded-server/ktor-application.html
+$dokka.location:io.micronaut.ktor.server/KtorJettyEmbeddedServer/serverConfiguration/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-jetty-embedded-server/server-configuration.html
+$dokka.location:io.micronaut.ktor.server/KtorNettyEmbeddedServer///PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-netty-embedded-server/index.html
+$dokka.location:io.micronaut.ktor.server/KtorNettyEmbeddedServer/KtorNettyEmbeddedServer/#io.micronaut.context.ApplicationContext#io.micronaut.http.server.HttpServerConfiguration#io.ktor.server.engine.ApplicationEngineEnvironment#io.micronaut.ktor.KtorApplication[io.ktor.server.netty.NettyApplicationEngine.Configuration]/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-netty-embedded-server/-ktor-netty-embedded-server.html
+$dokka.location:io.micronaut.ktor.server/KtorNettyEmbeddedServer/ctx/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-netty-embedded-server/ctx.html
+$dokka.location:io.micronaut.ktor.server/KtorNettyEmbeddedServer/engineEnvironment/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-netty-embedded-server/engine-environment.html
+$dokka.location:io.micronaut.ktor.server/KtorNettyEmbeddedServer/ktorApplication/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-netty-embedded-server/ktor-application.html
+$dokka.location:io.micronaut.ktor.server/KtorNettyEmbeddedServer/serverConfiguration/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-netty-embedded-server/server-configuration.html
+$dokka.location:io.micronaut.ktor.server/KtorTomcatEmbeddedServer///PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-tomcat-embedded-server/index.html
+$dokka.location:io.micronaut.ktor.server/KtorTomcatEmbeddedServer/KtorTomcatEmbeddedServer/#io.micronaut.context.ApplicationContext#io.micronaut.http.server.HttpServerConfiguration#io.ktor.server.engine.ApplicationEngineEnvironment#io.micronaut.ktor.KtorApplication[io.ktor.server.tomcat.TomcatApplicationEngine.Configuration]/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-tomcat-embedded-server/-ktor-tomcat-embedded-server.html
+$dokka.location:io.micronaut.ktor.server/KtorTomcatEmbeddedServer/ctx/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-tomcat-embedded-server/ctx.html
+$dokka.location:io.micronaut.ktor.server/KtorTomcatEmbeddedServer/engineEnvironment/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-tomcat-embedded-server/engine-environment.html
+$dokka.location:io.micronaut.ktor.server/KtorTomcatEmbeddedServer/ktorApplication/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-tomcat-embedded-server/ktor-application.html
+$dokka.location:io.micronaut.ktor.server/KtorTomcatEmbeddedServer/serverConfiguration/#/PointingToDeclaration/ktor/io.micronaut.ktor.server/-ktor-tomcat-embedded-server/server-configuration.html
+$dokka.location:io.micronaut.ktor////PointingToDeclaration/ktor/io.micronaut.ktor/index.html
+$dokka.location:io.micronaut.ktor//runApplication/#kotlin.Array[kotlin.String]/PointingToDeclaration/ktor/io.micronaut.ktor/run-application.html
+$dokka.location:io.micronaut.ktor/KtorApplication///PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/index.html
+$dokka.location:io.micronaut.ktor/KtorApplication/KtorApplication/#kotlin.Function1[io.micronaut.ktor.KtorApplication[TypeParam(bounds=[io.ktor.server.engine.ApplicationEngine.Configuration])],kotlin.Unit]/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/-ktor-application.html
+$dokka.location:io.micronaut.ktor/KtorApplication/applicationEngine/#kotlin.Function1[TypeParam(bounds=[io.ktor.server.engine.ApplicationEngine.Configuration]),kotlin.Unit]/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/application-engine.html
+$dokka.location:io.micronaut.ktor/KtorApplication/applicationEngineEnvironment/#kotlin.Function1[io.ktor.server.engine.ApplicationEngineEnvironmentBuilder,kotlin.Unit]/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/application-engine-environment.html
+$dokka.location:io.micronaut.ktor/KtorApplication/builder/#/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/builder.html
+$dokka.location:io.micronaut.ktor/KtorApplication/configuration/#/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/configuration.html
+$dokka.location:io.micronaut.ktor/KtorApplication/environment/#/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/environment.html
+$dokka.location:io.micronaut.ktor/KtorApplication/init/#/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application/init.html
+$dokka.location:io.micronaut.ktor/KtorApplicationBuilder///PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application-builder/index.html
+$dokka.location:io.micronaut.ktor/KtorApplicationBuilder/KtorApplicationBuilder/#kotlin.Function1[io.ktor.application.Application,kotlin.Unit]/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application-builder/-ktor-application-builder.html
+$dokka.location:io.micronaut.ktor/KtorApplicationBuilder/builder/#/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-application-builder/builder.html
+$dokka.location:io.micronaut.ktor/KtorRoutingBuilder///PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-routing-builder/index.html
+$dokka.location:io.micronaut.ktor/KtorRoutingBuilder/KtorRoutingBuilder/#kotlin.Function1[io.ktor.routing.Routing,kotlin.Unit]/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-routing-builder/-ktor-routing-builder.html
+$dokka.location:io.micronaut.ktor/KtorRoutingBuilder/builder/#/PointingToDeclaration/ktor/io.micronaut.ktor/-ktor-routing-builder/builder.html
+io.micronaut.ktor
+io.micronaut.ktor.env
+io.micronaut.ktor.factory
+io.micronaut.ktor.server
+
