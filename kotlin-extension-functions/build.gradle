@@ -27,7 +27,7 @@ dependencies {
     testImplementation "org.mockito:mockito-junit-jupiter:3.11.2"
 
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
-    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.3"
+    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.6"
 
     testImplementation "io.micronaut:micronaut-runtime"
     testImplementation "io.micronaut:micronaut-http-server"
