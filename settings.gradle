@@ -1,10 +1,17 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'io.micronaut.build.shared.settings' version '4.1.4'
+}
+
+rootProject.name = "micronaut-kotlin"
+
 include "kotlin-runtime"
 include "ktor"
 include "kotlin-extension-functions"
 include "examples:greeting"
-
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-    }
-}
