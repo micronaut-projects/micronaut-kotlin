@@ -30,7 +30,7 @@ dependencies {
     implementation project(":ktor")
     implementation "io.ktor:ktor-jackson:$ktorVersion"
     implementation "io.ktor:ktor-server-netty:$ktorVersion"
-    runtimeOnly "ch.qos.logback:logback-classic:1.2.6"
+    runtimeOnly "ch.qos.logback:logback-classic:1.2.7"
 
     testImplementation "io.micronaut:micronaut-http-client"
     testImplementation "io.micronaut.test:micronaut-test-junit5:3.0.2"
