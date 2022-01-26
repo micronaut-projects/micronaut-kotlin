@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2020 original authors
+ * Copyright 2017-2022 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ class HoconFeature: Feature {
 
     override fun beforeAnalysis(access: BeforeAnalysisAccess) {
         access.findClassByName("com.typesafe.config.Config")?.let {
+            AutomaticFeatureUtils.registerClassForRuntimeReflection(access, "com.typesafe.config.Config")
             AutomaticFeatureUtils.registerClassForRuntimeReflectionAndReflectiveInstantiation(access, "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl")
         }
     }
