@@ -11,9 +11,9 @@ Thus, through defining a reified extension function to something like `BlockingH
 .Example HttpClient Extensions
 [source,kotlin]
 ----
-include::kotlin-extension-functions/src/main/kotlin/io/micronaut/http/HttpClientExtensions.kt[tags=clientFunctionSingle]
+include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/http/HttpClientExtensions.kt[tags=clientFunctionSingle]
 
-include::kotlin-extension-functions/src/main/kotlin/io/micronaut/http/HttpClientExtensions.kt[tags=clientFunctionList]
+include::kotlin-extension-functions/src/main/kotlin/io/micronaut/kotlin/http/HttpClientExtensions.kt[tags=clientFunctionList]
 ----
 
 We are able to use the client a little more succinctly, as shown in this test:
@@ -21,7 +21,7 @@ We are able to use the client a little more succinctly, as shown in this test:
 .Test Demonstrating Client Extension usage
 [source,kotlin]
 ----
-include::kotlin-extension-functions/src/test/kotlin/io/micronaut/http/HttpClientExtensionsTest.kt[tags=usingClientFunctions, indent="0"]
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/http/HttpClientExtensionsTest.kt[tags=usingClientFunctions, indent="0"]
 ----
 
 As another example, you can use a generic `startApplication<AppClass>` with a configuration lambda and generic `mapError<ExceptionClass>`, as you would might use `Micronaut.build().mainClass(App::class.java).start()`.
