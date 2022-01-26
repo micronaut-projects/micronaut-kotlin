@@ -169,7 +169,7 @@
 <p>        <div class="listingblock multi-language-sample">
 <div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.kotlin:micronaut-kotlin-runtime:3.0.1-SNAPSHOT")</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.kotlin:micronaut-kotlin-runtime:3.1.0-SNAPSHOT")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -177,7 +177,7 @@
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
     &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-kotlin-runtime&lt;/artifactId&gt;
-    &lt;version&gt;3.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;3.1.0-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -397,7 +397,7 @@ micronaut with kotlin more user-friendly.</p>
 <p>        <div class="listingblock multi-language-sample">
 <div class="title"></div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.kotlin:micronaut-kotlin-extension-functions:3.0.1-SNAPSHOT")</span></code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.kotlin:micronaut-kotlin-extension-functions:3.1.0-SNAPSHOT")</span></code></pre>
 </div>
 </div>
 <div class="listingblock multi-language-sample">
@@ -405,7 +405,7 @@ micronaut with kotlin more user-friendly.</p>
 <pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
     &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
     &lt;artifactId&gt;micronaut-kotlin-extension-functions&lt;/artifactId&gt;
-    &lt;version&gt;3.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;version&gt;3.1.0-SNAPSHOT&lt;/version&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
 </div>
@@ -421,9 +421,11 @@ help alleviate the need for using <code>::class.java</code> in many places where
 <div class="listingblock">
 <div class="title">Example HttpClient Extensions</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Unresolved directive in &lt;stdin&gt; - include::kotlin-extension-functions/src/main/kotlin/io/micronaut/http/HttpClientExtensions.kt[tags=clientFunctionSingle]
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">inline fun &lt;reified T: Any&gt; BlockingHttpClient.retrieveObject(request: HttpRequest&lt;Any&gt;): T =
+        retrieve(request, argumentOf&lt;T&gt;())
 
-Unresolved directive in &lt;stdin&gt; - include::kotlin-extension-functions/src/main/kotlin/io/micronaut/http/HttpClientExtensions.kt[tags=clientFunctionList]</code></pre>
+inline fun &lt;reified T: Any&gt; BlockingHttpClient.retrieveList(request: HttpRequest&lt;Any&gt;): List&lt;T&gt; =
+        retrieve(request, argumentOfList&lt;T&gt;())</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -432,7 +434,22 @@ Unresolved directive in &lt;stdin&gt; - include::kotlin-extension-functions/src/
 <div class="listingblock">
 <div class="title">Test Demonstrating Client Extension usage</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">Unresolved directive in &lt;stdin&gt; - include::kotlin-extension-functions/src/test/kotlin/io/micronaut/http/HttpClientExtensionsTest.kt[tags=usingClientFunctions, indent="0"]</code></pre>
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val embeddedServer = ApplicationContext.run(EmbeddedServer::class.java)
+val client = embeddedServer.applicationContext.createBean(HttpClient::class.java, embeddedServer.url).toBlocking()
+
+// Test single object retrieve extension
+val getOneConventional = client.retrieve(HttpRequest.GET&lt;Any&gt;("/heroes/any"), Argument.of(Hero::class.java))
+val getOneReified = client.retrieveObject&lt;Hero&gt;(HttpRequest.GET&lt;Any&gt;("/heroes/any"))
+assertEquals(getOneConventional, getOneReified)
+
+// Test list retrieve extension
+val heroListConventional = client.retrieve(HttpRequest.GET&lt;Any&gt;("/heroes/list"), Argument.listOf(Hero::class.java))
+assertEquals(heroListConventional.size, 3)
+assertTrue(heroListConventional.find { it.alterEgo == "Diana Prince" } != null) // Let's make sure Wonder Woman is there!
+val heroListReified = client.retrieveList&lt;Hero&gt;(HttpRequest.GET&lt;Any&gt;("/heroes/list"))
+assertEquals(heroListConventional, heroListReified)
+val heroListByType : List&lt;Hero&gt; = client.retrieveList(HttpRequest.GET&lt;Any&gt;("/heroes/list"))
+assertEquals(heroListByType, heroListReified)</code></pre>
 </div>
 </div>
 <div class="paragraph">
