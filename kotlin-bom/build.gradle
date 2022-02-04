@@ -1,0 +1,7 @@
+plugins {
+    id "io.micronaut.build.internal.bom"
+}
+
+micronautBom {
+    extraExcludedProjects.add(project(":examples:greeting").name)
+}
