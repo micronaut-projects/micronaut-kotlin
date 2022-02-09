@@ -1,8 +1,5 @@
 plugins {
-    id 'io.micronaut.build.internal.module'
-    id "org.jetbrains.kotlin.jvm"
-    id "org.jetbrains.dokka"
-    id("org.jetbrains.kotlin.kapt")
+    id 'micronaut-kotlin.module-conventions'
 }
 
 sourceCompatibility = 1.8
