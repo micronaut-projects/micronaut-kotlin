@@ -6,11 +6,12 @@ pluginManagement {
 }
 
 plugins {
-    id 'io.micronaut.build.shared.settings' version '4.1.4'
+    id 'io.micronaut.build.shared.settings' version '5.1.2'
 }
 
 rootProject.name = "micronaut-kotlin"
 
+include "kotlin-bom"
 include "kotlin-runtime"
 include "ktor"
 include "kotlin-extension-functions"
