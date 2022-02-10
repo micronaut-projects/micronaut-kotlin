@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":kotlin-runtime:dokkaHtmlPartial/main":[],":kotlin-extension-functions:dokkaHtmlPartial/main":[],":ktor:dokkaHtmlPartial/main":[]}'
