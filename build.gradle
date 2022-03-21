@@ -1,7 +1,6 @@
 plugins {
     id "io.micronaut.build.internal.docs"
     id "io.micronaut.build.internal.dependency-updates"
-    id "io.micronaut.build.internal.quality-reporting"
     id "org.jetbrains.dokka" version "$kotlinVersion"
     id "org.jetbrains.kotlin.jvm" version "$kotlinVersion" apply false
 }
