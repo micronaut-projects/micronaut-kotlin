@@ -7,30 +7,30 @@ compileKotlin { kotlinOptions.jvmTarget = "1.8" }
 compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
 
 dependencies {
-    kapt platform("io.micronaut:micronaut-bom:$micronautVersion")
-    kaptTest platform("io.micronaut:micronaut-bom:$micronautVersion")
+    kapt(platform(libs.boms.micronaut))
+    kaptTest(platform(libs.boms.micronaut))
 
-    kapt "io.micronaut:micronaut-inject-java"
-    kaptTest "io.micronaut:micronaut-inject-java"
+    kapt(libs.micronaut.inject.java)
+    kaptTest(libs.micronaut.inject.java)
 
-    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor(libs.micronaut.inject.java)
 
-    compileOnly "io.ktor:ktor-server-netty:$ktorVersion"
-    compileOnly "io.ktor:ktor-server-tomcat:$ktorVersion"
-    compileOnly "io.ktor:ktor-server-jetty:$ktorVersion"
+    compileOnly(libs.ktor.server.netty)
+    compileOnly(libs.ktor.server.tomcat)
+    compileOnly(libs.ktor.server.jetty)
 
-    api "io.micronaut:micronaut-http-server"
-    api "io.micronaut:micronaut-inject"
+    api(libs.micronaut.http.server)
+    api(libs.micronaut.inject)
 
     implementation project(":kotlin-runtime")
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion"
 
-    testImplementation "io.ktor:ktor-auth:$ktorVersion"
-    testImplementation "io.ktor:ktor-server-netty:$ktorVersion"
-    testImplementation "io.micronaut:micronaut-http-client"
-    testImplementation "io.micronaut.test:micronaut-test-junit5"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.11"
+    testImplementation(libs.ktor.auth)
+    testImplementation(libs.ktor.server.netty)
+    testImplementation(libs.micronaut.http.client)
+    testImplementation(libs.micronaut.test.junit5)
+    testImplementation(libs.junit.jupiter.engine)
+    testRuntimeOnly(libs.logback.classic)
 }
 
 test {

@@ -16,27 +16,27 @@ compileKotlin { kotlinOptions.jvmTarget = "1.8" }
 compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
 
 dependencies {
-    kapt platform("io.micronaut:micronaut-bom:$micronautVersion")
-    kapt "io.micronaut:micronaut-inject-java"
+    kapt(platform(libs.boms.micronaut))
+    kapt(libs.micronaut.inject.java)
 
-    kaptTest platform("io.micronaut:micronaut-bom:$micronautVersion")
-    kaptTest "io.micronaut:micronaut-inject-java"
+    kaptTest(platform(libs.boms.micronaut))
+    kaptTest(libs.micronaut.inject.java)
 
-    annotationProcessor platform("io.micronaut:micronaut-bom:$micronautVersion")
-    annotationProcessor "io.micronaut:micronaut-inject-java"
+    annotationProcessor(platform(libs.boms.micronaut))
+    annotationProcessor(libs.micronaut.inject.java)
 
-    implementation platform("io.micronaut:micronaut-bom:$micronautVersion")
-    implementation "io.micronaut:micronaut-inject"
+    implementation(platform(libs.boms.micronaut))
+    implementation(libs.micronaut.inject)
     implementation project(":ktor")
-    implementation "io.ktor:ktor-jackson:$ktorVersion"
-    implementation "io.ktor:ktor-server-netty:$ktorVersion"
+    implementation(libs.ktor.jackson)
+    implementation(libs.ktor.server.netty)
 
-    runtimeOnly "ch.qos.logback:logback-classic:1.2.6"
+    runtimeOnly "ch.qos.logback:logback-classic"
 
-    testImplementation "io.micronaut:micronaut-http-client"
-    testImplementation "io.micronaut.test:micronaut-test-junit5"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    testImplementation "io.projectreactor:reactor-core"
+    testImplementation(libs.micronaut.http.client)
+    testImplementation(libs.micronaut.test.junit5)
+    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.reactor.core)
 }
 
 allOpen {
