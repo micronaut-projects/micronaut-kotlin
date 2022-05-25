@@ -6,16 +6,15 @@ logback-classic = "1.2.11"
 mockito-core = "4.4.0"
 mockito-junit-jupiter = "4.4.0"
 mockito-kotlin = "2.2.0"
+kotlin = "1.6.10"
 
 # Micronaut
 micronaut = "3.4.3"
 
 
 [libraries]
-# BOMs
-boms-micronaut = { module = "io.micronaut:micronaut-bom", version.ref = "micronaut" }
-
 # Micronaut
+micronaut-bom = { module = "io.micronaut:micronaut-bom", version.ref = "micronaut" }
 micronaut-http-client = { module = "io.micronaut:micronaut-http-client" }
 micronaut-http-server = { module = "io.micronaut:micronaut-http-server" }
 micronaut-http-server-netty = { module = "io.micronaut:micronaut-http-server-netty" }
@@ -37,3 +36,12 @@ mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.
 mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version.ref = "mockito-kotlin" }
 reactor-core = { module = "io.projectreactor:reactor-core" }
 graal = { module = "org.graalvm.nativeimage:svm" }
+kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
+kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+kotlin-plugin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "kotlin" }
