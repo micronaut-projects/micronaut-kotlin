@@ -13,16 +13,6 @@ micronaut = "3.4.3"
 
 
 [libraries]
-# Micronaut
-micronaut-bom = { module = "io.micronaut:micronaut-bom", version.ref = "micronaut" }
-micronaut-http-client = { module = "io.micronaut:micronaut-http-client" }
-micronaut-http-server = { module = "io.micronaut:micronaut-http-server" }
-micronaut-http-server-netty = { module = "io.micronaut:micronaut-http-server-netty" }
-micronaut-inject = { module = "io.micronaut:micronaut-inject" }
-micronaut-inject-java = { module = "io.micronaut:micronaut-inject-java" }
-micronaut-runtime = { module = "io.micronaut:micronaut-runtime" }
-micronaut-test-junit5 = { module = "io.micronaut.test:micronaut-test-junit5" }
-
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
 ktor-auth = { module = "io.ktor:ktor-auth", version.ref = "ktor" }
