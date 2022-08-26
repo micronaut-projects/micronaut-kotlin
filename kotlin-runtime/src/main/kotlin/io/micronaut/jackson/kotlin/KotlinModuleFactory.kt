@@ -32,6 +32,6 @@ class KotlinModuleFactory {
     @Requires(property = "jackson.module-scan", value = "false")
     @Singleton
     fun kotlinModuleFactory() : KotlinModule {
-        return KotlinModule()
+        return KotlinModule.Builder().build()
     }
 }
