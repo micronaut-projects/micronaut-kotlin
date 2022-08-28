@@ -37,7 +37,7 @@ dependencies {
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.2.0"
 
     testRuntimeOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
-    testRuntimeOnly "ch.qos.logback:logback-classic:1.2.11"
+    testRuntimeOnly "ch.qos.logback:logback-classic:1.4.0"
 }
 
 test {
