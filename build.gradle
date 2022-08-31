@@ -6,6 +6,11 @@ plugins {
     id "org.jetbrains.kotlin.jvm" version "$kotlinVersion" apply false
 }
 
+repositories {
+    mavenCentral()
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
+}
+
 tasks.named("dokkaHtmlMultiModule") {
     outputDirectory.set(rootProject.layout.buildDirectory.dir("docs/api").map(d -> d.asFile))
 }
