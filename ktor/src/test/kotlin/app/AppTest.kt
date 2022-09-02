@@ -45,6 +45,6 @@ class AppTest {
             client.toBlocking().retrieve("/authenticated")
         }
 
-        assertEquals("Unauthorized", exception.message)
+        assertEquals("Client '/': Unauthorized", exception.message)
     }
 }
