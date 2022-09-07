@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2020 original authors
+ * Copyright 2017-2022 original authors
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ class QualifiersExtensionsTest {
     fun qualifierByStereotype() {
         // given
         // when
-        val result = io.micronaut.kotlin.inject.qualifierByStereotype<Any, Context>()
+        val result = qualifierByStereotype<Any, Context>()
         // then
         assertEquals(result::class, Qualifiers.byStereotype<Any>(Context::class.java)::class)
     }
@@ -41,10 +41,9 @@ class QualifiersExtensionsTest {
         // given
         val metadata = AnnotationMetadata.EMPTY_METADATA
         // when
-        val result = io.micronaut.kotlin.inject.qualifierByAnnotation<Any, Context>(metadata)
+        val result = qualifierByAnnotation<Any, Context>(metadata)
         // then
         assertEquals(result::class, Qualifiers.byAnnotation<Context>(metadata, Context::class.java)::class)
-        assertEquals((result as Named).name, (Qualifiers.byAnnotation<Context>(metadata, Context::class.java) as Named).name)
     }
 
     @Test
@@ -52,7 +51,7 @@ class QualifiersExtensionsTest {
         // given
         val name = "foo"
         // when
-        val result = io.micronaut.kotlin.inject.qualifierByName<Any>(name)
+        val result = qualifierByName<Any>(name)
         // then
         assertEquals(name, (result as Named).name)
     }
