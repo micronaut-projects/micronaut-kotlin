@@ -1,5 +1,5 @@
 plugins {
-    id("micronaut-kotlin.module-conventions")
+    id("io.micronaut.build.internal.kotlin-module")
 }
 
 sourceCompatibility = 1.8

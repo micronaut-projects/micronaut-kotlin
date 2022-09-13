@@ -5,8 +5,9 @@ ktor = "1.6.8"
 logback-classic = "1.2.11"
 mockito-core = "4.4.0"
 mockito-junit-jupiter = "4.4.0"
+
 mockito-kotlin = "2.2.0"
-kotlin = "1.6.10"
+kotlin = "1.7.10"
 
 [libraries]
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }

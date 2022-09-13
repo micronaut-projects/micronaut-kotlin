@@ -1,0 +1,10 @@
+plugins {
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.dokka")
+    id("org.jetbrains.kotlin.kapt")
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
+}
