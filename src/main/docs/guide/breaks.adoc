@@ -1,0 +1,9 @@
+This section documents breaking changes for Kotlin and Ktor versions:
+
+=== Micronaut Kotlin {version}
+
+Micronaut Kotlin's `Ktor` module is based on Ktor 2.x, which has breaking changes from Ktor 1.6.x used by previous versions of Micronaut Kotlin.
+
+For more information, refer to the following Ktor guide:
+
+- https://ktor.io/docs/migrating-2.html[Migrating Ktor applications:Migrating from 1.6.x to 2.0.0]
