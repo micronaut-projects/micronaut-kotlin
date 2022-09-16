@@ -15,7 +15,7 @@
  */
 package io.micronaut.ktor
 
-import io.ktor.application.Application
+import io.ktor.server.application.Application
 
 /**
  * Allows declaring classes that can build Ktor Application instances

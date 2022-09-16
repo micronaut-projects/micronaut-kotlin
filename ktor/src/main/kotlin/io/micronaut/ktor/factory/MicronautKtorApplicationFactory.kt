@@ -15,7 +15,7 @@
  */
 package io.micronaut.ktor.factory
 
-import io.ktor.routing.routing
+import io.ktor.server.routing.routing
 import io.ktor.server.engine.*
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.env.Environment
@@ -55,7 +55,6 @@ class KtorMicronautApplicationFactory {
         return ktorApplication.environment
     }
 
-    @EngineAPI
     @Singleton
     fun applicationEngineEnvironment(
             builder : ApplicationEngineEnvironmentBuilder,
