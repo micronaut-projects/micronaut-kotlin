@@ -64,11 +64,11 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     }
 
     override fun keys(): Set<String> {
-        return configMap.keys
+        return Collections.unmodifiableSet(configMap.keys)
     }
 
     override fun toMap(): Map<String, Any?> {
-        return configMap
+        return Collections.unmodifiableMap(configMap)
     }
 
     private fun mapOf(env: Environment): Map<String, Any?> {
