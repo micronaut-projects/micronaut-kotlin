@@ -1,6 +1,6 @@
 [versions]
 typesafe-config = "1.4.2"
-junit = "5.8.2"
+junit = "5.9.1"
 ktor = "1.6.8"
 logback-classic = "1.2.11"
 mockito-core = "4.4.0"
