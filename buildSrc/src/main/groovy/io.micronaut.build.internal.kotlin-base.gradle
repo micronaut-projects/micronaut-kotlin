@@ -8,3 +8,6 @@ repositories {
     mavenCentral()
     maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
 }
+
+compileKotlin { kotlinOptions.jvmTarget = "17" }
+compileTestKotlin { kotlinOptions.jvmTarget = "17" }

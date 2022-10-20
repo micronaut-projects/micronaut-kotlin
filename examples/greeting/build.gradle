@@ -11,10 +11,6 @@ repositories {
 }
 
 mainClassName = 'app.ApplicationKt'
-sourceCompatibility = 1.8
-
-compileKotlin { kotlinOptions.jvmTarget = "1.8" }
-compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
 
 dependencies {
     kapt(platform(mn.micronaut.bom))
@@ -28,16 +24,16 @@ dependencies {
 
     implementation(platform(mn.micronaut.bom))
     implementation(mn.micronaut.inject)
-    implementation project(":ktor")
+    implementation projects.ktor
     implementation(libs.ktor.jackson)
     implementation(libs.ktor.server.netty)
 
-    runtimeOnly(libs.logback.classic)
+    runtimeOnly(mn.logback)
 
     testImplementation(mn.micronaut.http.client)
     testImplementation(mn.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testImplementation(libs.reactor.core)
+    testImplementation(mn.reactor)
 }
 
 allOpen {
@@ -46,7 +42,7 @@ allOpen {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
         //Will retain parameter names for Java reflection
         javaParameters = true
     }
@@ -54,7 +50,7 @@ compileKotlin {
 
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
         javaParameters = true
     }
 }
