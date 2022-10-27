@@ -13,9 +13,11 @@ dependencies {
     annotationProcessor(mn.micronaut.inject.java)
 
     compileOnly(libs.graal)
+    compileOnly libs.kotlinx.coroutines.core
+    compileOnly libs.kotlinx.coroutines.reactive
 
     api(mn.micronaut.inject)
-
+    implementation(libs.reactor.core)
     implementation(libs.jackson.module.kotlin) {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
