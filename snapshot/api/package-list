@@ -11,6 +11,7 @@ module:kotlin-runtime
 io.micronaut.context.env.hocon
 io.micronaut.context.env.hocon.nativeimage
 io.micronaut.jackson.kotlin
+io.micronaut.kotlin.converters
 io.micronaut.kotlin.nativeimage
 module:ktor
 io.micronaut.ktor
