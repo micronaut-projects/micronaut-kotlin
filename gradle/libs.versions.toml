@@ -3,6 +3,7 @@ typesafe-config = "1.4.2"
 ktor = "1.6.8"
 mockito-kotlin = "2.2.0"
 kotlin = "1.7.20"
+kotlin-coroutines = "1.6.4"
 
 [libraries]
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }
@@ -16,6 +17,8 @@ mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", versio
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
+kotlinx-coroutines-reactive = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive", version.ref = "kotlin-coroutines" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

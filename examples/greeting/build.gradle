@@ -11,6 +11,10 @@ repositories {
 }
 
 mainClassName = 'app.ApplicationKt'
+sourceCompatibility = 17
+
+compileKotlin { kotlinOptions.jvmTarget = "17" }
+compileTestKotlin { kotlinOptions.jvmTarget = "17" }
 
 dependencies {
     kapt(platform(mn.micronaut.bom))

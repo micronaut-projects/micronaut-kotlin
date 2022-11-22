@@ -2,6 +2,7 @@ plugins {
     id("io.micronaut.build.internal.kotlin-module")
 }
 
+
 dependencies {
     kapt(platform(mn.micronaut.bom))
     kapt(mn.micronaut.inject.java)
