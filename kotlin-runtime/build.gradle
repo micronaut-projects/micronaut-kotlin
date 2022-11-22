@@ -13,10 +13,11 @@ dependencies {
     compileOnly(mn.graal)
 
     api(mn.micronaut.inject)
-    implementation(libs.reactor.core)
+    implementation(mn.reactor)
     implementation(libs.jackson.module.kotlin) {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
+    implementation(mn.micronaut.jackson.databind)
     implementation(libs.typesafe.config)
 
     implementation(libs.kotlin.stdlib.jdk8)
