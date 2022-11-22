@@ -2,7 +2,6 @@ plugins {
     id("io.micronaut.build.internal.kotlin-module")
 }
 
-
 dependencies {
     kapt(platform(mn.micronaut.bom))
     kapt(mn.micronaut.inject.java)
@@ -22,6 +21,7 @@ dependencies {
     implementation(libs.jackson.module.kotlin) {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
+    implementation(mn.micronaut.jackson.databind)
 
     testImplementation(mn.micronaut.runtime)
     testImplementation(mn.micronaut.http.server)

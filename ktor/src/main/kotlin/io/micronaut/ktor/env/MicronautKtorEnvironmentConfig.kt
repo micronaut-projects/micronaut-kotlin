@@ -76,7 +76,7 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
         for (ps in env.propertySources) {
             for (s in ps) {
                 if (env.containsProperty(s)) {
-                    envMap.computeIfAbsent(s) { k: String? -> ArrayList() }.add(ps[s].toString())
+                    envMap.computeIfAbsent(s) { ArrayList() }.add(ps[s].toString())
                 }
             }
         }
