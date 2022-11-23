@@ -10,7 +10,7 @@ dependencies {
 
     compileOnly libs.kotlinx.coroutines.core
     compileOnly libs.kotlinx.coroutines.reactive
-    compileOnly(mn.micronaut.graal)
+    compileOnly(libs.graal.svm)
 
     api(mn.micronaut.inject)
     implementation(mnReactor.reactor.core)
@@ -32,3 +32,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+

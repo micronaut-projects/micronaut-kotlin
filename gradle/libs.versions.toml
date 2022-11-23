@@ -1,5 +1,6 @@
 [versions]
 typesafe-config = "1.4.2"
+graal-svm = "22.0.0.2"
 ktor = "1.6.8"
 mockito-kotlin = "2.2.0"
 kotlin = "1.7.20"
@@ -8,8 +9,6 @@ logback = "1.4.5"
 
 micronaut-reactor = "3.0.0-SNAPSHOT"
 micronaut-test = "4.0.0-SNAPSHOT"
-micronaut-bom = "4.0.0-SNAPSHOT"
-
 
 [libraries]
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }
@@ -20,6 +19,7 @@ ktor-server-jetty = { module = "io.ktor:ktor-server-jetty", version.ref = "ktor"
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }
 ktor-server-tomcat = { module = "io.ktor:ktor-server-tomcat", version.ref = "ktor" }
 mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version.ref = "mockito-kotlin" }
+graal-svm = { module = "org.graalvm.nativeimage:svm", version.ref = "graal-svm" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
@@ -29,7 +29,6 @@ logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "lo
 
 micronaut-reactor = { module = "io.micronaut.reactor:micronaut-reactor-bom", version.ref = "micronaut-reactor" }
 micronaut-test = { module = "io.micronaut.test:micronaut-test-bom", version.ref = "micronaut-test" }
-micronaut-bom = { module = "io.micronaut:micronaut-bom", version.ref = "micronaut-bom" }
 
 [plugins]
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
