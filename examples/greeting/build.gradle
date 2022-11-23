@@ -17,16 +17,16 @@ compileKotlin { kotlinOptions.jvmTarget = "17" }
 compileTestKotlin { kotlinOptions.jvmTarget = "17" }
 
 dependencies {
-//    kapt(platform(mn.micronaut.bom))
+    kapt(platform(mn.micronaut.core.bom))
     kapt(mn.micronaut.inject.java)
 
-//    kaptTest(platform(mn.micronaut.bom))
+    kaptTest(platform(mn.micronaut.core.bom))
     kaptTest(mn.micronaut.inject.java)
-//
-//    annotationProcessor(platform(mn.micronaut.bom))
+
+    annotationProcessor(platform(mn.micronaut.core.bom))
     annotationProcessor(mn.micronaut.inject.java)
-//
-//    implementation(platform(mn.micronaut.bom))
+
+    implementation(platform(mn.micronaut.core.bom))
     implementation(mn.micronaut.inject)
     implementation projects.ktor
     implementation(libs.ktor.jackson)

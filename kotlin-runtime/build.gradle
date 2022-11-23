@@ -3,7 +3,7 @@ plugins {
 }
 
 dependencies {
-//    kapt(platform(mnBom.micronaut.bom))
+    kapt(platform(mn.micronaut.core.bom))
     kapt(mn.micronaut.inject.java)
 
     annotationProcessor(mn.micronaut.inject.java)

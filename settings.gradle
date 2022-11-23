@@ -24,13 +24,4 @@ micronautBuild {
     importMicronautCatalog()
     importMicronautCatalog("micronaut-reactor")
     importMicronautCatalog("micronaut-test")
-    importMicronautCatalog("micronaut-bom")
-
 }
-
-//dependencyResolutionManagement {
-//    repositories {
-//        mavenCentral()
-//        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
-//    }
-//}

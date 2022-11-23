@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-//    kapt(platform(mn.micronaut.bom))
-//    kaptTest(platform(mn.micronaut.bom))
+    kapt(platform(mn.micronaut.core.bom))
+    kaptTest(platform(mn.micronaut.core.bom))
 
     kapt(mn.micronaut.inject.java)
     kaptTest(mn.micronaut.inject.java)
