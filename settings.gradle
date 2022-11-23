@@ -6,7 +6,7 @@ pluginManagement {
 }
 
 plugins {
-    id("io.micronaut.build.shared.settings") version "6.0.1"
+    id("io.micronaut.build.shared.settings") version "6.1.0"
 }
 
 enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
@@ -20,12 +20,17 @@ include "kotlin-extension-functions"
 include "examples:greeting"
 
 micronautBuild {
+    addSnapshotRepository()
     importMicronautCatalog()
+    importMicronautCatalog("micronaut-reactor")
+    importMicronautCatalog("micronaut-test")
+    importMicronautCatalog("micronaut-bom")
+
 }
 
-dependencyResolutionManagement {
-    repositories {
-        mavenCentral()
-        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
-    }
-}
+//dependencyResolutionManagement {
+//    repositories {
+//        mavenCentral()
+//        maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
+//    }
+//}

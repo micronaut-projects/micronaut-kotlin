@@ -17,27 +17,27 @@ compileKotlin { kotlinOptions.jvmTarget = "17" }
 compileTestKotlin { kotlinOptions.jvmTarget = "17" }
 
 dependencies {
-    kapt(platform(mn.micronaut.bom))
+//    kapt(platform(mn.micronaut.bom))
     kapt(mn.micronaut.inject.java)
 
-    kaptTest(platform(mn.micronaut.bom))
+//    kaptTest(platform(mn.micronaut.bom))
     kaptTest(mn.micronaut.inject.java)
-
-    annotationProcessor(platform(mn.micronaut.bom))
+//
+//    annotationProcessor(platform(mn.micronaut.bom))
     annotationProcessor(mn.micronaut.inject.java)
-
-    implementation(platform(mn.micronaut.bom))
+//
+//    implementation(platform(mn.micronaut.bom))
     implementation(mn.micronaut.inject)
     implementation projects.ktor
     implementation(libs.ktor.jackson)
     implementation(libs.ktor.server.netty)
 
-    runtimeOnly(mn.logback)
+    runtimeOnly(libs.logback.classic)
 
     testImplementation(mn.micronaut.http.client)
-    testImplementation(mn.micronaut.test.junit5)
+    testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testImplementation(mn.reactor)
+    testImplementation(mnReactor.reactor.core)
 }
 
 allOpen {

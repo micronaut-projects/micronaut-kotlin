@@ -4,38 +4,39 @@ plugins {
 
 
 dependencies {
-    kapt(platform(mn.micronaut.bom))
+//    kapt(platform(mn.micronaut.bom))
+//    kapt(platform(mnBom.micronaut.bom))
     kapt(mn.micronaut.inject.java)
 
-    kaptTest(platform(mn.micronaut.bom))
+//    kaptTest(platform(mnBom.micronaut.bom))
     kaptTest(mn.micronaut.inject.java)
 
     annotationProcessor(mn.micronaut.inject.java)
-
+//
     compileOnly(mn.micronaut.runtime)
     compileOnly(mn.micronaut.http.server)
     compileOnly(mn.micronaut.http.client)
-
+//
     api(mn.micronaut.inject)
-
+//
     implementation(libs.kotlin.stdlib.jdk8)
     implementation(libs.jackson.module.kotlin) {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
     implementation(mn.micronaut.jackson.databind)
-
+//
     testImplementation(mn.micronaut.runtime)
     testImplementation(mn.micronaut.http.server)
     testImplementation(mn.micronaut.http.client)
     testImplementation(mn.micronaut.http.server.netty)
-    testImplementation(mn.micronaut.test.junit5)
+    testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testImplementation(mn.mockito.core)
-    testImplementation(mn.mockito.junit.jupiter)
+    testImplementation(mnTest.mockito.core)
+    testImplementation(mnTest.mockito.junit.jupiter)
     testImplementation(libs.mockito.kotlin)
-
+//
     testRuntimeOnly(libs.kotlin.reflect)
-    testRuntimeOnly(mn.logback)
+    testRuntimeOnly(libs.logback.classic)
 }
 
 test {
