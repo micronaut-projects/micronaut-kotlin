@@ -3,25 +3,26 @@ plugins {
 }
 
 dependencies {
-    kapt(platform(mn.micronaut.bom))
+    kapt(platform(mn.micronaut.core.bom))
     kapt(mn.micronaut.inject.java)
 
     annotationProcessor(mn.micronaut.inject.java)
 
-    compileOnly(libs.graal)
     compileOnly libs.kotlinx.coroutines.core
     compileOnly libs.kotlinx.coroutines.reactive
+    compileOnly(libs.graal.svm)
 
     api(mn.micronaut.inject)
-    implementation(libs.reactor.core)
+    implementation(mnReactor.reactor.core)
     implementation(libs.jackson.module.kotlin) {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
+    implementation(mn.micronaut.jackson.databind)
     implementation(libs.typesafe.config)
 
     implementation(libs.kotlin.stdlib.jdk8)
     testRuntimeOnly(libs.kotlin.reflect)
-    testImplementation(mn.micronaut.test.junit5)
+    testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(mn.micronaut.runtime)
 
@@ -31,3 +32,4 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+

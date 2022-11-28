@@ -2,12 +2,11 @@ plugins {
     id("io.micronaut.build.internal.kotlin-module")
 }
 
-
 dependencies {
-    kapt(platform(mn.micronaut.bom))
+    kapt(platform(mn.micronaut.core.bom))
     kapt(mn.micronaut.inject.java)
 
-    kaptTest(platform(mn.micronaut.bom))
+    kaptTest(platform(mn.micronaut.core.bom))
     kaptTest(mn.micronaut.inject.java)
 
     annotationProcessor(mn.micronaut.inject.java)
@@ -22,15 +21,16 @@ dependencies {
     implementation(libs.jackson.module.kotlin) {
         exclude group:"org.jetbrains.kotlin", module:'kotlin-reflect'
     }
+    implementation(mn.micronaut.jackson.databind)
 
     testImplementation(mn.micronaut.runtime)
     testImplementation(mn.micronaut.http.server)
     testImplementation(mn.micronaut.http.client)
     testImplementation(mn.micronaut.http.server.netty)
-    testImplementation(mn.micronaut.test.junit5)
+    testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testImplementation(libs.mockito.core)
-    testImplementation(libs.mockito.junit.jupiter)
+    testImplementation(mnTest.mockito.core)
+    testImplementation(mnTest.mockito.junit.jupiter)
     testImplementation(libs.mockito.kotlin)
 
     testRuntimeOnly(libs.kotlin.reflect)
