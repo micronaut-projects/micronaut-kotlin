@@ -45,6 +45,7 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
         ClassUtils
                 .forName("io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl", HoconPropertySourceLoader::class.java.classLoader)
                 .get()
+                .getDeclaredConstructor()
                 .newInstance() as PropertySourceLoader
     }
 

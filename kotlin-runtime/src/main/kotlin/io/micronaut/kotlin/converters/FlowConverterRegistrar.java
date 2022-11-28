@@ -43,4 +43,3 @@ public class FlowConverterRegistrar implements TypeConverterRegistrar {
         conversionService.addConverter(Publisher.class, Flow.class, ReactiveFlowKt::asFlow);
     }
 }
-
