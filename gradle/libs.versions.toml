@@ -1,6 +1,7 @@
 [versions]
 typesafe-config = "1.4.2"
 graal-svm = "22.0.0.2"
+junit = "5.9.1"
 ktor = "1.6.8"
 mockito-kotlin = "2.2.0"
 kotlin = "1.7.20"
