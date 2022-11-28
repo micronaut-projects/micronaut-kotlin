@@ -4,7 +4,7 @@ graal-svm = "22.0.0.2"
 junit = "5.9.1"
 ktor = "1.6.8"
 mockito-kotlin = "2.2.0"
-kotlin = "1.7.20"
+kotlin = "1.7.22"
 kotlin-coroutines = "1.6.4"
 
 micronaut-reactor = "3.0.0-SNAPSHOT"
