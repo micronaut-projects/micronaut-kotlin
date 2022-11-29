@@ -46,12 +46,7 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     }
 
     override fun property(path: String): ApplicationConfigValue {
-        val value = propertyOrNull(path)
-        if (value != null) {
-            return value
-        } else {
-            throw ApplicationConfigurationException("No configuration found for path: $path")
-        }
+        return propertyOrNull(path) ?: throw ApplicationConfigurationException("No configuration found for path: $path")
     }
 
     override fun propertyOrNull(path: String): ApplicationConfigValue? {
