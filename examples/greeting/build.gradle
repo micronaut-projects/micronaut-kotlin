@@ -37,7 +37,7 @@ dependencies {
     testImplementation(mn.micronaut.http.client)
     testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testImplementation(mnReactor.reactor.core)
+    testImplementation(mnReactor.micronaut.reactor)
 }
 
 allOpen {
