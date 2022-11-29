@@ -9,7 +9,7 @@ logback-classic = "1.2.11"
 mockito-core = "4.9.0"
 mockito-junit-jupiter = "4.9.0"
 mockito-kotlin = "2.2.0"
-kotlin = "1.7.22"
+kotlin = "1.7.20"
 kotlin-coroutines = "1.6.4"
 
 [libraries]
