@@ -32,7 +32,7 @@ dependencies {
     implementation(libs.ktor.jackson)
     implementation(libs.ktor.server.netty)
 
-    runtimeOnly(mn.logback)
+    runtimeOnly(mn.logback.classic)
 
     testImplementation(mn.micronaut.http.client)
     testImplementation(mnTest.micronaut.test.junit5)

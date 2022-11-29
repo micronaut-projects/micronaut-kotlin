@@ -1,16 +1,16 @@
 [versions]
 typesafe-config = "1.4.2"
 graal-svm = "22.0.0.2"
-micronaut-reactor = "3.0.0-SNAPSHOT"
-micronaut-test = "4.0.0-SNAPSHOT"
 junit = "5.9.1"
 ktor = "1.6.8"
-logback-classic = "1.2.11"
 mockito-core = "4.9.0"
 mockito-junit-jupiter = "4.9.0"
 mockito-kotlin = "2.2.0"
 kotlin = "1.7.20"
 kotlin-coroutines = "1.6.4"
+
+micronaut-reactor = "3.0.0-SNAPSHOT"
+micronaut-test = "4.0.0-SNAPSHOT"
 
 [libraries]
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }
@@ -27,6 +27,7 @@ kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref =
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
 kotlinx-coroutines-reactive = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive", version.ref = "kotlin-coroutines" }
+
 micronaut-reactor = { module = "io.micronaut.reactor:micronaut-reactor-bom", version.ref = "micronaut-reactor" }
 micronaut-test = { module = "io.micronaut.test:micronaut-test-bom", version.ref = "micronaut-test" }
 

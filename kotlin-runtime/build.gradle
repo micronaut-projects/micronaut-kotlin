@@ -27,7 +27,7 @@ dependencies {
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(mn.micronaut.runtime)
 
-    testRuntimeOnly(mn.logback)
+    testRuntimeOnly(mn.logback.classic)
 }
 
 test {

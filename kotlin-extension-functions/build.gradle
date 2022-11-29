@@ -34,7 +34,7 @@ dependencies {
     testImplementation(libs.mockito.kotlin)
 
     testRuntimeOnly(libs.kotlin.reflect)
-    testRuntimeOnly(mn.logback)
+    testRuntimeOnly(mn.logback.classic)
 }
 
 test {
