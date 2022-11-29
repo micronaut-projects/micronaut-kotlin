@@ -11,7 +11,6 @@ kotlin-coroutines = "1.6.4"
 micronaut-reactor = "3.0.0-SNAPSHOT"
 micronaut-test = "4.0.0-SNAPSHOT"
 
-
 [libraries]
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit" }
