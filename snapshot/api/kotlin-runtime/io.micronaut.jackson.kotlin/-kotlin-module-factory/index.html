@@ -4,10 +4,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     <title>KotlinModuleFactory</title>
 <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
-const savedDarkMode = storage ? JSON.parse(storage) : false
-if(savedDarkMode === true){
-    document.getElementsByTagName("html")[0].classList.add("theme-dark")
-}</script>
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
 <script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
 <link href="../../../styles/style.css" rel="Stylesheet">
 <link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
@@ -18,7 +26,8 @@ if(savedDarkMode === true){
 <script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
 <script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
 <script type="text/javascript" src="../../../scripts/main.js" defer></script>
-<script type="text/javascript" src="../../../scripts/prism.js" async></script></head>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
 <body>
 <div class="navigation-wrapper" id="navigation-wrapper">
     <div id="leftToggler"><span class="icon-toggler"></span></div>
@@ -38,10 +47,10 @@ if(savedDarkMode === true){
     </div>
     <div id="main">
 <div class="main-content" id="content" pageids="kotlin-runtime::io.micronaut.jackson.kotlin/KotlinModuleFactory///PointingToDeclaration//1857370300">
-  <div class="breadcrumbs"><a href="../../index.html">kotlin-runtime</a><span class="delimiter">/</span><a href="../index.html">io.micronaut.jackson.kotlin</a><span class="delimiter">/</span><a href="index.html">KotlinModuleFactory</a></div>
+  <div class="breadcrumbs"><a href="../../index.html">kotlin-runtime</a><span class="delimiter">/</span><a href="../index.html">io.micronaut.jackson.kotlin</a><span class="delimiter">/</span><span class="current">KotlinModuleFactory</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Kotlin</span><wbr><span>Module</span><wbr><span><span>Factory</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":kotlin-runtime:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><span data-unresolved-link="io.micronaut.context.annotation/Factory///PointingToDeclaration/"><span class="token annotation">Factory</span></span></div></div><span class="token keyword">class </span><a href="index.html">KotlinModuleFactory</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">Automatically configures KotlinModule if module scan is disabled.</p><h4 class="">Author</h4><p class="paragraph">Graeme Rocher</p><h4 class="">Since</h4><p class="paragraph">1.0</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-runtime:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="io.micronaut.context.annotation/Factory///PointingToDeclaration/"><span class="token annotation builtin">Factory</span></span></div></div><span class="token keyword">class </span><a href="index.html">KotlinModuleFactory</a></div><p class="paragraph">Automatically configures KotlinModule if module scan is disabled.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">Graeme Rocher</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0</p></span></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Constructors">Constructors</button><button class="section-tab" data-togglable="Functions">Functions</button></div>
@@ -57,7 +66,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":kotlin-runtime:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-kotlin-module-factory.html"><span class="token function">KotlinModuleFactory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-runtime:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="-kotlin-module-factory.html"><span class="token function">KotlinModuleFactory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
               </div>
             </div>
           </div>
@@ -74,7 +83,7 @@ if(savedDarkMode === true){
                 </span></span></div>
             <div>
               <div class="title">
-                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":kotlin-runtime:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation">@</span><span data-unresolved-link="io.micronaut.context.annotation/Requires///PointingToDeclaration/"><span class="token annotation">Requires</span></span><span class="token punctuation">(</span><span>property<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"jackson.module-scan"</span></span><span class="token punctuation">, </span></span><wbr><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"false"</span></span></span><wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation">@</span><span data-unresolved-link="jakarta.inject/Singleton///PointingToDeclaration/"><span class="token annotation">Singleton</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="kotlin-module-factory.html"><span class="token function">kotlinModuleFactory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.module.kotlin/KotlinModule///PointingToDeclaration/">KotlinModule</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-runtime:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="io.micronaut.context.annotation/Requires///PointingToDeclaration/"><span class="token annotation builtin">Requires</span></span><span class="token punctuation">(</span><span>property<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"jackson.module-scan"</span></span><span class="token punctuation">, </span></span><wbr><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"false"</span></span></span><wbr><span class="token punctuation">)</span></div><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="jakarta.inject/Singleton///PointingToDeclaration/"><span class="token annotation builtin">Singleton</span></span></div></div><span class="token keyword"></span><span class="token keyword">fun </span><a href="kotlin-module-factory.html"><span class="token function">kotlinModuleFactory</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="com.fasterxml.jackson.module.kotlin/KotlinModule///PointingToDeclaration/">KotlinModule</span></div></div></div>
               </div>
             </div>
           </div>
