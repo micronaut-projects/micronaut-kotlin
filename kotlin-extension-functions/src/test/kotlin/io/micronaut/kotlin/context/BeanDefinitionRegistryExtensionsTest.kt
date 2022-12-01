@@ -16,6 +16,7 @@
 package io.micronaut.kotlin.context
 
 
+import io.micronaut.aop.Around
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Context
@@ -25,9 +26,11 @@ import io.micronaut.context.annotation.Prototype
 import io.micronaut.context.annotation.Requires
 import io.micronaut.core.annotation.AnnotationUtil
 import io.micronaut.inject.qualifiers.Qualifiers
+import io.micronaut.runtime.context.scope.Refreshable
 import jakarta.inject.Singleton
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.Test
 
 /**
@@ -120,8 +123,8 @@ class BeanDefinitionRegistryExtensionsTest {
 
     @Test
     fun getProxyTargetBeanDefinition() {
-        assertEquals(context.getProxyTargetBeanDefinition(TestFactory.Foo::class.java, Qualifiers.byStereotype(Prototype::class.java)),
-                context.getProxyTargetBeanDefinition<TestFactory.Foo, Prototype>())
+        assertEquals(context.getProxyTargetBeanDefinition(TestFactory.Stuff::class.java, Qualifiers.byStereotype(Refreshable::class.java)),
+                context.getProxyTargetBeanDefinition<TestFactory.Stuff, Refreshable>())
     }
 
     @Test
@@ -169,11 +172,13 @@ class BeanDefinitionRegistryExtensionsTest {
         @Prototype
         class Bar(@Parameter("baz") val baz: Int)
 
-        @Singleton
         class Baz(val foo: Foo? = null)
 
         @Context
         @Requires(property = "qux.enabled")
         class Qux
+
+        @Refreshable
+        open class Stuff
     }
 }
