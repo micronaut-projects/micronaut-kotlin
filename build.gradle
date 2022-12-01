@@ -1,9 +1,13 @@
 plugins {
     id "io.micronaut.build.internal.docs"
-    id "io.micronaut.build.internal.dependency-updates"
     id "io.micronaut.build.internal.quality-reporting"
     alias(libs.plugins.dokka)
     alias(libs.plugins.kotlin.jvm) apply false
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
 }
 
 tasks.named("dokkaHtmlMultiModule") {

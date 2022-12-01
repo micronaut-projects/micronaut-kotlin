@@ -1,14 +1,10 @@
 plugins {
-    id("micronaut-kotlin.module-conventions")
+    id("io.micronaut.build.internal.kotlin-module")
 }
 
-sourceCompatibility = 1.8
-compileKotlin { kotlinOptions.jvmTarget = "1.8" }
-compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
-
 dependencies {
-    kapt(platform(mn.micronaut.bom))
-    kaptTest(platform(mn.micronaut.bom))
+    kapt(platform(mn.micronaut.core.bom))
+    kaptTest(platform(mn.micronaut.core.bom))
 
     kapt(mn.micronaut.inject.java)
     kaptTest(mn.micronaut.inject.java)
@@ -22,15 +18,15 @@ dependencies {
     api(mn.micronaut.http.server)
     api(mn.micronaut.inject)
 
-    implementation project(":kotlin-runtime")
+    implementation projects.kotlinRuntime
     implementation(libs.kotlin.stdlib.jdk8)
 
     testImplementation(libs.ktor.auth)
     testImplementation(libs.ktor.server.netty)
     testImplementation(mn.micronaut.http.client)
-    testImplementation(mn.micronaut.test.junit5)
+    testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testRuntimeOnly(libs.logback.classic)
+    testRuntimeOnly(mn.logback.classic)
 }
 
 test {

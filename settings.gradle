@@ -9,6 +9,8 @@ plugins {
     id("io.micronaut.build.shared.settings") version "6.1.0"
 }
 
+enableFeaturePreview 'TYPESAFE_PROJECT_ACCESSORS'
+
 rootProject.name = "kotlin-parent"
 
 include "kotlin-bom"
@@ -18,5 +20,8 @@ include "kotlin-extension-functions"
 include "examples:greeting"
 
 micronautBuild {
+    addSnapshotRepository()
     importMicronautCatalog()
+    importMicronautCatalog("micronaut-reactor")
+    importMicronautCatalog("micronaut-test")
 }

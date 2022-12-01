@@ -5,38 +5,34 @@ plugins {
     alias(libs.plugins.kotlin.plugin.allopen)
 }
 
-repositories {
-    mavenCentral()
-}
-
 mainClassName = 'app.ApplicationKt'
-sourceCompatibility = 1.8
+sourceCompatibility = 17
 
-compileKotlin { kotlinOptions.jvmTarget = "1.8" }
-compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
+compileKotlin { kotlinOptions.jvmTarget = "17" }
+compileTestKotlin { kotlinOptions.jvmTarget = "17" }
 
 dependencies {
-    kapt(platform(mn.micronaut.bom))
+    kapt(platform(mn.micronaut.core.bom))
     kapt(mn.micronaut.inject.java)
 
-    kaptTest(platform(mn.micronaut.bom))
+    kaptTest(platform(mn.micronaut.core.bom))
     kaptTest(mn.micronaut.inject.java)
 
-    annotationProcessor(platform(mn.micronaut.bom))
+    annotationProcessor(platform(mn.micronaut.core.bom))
     annotationProcessor(mn.micronaut.inject.java)
 
-    implementation(platform(mn.micronaut.bom))
+    implementation(platform(mn.micronaut.core.bom))
     implementation(mn.micronaut.inject)
-    implementation project(":ktor")
+    implementation projects.ktor
     implementation(libs.ktor.jackson)
     implementation(libs.ktor.server.netty)
 
-    runtimeOnly(libs.logback.classic)
+    runtimeOnly(mn.logback.classic)
 
     testImplementation(mn.micronaut.http.client)
-    testImplementation(mn.micronaut.test.junit5)
+    testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
-    testImplementation(libs.reactor.core)
+    testImplementation(mnReactor.micronaut.reactor)
 }
 
 allOpen {
@@ -45,7 +41,7 @@ allOpen {
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
         //Will retain parameter names for Java reflection
         javaParameters = true
     }
@@ -53,7 +49,7 @@ compileKotlin {
 
 compileTestKotlin {
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
         javaParameters = true
     }
 }

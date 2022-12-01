@@ -16,7 +16,7 @@ class QualifiersExtensionsTest {
     fun qualifierByStereotype() {
         // given
         // when
-        val result = io.micronaut.kotlin.inject.qualifierByStereotype<Any, Context>()
+        val result = qualifierByStereotype<Any, Context>()
         // then
         assertEquals(result::class, Qualifiers.byStereotype<Any>(Context::class.java)::class)
     }
