@@ -16,20 +16,13 @@
 package io.micronaut.kotlin.context
 
 import io.micronaut.context.BeanContext
-import io.micronaut.context.annotation.Context
-import io.micronaut.context.annotation.Factory
-import io.micronaut.context.annotation.Parameter
-import io.micronaut.context.annotation.Prototype
-import io.micronaut.context.annotation.Requires
+import io.micronaut.context.annotation.*
 import io.micronaut.context.exceptions.NoSuchBeanException
 import io.micronaut.inject.qualifiers.Qualifiers
+import io.micronaut.runtime.context.scope.Refreshable
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertIterableEquals
-import org.junit.jupiter.api.Assertions.assertNotNull
-import org.junit.jupiter.api.Assertions.assertNull
-import org.junit.jupiter.api.Assertions.assertSame
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.util.stream.Collectors
@@ -170,8 +163,8 @@ class BeanContextTest {
 
     @Test
     fun getProxyTargetBean() {
-        assertSame(context.getProxyTargetBean(TestFactory.Baz::class.java, Qualifiers.byStereotype(Context::class.java))::class,
-                context.getProxyTargetBean<TestFactory.Baz, Context>()::class)
+        assertSame(context.getProxyTargetBean(TestFactory.Stuff::class.java, Qualifiers.byStereotype(Refreshable::class.java))::class,
+                context.getProxyTargetBean<TestFactory.Stuff, Refreshable>()::class)
     }
 
     @Test
@@ -195,5 +188,8 @@ class BeanContextTest {
         @Context
         @Requires(property = "qux.enabled")
         class Qux
+
+        @Refreshable
+        open class Stuff
     }
 }
