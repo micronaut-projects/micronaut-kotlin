@@ -2,7 +2,7 @@
 typesafe-config = "1.4.2"
 graal-svm = "22.0.0.2"
 junit = "5.9.1"
-ktor = "1.6.8"
+ktor = "2.2.1"
 mockito-core = "4.9.0"
 mockito-junit-jupiter = "4.9.0"
 mockito-kotlin = "2.2.0"
