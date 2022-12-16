@@ -15,6 +15,7 @@
  */
 package io.micronaut.kotlin.context
 
+import io.micronaut.aop.Around
 import io.micronaut.context.BeanContext
 import io.micronaut.context.annotation.Context
 import io.micronaut.context.annotation.Factory
@@ -170,8 +171,10 @@ class BeanContextTest {
 
     @Test
     fun getProxyTargetBean() {
-        assertSame(context.getProxyTargetBean(TestFactory.Baz::class.java, Qualifiers.byStereotype(Context::class.java))::class,
-                context.getProxyTargetBean<TestFactory.Baz, Context>()::class)
+        assertSame(
+            context.getProxyTargetBean(TestFactory.Boz::class.java, Qualifiers.byStereotype(Context::class.java))::class,
+            context.getProxyTargetBean<TestFactory.Boz, Context>()::class
+        )
     }
 
     @Test
@@ -179,6 +182,10 @@ class BeanContextTest {
         assertSame(context.findOrInstantiateBean(TestFactory.Foo::class.java).get()::class, context.findOrInstantiateBean<TestFactory.Foo>()!!::class)
         assertSame(context.findOrInstantiateBean(TestFactory.Baz::class.java).get()::class, context.findOrInstantiateBean<TestFactory.Baz>()!!::class)
     }
+
+    @Around(proxyTarget = true)
+    @Target(AnnotationTarget.CLASS)
+    annotation class ProxyTarget
 
     @Factory
     class TestFactory {
@@ -191,6 +198,10 @@ class BeanContextTest {
 
         @Context
         class Baz
+
+        @Context
+        @ProxyTarget
+        open class Boz
 
         @Context
         @Requires(property = "qux.enabled")
