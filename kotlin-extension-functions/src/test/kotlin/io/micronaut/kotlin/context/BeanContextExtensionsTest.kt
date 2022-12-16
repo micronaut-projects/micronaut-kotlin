@@ -15,14 +15,22 @@
  */
 package io.micronaut.kotlin.context
 
+import io.micronaut.aop.Around
 import io.micronaut.context.BeanContext
-import io.micronaut.context.annotation.*
+import io.micronaut.context.annotation.Context
+import io.micronaut.context.annotation.Factory
+import io.micronaut.context.annotation.Parameter
+import io.micronaut.context.annotation.Prototype
+import io.micronaut.context.annotation.Requires
 import io.micronaut.context.exceptions.NoSuchBeanException
 import io.micronaut.inject.qualifiers.Qualifiers
-import io.micronaut.runtime.context.scope.Refreshable
 import io.micronaut.test.extensions.junit5.annotation.MicronautTest
 import jakarta.inject.Inject
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertIterableEquals
+import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.assertNull
+import org.junit.jupiter.api.Assertions.assertSame
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import java.util.stream.Collectors
@@ -163,8 +171,10 @@ class BeanContextTest {
 
     @Test
     fun getProxyTargetBean() {
-        assertSame(context.getProxyTargetBean(TestFactory.Stuff::class.java, Qualifiers.byStereotype(Refreshable::class.java))::class,
-                context.getProxyTargetBean<TestFactory.Stuff, Refreshable>()::class)
+        assertSame(
+            context.getProxyTargetBean(TestFactory.Boz::class.java, Qualifiers.byStereotype(Context::class.java))::class,
+            context.getProxyTargetBean<TestFactory.Boz, Context>()::class
+        )
     }
 
     @Test
@@ -172,6 +182,10 @@ class BeanContextTest {
         assertSame(context.findOrInstantiateBean(TestFactory.Foo::class.java).get()::class, context.findOrInstantiateBean<TestFactory.Foo>()!!::class)
         assertSame(context.findOrInstantiateBean(TestFactory.Baz::class.java).get()::class, context.findOrInstantiateBean<TestFactory.Baz>()!!::class)
     }
+
+    @Around(proxyTarget = true)
+    @Target(AnnotationTarget.CLASS)
+    annotation class ProxyTarget
 
     @Factory
     class TestFactory {
@@ -186,10 +200,11 @@ class BeanContextTest {
         class Baz
 
         @Context
+        @ProxyTarget
+        open class Boz
+
+        @Context
         @Requires(property = "qux.enabled")
         class Qux
-
-        @Refreshable
-        open class Stuff
     }
 }
