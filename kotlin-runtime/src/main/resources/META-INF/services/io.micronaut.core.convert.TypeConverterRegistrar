@@ -1,0 +1,2 @@
+io.micronaut.kotlin.converters.FlowPublisherConverterRegistrar
+io.micronaut.kotlin.converters.FlowReactorConverterRegistrar

@@ -10,7 +10,8 @@ dependencies {
 
     compileOnly libs.kotlinx.coroutines.core
     compileOnly libs.kotlinx.coroutines.reactive
-    compileOnly(libs.graal.svm)
+    compileOnly libs.kotlinx.coroutines.reactor
+    compileOnly libs.graal.svm
 
     api(mn.micronaut.inject)
     implementation(mnReactor.micronaut.reactor)
