@@ -15,6 +15,9 @@
  */
 package io.micronaut.kotlin.converters
 
+import io.micronaut.context.annotation.Prototype
+import io.micronaut.context.annotation.Requires
+import io.micronaut.core.annotation.Internal
 import io.micronaut.core.convert.MutableConversionService
 import io.micronaut.core.convert.TypeConverterRegistrar
 import kotlinx.coroutines.flow.Flow
@@ -28,6 +31,9 @@ import org.reactivestreams.Publisher
  * @author Konrad Kamiński
  * @since 1.3
  */
+@Requires(classes = [Flow::class, Publisher::class])
+@Prototype
+@Internal
 class FlowPublisherConverterRegistrar : TypeConverterRegistrar {
     override fun register(conversionService: MutableConversionService) {
         conversionService.addConverter(
