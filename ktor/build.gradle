@@ -21,7 +21,7 @@ dependencies {
     implementation projects.kotlinRuntime
     implementation(libs.kotlin.stdlib.jdk8)
 
-    testImplementation(libs.ktor.auth)
+    testImplementation(libs.ktor.server.auth)
     testImplementation(libs.ktor.server.netty)
     testImplementation(mn.micronaut.http.client)
     testImplementation(mnTest.micronaut.test.junit5)

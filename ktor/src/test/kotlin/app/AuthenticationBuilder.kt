@@ -15,9 +15,9 @@
  */
 package app
 
-import io.ktor.application.install
-import io.ktor.auth.Authentication
-import io.ktor.auth.basic
+import io.ktor.server.application.install
+import io.ktor.server.auth.Authentication
+import io.ktor.server.auth.basic
 import io.micronaut.ktor.KtorApplicationBuilder
 import jakarta.inject.Singleton
 

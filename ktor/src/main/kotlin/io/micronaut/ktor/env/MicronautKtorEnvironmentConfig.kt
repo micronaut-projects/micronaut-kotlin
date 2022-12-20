@@ -15,9 +15,7 @@
  */
 package io.micronaut.ktor.env
 
-import io.ktor.config.ApplicationConfig
-import io.ktor.config.ApplicationConfigValue
-import io.ktor.config.ApplicationConfigurationException
+import io.ktor.server.config.*
 import io.micronaut.context.env.Environment
 import io.micronaut.core.type.Argument
 import java.util.*
@@ -29,6 +27,11 @@ import java.util.*
  * @since 1.0
  */
 class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix : String? = "") : ApplicationConfig {
+
+    private val configMap: Map<String, Any?>
+            by lazy(LazyThreadSafetyMode.PUBLICATION) {
+                mapOf(env)
+            }
 
     override fun config(path: String): ApplicationConfig {
         if (env.containsProperties(path)) {
@@ -43,21 +46,36 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     }
 
     override fun property(path: String): ApplicationConfigValue {
-        val fullPath = if(prefix == null) path else "$prefix.$path"
-        if (env.containsProperty(fullPath)) {
-            return KtorApplicationConfigValue(fullPath, env)
-        } else {
-            throw ApplicationConfigurationException("No configuration found for path: $path")
-        }
+        return propertyOrNull(path) ?: throw ApplicationConfigurationException("No configuration found for path: $path")
     }
 
     override fun propertyOrNull(path: String): ApplicationConfigValue? {
-        val fullPath = "$prefix.$path"
+        val fullPath = if(prefix.isNullOrEmpty()) path else "$prefix.$path"
         return if (env.containsProperty(fullPath)) {
             KtorApplicationConfigValue(fullPath, env)
         } else {
             null
         }
+    }
+
+    override fun keys(): Set<String> {
+        return Collections.unmodifiableSet(configMap.keys)
+    }
+
+    override fun toMap(): Map<String, Any?> {
+        return Collections.unmodifiableMap(configMap)
+    }
+
+    private fun mapOf(env: Environment): Map<String, Any?> {
+        val envMap: MutableMap<String, MutableList<String>> = LinkedHashMap()
+        for (ps in env.propertySources) {
+            for (s in ps) {
+                if (env.containsProperty(s)) {
+                    envMap.computeIfAbsent(s) { ArrayList() }.add(ps[s].toString())
+                }
+            }
+        }
+        return envMap
     }
 
     @Suppress("UNCHECKED_CAST")
