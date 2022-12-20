@@ -54,7 +54,9 @@
                                 
                                 <div class="toc-item" style="margin-left:0"><a href="#extensionFunctions"><strong>5</strong><span>Kotlin Extension Functions</span></a></div>
                                 
-                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>6</strong><span>Repository</span></a></div>
+                                <div class="toc-item" style="margin-left:0"><a href="#breaks"><strong>6</strong><span>Breaking Changes</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>7</strong><span>Repository</span></a></div>
                                 
                             </div>
                         </div>
@@ -99,7 +101,9 @@
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-extensionFunctions"><a href="#extensionFunctions"><strong>5</strong><span>Kotlin Extension Functions</span></a></div>
         
-        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>6</strong><span>Repository</span></a></div>
+        <div class="toc-item" style="margin-left:0px" id="toc-item-breaks"><a href="#breaks"><strong>6</strong><span>Breaking Changes</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>7</strong><span>Repository</span></a></div>
         
         </div>
     </div>
@@ -310,9 +314,9 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 <div class="title">Installing Features</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import com.fasterxml.jackson.databind.SerializationFeature
-import io.ktor.application.install
-import io.ktor.features.ContentNegotiation
-import io.ktor.jackson.jackson
+import io.ktor.server.application.install
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.jackson.jackson
 import io.micronaut.ktor.KtorApplicationBuilder
 import jakarta.inject.Singleton
 
@@ -344,10 +348,10 @@ class GreetingConfiguration : KtorApplicationBuilder({ <i class="conum" data-val
 <div class="listingblock">
 <div class="title">Defining Routes</div>
 <div class="content">
-<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.application.call
-import io.ktor.request.receive
-import io.ktor.response.respond
-import io.ktor.routing.*
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.server.application.call
+import io.ktor.server.request.receive
+import io.ktor.server.response.respond
+import io.ktor.server.routing.*
 import io.micronaut.ktor.KtorRoutingBuilder
 import jakarta.inject.Singleton
 
@@ -496,7 +500,36 @@ See <a href="https://discuss.kotlinlang.org/t/why-is-shadowed-extension-not-an-e
 </table>
 </div>
 
-<h1 id="repository"><a class="anchor" href="#repository"></a>6 Repository</h1>
+<h1 id="breaks"><a class="anchor" href="#breaks"></a>6 Breaking Changes</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/breaks.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>This section documents breaking changes for Kotlin and Ktor versions:</p>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_kotlin_4_0_0_snapshot">Micronaut Kotlin 4.0.0-SNAPSHOT</h3>
+<div class="paragraph">
+<p>Micronaut Kotlin&#8217;s <code>Ktor</code> module is based on Ktor 2.x, which has breaking changes from Ktor 1.6.x used by previous versions of Micronaut Kotlin.</p>
+</div>
+<div class="paragraph">
+<p>For more information, refer to the following Ktor guide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ktor.io/docs/migrating-2.html">Migrating Ktor applications:Migrating from 1.6.x to 2.0.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+
+<h1 id="repository"><a class="anchor" href="#repository"></a>7 Repository</h1>
 
 <div class='contribute-btn'>
     <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/master/src/main/docs/guide/repository.adoc"'>
