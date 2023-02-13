@@ -9,4 +9,5 @@ ktor:
   ktorModules: Defining Ktor Modules
 extensionFunctions:
   title: Kotlin Extension Functions
+breaks: Breaking Changes
 repository: Repository

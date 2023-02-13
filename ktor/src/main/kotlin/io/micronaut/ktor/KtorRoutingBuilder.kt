@@ -15,7 +15,7 @@
  */
 package io.micronaut.ktor
 
-import io.ktor.routing.Routing
+import io.ktor.server.routing.Routing
 
 /**
  * Allows declaring classes that can configure Ktor routes

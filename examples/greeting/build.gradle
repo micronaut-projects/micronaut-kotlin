@@ -24,7 +24,8 @@ dependencies {
     implementation(platform(mn.micronaut.core.bom))
     implementation(mn.micronaut.inject)
     implementation projects.ktor
-    implementation(libs.ktor.jackson)
+    implementation(libs.ktor.server.content.negotiation)
+    implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.server.netty)
 
     runtimeOnly(mn.logback.classic)

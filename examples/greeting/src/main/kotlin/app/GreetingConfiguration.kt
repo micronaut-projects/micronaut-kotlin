@@ -17,9 +17,9 @@ package app
 
 // tag::imports[]
 import com.fasterxml.jackson.databind.SerializationFeature
-import io.ktor.application.install
-import io.ktor.features.ContentNegotiation
-import io.ktor.jackson.jackson
+import io.ktor.server.application.install
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.jackson.jackson
 import io.micronaut.ktor.KtorApplicationBuilder
 import jakarta.inject.Singleton
 // end::imports[]

@@ -16,10 +16,10 @@
 package app
 
 // tag::imports[]
-import io.ktor.application.call
-import io.ktor.request.receive
-import io.ktor.response.respond
-import io.ktor.routing.*
+import io.ktor.server.application.call
+import io.ktor.server.request.receive
+import io.ktor.server.response.respond
+import io.ktor.server.routing.*
 import io.micronaut.ktor.KtorRoutingBuilder
 import jakarta.inject.Singleton
 // end::imports[]
