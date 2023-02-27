@@ -16,6 +16,7 @@
 package app
 
 // tag::imports[]
+import io.micronaut.serde.annotation.Serdeable
 import jakarta.inject.Singleton
 // end::imports[]
 
@@ -27,5 +28,6 @@ class GreetingService {
     }
 }
 
+@Serdeable
 data class Greeting(val message: String)
 // end::class[]

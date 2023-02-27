@@ -15,6 +15,7 @@
  */
 package io.micronaut.jackson.kotlin
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Requires
@@ -27,6 +28,7 @@ import jakarta.inject.Singleton
  * @since 1.0
  */
 @Factory
+@Requires(classes = [ObjectMapper::class])
 class KotlinModuleFactory {
 
     @Requires(property = "jackson.module-scan", value = "false")

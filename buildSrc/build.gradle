@@ -1,3 +1,15 @@
 plugins {
     id 'groovy-gradle-plugin'
 }
+
+repositories {
+    mavenCentral()
+    maven { url "https://s01.oss.sonatype.org/content/repositories/snapshots/" }
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation (libs.gradle.micronaut)
+    implementation (libs.kotlin.gradle.plugin)
+    implementation (libs.kotlin.gradle.allopen)
+}
