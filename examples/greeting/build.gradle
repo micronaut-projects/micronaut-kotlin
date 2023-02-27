@@ -53,12 +53,6 @@ test {
 }
 
 graalvmNative {
-    binaries {
-        all {
-            buildArgs.add('--verbose')
-            buildArgs.add('--trace-class-initialization=io.netty.channel.nio.AbstractNioChannel')
-        }
-    }
     metadataRepository {
         enabled = true
     }
