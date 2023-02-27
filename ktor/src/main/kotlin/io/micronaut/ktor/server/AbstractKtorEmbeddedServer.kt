@@ -96,4 +96,8 @@ abstract class AbstractKtorEmbeddedServer(
         }
         return this
     }
+
+    override fun isKeepAlive(): Boolean {
+        return false
+    }
 }
