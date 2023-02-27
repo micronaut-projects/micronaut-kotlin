@@ -17,7 +17,8 @@ package app
 
 // tag::imports[]
 import io.ktor.server.netty.NettyApplicationEngine
-import io.micronaut.ktor.*
+import io.micronaut.ktor.KtorApplication
+import io.micronaut.ktor.runApplication
 import jakarta.inject.Singleton
 import org.slf4j.LoggerFactory
 // end::imports[]

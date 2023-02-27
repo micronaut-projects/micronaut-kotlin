@@ -27,6 +27,7 @@ import io.micronaut.ktor.KtorApplicationBuilder
 import io.micronaut.ktor.KtorRoutingBuilder
 import io.micronaut.ktor.env.MicronautKtorEnvironmentConfig
 import jakarta.inject.Singleton
+import kotlin.coroutines.EmptyCoroutineContext
 
 /**
  * The Ktor factory
@@ -77,7 +78,10 @@ class KtorMicronautApplicationFactory {
                 MicronautKtorEnvironmentConfig(env = env),
                 connectors,
                 builder.modules,
-                builder.watchPaths
+                builder.watchPaths,
+                EmptyCoroutineContext,
+            serverConfiguration.contextPath ?: "",
+                false
         )
     }
 }

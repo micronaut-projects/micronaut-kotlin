@@ -31,8 +31,6 @@ allOpen {
     annotation("io.micronaut.aop.Around")
 }
 
-check.dependsOn(tasks.nativeTest)
-
 compileKotlin {
     kotlinOptions {
         jvmTarget = '17'

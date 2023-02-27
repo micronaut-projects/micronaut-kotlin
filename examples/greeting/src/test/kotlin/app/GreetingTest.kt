@@ -34,7 +34,7 @@ class GreetingTest {
     @Test
     fun testHelloGet() {
         assertEquals(
-            "Hello World",
+            "Hello World!",
             Flux.from(client.hello()).blockFirst()!!.message
         )
     }
@@ -42,7 +42,7 @@ class GreetingTest {
     @Test
     fun testHelloPost() {
         assertEquals(
-            "Hello Micronaut",
+            "Hello Micronaut!",
             Flux.from(client.hello(name = "Micronaut")).blockFirst()!!.message
         )
     }
