@@ -1,8 +1,8 @@
 plugins {
-    id "application"
+    id("io.micronaut.application")
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.kotlin.kapt")
-    alias(libs.plugins.kotlin.plugin.allopen)
+    id("org.jetbrains.kotlin.plugin.allopen")
 }
 
 mainClassName = 'app.ApplicationKt'
@@ -12,17 +12,8 @@ compileKotlin { kotlinOptions.jvmTarget = "17" }
 compileTestKotlin { kotlinOptions.jvmTarget = "17" }
 
 dependencies {
-    kapt(platform(mn.micronaut.core.bom))
-    kapt(mn.micronaut.inject.java)
-
-    kaptTest(platform(mn.micronaut.core.bom))
-    kaptTest(mn.micronaut.inject.java)
-
-    annotationProcessor(platform(mn.micronaut.core.bom))
-    annotationProcessor(mn.micronaut.inject.java)
-
-    implementation(platform(mn.micronaut.core.bom))
     implementation(mn.micronaut.inject)
+    implementation(mnSerde.micronaut.serde.jackson)
     implementation projects.ktor
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.serialization.jackson)
@@ -55,8 +46,12 @@ compileTestKotlin {
     }
 }
 
-run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
-
 test {
     useJUnitPlatform()
+}
+
+graalvmNative {
+    metadataRepository {
+        enabled = true
+    }
 }

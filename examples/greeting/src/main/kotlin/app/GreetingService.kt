@@ -16,16 +16,24 @@
 package app
 
 // tag::imports[]
+import io.micronaut.context.annotation.ConfigurationProperties
+import io.micronaut.serde.annotation.Serdeable
 import jakarta.inject.Singleton
 // end::imports[]
 
 // tag::class[]
 @Singleton
-class GreetingService {
+class GreetingService(private val config: GreetingConfig) {
     fun greet(name: String = "World"): Greeting {
-        return Greeting("Hello $name")
+        return Greeting("Hello ${name}${config.suffix}")
     }
 }
 
+@Serdeable
 data class Greeting(val message: String)
+
+@ConfigurationProperties("greeting")
+interface GreetingConfig {
+    val suffix: String
+}
 // end::class[]

@@ -9,9 +9,11 @@ mockito-core = "4.9.0"
 mockito-junit-jupiter = "5.1.1"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.2"
+micronaut-gradle-plugin = "4.0.0-SNAPSHOT"
 
 # Micronaut BOMs
 micronaut-reactor = "3.0.0-SNAPSHOT"
+micronaut-serde = "2.0.0-SNAPSHOT"
 
 [libraries]
 graal-svm = { module = "org.graalvm.nativeimage:svm", version.ref = "graal-svm" }
@@ -34,9 +36,14 @@ typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-conf
 
 # Micronaut BOMs
 micronaut-reactor = { module = "io.micronaut.reactor:micronaut-reactor-bom", version.ref = "micronaut-reactor" }
+micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
+gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
+kotlin-gradle-plugin = { module = 'org.jetbrains.kotlin:kotlin-gradle-plugin', version.ref = 'kotlin' }
+kotlin-gradle-allopen = { module = 'org.jetbrains.kotlin:kotlin-allopen', version.ref = 'kotlin' }
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 kotlin-plugin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+

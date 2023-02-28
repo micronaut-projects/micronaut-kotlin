@@ -1,76 +1,46 @@
 [
   {
-    "name": "kotlin.Metadata",
-    "allDeclaredMethods": true
+    "name": "kotlin.KotlinVersion[]",
+    "condition": {
+      "typeReachable": "kotlin.KotlinVersion"
+    }
   },
   {
-    "name": "kotlin.KotlinVersion",
-    "allDeclaredFields": true,
-    "allDeclaredMethods": true,
-    "allDeclaredConstructors": true
+    "name": "kotlin.KotlinVersion$Companion",
+    "condition": {
+      "typeReachable": "kotlin.KotlinVersion"
+    }
   },
   {
-    "name": "kotlin.KotlinVersion[]"
+    "name": "kotlin.KotlinVersion$Companion[]",
+    "condition": {
+      "typeReachable": "kotlin.KotlinVersion"
+    }
   },
   {
-    "name": "kotlin.KotlinVersion$Companion"
+    "name": "com.typesafe.config.Config",
+    "condition": {
+      "typeReachable": "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl"
+    }
   },
   {
-    "name": "kotlin.KotlinVersion$Companion[]"
+    "name": "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl",
+    "condition": {
+      "typeReachable": "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl"
+    },
+    "allPublicConstructors": true
   },
   {
-    "name": "kotlin.jvm.internal.DefaultConstructorMarker"
+    "name": "com.fasterxml.jackson.module.kotlin.UnsignedNumbersKt",
+    "condition": {
+      "typeReachable": "com.fasterxml.jackson.module.kotlin.KotlinModule"
+    }
   },
   {
-    "name": "kotlin.reflect.jvm.internal.ReflectionFactoryImpl",
-    "allDeclaredConstructors": true
-  },
-  {
-    "name": "java.lang.String"
-  },
-  {
-    "name": "java.util.List"
-  },
-  {
-    "name": "java.util.Set"
-  },
-  {
-    "name": "java.util.Map"
-  },
-  {
-    "name": "java.math.BigDecimal"
-  },
-  {
-    "name": "java.math.BigInteger"
-  },
-  {
-    "name": "java.time.Instant"
-  },
-  {
-    "name": "java.time.YearMonth"
-  },
-  {
-    "name": "java.time.MonthDay"
-  },
-  {
-    "name": "java.time.LocalDate"
-  },
-  {
-    "name": "java.time.LocalTime"
-  },
-  {
-    "name": "java.time.LocalDateTime"
-  },
-  {
-    "name": "java.time.Duration"
-  },
-  {
-    "name": "java.time.Period"
-  },
-  {
-    "name": "java.time.ZoneId"
-  },
-  {
-    "name": "com.fasterxml.jackson.module.kotlin.UnsignedNumbersKt"
+    "name": "kotlin.internal.jdk8.JDK8PlatformImplementations",
+    "condition": {
+      "typeReachable": "kotlin.internal.jdk8.JDK8PlatformImplementations"
+    },
+    "allPublicConstructors": true
   }
 ]
