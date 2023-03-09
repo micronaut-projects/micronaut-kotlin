@@ -18,7 +18,7 @@ dependencies {
     api(mn.micronaut.http.server)
     api(mn.micronaut.inject)
 
-    implementation projects.kotlinRuntime
+    implementation projects.micronautKotlinRuntime
     implementation(libs.kotlin.stdlib.jdk8)
 
     testImplementation(libs.ktor.server.auth)

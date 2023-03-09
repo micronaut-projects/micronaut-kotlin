@@ -14,7 +14,7 @@ compileTestKotlin { kotlinOptions.jvmTarget = "17" }
 dependencies {
     implementation(mn.micronaut.inject)
     implementation(mnSerde.micronaut.serde.jackson)
-    implementation projects.ktor
+    implementation projects.micronautKtor
     implementation(libs.ktor.server.content.negotiation)
     implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.server.netty)
