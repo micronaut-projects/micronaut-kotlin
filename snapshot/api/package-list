@@ -1,19 +1,17 @@
 $dokka.format:html-v1
 $dokka.linkExtension:html
 
-module:kotlin-extension-functions
+module:micronaut-kotlin-extension-functions
 io.micronaut.kotlin.context
 io.micronaut.kotlin.http
 io.micronaut.kotlin.inject
 io.micronaut.kotlin.runtime
 io.micronaut.kotlin.scheduling
-module:kotlin-runtime
+module:micronaut-kotlin-runtime
 io.micronaut.context.env.hocon
-io.micronaut.context.env.hocon.nativeimage
 io.micronaut.jackson.kotlin
 io.micronaut.kotlin.converters
-io.micronaut.kotlin.nativeimage
-module:ktor
+module:micronaut-ktor
 io.micronaut.ktor
 io.micronaut.ktor.env
 io.micronaut.ktor.factory

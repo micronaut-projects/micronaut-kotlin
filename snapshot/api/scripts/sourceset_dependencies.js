@@ -1,1 +1,1 @@
-sourceset_dependencies = '{":kotlin-runtime:dokkaHtmlPartial/main":[],":kotlin-extension-functions:dokkaHtmlPartial/main":[],":ktor:dokkaHtmlPartial/main":[]}'
+sourceset_dependencies = '{":micronaut-ktor:dokkaHtmlPartial/main":[],":micronaut-kotlin-extension-functions:dokkaHtmlPartial/main":[],":micronaut-kotlin-runtime:dokkaHtmlPartial/main":[]}'
