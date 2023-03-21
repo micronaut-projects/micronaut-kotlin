@@ -1,0 +1,413 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>AbstractKtorEmbeddedServer</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../index.html">
+<span>kotlin-parent</span>            </a>    </div>
+    <div>4.0.0-M1
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":micronaut-ktor:dokkaHtmlPartial/main">jvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="micronaut-ktor::io.micronaut.ktor.server/AbstractKtorEmbeddedServer///PointingToDeclaration//-1405162363">
+  <div class="breadcrumbs"><a href="../../index.html">micronaut-ktor</a><span class="delimiter">/</span><a href="../index.html">io.micronaut.ktor.server</a><span class="delimiter">/</span><span class="current">AbstractKtorEmbeddedServer</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Abstract</span><wbr><span>Ktor</span><wbr><span>Embedded</span><wbr><span><span>Server</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">class </span><a href="index.html">AbstractKtorEmbeddedServer</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>ctx<span class="token operator">: </span><span data-unresolved-link="io.micronaut.context/ApplicationContext///PointingToDeclaration/">ApplicationContext</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>serverConfiguration<span class="token operator">: </span><span data-unresolved-link="io.micronaut.http.server/HttpServerConfiguration///PointingToDeclaration/">HttpServerConfiguration</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>engineEnvironment<span class="token operator">: </span><span data-unresolved-link="io.ktor.server.engine/ApplicationEngineEnvironment///PointingToDeclaration/">ApplicationEngineEnvironment</span><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>applicationEngine<span class="token operator">: </span><span data-unresolved-link="io.ktor.server.engine/ApplicationEngine///PointingToDeclaration/">ApplicationEngine</span></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="io.micronaut.runtime.server/EmbeddedServer///PointingToDeclaration/">EmbeddedServer</span></div><p class="paragraph">Implementation of the EmbeddedServer interface for Ktor.</p><span class="kdoc-tag"><h4 class="">Author</h4><p class="paragraph">graemerocher</p></span><span class="kdoc-tag"><h4 class="">Since</h4><p class="paragraph">1.0</p></span><h4 class="">Inheritors</h4><div class="table"><div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ktor-jetty-embedded-server/index.html">KtorJettyEmbeddedServer</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ktor-netty-embedded-server/index.html">KtorNettyEmbeddedServer</a></div></span></div><div></div></div></div><div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="../-ktor-tomcat-embedded-server/index.html">KtorTomcatEmbeddedServer</a></div></span></div><div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="1518258210%2FConstructors%2F-1405162363" anchor-label="AbstractKtorEmbeddedServer" id="1518258210%2FConstructors%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-abstract-ktor-embedded-server.html"><span>Abstract</span><wbr><span>Ktor</span><wbr><span>Embedded</span><wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1518258210%2FConstructors%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">ctx<span class="token operator">: </span><span data-unresolved-link="io.micronaut.context/ApplicationContext///PointingToDeclaration/">ApplicationContext</span><span class="token punctuation">, </span></span><span class="parameter ">serverConfiguration<span class="token operator">: </span><span data-unresolved-link="io.micronaut.http.server/HttpServerConfiguration///PointingToDeclaration/">HttpServerConfiguration</span><span class="token punctuation">, </span></span><span class="parameter ">engineEnvironment<span class="token operator">: </span><span data-unresolved-link="io.ktor.server.engine/ApplicationEngineEnvironment///PointingToDeclaration/">ApplicationEngineEnvironment</span><span class="token punctuation">, </span></span><span class="parameter ">applicationEngine<span class="token operator">: </span><span data-unresolved-link="io.ktor.server.engine/ApplicationEngine///PointingToDeclaration/">ApplicationEngine</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-1031510774%2FFunctions%2F-1405162363" anchor-label="close" id="-1031510774%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-ktor-tomcat-embedded-server/index.html#-1031510774%2FFunctions%2F-1405162363"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1031510774%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-ktor-tomcat-embedded-server/index.html#-1031510774%2FFunctions%2F-1405162363"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1904690357%2FFunctions%2F-1405162363" anchor-label="getApplicationConfiguration" id="-1904690357%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-application-configuration.html"><span>get</span><wbr><span>Application</span><wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1904690357%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-application-configuration.html"><span class="token function">getApplicationConfiguration</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.micronaut.runtime/ApplicationConfiguration///PointingToDeclaration/">ApplicationConfiguration</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1389940814%2FFunctions%2F-1405162363" anchor-label="getApplicationContext" id="-1389940814%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-application-context.html"><span>get</span><wbr><span>Application</span><wbr><span><span>Context</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1389940814%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-application-context.html"><span class="token function">getApplicationContext</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.micronaut.context/ApplicationContext///PointingToDeclaration/">ApplicationContext</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="962334368%2FFunctions%2F-1405162363" anchor-label="getEnvironment" id="962334368%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-ktor-tomcat-embedded-server/index.html#962334368%2FFunctions%2F-1405162363"><span>get</span><wbr><span><span>Environment</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="962334368%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-ktor-tomcat-embedded-server/index.html#962334368%2FFunctions%2F-1405162363"><span class="token function">getEnvironment</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.micronaut.context.env/Environment///PointingToDeclaration/">Environment</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="394822505%2FFunctions%2F-1405162363" anchor-label="getHost" id="394822505%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-host.html"><span>get</span><wbr><span><span>Host</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="394822505%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-host.html"><span class="token function">getHost</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="683054768%2FFunctions%2F-1405162363" anchor-label="getPort" id="683054768%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-port.html"><span>get</span><wbr><span><span>Port</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="683054768%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-port.html"><span class="token function">getPort</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1941207796%2FFunctions%2F-1405162363" anchor-label="getScheme" id="-1941207796%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-scheme.html"><span>get</span><wbr><span><span>Scheme</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1941207796%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-scheme.html"><span class="token function">getScheme</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-119926531%2FFunctions%2F-1405162363" anchor-label="getURI" id="-119926531%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-r-i.html"><span>get</span><wbr><span><span>URI</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-119926531%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-u-r-i.html"><span class="token function">getURI</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/net/URI.html">URI</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-26867110%2FFunctions%2F-1405162363" anchor-label="getURL" id="-26867110%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="get-u-r-l.html"><span>get</span><wbr><span><span>URL</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-26867110%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="get-u-r-l.html"><span class="token function">getURL</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/net/URL.html">URL</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1666340130%2FFunctions%2F-1405162363" anchor-label="isForceExit" id="-1666340130%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-ktor-tomcat-embedded-server/index.html#-1666340130%2FFunctions%2F-1405162363"><span>is</span><wbr><span>Force</span><wbr><span><span>Exit</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1666340130%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-ktor-tomcat-embedded-server/index.html#-1666340130%2FFunctions%2F-1405162363"><span class="token function">isForceExit</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1246460343%2FFunctions%2F-1405162363" anchor-label="isKeepAlive" id="-1246460343%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-keep-alive.html"><span>is</span><wbr><span>Keep</span><wbr><span><span>Alive</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1246460343%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="is-keep-alive.html"><span class="token function">isKeepAlive</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1737752142%2FFunctions%2F-1405162363" anchor-label="isRunning" id="-1737752142%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="is-running.html"><span>is</span><wbr><span><span>Running</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1737752142%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="is-running.html"><span class="token function">isRunning</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1200016676%2FFunctions%2F-1405162363" anchor-label="isServer" id="1200016676%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-ktor-tomcat-embedded-server/index.html#1200016676%2FFunctions%2F-1405162363"><span>is</span><wbr><span><span>Server</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1200016676%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="../-ktor-tomcat-embedded-server/index.html#1200016676%2FFunctions%2F-1405162363"><span class="token function">isServer</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="52553799%2FFunctions%2F-1405162363" anchor-label="refresh" id="52553799%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../-ktor-tomcat-embedded-server/index.html#52553799%2FFunctions%2F-1405162363"><span><span>refresh</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="52553799%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="io.micronaut.core.annotation/NonNull///PointingToDeclaration/"><span class="token annotation builtin">NonNull</span></span></div></div><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="../-ktor-tomcat-embedded-server/index.html#52553799%2FFunctions%2F-1405162363"><span class="token function">refresh</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.micronaut.context/LifeCycle///PointingToDeclaration/">LifeCycle</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="io.micronaut.context/LifeCycle///PointingToDeclaration/">LifeCycle</span><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-172266459%2FFunctions%2F-1405162363" anchor-label="start" id="-172266459%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="start.html"><span><span>start</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-172266459%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="start.html"><span class="token function">start</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.micronaut.runtime.server/EmbeddedServer///PointingToDeclaration/">EmbeddedServer</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1065447887%2FFunctions%2F-1405162363" anchor-label="stop" id="-1065447887%2FFunctions%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="stop.html"><span><span>stop</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1065447887%2FFunctions%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="stop.html"><span class="token function">stop</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="io.micronaut.runtime.server/EmbeddedServer///PointingToDeclaration/">EmbeddedServer</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="249387989%2FProperties%2F-1405162363" anchor-label="applicationEngine" id="249387989%2FProperties%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="application-engine.html"><span>application</span><wbr><span><span>Engine</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="249387989%2FProperties%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="application-engine.html">applicationEngine</a><span class="token operator">: </span><span data-unresolved-link="io.ktor.server.engine/ApplicationEngine///PointingToDeclaration/">ApplicationEngine</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1130274688%2FProperties%2F-1405162363" anchor-label="ctx" id="-1130274688%2FProperties%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="ctx.html"><span><span>ctx</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1130274688%2FProperties%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="ctx.html">ctx</a><span class="token operator">: </span><span data-unresolved-link="io.micronaut.context/ApplicationContext///PointingToDeclaration/">ApplicationContext</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1662579210%2FProperties%2F-1405162363" anchor-label="engineEnvironment" id="-1662579210%2FProperties%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="engine-environment.html"><span>engine</span><wbr><span><span>Environment</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1662579210%2FProperties%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="engine-environment.html">engineEnvironment</a><span class="token operator">: </span><span data-unresolved-link="io.ktor.server.engine/ApplicationEngineEnvironment///PointingToDeclaration/">ApplicationEngineEnvironment</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-2106395928%2FProperties%2F-1405162363" anchor-label="running" id="-2106395928%2FProperties%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="running.html"><span><span>running</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2106395928%2FProperties%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="running.html">running</a><span class="token operator">: </span><a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/atomic/AtomicBoolean.html">AtomicBoolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="336241076%2FProperties%2F-1405162363" anchor-label="serverConfiguration" id="336241076%2FProperties%2F-1405162363" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main"></a>
+          <div class="table-row" data-filterable-current=":micronaut-ktor:dokkaHtmlPartial/main" data-filterable-set=":micronaut-ktor:dokkaHtmlPartial/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="server-configuration.html"><span>server</span><wbr><span><span>Configuration</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="336241076%2FProperties%2F-1405162363"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":micronaut-ktor:dokkaHtmlPartial/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword"></span><span class="token keyword">val </span><a href="server-configuration.html">serverConfiguration</a><span class="token operator">: </span><span data-unresolved-link="io.micronaut.http.server/HttpServerConfiguration///PointingToDeclaration/">HttpServerConfiguration</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+
