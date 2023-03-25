@@ -12,7 +12,7 @@ typesafe-config = "1.4.2"
 micronaut-gradle-plugin = "4.0.0-SNAPSHOT"
 
 # Micronaut BOMs
-micronaut-reactor = "3.0.0-M1"
+micronaut-reactor = "3.0.0-SNAPSHOT"
 micronaut-serde = "2.0.0-M1"
 
 [libraries]
