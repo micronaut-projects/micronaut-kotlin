@@ -13,7 +13,7 @@ micronaut-gradle-plugin = "4.0.0-SNAPSHOT"
 
 # Micronaut BOMs
 micronaut-reactor = "3.0.0-M1"
-micronaut-serde = "2.0.0-M1"
+micronaut-serde = "2.0.0-SNAPSHOT"
 
 [libraries]
 boms-ktor = { module = "io.ktor:ktor-bom", version.ref = "managed-ktor" }
