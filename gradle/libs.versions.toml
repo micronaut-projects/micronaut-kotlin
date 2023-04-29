@@ -2,7 +2,7 @@
 dokka = "1.8.10"
 graal-svm = "22.3.2"
 junit = "5.9.1"
-kotlin = "1.8.20"
+kotlin = "1.8.21"
 kotlin-coroutines = "1.6.4"
 managed-ktor = "2.3.0"
 mockito-core = "4.9.0"
