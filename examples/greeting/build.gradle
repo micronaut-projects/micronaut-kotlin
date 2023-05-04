@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     id("io.micronaut.application")
     id("org.jetbrains.kotlin.jvm")
@@ -10,6 +12,12 @@ sourceCompatibility = 17
 
 compileKotlin { kotlinOptions.jvmTarget = "17" }
 compileTestKotlin { kotlinOptions.jvmTarget = "17" }
+
+configurations.all {
+    resolutionStrategy {
+        preferProjectModules()
+    }
+}
 
 dependencies {
     implementation(mn.micronaut.inject)
@@ -32,16 +40,16 @@ allOpen {
 }
 
 compileKotlin {
-    kotlinOptions {
-        jvmTarget = '17'
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
         //Will retain parameter names for Java reflection
         javaParameters = true
     }
 }
 
 compileTestKotlin {
-    kotlinOptions {
-        jvmTarget = '17'
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_17
         javaParameters = true
     }
 }

@@ -25,7 +25,7 @@ import io.micronaut.runtime.server.event.ServerShutdownEvent
 import io.micronaut.runtime.server.event.ServerStartupEvent
 import java.net.URI
 import java.net.URL
-import java.util.*
+import java.util.Locale
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -95,9 +95,5 @@ abstract class AbstractKtorEmbeddedServer(
             ctx.publishEvent(ServerShutdownEvent(this))
         }
         return this
-    }
-
-    override fun isKeepAlive(): Boolean {
-        return false
     }
 }
