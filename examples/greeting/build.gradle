@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    id("io.micronaut.application")
+    id("io.micronaut.minimal.application")
     id("org.jetbrains.kotlin.jvm")
     id("org.jetbrains.kotlin.kapt")
     id("org.jetbrains.kotlin.plugin.allopen")
@@ -56,12 +56,6 @@ compileTestKotlin {
 
 test {
     useJUnitPlatform()
-}
-
-graalvmNative {
-    metadataRepository {
-        enabled = true
-    }
 }
 
 micronaut {
