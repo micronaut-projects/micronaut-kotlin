@@ -29,7 +29,7 @@ dependencies {
     testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(libs.junit.jupiter.engine)
     testImplementation(mn.micronaut.jackson.databind)
-    testRuntimeOnly(mn.logback.classic)
+    testRuntimeOnly(mnLogging.logback.classic)
 }
 
 test {
