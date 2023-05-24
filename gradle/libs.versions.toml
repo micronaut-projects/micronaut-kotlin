@@ -16,7 +16,9 @@ micronaut-gradle-plugin = "4.0.0-M1"
 micronaut-reactor = "3.0.0-M1"
 micronaut-serde = "2.0.0-M3"
 
+micronaut-logging = "1.0.0-M2"
 [libraries]
+micronaut-logging = { module = "io.micronaut.logging:micronaut-logging-bom", version.ref = "micronaut-logging" }
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 boms-ktor = { module = "io.ktor:ktor-bom", version.ref = "managed-ktor" }
