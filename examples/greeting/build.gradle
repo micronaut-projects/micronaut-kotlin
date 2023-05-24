@@ -27,7 +27,7 @@ dependencies {
     implementation(libs.ktor.serialization.jackson)
     implementation(libs.ktor.server.netty)
 
-    runtimeOnly(mn.logback.classic)
+    runtimeOnly(mnLogging.logback.classic)
 
     testImplementation(mn.micronaut.http.client)
     testImplementation(mnTest.micronaut.test.junit5)
