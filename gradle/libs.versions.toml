@@ -1,4 +1,5 @@
 [versions]
+micronaut = '4.0.0-M4'
 dokka = "1.8.10"
 graal-svm = "22.3.2"
 junit = "5.9.1"
@@ -16,6 +17,8 @@ micronaut-reactor = "3.0.0-M1"
 micronaut-serde = "2.0.0-M3"
 
 [libraries]
+# Core
+micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 boms-ktor = { module = "io.ktor:ktor-bom", version.ref = "managed-ktor" }
 
 graal-svm = { module = "org.graalvm.nativeimage:svm", version.ref = "graal-svm" }
