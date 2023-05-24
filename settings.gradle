@@ -20,7 +20,6 @@ include "kotlin-extension-functions"
 include "examples:greeting"
 
 micronautBuild {
-    importMicronautCatalog("micronaut-logging")
     useStandardizedProjectNames = true
     importMicronautCatalog()
     importMicronautCatalog("micronaut-reactor")
