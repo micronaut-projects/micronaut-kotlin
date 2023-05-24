@@ -1,5 +1,10 @@
 [versions]
-micronaut = '4.0.0-M4'
+micronaut = "4.0.0-M5"
+micronaut-docs = "2.0.0"
+micronaut-test = "4.0.0-M4"
+groovy = "4.0.12"
+spock = "2.3-groovy-4.0"
+
 dokka = "1.8.10"
 graal-svm = "22.3.2"
 junit = "5.9.1"
@@ -10,11 +15,11 @@ mockito-core = "4.9.0"
 mockito-junit-jupiter = "5.3.1"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.2"
-micronaut-gradle-plugin = "4.0.0-M1"
+micronaut-gradle-plugin = "4.0.0-M4"
 
 # Micronaut BOMs
-micronaut-reactor = "3.0.0-M1"
-micronaut-serde = "2.0.0-M3"
+micronaut-reactor = "3.0.0-M2"
+micronaut-serde = "2.0.0-M8"
 
 micronaut-logging = "1.0.0-M2"
 [libraries]
