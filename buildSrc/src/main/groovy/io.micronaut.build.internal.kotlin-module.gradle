@@ -2,3 +2,7 @@ plugins {
     id "io.micronaut.build.internal.kotlin-base"
     id "io.micronaut.build.internal.module"
 }
+
+dokkaHtmlPartial {
+    dependsOn("kaptKotlin")
+}
