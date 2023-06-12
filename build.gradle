@@ -9,7 +9,7 @@ repositories {
 }
 
 tasks.named("dokkaHtmlMultiModule") {
-    outputDirectory.set(rootProject.layout.buildDirectory.dir("docs/api").map(d -> d.asFile))
+    outputDirectory.set(rootProject.layout.buildDirectory.dir("docs/api"))
 }
 
 task renameDokkaRootFile(type: Copy) {
