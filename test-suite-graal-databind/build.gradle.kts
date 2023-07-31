@@ -36,7 +36,6 @@ dependencies {
     implementation(mnReactor.micronaut.reactor)
     runtimeOnly(mnLogging.logback.classic)
     testImplementation(mnTest.micronaut.test.junit5)
-    //runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 }
 
 application {

@@ -1,45 +1,14 @@
 [
   {
-    "name": "kotlin.KotlinVersion[]",
-    "condition": {
-      "typeReachable": "kotlin.KotlinVersion"
-    }
-  },
-  {
-    "name": "kotlin.KotlinVersion$Companion",
-    "condition": {
-      "typeReachable": "kotlin.KotlinVersion"
-    }
-  },
-  {
-    "name": "kotlin.KotlinVersion$Companion[]",
-    "condition": {
-      "typeReachable": "kotlin.KotlinVersion"
-    }
-  },
-  {
     "name": "com.typesafe.config.Config",
     "condition": {
-      "typeReachable": "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl"
+      "typeReachable": "io.micronaut.context.env.hocon.HoconPropertySourceLoader"
     }
   },
   {
     "name": "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl",
     "condition": {
-      "typeReachable": "io.micronaut.context.env.hocon.HoconPropertySourceLoaderImpl"
-    },
-    "allPublicConstructors": true
-  },
-  {
-    "name": "com.fasterxml.jackson.module.kotlin.UnsignedNumbersKt",
-    "condition": {
-      "typeReachable": "com.fasterxml.jackson.module.kotlin.KotlinModule"
-    }
-  },
-  {
-    "name": "kotlin.internal.jdk8.JDK8PlatformImplementations",
-    "condition": {
-      "typeReachable": "kotlin.internal.jdk8.JDK8PlatformImplementations"
+      "typeReachable": "io.micronaut.context.env.hocon.HoconPropertySourceLoader"
     },
     "allPublicConstructors": true
   }
