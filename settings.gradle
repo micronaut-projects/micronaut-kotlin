@@ -18,6 +18,7 @@ include "kotlin-runtime"
 include "ktor"
 include "kotlin-extension-functions"
 include "examples:greeting"
+include "test-suite-graal"
 
 micronautBuild {
     useStandardizedProjectNames = true
