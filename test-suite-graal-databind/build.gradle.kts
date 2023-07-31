@@ -30,9 +30,10 @@ configurations.all {
 
 dependencies {
     implementation(projects.micronautKotlinRuntime)
-    implementation(mnSerde.micronaut.serde.jackson)
-    implementation(mnReactor.micronaut.reactor)
     implementation(mn.micronaut.http.client)
+    implementation(mn.micronaut.jackson.databind)
+    implementation(libs.kotlin.reflect)
+    implementation(mnReactor.micronaut.reactor)
     runtimeOnly(mnLogging.logback.classic)
     testImplementation(mnTest.micronaut.test.junit5)
     //runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
