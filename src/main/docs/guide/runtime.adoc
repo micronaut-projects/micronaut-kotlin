@@ -5,7 +5,7 @@ The `micronaut-kotlin-runtime` dependency adds the following features:
 
 To enable the above features add the dependency to your build:
 
-dependency:io.micronaut.kotlin:micronaut-kotlin-runtime:{version}[]
+dependency:io.micronaut.kotlin:micronaut-kotlin-runtime[]
 
 === Config4k Support
 

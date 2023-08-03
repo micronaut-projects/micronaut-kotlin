@@ -1,7 +1,7 @@
 The `micronaut-kotlin-extension-functions` dependency adds a variety of convenience functions to make using
 micronaut with kotlin more user-friendly.
 
-dependency:io.micronaut.kotlin:micronaut-kotlin-extension-functions:{version}[]
+dependency:io.micronaut.kotlin:micronaut-kotlin-extension-functions[]
 
 For example, https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters[reified type parameters]
 help alleviate the need for using `::class.java` in many places where it would otherwise be required.
