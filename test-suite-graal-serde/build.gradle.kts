@@ -13,6 +13,7 @@ repositories {
 }
 
 micronaut {
+    version(libs.versions.micronaut.platform.get())
     importMicronautPlatform = false
     runtime("netty")
     testRuntime("junit5")
