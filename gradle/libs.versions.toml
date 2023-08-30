@@ -19,7 +19,7 @@ micronaut-gradle-plugin = "4.0.2"
 
 # Micronaut BOMs
 micronaut-reactor = "3.0.2"
-micronaut-serde = "2.0.0-M13"
+micronaut-serde = "2.2.1"
 
 micronaut-logging = "1.0.0-M5"
 [libraries]
