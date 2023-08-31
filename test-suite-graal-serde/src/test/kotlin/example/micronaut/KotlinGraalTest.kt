@@ -17,6 +17,10 @@ class KotlinGraalTest {
 
     @Test
     fun testHelloGet() {
+        println("jvmci.Compiler: " + System.getProperty("jvmci.Compiler"))
+        println("java.vendor.version: " + System.getProperty("java.vendor.version"))
+        println("java.vendor: " + System.getProperty("java.vendor"))
+
         Assertions.assertEquals(
                 "Hello World!",
                 Flux.from(client.hello("World")).blockFirst()!!.message
