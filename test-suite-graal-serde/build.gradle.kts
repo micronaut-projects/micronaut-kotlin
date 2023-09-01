@@ -23,6 +23,11 @@ micronaut {
     }
 }
 
+listOf("jvmci.Compiler", "java.vendor.version", "java.vendor").forEach { prop ->
+    val value = System.getProperty(prop)
+    println("$prop: ${value} :: ${value?.lowercase()?.contains("graal")}")
+}
+
 configurations.all {
     resolutionStrategy {
         preferProjectModules()
