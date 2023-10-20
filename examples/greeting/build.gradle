@@ -1,17 +1,8 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
-    id("io.micronaut.minimal.application")
-    id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.kapt")
-    id("org.jetbrains.kotlin.plugin.allopen")
+    id("io.micronaut.build.internal.kotlin-example")
 }
 
 mainClassName = 'app.ApplicationKt'
-sourceCompatibility = 17
-
-compileKotlin { kotlinOptions.jvmTarget = "17" }
-compileTestKotlin { kotlinOptions.jvmTarget = "17" }
 
 configurations.all {
     resolutionStrategy {
@@ -37,21 +28,6 @@ dependencies {
 
 allOpen {
     annotation("io.micronaut.aop.Around")
-}
-
-compileKotlin {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_17
-        //Will retain parameter names for Java reflection
-        javaParameters = true
-    }
-}
-
-compileTestKotlin {
-    compilerOptions {
-        jvmTarget = JvmTarget.JVM_17
-        javaParameters = true
-    }
 }
 
 test {

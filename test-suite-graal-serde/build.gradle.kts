@@ -1,8 +1,5 @@
 plugins {
-    id("io.micronaut.application")
-    id("org.jetbrains.kotlin.jvm")
-    id("org.jetbrains.kotlin.kapt")
-    id("org.jetbrains.kotlin.plugin.allopen")
+    id("io.micronaut.build.internal.kotlin-test")
 }
 
 version = "0.1"
@@ -44,7 +41,4 @@ dependencies {
 
 application {
     mainClass.set("example.micronaut.ApplicationKt")
-}
-java {
-    sourceCompatibility = JavaVersion.toVersion("17")
 }
