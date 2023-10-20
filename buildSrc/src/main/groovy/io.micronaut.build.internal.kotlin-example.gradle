@@ -1,4 +1,4 @@
 plugins {
     id "io.micronaut.build.internal.kotlin-base"
-    id("io.micronaut.application")
+    id("io.micronaut.minimal.application")
 }
