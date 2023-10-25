@@ -1,6 +1,7 @@
 plugins {
     id "io.micronaut.build.internal.kotlin-base"
     id "io.micronaut.build.internal.module"
+    id("org.jetbrains.dokka")
 }
 
 dokkaHtmlPartial {
