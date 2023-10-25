@@ -7,7 +7,7 @@ groovy = "4.0.13"
 spock = "2.3-groovy-4.0"
 
 dokka = "1.8.20"
-graal-svm = "23.0.1"
+graal-svm = "23.1.1"
 junit = "5.9.1"
 kotlin = "1.9.10"
 kotlin-coroutines = "1.7.3"
