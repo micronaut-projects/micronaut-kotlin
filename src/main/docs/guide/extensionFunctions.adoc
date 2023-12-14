@@ -45,3 +45,5 @@ Full documentation of the provided extension functions can be found via https://
 
 WARNING: Do be aware when defining extension functions in this project or your own, an extension that shadows a member function may have unexpected behavior, and does not throw a compiler error but rather warns.
 See https://discuss.kotlinlang.org/t/why-is-shadowed-extension-not-an-error/7209/11[this Kotlin discussion topic] for the latest information.
+
+TIP: See the guide for https://guides.micronaut.io/latest/micronaut-kotlin-extension-fns.html[Using Kotlin Extension Functions in the Micronaut Framework] to learn more.
