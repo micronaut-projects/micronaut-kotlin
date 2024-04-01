@@ -3,17 +3,12 @@ micronaut = "4.4.0"
 micronaut-platform = "4.0.5"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.0.0"
-groovy = "4.0.13"
-spock = "2.3-groovy-4.0"
 
 dokka = "1.9.20"
 graal-svm = "23.1.2"
-junit = "5.9.1"
 kotlin = "1.9.23"
 kotlin-coroutines = "1.7.3"
 managed-ktor = "2.3.9"
-mockito-core = "4.9.0"
-mockito-junit-jupiter = "5.11.0"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.3"
 micronaut-gradle-plugin = "4.3.5"
@@ -42,7 +37,6 @@ ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negoti
 ktor-server-jetty = { module = "io.ktor:ktor-server-jetty", version.ref = "managed-ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "managed-ktor" }
 ktor-server-tomcat = { module = "io.ktor:ktor-server-tomcat", version.ref = "managed-ktor" }
-mockito-junit-jupiter = { module = "org.mockito:mockito-junit-jupiter", version.ref = "mockito-junit-jupiter" }
 mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version.ref = "mockito-kotlin" }
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }
 
