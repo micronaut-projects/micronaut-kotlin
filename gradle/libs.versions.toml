@@ -6,7 +6,7 @@ micronaut-test = "4.0.0"
 groovy = "4.0.13"
 spock = "2.3-groovy-4.0"
 
-dokka = "1.9.10"
+dokka = "1.9.20"
 graal-svm = "23.1.2"
 junit = "5.9.1"
 kotlin = "1.9.23"
