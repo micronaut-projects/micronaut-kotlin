@@ -8,9 +8,9 @@ dependencies {
 
     annotationProcessor(mn.micronaut.inject.java)
 
-    compileOnly libs.kotlinx.coroutines.core
-    compileOnly libs.kotlinx.coroutines.reactive
-    compileOnly libs.kotlinx.coroutines.reactor
+    compileOnly mn.kotlinx.coroutines.core
+    compileOnly mn.kotlinx.coroutines.reactive
+    compileOnly mn.kotlinx.coroutines.reactor
     compileOnly libs.graal.svm
 
     api(mn.micronaut.context)

@@ -7,7 +7,6 @@ micronaut-test = "4.0.0"
 dokka = "1.9.20"
 graal-svm = "23.1.2"
 kotlin = "1.9.23"
-kotlin-coroutines = "1.7.3"
 managed-ktor = "2.3.9"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.3"
@@ -28,9 +27,6 @@ jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine"}
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlin-coroutines" }
-kotlinx-coroutines-reactive = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactive", version.ref = "kotlin-coroutines" }
-kotlinx-coroutines-reactor = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-reactor", version.ref = "kotlin-coroutines" }
 ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "managed-ktor" }
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "managed-ktor" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "managed-ktor" }
