@@ -10,7 +10,7 @@ kotlin = "1.9.23"
 managed-ktor = "2.3.10"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.3"
-micronaut-gradle-plugin = "4.3.5"
+micronaut-gradle-plugin = "4.3.6"
 
 # Micronaut BOMs
 micronaut-reactor = "3.3.0"
