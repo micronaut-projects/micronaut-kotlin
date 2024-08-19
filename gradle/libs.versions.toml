@@ -16,7 +16,7 @@ micronaut-gradle-plugin = "4.4.2"
 micronaut-reactor = "3.5.0"
 micronaut-serde = "2.11.0"
 
-micronaut-logging = "1.0.0"
+micronaut-logging = "1.4.0"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
