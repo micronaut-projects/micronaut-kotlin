@@ -21,7 +21,6 @@ micronaut-logging = "1.4.0"
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 boms-ktor = { module = "io.ktor:ktor-bom", version.ref = "managed-ktor" }
 
-graal-svm = { module = "org.graalvm.nativeimage:svm", version.ref = "graal-svm" }
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
 junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine"}
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
