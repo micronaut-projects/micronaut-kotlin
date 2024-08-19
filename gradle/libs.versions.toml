@@ -2,7 +2,7 @@
 micronaut = "4.6.1"
 micronaut-platform = "4.0.5"
 micronaut-docs = "2.0.0"
-micronaut-test = "4.0.0"
+micronaut-test = "4.5.0"
 
 dokka = "1.9.20"
 graal-svm = "23.1.4"
