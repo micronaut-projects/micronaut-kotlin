@@ -1,5 +1,5 @@
 [versions]
-micronaut = "4.6.1"
+micronaut = "4.7.2"
 micronaut-platform = "4.5.1"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.5.0"
@@ -12,9 +12,8 @@ typesafe-config = "1.4.3"
 micronaut-gradle-plugin = "4.4.4"
 
 # Micronaut BOMs
-micronaut-reactor = "3.5.0"
-micronaut-serde = "2.11.0"
-
+micronaut-reactor = "3.6.0"
+micronaut-serde = "2.12.0"
 micronaut-logging = "1.4.0"
 [libraries]
 # Core
