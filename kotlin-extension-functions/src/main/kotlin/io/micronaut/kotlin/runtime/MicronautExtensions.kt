@@ -29,14 +29,12 @@ import io.micronaut.runtime.Micronaut
  * @author Will Buck
  * @since 2.3.1
  */
-// tag:startApplication
 inline fun <reified T : Any> startApplication(vararg args: String, initializer: Micronaut.() -> Unit = {}): ApplicationContext {
     return Micronaut.build(*args)
             .mainClass(T::class.java)
             .apply(initializer)
             .start()
 }
-// end:startApplication
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `mnRun<Foo>(args)`

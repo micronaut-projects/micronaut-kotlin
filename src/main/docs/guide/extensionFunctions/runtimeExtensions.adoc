@@ -1,0 +1,14 @@
+TIP: https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.runtime/index.html[Runtime Extensions API Documentation]
+
+.An Example Application using the extension function.
+[source,kotlin]
+----
+object Application
+
+fun main(args: Array<String>) {
+    startApplication<Application>(*args) {
+        packages("org.example.app")
+        mapError<RuntimeException> { 500 }
+    }
+}
+----
