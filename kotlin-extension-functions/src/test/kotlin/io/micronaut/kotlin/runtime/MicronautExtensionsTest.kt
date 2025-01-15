@@ -16,20 +16,33 @@
 package io.micronaut.kotlin.runtime
 
 
+import com.fasterxml.jackson.databind.ObjectMapper
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.context.annotation.Prototype
 import io.micronaut.kotlin.context.getBean
 import io.micronaut.runtime.Micronaut
 import jakarta.inject.Singleton
-import org.junit.jupiter.api.Assertions.assertEquals
-import org.junit.jupiter.api.Assertions.assertNotNull
+import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
 
 /**
  * @author Alejandro Gomez
  */
 class MicronautExtensionsTest {
+
+    object Application
+
+    @Test
+    fun startApplication() {
+
+        val context = startApplication<Application>("test") {
+            packages("org.example.app")
+            mapError<RuntimeException> { 500 }
+        }
+        assertNotNull(context)
+        assertTrue(context.containsBean(ObjectMapper::class.java))
+    }
 
     @Test
     fun mnRun() {

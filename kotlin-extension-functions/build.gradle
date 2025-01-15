@@ -22,6 +22,7 @@ dependencies {
     }
     implementation(mn.micronaut.jackson.databind)
 
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation(mn.micronaut.http.server)
     testImplementation(mn.micronaut.http.client)
     testImplementation(mn.micronaut.http.server.netty)

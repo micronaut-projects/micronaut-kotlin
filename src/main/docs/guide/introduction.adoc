@@ -1,1 +1,3 @@
 This project provides various extensions and improvements to the Micronaut and Kotlin experience.
+
+TIP: https://micronaut-projects.github.io/micronaut-kotlin/latest/api/index.html[For more detailed information, see the dokka docs for the Micronaut Kotlin Modules].

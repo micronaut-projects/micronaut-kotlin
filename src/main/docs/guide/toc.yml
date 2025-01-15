@@ -3,11 +3,17 @@ introduction:
 releaseHistory: Release History
 runtime:
   title: Kotlin Runtime Support
+  config4k: Config4k
 ktor:
   title: Ktor Support
   ktorApplication: The KtorApplication class
   ktorModules: Defining Ktor Modules
 extensionFunctions:
   title: Kotlin Extension Functions
+  contextExtensions: Context Extensions
+  httpExtensions: HTTP Extensions
+  injectExtensions: Inject Extensions
+  runtimeExtensions: Runtime Extensions
+  schedulingExtensions: Scheduling Extensions
 breaks: Breaking Changes
 repository: Repository

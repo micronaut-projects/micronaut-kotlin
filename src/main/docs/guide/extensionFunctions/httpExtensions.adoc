@@ -1,0 +1,39 @@
+TIP: https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.http/index.html[Http Extensions API Documentation]
+
+=== BlockingHttpClient Extensions
+
+==== Single Response Extensions
+
+.Test Demonstrating Single Response Client Extension usage
+[source,kotlin]
+----
+// Compare exchange usage
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/http/HttpClientExtensionsTest.kt[tags=usingExchangeSingleResponseFunctions, indent="0"]
+
+// Compare retrieve usage
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/http/HttpClientExtensionsTest.kt[tags=usingRetrieveSingleResponseFunctions, indent="0"]
+----
+
+==== List Response Extensions
+
+.Test Demonstrating List Response Client Extension usage
+[source,kotlin]
+----
+// Compare exchange usage
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/http/HttpClientExtensionsTest.kt[tags=usingExchangeListResponseFunctions, indent="0"]
+
+// Compare retrieve usage
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/http/HttpClientExtensionsTest.kt[tags=usingRetrieveListResponseFunctions, indent="0"]
+----
+
+=== HttpMessage Extensions
+
+.Test Demonstrating HttpMessage Extension usage
+[source,kotlin]
+----
+// Compare body member usage (Not exceptional path)
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/http/HttpClientExtensionsTest.kt[tags=usingHttpMessageBodyOrNull, indent="0"]
+
+// Compare getBody() usage (Exceptional path)
+include::kotlin-extension-functions/src/test/kotlin/io/micronaut/kotlin/http/HttpClientExtensionsTest.kt[tags=usingHttpMessageGetBodyFunctions, indent="0"]
+----

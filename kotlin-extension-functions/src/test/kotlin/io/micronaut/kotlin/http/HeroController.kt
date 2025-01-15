@@ -15,14 +15,26 @@
  */
 package io.micronaut.kotlin.http
 
-import io.micronaut.kotlin.http.Hero
+import io.micronaut.http.HttpRequest
 import io.micronaut.http.HttpResponse
+import io.micronaut.http.HttpStatus
 import io.micronaut.http.annotation.Controller
+import io.micronaut.http.annotation.Error
 import io.micronaut.http.annotation.Get
+import java.time.Instant
 import java.time.LocalDateTime
+
+data class HeroJsonError(val testJsonErrorMessage: String, val testJsonErrorTimestamp: Instant = Instant.parse("2025-01-01T00:00:00Z"))
+class HeroException(message: String): RuntimeException(message)
 
 @Controller("/heroes")
 class HeroController {
+
+    @Error
+    fun handleException(request: HttpRequest<*>, exception: HeroException): HttpResponse<HeroJsonError> {
+        val error = HeroJsonError(testJsonErrorMessage = exception.message ?: "Unknown error")
+        return HttpResponse.serverError(error).status(HttpStatus.CONFLICT)
+    }
 
     @Get("/any")
     fun getOne(): HttpResponse<Hero> {
@@ -34,6 +46,11 @@ class HeroController {
                         LocalDateTime.of(1966, 7, 1, 0, 0)
                 )
         )
+    }
+
+    @Get("/conflict")
+    fun getMissingField(): HttpResponse<Hero> {
+        throw HeroException("conflict found is missing")
     }
 
     @Get("/list")

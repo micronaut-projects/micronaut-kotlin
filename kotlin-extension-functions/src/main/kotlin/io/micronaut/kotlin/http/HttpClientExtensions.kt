@@ -17,6 +17,7 @@ package io.micronaut.kotlin.http
 
 import io.micronaut.core.type.Argument
 import io.micronaut.http.HttpRequest
+import io.micronaut.http.HttpResponse
 import io.micronaut.http.client.BlockingHttpClient
 
 /**
@@ -27,7 +28,7 @@ import io.micronaut.http.client.BlockingHttpClient
  * @author Will Buck
  * @since 1.0.0
  */
-inline fun <reified T: Any> argumentOf(): Argument<T> = Argument.of(T::class.java)
+inline fun <reified T : Any> argumentOf(): Argument<T> = Argument.of(T::class.java)
 
 /**
  * Shortcut to create an argument of a list the given type
@@ -37,11 +38,26 @@ inline fun <reified T: Any> argumentOf(): Argument<T> = Argument.of(T::class.jav
  * @author Will Buck
  * @since 1.0.0
  */
-inline fun <reified T: Any> argumentOfList(): Argument<List<T>> = Argument.listOf(T::class.java)
+inline fun <reified T : Any> argumentOfList(): Argument<List<T>> = Argument.listOf(T::class.java)
 
 /**
  * Perform an HTTP request for the given request object emitting the full HTTP response from returned
- * Publisher and converting the response body to the specified type.
+ * [org.reactivestreams.Publisher] and converting the response body to the specified type. Allowing for
+ * `client.exchangeObject<Hero>(HttpRequest.GET("/heroes/any"))` instead of
+ * `client.exchange(HttpRequest.GET<Any>("/heroes/any"), Argument.of(Hero::class.java))`.
+ *
+ * @param T The response body type
+ * @param request The [HttpRequest] you want to perform
+ * @return The full [HttpResponse] with response body as an instance of [T]
+ */
+inline fun <reified T : Any> BlockingHttpClient.exchangeObject(request: HttpRequest<Any>): HttpResponse<T> =
+    exchange(request, argumentOf<T>())
+
+/**
+ * Perform an HTTP request for the given request object emitting the full HTTP response from returned
+ * Publisher and converting the response body to the specified type. Allows for
+ * `client.retrieveObject<Hero>(HttpRequest.GET("/heroes/any"))` instead of
+ * `client.retrieve(HttpRequest.GET<Any>("/heroes/any"), Argument.of(Hero::class.java))`.
  *
  * @param T The argument type
  * @param request The [HttpRequest] you want to perform
@@ -49,14 +65,27 @@ inline fun <reified T: Any> argumentOfList(): Argument<List<T>> = Argument.listO
  * @author Will Buck
  * @since 1.0.0
  */
-// tag::clientFunctionSingle[]
-inline fun <reified T: Any> BlockingHttpClient.retrieveObject(request: HttpRequest<Any>): T =
-        retrieve(request, argumentOf<T>())
-// end::clientFunctionSingle[]
+inline fun <reified T : Any> BlockingHttpClient.retrieveObject(request: HttpRequest<Any>): T =
+    retrieve(request, argumentOf<T>())
 
 /**
  * Perform an HTTP request for the given request object emitting the full HTTP response from returned
- * Publisher and converting the response body to a list of the specified type.
+ * [org.reactivestreams.Publisher] and converting the response body to a list of the specified type. Allowing for
+ * `client.exchangeList<Hero>(HttpRequest.GET("/heroes/any"))` instead of
+ * `client.exchange(HttpRequest.GET<Any>("/heroes/any"), Argument.listOf(Hero::class.java))`.
+ *
+ * @param T The response body type
+ * @param request The [HttpRequest] you want to perform
+ * @return The full [HttpResponse] with response body as an instance of [List<T>]
+ */
+inline fun <reified T : Any> BlockingHttpClient.exchangeList(request: HttpRequest<Any>): HttpResponse<List<T>> =
+    exchange(request, argumentOfList<T>())
+
+/**
+ * Perform an HTTP request for the given request object emitting the full HTTP response from returned
+ * Publisher and converting the response body to a list of the specified type. Allows for
+ * `client.retrieveList<Hero>(HttpRequest.GET("/heroes/any"))` instead of
+ * `client.retrieve(HttpRequest.GET<Any>("/heroes/any"), Argument.listOf(Hero::class.java))`.
  *
  * @param T The argument type
  * @param request The [HttpRequest] you want to perform
@@ -64,7 +93,5 @@ inline fun <reified T: Any> BlockingHttpClient.retrieveObject(request: HttpReque
  * @author Will Buck
  * @since 1.0.0
  */
-// tag::clientFunctionList[]
-inline fun <reified T: Any> BlockingHttpClient.retrieveList(request: HttpRequest<Any>): List<T> =
-        retrieve(request, argumentOfList<T>())
-// end::clientFunctionList[]
+inline fun <reified T : Any> BlockingHttpClient.retrieveList(request: HttpRequest<Any>): List<T> =
+    retrieve(request, argumentOfList<T>())
