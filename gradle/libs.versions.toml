@@ -4,7 +4,7 @@ micronaut-platform = "4.5.1"
 micronaut-docs = "2.0.0"
 micronaut-test = "4.5.0"
 
-dokka = "1.9.20"
+dokka = "2.0.0"
 kotlin = "1.9.25"
 managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
