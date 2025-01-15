@@ -7,11 +7,7 @@ To enable the above features add the dependency to your build:
 
 dependency:io.micronaut.kotlin:micronaut-kotlin-runtime[]
 
-=== Config4k Support
+TIP: https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-runtime/index.html[Micronaut Kotlin Runtime API Documentation]
 
-https://github.com/config4k/config4k[Config4k] is a type safe configuration format for Kotlin based on https://github.com/lightbend/config/blob/master/HOCON.md[HOCON (Human-Optimized Config Object Notation)]. Configuration files are defined using the `conf` extension. The following an example configuration file:
+== Config4k Support
 
-.An Example `src/main/resources/application.conf`
-----
-include::kotlin-runtime/src/test/resources/application.conf[]
-----
