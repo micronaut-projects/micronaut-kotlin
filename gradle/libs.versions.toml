@@ -13,9 +13,9 @@ micronaut-gradle-plugin = "4.4.5"
 sonatype-scan = "3.0.0"
 
 # Micronaut BOMs
-micronaut-serde = "2.13.1"
 micronaut-logging = "1.4.0"
 micronaut-reactor = "3.7.0"
+micronaut-serde = "2.14.0"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
