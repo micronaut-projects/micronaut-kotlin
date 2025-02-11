@@ -2,7 +2,7 @@
 micronaut = "4.8.2"
 micronaut-platform = "4.5.1"
 micronaut-docs = "2.0.0"
-micronaut-test = "4.5.0"
+micronaut-test = "4.7.0"
 
 dokka = "1.9.20"
 kotlin = "1.9.25"
