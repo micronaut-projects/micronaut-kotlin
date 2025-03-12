@@ -1,6 +1,6 @@
 package example.micronaut
 
-import io.micronaut.serde.annotation.Serdeable
+import io.micronaut.core.annotation.Introspected
 
-@Serdeable
+@Introspected
 data class Greeting(val message: String)

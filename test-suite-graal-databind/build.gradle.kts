@@ -29,8 +29,7 @@ configurations.all {
 dependencies {
     implementation(projects.micronautKotlinRuntime)
     implementation(mn.micronaut.http.client)
-    annotationProcessor(mnSerde.micronaut.serde.processor)
-    implementation(mnSerde.micronaut.serde.jackson)
+    implementation(mn.micronaut.jackson.databind)
     implementation(libs.kotlin.reflect)
     implementation(mnReactor.micronaut.reactor)
 
