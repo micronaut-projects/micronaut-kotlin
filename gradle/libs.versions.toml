@@ -9,7 +9,7 @@ kotlin = "1.9.25"
 managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.3"
-micronaut-gradle-plugin = "4.5.1"
+micronaut-gradle-plugin = "4.5.2"
 sonatype-scan = "3.0.0"
 
 # Micronaut BOMs
