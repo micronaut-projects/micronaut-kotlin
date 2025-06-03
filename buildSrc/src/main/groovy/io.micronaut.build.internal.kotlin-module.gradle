@@ -14,9 +14,9 @@ if (sonatypePluginConfigured) {
         excludeCoordinates = [ // Ktor 2.x vulnerable versions
                 "org.apache.tomcat:tomcat-catalina:9.0.89",
                 "org.apache.tomcat:tomcat-coyote:9.0.89",
-                "org.eclipse.jetty:jetty-server:9.4.54.v20240208",
-                "org.eclipse.jetty:jetty-http:9.4.54.v20240208",
-                "org.eclipse.jetty:jetty-servlets:9.4.54.v20240208",
+                "org.eclipse.jetty:jetty-server:12.0.22",
+                "org.eclipse.jetty:jetty-http:12.0.22",
+                "org.eclipse.jetty:jetty-servlets:11.0.25",
         ]
         excludeVulnerabilityIds = ["CVE-2025-24970"]
         // the vulnerability description says Netty 4.1.118 patches it. However, Netty 4.1.118 is still reported as vulnerable.
