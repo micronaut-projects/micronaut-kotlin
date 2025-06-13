@@ -14,8 +14,8 @@ sonatype-scan = "3.1.1"
 
 # Micronaut BOMs
 micronaut-reactor = "3.7.0"
-micronaut-serde = "2.14.0"
 micronaut-logging = "1.6.0"
+micronaut-serde = "2.14.1"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
