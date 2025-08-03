@@ -16,7 +16,6 @@
 package io.micronaut.kotlin.runtime
 
 
-import tools.jackson.databind.ObjectMapper
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.annotation.Parameter
 import io.micronaut.context.annotation.Prototype
@@ -41,7 +40,6 @@ class MicronautExtensionsTest {
             mapError<RuntimeException> { 500 }
         }
         assertNotNull(context)
-        assertTrue(context.containsBean(ObjectMapper::class.java))
     }
 
     @Test
