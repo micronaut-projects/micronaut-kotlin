@@ -13,7 +13,7 @@ micronaut-gradle-plugin = "4.5.3"
 
 # Micronaut BOMs
 micronaut-reactor = "3.7.0"
-micronaut-serde = "2.15.0"
+micronaut-serde = "2.15.5"
 micronaut-logging = "1.7.0"
 [libraries]
 # Core
