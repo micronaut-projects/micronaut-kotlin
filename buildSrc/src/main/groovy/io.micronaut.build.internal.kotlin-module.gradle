@@ -8,10 +8,10 @@ ossIndexAudit {
                 "org.apache.tomcat:tomcat-catalina:9.0.89",
                 "org.apache.tomcat:tomcat-coyote:9.0.89",
                 "org.apache.tomcat.embed:tomcat-embed-core:9.0.89",
-                "org.eclipse.jetty:jetty-server:9.4.54.v20240208",
-                "org.eclipse.jetty:jetty-http:9.4.54.v20240208",
-                "org.eclipse.jetty:jetty-servlets:9.4.54.v20240208",
-                "org.eclipse.jetty.http2:http2-common:9.4.54.v20240208",
+                "org.eclipse.jetty:jetty-server:9.4.58.v20250814",
+                "org.eclipse.jetty:jetty-http:9.4.58.v20250814",
+                "org.eclipse.jetty:jetty-servlets:9.4.58.v20250814",
+                "org.eclipse.jetty.http2:http2-common:9.4.58.v20250814",
         ]
         excludeVulnerabilityIds = ["CVE-2025-24970"]
         // the vulnerability description says Netty 4.1.118 patches it. However, Netty 4.1.118 is still reported as vulnerable.
