@@ -8,7 +8,7 @@ dokka = "1.9.20"
 kotlin = "1.9.25"
 managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
-typesafe-config = "1.4.3"
+typesafe-config = "1.4.5"
 micronaut-gradle-plugin = "4.5.5"
 
 # Micronaut BOMs
