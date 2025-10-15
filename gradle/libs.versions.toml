@@ -1,7 +1,7 @@
 [versions]
 micronaut = "4.9.4"
 micronaut-platform = "4.8.3"
-micronaut-docs = "2.0.0"
+micronaut-docs = "3.0.0"
 micronaut-test = "4.7.0"
 
 dokka = "1.9.20"
@@ -10,7 +10,6 @@ managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.3"
 micronaut-gradle-plugin = "4.5.3"
-sonatype-scan = "3.1.1"
 
 # Micronaut BOMs
 micronaut-reactor = "3.7.0"
@@ -40,7 +39,6 @@ micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.r
 gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
 kotlin-gradle-plugin = { module = 'org.jetbrains.kotlin:kotlin-gradle-plugin', version.ref = 'kotlin' }
 kotlin-gradle-allopen = { module = 'org.jetbrains.kotlin:kotlin-allopen', version.ref = 'kotlin' }
-sonatype-scan = { module = "org.sonatype.gradle.plugins:scan-gradle-plugin", version.ref = "sonatype-scan" }
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
