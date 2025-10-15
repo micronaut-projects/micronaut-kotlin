@@ -1,20 +1,20 @@
 [versions]
-micronaut = "4.7.11"
-micronaut-platform = "4.5.1"
-micronaut-docs = "2.0.0"
-micronaut-test = "4.5.0"
+micronaut = "4.10.4"
+micronaut-platform = "4.9.4"
+micronaut-docs = "3.0.0"
+micronaut-test = "4.7.0"
 
 dokka = "2.0.0"
 kotlin = "2.1.0"
 managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
-typesafe-config = "1.4.3"
-micronaut-gradle-plugin = "4.4.4"
+typesafe-config = "1.4.5"
+micronaut-gradle-plugin = "4.5.5"
 
 # Micronaut BOMs
-micronaut-reactor = "3.6.0"
-micronaut-serde = "2.13.0"
-micronaut-logging = "1.4.0"
+micronaut-reactor = "3.9.0"
+micronaut-serde = "2.15.5"
+micronaut-logging = "1.7.0"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
