@@ -2,7 +2,9 @@ plugins {
     id("io.micronaut.build.internal.kotlin-example")
 }
 
-mainClassName = 'app.ApplicationKt'
+application {
+    mainClass.set("app.ApplicationKt")
+}
 
 configurations.all {
     resolutionStrategy {
