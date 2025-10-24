@@ -9,7 +9,7 @@ kotlin = "2.2.20"
 managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.5"
-micronaut-gradle-plugin = "4.5.5"
+micronaut-gradle-plugin = "4.6.0"
 
 # Micronaut BOMs
 micronaut-reactor = "3.9.0"
