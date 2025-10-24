@@ -24,7 +24,7 @@ dependencies {
 
     testImplementation(mn.micronaut.http.client)
     testImplementation(mnTest.micronaut.test.junit5)
-    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(mnTest.junit.jupiter.engine)
     testImplementation(mnReactor.micronaut.reactor)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

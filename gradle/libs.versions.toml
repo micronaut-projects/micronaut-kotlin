@@ -1,8 +1,8 @@
 [versions]
-micronaut = "4.10.4"
+micronaut = "4.10.7"
 micronaut-platform = "4.9.4"
 micronaut-docs = "3.0.0"
-micronaut-test = "4.7.0"
+micronaut-test = "4.10.1"
 
 dokka = "2.0.0"
 kotlin = "2.2.20"
@@ -21,7 +21,6 @@ micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'mi
 boms-ktor = { module = "io.ktor:ktor-bom", version.ref = "managed-ktor" }
 
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
-junit-jupiter-engine = { module = "org.junit.jupiter:junit-jupiter-engine"}
 kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
 kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "managed-ktor" }
