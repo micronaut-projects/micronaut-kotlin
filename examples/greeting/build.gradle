@@ -2,7 +2,9 @@ plugins {
     id("io.micronaut.build.internal.kotlin-example")
 }
 
-mainClassName = 'app.ApplicationKt'
+application {
+    mainClass.set("app.ApplicationKt")
+}
 
 configurations.all {
     resolutionStrategy {
@@ -22,7 +24,7 @@ dependencies {
 
     testImplementation(mn.micronaut.http.client)
     testImplementation(mnTest.micronaut.test.junit5)
-    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(mnTest.junit.jupiter.engine)
     testImplementation(mnReactor.micronaut.reactor)
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

@@ -27,7 +27,7 @@ dependencies {
     testImplementation(mn.micronaut.http.client)
     testImplementation(mn.micronaut.http.server.netty)
     testImplementation(mnTest.micronaut.test.junit5)
-    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(mnTest.junit.jupiter.engine)
     testImplementation(mnTest.mockito.core)
     testImplementation(mnTest.mockito.junit.jupiter)
     testImplementation(libs.mockito.kotlin)
