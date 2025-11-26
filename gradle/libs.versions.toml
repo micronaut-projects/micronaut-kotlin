@@ -11,7 +11,7 @@ typesafe-config = "1.4.5"
 micronaut-gradle-plugin = "4.6.0"
 
 # Micronaut BOMs
-micronaut-reactor = "3.9.0"
+micronaut-reactor = "3.9.1"
 micronaut-serde = "2.15.5"
 micronaut-logging = "1.7.0"
 [libraries]
