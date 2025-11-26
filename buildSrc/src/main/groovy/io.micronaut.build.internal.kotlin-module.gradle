@@ -6,7 +6,7 @@ plugins {
 ossIndexAudit {
         excludeCoordinates = [ // Ktor 2.x vulnerable versions
                 "org.apache.tomcat:tomcat-catalina:9.0.112",
-                "org.apache.tomcat:tomcat-coyote:9.0.89",
+                "org.apache.tomcat:tomcat-coyote:9.0.112",
                 "org.apache.tomcat.embed:tomcat-embed-core:9.0.112",
                 "org.eclipse.jetty:jetty-server:9.4.54.v20240208",
                 "org.eclipse.jetty:jetty-http:9.4.54.v20240208",
