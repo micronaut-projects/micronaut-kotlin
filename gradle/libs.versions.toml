@@ -1,8 +1,8 @@
 [versions]
 micronaut = "4.10.9"
-micronaut-platform = "4.9.4"
 micronaut-docs = "3.0.0"
 micronaut-test = "4.10.1"
+micronaut-platform = "4.10.2"
 dokka = "2.1.0"
 kotlin = "2.2.21"
 managed-ktor = "2.3.13"
