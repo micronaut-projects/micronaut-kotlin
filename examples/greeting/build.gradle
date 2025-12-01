@@ -1,5 +1,7 @@
 plugins {
     id("io.micronaut.build.internal.kotlin-example")
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.kotlin.plugin.allopen")
 }
 
 application {
@@ -30,7 +32,7 @@ dependencies {
 }
 
 allOpen {
-    annotation("io.micronaut.aop.Around")
+        annotation("io.micronaut.aop.Around")
 }
 
 test {
