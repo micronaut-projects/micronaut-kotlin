@@ -2,7 +2,7 @@
 micronaut = "4.10.9"
 micronaut-platform = "4.10.2"
 dokka = "2.1.0"
-kotlin = "2.2.21"
+kotlin = "2.3.0"
 managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.5"
