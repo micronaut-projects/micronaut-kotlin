@@ -36,3 +36,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+micronautBuild {
+    descriptor {
+        parentModuleId = "io.micronaut.kotlin:micronaut-kotlin-extension-functions"
+    }
+}

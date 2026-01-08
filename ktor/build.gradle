@@ -33,3 +33,9 @@ dependencies {
 test {
     useJUnitPlatform()
 }
+
+micronautBuild {
+    descriptor {
+        parentModuleId = "io.micronaut.kotlin:micronaut-ktor"
+    }
+}
