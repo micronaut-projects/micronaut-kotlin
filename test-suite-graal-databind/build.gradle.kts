@@ -30,7 +30,6 @@ dependencies {
     implementation(projects.micronautKotlinRuntime)
     implementation(mn.micronaut.http.client)
     implementation(mn.micronaut.jackson.databind)
-    implementation(libs.kotlin.reflect)
     implementation(mnReactor.micronaut.reactor)
 
     // Added manually as graalvm-community-jdk-17.0.8_linux-x64_bin on CI does not get detected as Graal (missing java.vendor.version)

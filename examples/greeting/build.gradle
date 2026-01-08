@@ -1,5 +1,6 @@
 plugins {
     id("io.micronaut.build.internal.kotlin-example")
+    id("io.micronaut.build.internal.kotlin-kapt")
 }
 
 application {
@@ -29,9 +30,9 @@ dependencies {
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
-allOpen {
-    annotation("io.micronaut.aop.Around")
-}
+//allOpen {
+//    annotation("io.micronaut.aop.Around")
+//}
 
 test {
     useJUnitPlatform()

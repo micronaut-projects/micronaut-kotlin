@@ -2,7 +2,6 @@
 micronaut = "5.0.0-M6"
 micronaut-platform = "4.10.6"
 dokka = "2.1.0"
-kotlin = "2.2.21"
 managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.5"
@@ -17,8 +16,6 @@ micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'mi
 boms-ktor = { module = "io.ktor:ktor-bom", version.ref = "managed-ktor" }
 
 jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin" }
-kotlin-reflect = { module = "org.jetbrains.kotlin:kotlin-reflect", version.ref = "kotlin" }
-kotlin-stdlib-jdk8 = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version.ref = "kotlin" }
 ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "managed-ktor" }
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "managed-ktor" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "managed-ktor" }
@@ -32,12 +29,8 @@ typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-conf
 micronaut-reactor = { module = "io.micronaut.reactor:micronaut-reactor-bom", version.ref = "micronaut-reactor" }
 micronaut-serde = { module = "io.micronaut.serde:micronaut-serde-bom", version.ref = "micronaut-serde" }
 gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", version.ref = "micronaut-gradle-plugin" }
-kotlin-gradle-plugin = { module = 'org.jetbrains.kotlin:kotlin-gradle-plugin', version.ref = 'kotlin' }
-kotlin-gradle-allopen = { module = 'org.jetbrains.kotlin:kotlin-allopen', version.ref = 'kotlin' }
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-kotlin-plugin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+
 
