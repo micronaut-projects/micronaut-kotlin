@@ -15,8 +15,8 @@
  */
 package io.micronaut.jackson.kotlin
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
+import tools.jackson.databind.ObjectMapper
+import tools.jackson.module.kotlin.KotlinModule
 import io.micronaut.context.ApplicationContext
 import org.junit.jupiter.api.Test
 
@@ -26,9 +26,9 @@ class KotlinModuleFactoryTest {
     fun testModuleScanEnabled() {
         ApplicationContext.run().use {
             val objectMapper = it.getBean(ObjectMapper::class.java)
-            val moduleIds = objectMapper.registeredModuleIds
+            val modules = objectMapper.registeredModules()
             // found via module scan
-            assert(moduleIds.contains(KotlinModule::class.java.name))
+            assert(modules.any { it is KotlinModule })
             assert(!it.containsBean(KotlinModule::class.java))
         }
     }
