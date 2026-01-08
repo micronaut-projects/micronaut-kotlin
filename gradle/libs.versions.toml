@@ -1,6 +1,6 @@
 [versions]
-micronaut = "4.10.9"
-micronaut-platform = "4.10.2"
+micronaut = "5.0.0-M6"
+micronaut-platform = "4.10.6"
 dokka = "2.1.0"
 kotlin = "2.2.21"
 managed-ktor = "2.3.13"
@@ -9,8 +9,8 @@ typesafe-config = "1.4.5"
 micronaut-gradle-plugin = "4.6.1"
 
 # Micronaut BOMs
-micronaut-reactor = "3.9.1"
-micronaut-serde = "2.16.2"
+micronaut-reactor = "4.0.0-M1"
+micronaut-serde = "3.0.0-M1"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
