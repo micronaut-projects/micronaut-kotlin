@@ -6,7 +6,6 @@ managed-ktor = "2.3.13"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.5"
 micronaut-gradle-plugin = "4.6.1"
-jackson-kotlin = "3.0.3"
 
 # Micronaut BOMs
 micronaut-reactor = "4.0.0-M1"
@@ -16,7 +15,7 @@ micronaut-serde = "3.0.0-M1"
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
 boms-ktor = { module = "io.ktor:ktor-bom", version.ref = "managed-ktor" }
 
-jackson-module-kotlin = { module = "tools.jackson.module:jackson-module-kotlin", version.ref = "jackson-kotlin" }
+jackson-module-kotlin = { module = "tools.jackson.module:jackson-module-kotlin" }
 ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "managed-ktor" }
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "managed-ktor" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "managed-ktor" }
