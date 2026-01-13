@@ -16,23 +16,51 @@
 package io.micronaut.ktor.server
 
 import io.ktor.server.engine.ApplicationEngine
-import io.ktor.server.engine.ApplicationEngineEnvironment
-import io.ktor.server.jetty.Jetty
+import io.ktor.server.engine.EngineConnectorBuilder
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.application.ApplicationEnvironment
+import io.ktor.server.jetty.jakarta.Jetty
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
+import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.ktor.KtorApplication
+import io.micronaut.ktor.KtorApplicationBuilder
+import io.micronaut.ktor.KtorRoutingBuilder
+import io.ktor.server.routing.routing
 import jakarta.inject.Singleton
 
 @Singleton
 @Requires(classes = arrayOf(Jetty::class))
 class KtorJettyEmbeddedServer(
-        override val ctx: ApplicationContext,
-        override val serverConfiguration: HttpServerConfiguration,
-        override val engineEnvironment: ApplicationEngineEnvironment,
-        val ktorApplication: KtorApplication<ApplicationEngine.Configuration>) : AbstractKtorEmbeddedServer(
-        ctx,
-        serverConfiguration,
-        engineEnvironment,
-        Jetty.create(engineEnvironment, ktorApplication.configuration)
+    override val ctx: ApplicationContext,
+    override val serverConfiguration: HttpServerConfiguration,
+    override val engineEnvironment: ApplicationEnvironment,
+    val ktorApplication: KtorApplication<ApplicationEngine.Configuration>,
+    val ktorApplicationBuilders: List<KtorApplicationBuilder>,
+    val ktorRoutingBuilders: List<KtorRoutingBuilder>) : AbstractKtorEmbeddedServer(
+    ctx,
+    serverConfiguration,
+    engineEnvironment,
+    embeddedServer(
+        Jetty,
+        environment = engineEnvironment,
+        module = {
+            ktorApplicationBuilders.forEach { it.builder(this) }
+            ktorRoutingBuilders.forEach { routing { it.builder(this) } }
+        },
+        configure = {
+            var specifiedPort = serverConfiguration.port.orElse(8080)
+            if (specifiedPort == -1) {
+                specifiedPort = SocketUtils.findAvailableTcpPort()
+            }
+
+            connectors.add(EngineConnectorBuilder().apply {
+                host = serverConfiguration.host.orElse("0.0.0.0")
+                port = specifiedPort
+            })
+
+            ktorApplication.configuration(this)
+        }
+    )
 )

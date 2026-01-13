@@ -16,6 +16,7 @@
 package io.micronaut.ktor.env
 
 import io.ktor.server.config.*
+import io.ktor.util.reflect.TypeInfo
 import io.micronaut.context.env.Environment
 import io.micronaut.core.type.Argument
 import java.util.*
@@ -52,7 +53,16 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     override fun propertyOrNull(path: String): ApplicationConfigValue? {
         val fullPath = if(prefix.isNullOrEmpty()) path else "$prefix.$path"
         return if (env.containsProperty(fullPath)) {
-            KtorApplicationConfigValue(fullPath, env)
+            val valueType = when {
+                env.getProperty(fullPath, Map::class.java).isPresent ->
+                    ApplicationConfigValue.Type.OBJECT
+                env.getProperty(fullPath, List::class.java).isPresent ->
+                    ApplicationConfigValue.Type.LIST
+                else ->
+                    ApplicationConfigValue.Type.SINGLE
+            }
+
+            KtorApplicationConfigValue(fullPath, env, valueType)
         } else {
             null
         }
@@ -79,10 +89,22 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     }
 
     @Suppress("UNCHECKED_CAST")
-    class KtorApplicationConfigValue(private val prop : String, private val env: Environment) : ApplicationConfigValue {
+    class KtorApplicationConfigValue(private val prop : String, private val env: Environment,
+                                     override val type: ApplicationConfigValue.Type
+    ) : ApplicationConfigValue {
         override fun getList(): List<String> {
             val requiredProperty = env.getProperty(prop, Argument.of(List::class.java, String::class.java))
             return requiredProperty as List<String>
+        }
+
+        override fun getMap(): Map<String, Any?> {
+            val argument = Argument.of(Map::class.java, String::class.java, Any::class.java)
+            return env.getProperty(prop, argument).orElse(emptyMap<String, Any>()) as Map<String, Any?>
+        }
+
+        override fun getAs(type: TypeInfo): Any? {
+            val argument = Argument.of(type.type.java)
+            return env.getProperty(prop, argument).orElse(null)
         }
 
         override fun getString(): String {

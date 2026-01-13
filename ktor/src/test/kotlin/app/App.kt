@@ -18,14 +18,9 @@ package app
 import io.ktor.server.netty.NettyApplicationEngine
 import io.micronaut.ktor.KtorApplication
 import jakarta.inject.Singleton
-import org.slf4j.LoggerFactory
 
 @Singleton
 class App(val greetingService: GreetingService) : KtorApplication<NettyApplicationEngine.Configuration>({
-    applicationEngineEnvironment {
-        log = LoggerFactory.getLogger(App::class.java)
-    }
-
     applicationEngine {
         workerGroupSize = 10
     }

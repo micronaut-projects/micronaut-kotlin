@@ -1,0 +1,121 @@
+= Micronaut Ktor Migration Report (Ktor 2.x → 3.3.3)
+
+
+== Detailed Changes
+
+=== 1. `KtorApplication.kt`
+
+*Changes*::
+
+* Replaced `ApplicationEngineEnvironmentBuilder` with `ServerConfigBuilder` for the `environment` property
+* Updated `applicationEngineEnvironment` to accept and apply `ServerConfigBuilder` lambdas
+* Added imports for `ServerConfigBuilder` and `applicationEnvironment`
+
+*Explanation*::
+
+In Ktor 3.x, server configuration is built using `ServerConfigBuilder`, which produces a `ServerConfig` containing modules, paths, and environment settings.
+The previous `ApplicationEngineEnvironmentBuilder` is deprecated and removed in favor of this model.
+
+This change allows `KtorApplication` to configure development mode, modules, and environment settings using the new DSL.
+
+*References*::
+
+* Server Configuration Documentation:  https://api.ktor.io/ktor-server-core/io.ktor.server.application/-server-config-builder/index.html?query=class%20ServerConfigBuilder(val%20environment:%20ApplicationEnvironment)[https://api.ktor.io/ktor-server-core/io.ktor.server.application/-server-config-builder/index.html][Server Configuration]
+
+---
+
+=== 2. `MicronautKtorEnvironmentConfig.kt`
+
+*Changes*::
+
+* Added import for `TypeInfo`
+* Implemented property type detection in `propertyOrNull`, identifying `OBJECT`, `LIST`, and `SINGLE` values
+* Implemented missing `ApplicationConfigValue` methods:
+** `getMap()`
+** `getAs(TypeInfo)`
+* Updated `KtorApplicationConfigValue` to accept and store type information
+* Fixed `getList()` to correctly return `List<String>`
+
+*Explanation*::
+
+Ktor 3.x requires full implementation of the `ApplicationConfigValue` interface to support complex configuration structures such as nested objects and lists.
+
+*References*::
+
+* Application Config Documentation: https://api.ktor.io/ktor-server-core/io.ktor.server.config/-application-config-value/index.html?query=interface%20ApplicationConfigValue
+
+---
+
+=== 3. Embedded Server Implementations
+
+Affected files:
+
+* `KtorNettyEmbeddedServer.kt`
+* `KtorJettyEmbeddedServer.kt`
+* `KtorTomcatEmbeddedServer.kt`
+
+*Changes (common to all)*::
+
+* Added imports for `EngineConnectorBuilder`, `embeddedServer`, `ApplicationEnvironment`, and engine-specific factories
+* Updated constructors to inject:
+** `List<KtorApplicationBuilder>`
+** `List<KtorRoutingBuilder>`
+* Replaced direct engine creation with:
+
+=== *embeddedServer* (
+Engine,
+environment = engineEnvironment,
+module = { ... },
+configure = { ... }
+)
+-
+
+* Applied application builders and routing builders dynamically in the `module` block
+* Configured host and port using `EngineConnectorBuilder` in the `configure` block
+* Added support for dynamic port resolution (`port = -1`)
+
+*Explanation*::
+
+Ktor 3.x restructures embedded server creation around explicit `module` and `configure` blocks.
+Direct engine creation APIs (for example, `Netty.create`) are deprecated.
+
+
+*References*::
+https://api.ktor.io/ktor-server-core/io.ktor.server.engine/embedded-server.html
+
+---
+
+=== 4. `MicronautKtorApplicationFactory.kt`
+
+*Changes*::
+
+* Updated environment builders to use `ServerConfigBuilder`
+* Reworked `applicationEngineEnvironment` to return `ApplicationEnvironment` without connectors
+* Deferred connector configuration to engine configuration lambdas
+* Added `getEngineConfiguration` bean to apply pending connectors
+
+*Explanation*::
+
+In Ktor 3.x, connectors cannot be configured on the `ApplicationEnvironment`.
+They must be applied during engine configuration.
+
+
+---
+
+=== 5. `AbstractKtorEmbeddedServer.kt`
+
+*Changes*::
+
+* Updated superclass to `io.micronaut.runtime.server.EmbeddedServer`
+* Removed `applicationEngine`
+* Added `ktorEmbeddedServer: EmbeddedServer<*, *>`
+* Updated `start()` and `stop()` lifecycle methods
+* Resolved runtime host/port using `resolvedConnectors()`
+
+---
+
+=== 6. `App.kt` (Test)
+
+*Changes*::
+
+* Removed explicit logger configuration from `applicationEngineEnvironment`

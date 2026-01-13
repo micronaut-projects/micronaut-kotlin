@@ -15,17 +15,17 @@
  */
 package io.micronaut.ktor.server
 
-import io.ktor.server.engine.ApplicationEngine
-import io.ktor.server.engine.ApplicationEngineEnvironment
+import io.ktor.server.application.ApplicationEnvironment
+import io.ktor.server.engine.EngineConnectorConfig
+import kotlinx.coroutines.runBlocking
 import io.micronaut.context.ApplicationContext
 import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.runtime.ApplicationConfiguration
-import io.micronaut.runtime.server.EmbeddedServer
 import io.micronaut.runtime.server.event.ServerShutdownEvent
 import io.micronaut.runtime.server.event.ServerStartupEvent
 import java.net.URI
 import java.net.URL
-import java.util.Locale
+import java.util.*
 import java.util.concurrent.atomic.AtomicBoolean
 
 /**
@@ -35,65 +35,65 @@ import java.util.concurrent.atomic.AtomicBoolean
  * @since 1.0
  */
 abstract class AbstractKtorEmbeddedServer(
-        open val ctx: ApplicationContext,
-        open val serverConfiguration: HttpServerConfiguration,
-        open val engineEnvironment: ApplicationEngineEnvironment,
-        open val applicationEngine: ApplicationEngine) : EmbeddedServer {
+    open val ctx: ApplicationContext,
+    open val serverConfiguration: HttpServerConfiguration,
+    open val engineEnvironment: ApplicationEnvironment,
+    open val ktorEmbeddedServer: io.ktor.server.engine.EmbeddedServer<*, *>) : io.micronaut.runtime.server.EmbeddedServer {
 
     var running : AtomicBoolean = AtomicBoolean(false)
+    lateinit var resolvedConnectors: List<EngineConnectorConfig>
 
     override fun getApplicationContext(): ApplicationContext {
         return ctx
-    }
-
-    override fun isRunning(): Boolean {
-        return running.get()
-    }
-
-    override fun getURL(): URL {
-        return uri.toURL()
-    }
-
-    override fun getHost(): String {
-        val connectors = engineEnvironment.connectors
-        val first = connectors.first()
-        return first.host
-    }
-
-    override fun getURI(): URI {
-        return URI.create("$scheme://$host:$port")
     }
 
     override fun getApplicationConfiguration(): ApplicationConfiguration {
         return serverConfiguration.applicationConfiguration
     }
 
+
+    override fun getHost(): String {
+        val first = resolvedConnectors.first()
+        return first.host
+    }
+
+    override fun getURI(): URI {
+        return URI.create("${scheme}://${host}:${port}")
+    }
+
+    override fun getURL(): URL {
+        return getURI().toURL()
+    }
+
     override fun getPort(): Int {
-        val connectors = engineEnvironment.connectors
-        val first = connectors.first()
+        val first = resolvedConnectors.first()
         return first.port
     }
 
     override fun getScheme(): String {
-        val connectors = engineEnvironment.connectors
-        val first = connectors.first()
+        val first = resolvedConnectors.first()
 
         return first.type.name.lowercase(Locale.ENGLISH)
     }
 
-    override fun start(): EmbeddedServer {
+    override fun start(): io.micronaut.runtime.server.EmbeddedServer {
         if (running.compareAndSet(false, true)) {
-            applicationEngine.start()
+            ktorEmbeddedServer.start()
+            resolvedConnectors = runBlocking { ktorEmbeddedServer.engine.resolvedConnectors() }
             ctx.publishEvent(ServerStartupEvent(this))
         }
         return this
     }
 
-    override fun stop(): EmbeddedServer {
+    override fun stop(): io.micronaut.runtime.server.EmbeddedServer {
         if (running.compareAndSet(true, false)) {
-            applicationEngine.stop(1000, 5000)
+            ktorEmbeddedServer.stop()
             ctx.publishEvent(ServerShutdownEvent(this))
         }
         return this
+    }
+
+    override fun isRunning(): Boolean {
+        return running.get()
     }
 }

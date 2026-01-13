@@ -15,11 +15,12 @@
  */
 package io.micronaut.ktor.factory
 
+import io.ktor.server.application.ApplicationEnvironment
+import io.ktor.server.application.ServerConfigBuilder
 import io.ktor.server.routing.routing
 import io.ktor.server.engine.*
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.env.Environment
-import io.micronaut.core.annotation.Internal
 import io.micronaut.core.io.socket.SocketUtils
 import io.micronaut.http.server.HttpServerConfiguration
 import io.micronaut.ktor.KtorApplication
@@ -27,7 +28,8 @@ import io.micronaut.ktor.KtorApplicationBuilder
 import io.micronaut.ktor.KtorRoutingBuilder
 import io.micronaut.ktor.env.MicronautKtorEnvironmentConfig
 import jakarta.inject.Singleton
-import kotlin.coroutines.EmptyCoroutineContext
+import org.slf4j.LoggerFactory
+import io.micronaut.core.annotation.Internal
 
 /**
  * The Ktor factory
@@ -36,19 +38,26 @@ import kotlin.coroutines.EmptyCoroutineContext
 @Internal
 class KtorMicronautApplicationFactory {
 
+    private data class ConnectorInfo(
+        val host: String,
+        val port: Int
+    )
+
+    private var pendingConnector: ConnectorInfo? = null
+
     @Singleton
     fun applicationEngineEnvironmentBuilder(
-            ktorApplication: KtorApplication<*>,
-            ktorApplicationBuilders: List<KtorApplicationBuilder>,
-            ktorRoutingBuilders: List<KtorRoutingBuilder>) : ApplicationEngineEnvironmentBuilder {
+        ktorApplication: KtorApplication<*>,
+        ktorApplicationBuilders: List<KtorApplicationBuilder>,
+        ktorRoutingBuilders: List<KtorRoutingBuilder>) : ServerConfigBuilder {
         ktorApplication.init()
 
         ktorApplicationBuilders.forEach {
-            ktorApplication.environment.modules.add(it.builder)
+            ktorApplication.environment.module(it.builder)
         }
 
         ktorRoutingBuilders.forEach {
-            ktorApplication.environment.modules.add {
+            ktorApplication.environment.module {
                 routing { it.builder(this) }
             }
         }
@@ -58,31 +67,45 @@ class KtorMicronautApplicationFactory {
 
     @Singleton
     fun applicationEngineEnvironment(
-            builder : ApplicationEngineEnvironmentBuilder,
-            env : Environment,
-            serverConfiguration: HttpServerConfiguration) : ApplicationEngineEnvironment {
-        val connectors = builder.connectors
-        if (connectors.isEmpty()) {
-            var specifiedPort = serverConfiguration.port.orElse(8080)
-            if (specifiedPort == -1) {
-                specifiedPort = SocketUtils.findAvailableTcpPort()
-            }
-            builder.connector {
-                host = serverConfiguration.host.orElse("0.0.0.0")
-                port = specifiedPort
-            }
+        builder : ServerConfigBuilder,
+        env : Environment,
+        serverConfiguration: HttpServerConfiguration) : ApplicationEnvironment {
+
+        var specifiedPort = serverConfiguration.port.orElse(8080)
+        if (specifiedPort == -1) {
+            specifiedPort = SocketUtils.findAvailableTcpPort()
         }
-        return ApplicationEngineEnvironmentReloading(
-                env.classLoader,
-                builder.log,
-                MicronautKtorEnvironmentConfig(env = env),
-                connectors,
-                builder.modules,
-                builder.watchPaths,
-                EmptyCoroutineContext,
-            serverConfiguration.contextPath ?: "",
-                false
+
+        pendingConnector = ConnectorInfo(
+            host = serverConfiguration.host.orElse("0.0.0.0"),
+            port = specifiedPort
         )
+
+        return applicationEnvironment {
+            log = LoggerFactory.getLogger("ktor.application")
+            config = MicronautKtorEnvironmentConfig(env = env)
+        }
+    }
+
+    /**
+     * Provides the engine configuration that includes the connector setup.
+     */
+    @Singleton
+    fun <TConfiguration : ApplicationEngine.Configuration> getEngineConfiguration(
+        ktorApplication: KtorApplication<TConfiguration>
+    ): TConfiguration.() -> Unit {
+
+        return {
+            // Apply the pending connector if it exists
+            if (connectors.isEmpty() && pendingConnector != null) {
+                connector {
+                    host = pendingConnector!!.host
+                    port = pendingConnector!!.port
+                }
+            }
+
+            // Apply custom configuration
+            ktorApplication.configuration(this)
+        }
     }
 }
-
