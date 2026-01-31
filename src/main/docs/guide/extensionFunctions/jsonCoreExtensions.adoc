@@ -1,0 +1,97 @@
+TIP: https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.json/index.html[Serde Extensions API Documentation]
+
+=== JsonMapper Extensions
+
+The `JsonMapper` extension functions provide convenient ways to deserialize JSON from various sources using https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters[reified type parameters], eliminating the need to explicitly pass type information.
+
+==== Deserialize from JsonNode
+
+The `readValueFromTree` extension allows you to deserialize a `JsonNode` directly to a typed value without requiring explicit type arguments:
+
+.Test Demonstrating JsonNode deserialization
+[source,kotlin]
+----
+// Instead of:
+val value: MyData = jsonMapper.readValueFromTree(node, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValueFromTree<MyData>(node)
+----
+
+This is particularly useful when working with the JSON tree API for partial parsing or tree manipulation operations.
+
+==== Deserialize from InputStream
+
+The `readValue` extension for `InputStream` provides a clean way to parse JSON from a stream:
+
+.Parsing JSON from an InputStream
+[source,kotlin]
+----
+// Instead of:
+val value: MyData = jsonMapper.readValue(inputStream, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue<MyData>(inputStream)
+----
+
+==== Deserialize from ByteArray
+
+The `readValue` extension for `ByteArray` is convenient for parsing JSON from raw bytes:
+
+.Parsing JSON from a ByteArray
+[source,kotlin]
+----
+// Instead of:
+val value: MyData = jsonMapper.readValue(jsonBytes, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue<MyData>(jsonBytes)
+----
+
+==== Deserialize from ReadBuffer
+
+For Micronaut's `ReadBuffer` type, the extension provides seamless deserialization:
+
+.Parsing JSON from a ByteBuffer
+[source,kotlin]
+----
+// Instead of:
+val value: MyData = jsonMapper.readValue(buffer, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue<MyData>(buffer)
+----
+
+This is especially useful in server implementations that work directly with buffers.
+
+==== Deserialize from String
+
+The `readValue` extension for `String` is the most convenient for handling JSON text:
+
+.Parsing JSON from a String
+[source,kotlin]
+----
+// Instead of:
+val value: MyData = jsonMapper.readValue(jsonString, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue<MyData>(jsonString)
+----
+
+==== Null Handling
+
+All extension functions return a nullable type (`T?`) to properly handle cases where deserialization results in JSON `null` values.
+
+.Handling null values in deserialization
+[source,kotlin]
+----
+val possiblyNull: MyData? = jsonMapper.readValue<MyData>(jsonString)
+
+if (possiblyNull != null) {
+    // Process the deserialized value
+    println(possiblyNull.name)
+} else {
+    // Handle null case
+    println("JSON was null")
+}
+----

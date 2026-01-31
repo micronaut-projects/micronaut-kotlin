@@ -15,5 +15,6 @@ extensionFunctions:
   injectExtensions: Inject Extensions
   runtimeExtensions: Runtime Extensions
   schedulingExtensions: Scheduling Extensions
+  jsonCoreExtensions: JSON Extensions
 breaks: Breaking Changes
 repository: Repository
