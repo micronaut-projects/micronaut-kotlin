@@ -1,5 +1,6 @@
 plugins {
     id("io.micronaut.build.internal.kotlin-module")
+    id("io.micronaut.build.internal.kotlin-kapt")
 }
 
 dependencies {
@@ -16,7 +17,6 @@ dependencies {
 
     implementation(mnReactor.micronaut.reactor)
     implementation(libs.typesafe.config)
-    implementation(libs.kotlin.stdlib.jdk8)
 
 
     implementation(libs.jackson.module.kotlin) {
@@ -24,7 +24,6 @@ dependencies {
     }
     compileOnly(mn.micronaut.jackson.databind)
 
-    testRuntimeOnly(libs.kotlin.reflect)
     testImplementation(mnTest.micronaut.test.junit5)
     testImplementation(mnTest.junit.jupiter.engine)
     testImplementation(mn.micronaut.jackson.databind)
@@ -33,4 +32,10 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+micronautBuild {
+    descriptor {
+        parentModuleId = "io.micronaut.kotlin:micronaut-kotlin-runtime"
+    }
 }

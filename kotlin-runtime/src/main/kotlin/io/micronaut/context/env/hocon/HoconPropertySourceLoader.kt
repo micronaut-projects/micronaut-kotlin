@@ -57,7 +57,7 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
         return ClassUtils.isPresent("com.typesafe.config.Config", HoconPropertySourceLoader::class.java.classLoader)
     }
 
-    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
+    override fun load(resourceName: String, resourceLoader: ResourceLoader): Optional<PropertySource> {
         return if(isEnabled) {
             impl.load(resourceName, resourceLoader)
         } else {
@@ -65,7 +65,7 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
         }
     }
 
-    override fun read(name: String?, input: InputStream?): MutableMap<String, Any> {
+    override fun read(name: String, input: InputStream): MutableMap<String, Any> {
         return if(isEnabled) {
             return impl.read(name, input)
         } else {
@@ -73,7 +73,7 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
         }
     }
 
-    override fun loadEnv(resourceName: String?, resourceLoader: ResourceLoader?, activeEnvironment: ActiveEnvironment?): Optional<PropertySource> {
+    override fun loadEnv(resourceName: String, resourceLoader: ResourceLoader, activeEnvironment: ActiveEnvironment): Optional<PropertySource> {
         return if(isEnabled) {
             return impl.loadEnv(resourceName, resourceLoader, activeEnvironment)
         } else {
@@ -84,44 +84,36 @@ class HoconPropertySourceLoader : PropertySourceLoader, Ordered {
 
 class HoconPropertySourceLoaderImpl : PropertySourceLoader, Ordered {
 
-    override fun load(resourceName: String?, resourceLoader: ResourceLoader?): Optional<PropertySource> {
-        return loadEnv(resourceName, resourceLoader, null)
-    }
-
-    override fun loadEnv(resourceName: String?, resourceLoader: ResourceLoader?, activeEnvironment: ActiveEnvironment?): Optional<PropertySource> {
-        if (resourceName != null) {
-            if (activeEnvironment != null) {
-                val environmentName = activeEnvironment.name
-                val qualifiedName = "$resourceName-$environmentName"
-                val resource = resourceLoader?.getResource("$qualifiedName.conf")
-                if (resource != null && resource.isPresent) {
-                    val config = resource.get().parseConfig()
-                    return Optional.of(ConfigPropertySource(qualifiedName, config))
-                }
-            } else {
-                val resource = resourceLoader?.getResource("$resourceName.conf")
-                if (resource != null && resource.isPresent) {
-                    val config = resource.get().parseConfig()
-                    return Optional.of(ConfigPropertySource(resourceName, config))
-                }
-            }
+    override fun load(resourceName: String, resourceLoader: ResourceLoader): Optional<PropertySource> {
+        val resource = resourceLoader.getResource("$resourceName.conf")
+        if (resource.isPresent) {
+            val config = resource.get().parseConfig()
+            return Optional.of(ConfigPropertySource(resourceName, config))
         }
         return Optional.empty()
     }
 
-    override fun read(name: String?, input: InputStream?): MutableMap<String, Any> {
-        val config = ConfigFactory.parseReader(InputStreamReader(input, StandardCharsets.UTF_8))
-        if (name != null) {
-            val entrySet = config.entrySet()
-            val map: MutableMap<String, Any> = LinkedHashMap()
-            for (entry in entrySet) {
-                val key = entry.key
-                val value = entry.value
-                map[key] = value.unwrapped()
-            }
-            return map
+    override fun loadEnv(resourceName: String, resourceLoader: ResourceLoader, activeEnvironment: ActiveEnvironment): Optional<PropertySource> {
+        val environmentName = activeEnvironment.name
+        val qualifiedName = "$resourceName-$environmentName"
+        val resource = resourceLoader.getResource("$qualifiedName.conf")
+        if (resource.isPresent) {
+            val config = resource.get().parseConfig()
+            return Optional.of(ConfigPropertySource(qualifiedName, config))
         }
-        return Collections.emptyMap()
+        return Optional.empty()
+    }
+
+    override fun read(name: String, input: InputStream): MutableMap<String, Any> {
+        val config = ConfigFactory.parseReader(InputStreamReader(input, StandardCharsets.UTF_8))
+        val entrySet = config.entrySet()
+        val map: MutableMap<String, Any> = LinkedHashMap()
+        for (entry in entrySet) {
+            val key = entry.key
+            val value = entry.value
+            map[key] = value.unwrapped()
+        }
+        return map
     }
 
     private fun URL.parseConfig(): Config =
@@ -144,7 +136,7 @@ class ConfigPropertySource(private val sourceName: String, private val config: C
         return Iterator(config.entrySet().iterator())
     }
 
-    override fun get(key: String?): Any {
+    override fun get(key: String): Any? {
         return config.getAnyRef(key)
     }
 

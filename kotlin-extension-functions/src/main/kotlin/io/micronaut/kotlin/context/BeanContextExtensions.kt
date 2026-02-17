@@ -26,7 +26,7 @@ import io.micronaut.kotlin.inject.qualifierByStereotype
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanContext.createBean(): T = createBean(T::class.java)
+inline fun <reified T : Any> BeanContext.createBean(): T = createBean(T::class.java)
 
 /**
  * Extension for [BeanContext.createBean] providing a `createStereotypedBean<Foo, Bar>()` variant.
@@ -37,7 +37,7 @@ inline fun <reified T> BeanContext.createBean(): T = createBean(T::class.java)
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean(): T = createBean(T::class.java, qualifierByStereotype<T, Q>())
+inline fun <reified T : Any, reified Q : Annotation> BeanContext.createStereotypedBean(): T = createBean(T::class.java, qualifierByStereotype<T, Q>())
 
 /**
  * Extension for [BeanContext.createBean] providing a `createStereotypedBean<Foo, Bar>(args)` variant.
@@ -49,7 +49,7 @@ inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean(argumentValues: Map<String, Any>): T =
+inline fun <reified T : Any, reified Q : Annotation> BeanContext.createStereotypedBean(argumentValues: Map<String, Any>): T =
         createBean(T::class.java, qualifierByStereotype<T, Q>(), argumentValues)
 
 /**
@@ -62,7 +62,7 @@ inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean(vararg args: Any): T =
+inline fun <reified T : Any, reified Q : Annotation> BeanContext.createStereotypedBean(vararg args: Any): T =
         createBean(T::class.java, qualifierByStereotype<T, Q>(), *args)
 
 /**
@@ -74,7 +74,7 @@ inline fun <reified T, reified Q : Annotation> BeanContext.createStereotypedBean
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanContext.createBean(argumentValues: Map<String, Any>): T = createBean(T::class.java, argumentValues)
+inline fun <reified T : Any> BeanContext.createBean(argumentValues: Map<String, Any>): T = createBean(T::class.java, argumentValues)
 
 /**
  * Extension for [BeanContext.createBean] providing a `createBean<Foo>(args)` variant.
@@ -85,7 +85,7 @@ inline fun <reified T> BeanContext.createBean(argumentValues: Map<String, Any>):
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanContext.createBean(vararg args: Any): T = createBean(T::class.java, *args)
+inline fun <reified T : Any> BeanContext.createBean(vararg args: Any): T = createBean(T::class.java, null, *args)
 
 /**
  * Extension for [BeanContext.destroyBean] providing a `destroyBean<Foo>()` variant.
@@ -95,4 +95,4 @@ inline fun <reified T> BeanContext.createBean(vararg args: Any): T = createBean(
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanContext.destroyBean(): T? = destroyBean(T::class.java)
+inline fun <reified T : Any> BeanContext.destroyBean(): T? = destroyBean(T::class.java)

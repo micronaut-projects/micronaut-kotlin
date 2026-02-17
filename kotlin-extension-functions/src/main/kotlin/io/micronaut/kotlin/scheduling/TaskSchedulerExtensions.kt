@@ -29,7 +29,7 @@ import java.util.concurrent.ScheduledFuture
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <V> TaskScheduler.scheduleCallable(cron: String, crossinline command: () -> V): ScheduledFuture<V> =
+inline fun <V : Any> TaskScheduler.scheduleCallable(cron: String, crossinline command: () -> V): ScheduledFuture<V> =
         schedule(cron, Callable<V> { command.invoke() })
 
 /**
@@ -41,5 +41,5 @@ inline fun <V> TaskScheduler.scheduleCallable(cron: String, crossinline command:
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <V> TaskScheduler.scheduleCallable(delay: Duration, crossinline command: () -> V): ScheduledFuture<V> =
+inline fun <V : Any> TaskScheduler.scheduleCallable(delay: Duration, crossinline command: () -> V): ScheduledFuture<V> =
         schedule(delay, Callable<V> { command.invoke() })

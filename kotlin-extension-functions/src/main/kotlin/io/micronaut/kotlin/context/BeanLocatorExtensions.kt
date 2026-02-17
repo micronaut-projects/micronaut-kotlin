@@ -29,7 +29,7 @@ import kotlin.streams.asSequence
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanLocator.getBean(): T = getBean(T::class.java)
+inline fun <reified T : Any> BeanLocator.getBean(): T = getBean(T::class.java)
 
 /**
  * Extension for [BeanLocator.getBean] providing a `getBean<Foo>(name)` variant.
@@ -40,7 +40,7 @@ inline fun <reified T> BeanLocator.getBean(): T = getBean(T::class.java)
  * @author Luiz Picanço
  * @since 2.1.2
  */
-inline fun <reified T> BeanLocator.getBean(name: String): T = getBean(T::class.java, qualifierByName(name))
+inline fun <reified T : Any> BeanLocator.getBean(name: String): T = getBean(T::class.java, qualifierByName(name))
 
 /**
  * Extension for [BeanLocator.getBean] providing a `getStereotypedBean<Foo, Bar>()` variant.
@@ -51,7 +51,7 @@ inline fun <reified T> BeanLocator.getBean(name: String): T = getBean(T::class.j
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBean(): T =
+inline fun <reified T : Any, reified Q : Annotation> BeanLocator.getStereotypedBean(): T =
         getBean(T::class.java, qualifierByStereotype<T, Q>())
 
 /**
@@ -62,7 +62,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBean():
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanLocator.findBean(): T? = findBean(T::class.java).orElse(null)
+inline fun <reified T : Any> BeanLocator.findBean(): T? = findBean(T::class.java).orElse(null)
 
 /**
  * Extension for [BeanLocator.findBean] providing a `findStereotypedBean<Foo, Bar>()` variant.
@@ -73,7 +73,7 @@ inline fun <reified T> BeanLocator.findBean(): T? = findBean(T::class.java).orEl
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanLocator.findStereotypedBean(): T? =
+inline fun <reified T : Any, reified Q : Annotation> BeanLocator.findStereotypedBean(): T? =
         findBean(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
 
 /**
@@ -84,7 +84,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.findStereotypedBean()
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanLocator.getBeansOfType(): Collection<T> = getBeansOfType(T::class.java)
+inline fun <reified T : Any> BeanLocator.getBeansOfType(): Collection<T> = getBeansOfType(T::class.java)
 
 /**
  * Extension for [BeanLocator.getBeansOfType] providing a `getStereotypedBeansOfType<Foo, Bar>()` variant.
@@ -95,7 +95,7 @@ inline fun <reified T> BeanLocator.getBeansOfType(): Collection<T> = getBeansOfT
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBeansOfType(): Collection<T> =
+inline fun <reified T : Any, reified Q : Annotation> BeanLocator.getStereotypedBeansOfType(): Collection<T> =
         getBeansOfType(T::class.java, qualifierByStereotype<T, Q>())
 
 /**
@@ -106,7 +106,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.getStereotypedBeansOf
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanLocator.streamOfType(): Stream<T> = streamOfType(T::class.java)
+inline fun <reified T : Any> BeanLocator.streamOfType(): Stream<T> = streamOfType(T::class.java)
 
 /**
  * Extension for [BeanLocator.streamOfType] providing a `sequenceOfType<Foo>()` variant.
@@ -116,7 +116,7 @@ inline fun <reified T> BeanLocator.streamOfType(): Stream<T> = streamOfType(T::c
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanLocator.sequenceOfType(): Sequence<T> = streamOfType(T::class.java).asSequence()
+inline fun <reified T : Any> BeanLocator.sequenceOfType(): Sequence<T> = streamOfType(T::class.java).asSequence()
 
 /**
  * Extension for [BeanLocator.streamOfType] providing a `streamOfStereotypedType<Foo, Bar>()` variant.
@@ -127,7 +127,7 @@ inline fun <reified T> BeanLocator.sequenceOfType(): Sequence<T> = streamOfType(
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanLocator.streamOfStereotypedType(): Stream<T> =
+inline fun <reified T : Any, reified Q : Annotation> BeanLocator.streamOfStereotypedType(): Stream<T> =
         streamOfType(T::class.java, qualifierByStereotype<T, Q>())
 
 /**
@@ -139,7 +139,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.streamOfStereotypedTy
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanLocator.sequenceOfStereotypedType(): Sequence<T> =
+inline fun <reified T : Any, reified Q : Annotation> BeanLocator.sequenceOfStereotypedType(): Sequence<T> =
         streamOfType(T::class.java, qualifierByStereotype<T, Q>()).asSequence()
 
 /**
@@ -151,7 +151,7 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.sequenceOfStereotyped
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanLocator.getProxyTargetBean(): T =
+inline fun <reified T : Any, reified Q : Annotation> BeanLocator.getProxyTargetBean(): T =
         getProxyTargetBean(T::class.java, qualifierByStereotype<T, Q>())
 
 /**
@@ -162,4 +162,4 @@ inline fun <reified T, reified Q : Annotation> BeanLocator.getProxyTargetBean():
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanLocator.findOrInstantiateBean(): T? = findOrInstantiateBean(T::class.java).orElse(null)
+inline fun <reified T : Any> BeanLocator.findOrInstantiateBean(): T? = findOrInstantiateBean(T::class.java).orElse(null)

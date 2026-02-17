@@ -30,7 +30,7 @@ import io.micronaut.inject.qualifiers.Qualifiers
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> qualifierByAnnotation(metadata: AnnotationMetadata): Qualifier<T> =
+inline fun <reified T : Any, reified Q : Annotation> qualifierByAnnotation(metadata: AnnotationMetadata): Qualifier<T> =
         Qualifiers.byAnnotation(metadata, Q::class.java)
 
 /**
@@ -43,7 +43,7 @@ inline fun <reified T, reified Q : Annotation> qualifierByAnnotation(metadata: A
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> qualifierByStereotype(): Qualifier<T> = Qualifiers.byStereotype(Q::class.java)
+inline fun <reified T : Any, reified Q : Annotation> qualifierByStereotype(): Qualifier<T> = Qualifiers.byStereotype(Q::class.java)
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `qualifierByStereotype<Foo>(string)`
@@ -55,7 +55,7 @@ inline fun <reified T, reified Q : Annotation> qualifierByStereotype(): Qualifie
  * @author James Kleeh
  * @since 3.0.0
  */
-inline fun <reified T> qualifierByStereotype(name: String): Qualifier<T> = Qualifiers.byStereotype(name)
+inline fun <reified T : Any> qualifierByStereotype(name: String): Qualifier<T> = Qualifiers.byStereotype(name)
 
 /**
  *  Top level function acting as a Kotlin shortcut allowing to write `qualifierByName<Foo>(name)`
@@ -67,4 +67,4 @@ inline fun <reified T> qualifierByStereotype(name: String): Qualifier<T> = Quali
  * @author Luiz Picanço
  * @since 2.1.2
  */
-inline fun <reified T> qualifierByName(name: String): Qualifier<T> = Qualifiers.byName(name)
+inline fun <reified T : Any> qualifierByName(name: String): Qualifier<T> = Qualifiers.byName(name)
