@@ -20,6 +20,6 @@ ossIndexAudit {
         // SslHandler doesn't correctly validate packets which can lead to native crash when using native SSLEngine https://netty.io/news/2025/02/10/4-1-118-Final.html_
 }
 
-dokkaHtmlPartial {
+tasks.matching { it.name.startsWith("dokkaGenerate") }.configureEach {
     dependsOn("kaptKotlin")
 }

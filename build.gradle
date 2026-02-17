@@ -7,21 +7,13 @@ repositories {
     mavenCentral()
 }
 
-tasks.named("dokkaHtmlMultiModule") {
-    outputDirectory.set(rootProject.layout.buildDirectory.dir("docs/api"))
-}
-
-task renameDokkaRootFile(type: Copy) {
-    from "${rootProject.buildDir}/docs/api/-modules.html"
-    into "${rootProject.buildDir}/docs/api/"
-    rename { String fileName ->
-        fileName.replace("-modules", "index")
+dokka {
+    dokkaPublications.html {
+        outputDirectory.set(rootProject.layout.buildDirectory.dir("docs/api"))
     }
 }
 
-renameDokkaRootFile.dependsOn(dokkaHtmlMultiModule)
-
-docs.dependsOn(renameDokkaRootFile)
+docs.dependsOn(tasks.named("dokkaGenerateHtml"))
 
 def prepareGuideHotfix = tasks.register("prepareGuideHotfix") {
     doLast {
