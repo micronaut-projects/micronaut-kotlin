@@ -9,8 +9,8 @@ typesafe-config = "1.4.5"
 micronaut-gradle-plugin = "4.6.2"
 
 # Micronaut BOMs
-micronaut-reactor = "3.9.1"
 micronaut-serde = "2.16.2"
+micronaut-reactor = "4.0.0-M1"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
