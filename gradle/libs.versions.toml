@@ -31,5 +31,3 @@ gradle-micronaut = { module = "io.micronaut.gradle:micronaut-gradle-plugin", ver
 
 [plugins]
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
-
-
