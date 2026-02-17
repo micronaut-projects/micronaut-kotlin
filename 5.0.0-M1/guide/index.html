@@ -1,0 +1,778 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <title>Micronaut Kotlin Integrations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="../css/main.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/custom.css" type="text/css" media="screen, print" title="Style" charset="utf-8" />
+    <link rel="stylesheet" href="../css/pdf.css" type="text/css" media="print" title="PDF" charset="utf-8" />
+    <link rel="stylesheet" href="../css/highlight/agate.css">
+    <script src="../js/highlight.pack.js"></script>
+    <script src="../js/guide.js"></script>
+    <script src="../js/multi-language-sample.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="../css/multi-language-sample.css"/>
+    <script src="../js/docs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+    <script type="text/javascript">
+        function addJsClass(el) {
+            var classes = document.body.className.split(" ");
+            classes.push("js");
+            document.body.className = classes.join(" ");
+        }
+    </script>
+    <style type="text/css">
+        .lang-java { display: block }; .lang-python { display: block }; .lang-kotlin { display: block }; .lang-groovy { display: block }; 
+    </style>
+</head>
+
+<body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
+
+<div id="table-of-content-nav-link" class="desktop">
+    <a id="theme-switcher" title="Switch to dark theme" href="javascript:switchTheme(true)"><i class="fa fa-moon-o"></i></a>
+    <a title="Collapse/Open Table of contents" title="Hide Table of Contents" href="javascript:hideTableOfContents();" class="button">[ + ]</a>
+</div>
+
+<div id="main">
+    <div id="navigation" class="no-print">
+        <div class="navTitle">
+            <span id="logo"><a href="http://micronaut.io" title="Go to Micronaut Website"><img src="../img/micronaut-logo-white.svg" alt="Micronaut"/></a></span>
+        </div>
+        <div class="navLinks">
+            <ul>
+                    <li><div id="nav-summary" onmouseover="toggleNavSummary(false)" onmouseout="toggleNavSummary(true)" class="desktop">
+                            <a href="../guide/index.html" class="button">Table of contents</a>
+                            <div id="nav-summary-childs" style="display:none;">
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#runtime"><strong>3</strong><span>Kotlin Runtime Support</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#ktor"><strong>4</strong><span>Ktor Support</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#extensionFunctions"><strong>5</strong><span>Kotlin Extension Functions</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#breaks"><strong>6</strong><span>Breaking Changes</span></a></div>
+                                
+                                <div class="toc-item" style="margin-left:0"><a href="#repository"><strong>7</strong><span>Repository</span></a></div>
+                                
+                            </div>
+                        </div>
+                    </li>
+
+                <li id="table-of-content-nav-link-mobile" class="mobile">
+                    <a title="Scroll to Table of contents" href="javascript:scrollToTop();" class="button">Toc</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to API documentation" href="../api/index.html" class="button">API</a>
+                </li>
+                <li class="desktop">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Configuration Reference</a>
+                </li>
+                <li class="mobile">
+                    <a title="Go to Configuration Reference documentation" href="../guide/configurationreference.html" class="button">Conf</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    
+    <div id="table-of-content">
+        <div class="toc-content">
+
+        <h2>Table of Contents</h2>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-introduction"><a href="#introduction"><strong>1</strong><span>Introduction</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-releaseHistory"><a href="#releaseHistory"><strong>2</strong><span>Release History</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-runtime"><a href="#runtime"><strong>3</strong><span>Kotlin Runtime Support</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-config4k"><a href="#config4k"><strong>3.1</strong><span>Config4k</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-ktor"><a href="#ktor"><strong>4</strong><span>Ktor Support</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorApplication"><a href="#ktorApplication"><strong>4.1</strong><span>The KtorApplication class</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-ktorModules"><a href="#ktorModules"><strong>4.2</strong><span>Defining Ktor Modules</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-extensionFunctions"><a href="#extensionFunctions"><strong>5</strong><span>Kotlin Extension Functions</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-contextExtensions"><a href="#contextExtensions"><strong>5.1</strong><span>Context Extensions</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-httpExtensions"><a href="#httpExtensions"><strong>5.2</strong><span>HTTP Extensions</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-injectExtensions"><a href="#injectExtensions"><strong>5.3</strong><span>Inject Extensions</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-runtimeExtensions"><a href="#runtimeExtensions"><strong>5.4</strong><span>Runtime Extensions</span></a></div>
+        
+        <div class="toc-item" style="margin-left:10px" id="toc-item-schedulingExtensions"><a href="#schedulingExtensions"><strong>5.5</strong><span>Scheduling Extensions</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-breaks"><a href="#breaks"><strong>6</strong><span>Breaking Changes</span></a></div>
+        
+        <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>7</strong><span>Repository</span></a></div>
+        
+        </div>
+    </div>
+    
+    <div class="docs-content">
+    <div class="project">
+        <h1>Micronaut Kotlin Integrations</h1>
+        <p></p>
+        <p>Includes extensions to Micronaut for Kotlin</p>
+        <p><strong>Version:</strong> 5.0.0-M1 </p>
+    </div>
+    
+<h1 id="introduction"><a class="anchor" href="#introduction"></a>1 Introduction</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/introduction.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>This project provides various extensions and improvements to the Micronaut and Kotlin experience.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/index.html">For more detailed information, see the dokka docs for the Micronaut Kotlin Modules</a>.
+</td>
+</tr>
+</table>
+</div>
+
+<h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>2 Release History</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/releaseHistory.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>For this project, you can find a list of releases (with release notes) here:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/micronaut-projects/micronaut-kotlin/releases">https://github.com/micronaut-projects/micronaut-kotlin/releases</a></p>
+</div>
+
+<h1 id="runtime"><a class="anchor" href="#runtime"></a>3 Kotlin Runtime Support</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/runtime.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>The <code>micronaut-kotlin-runtime</code> dependency adds the following features:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Support for defining configuration with <a href="https://github.com/config4k/config4k">config4k</a>.</p>
+</li>
+<li>
+<p>A runtime dependency on <code>jackson-module-kotlin</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To enable the above features add the dependency to your build:</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.kotlin:micronaut-kotlin-runtime")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-kotlin-runtime&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-runtime/index.html">Micronaut Kotlin Runtime API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect1">
+<h2 id="_config4k_support">Config4k Support</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+
+<h2 id="config4k"><a class="anchor" href="#config4k"></a>3.1 Config4k</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/runtime/config4k.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p><a href="https://github.com/config4k/config4k">Config4k</a> is a type safe configuration format for Kotlin based on <a href="https://github.com/lightbend/config/blob/master/HOCON.md">HOCON (Human-Optimized Config Object Notation)</a>. Configuration files are defined using the <code>conf</code> extension. The following an example configuration file:</p>
+</div>
+<div class="listingblock">
+<div class="title">An Example <code>src/main/resources/application.conf</code></div>
+<div class="content">
+<pre>micronaut {
+  server {
+    port = 8081
+  }
+}
+
+test-property = "bad-value"
+
+custom {
+  user = ${USER}
+}</pre>
+</div>
+</div>
+
+<h1 id="ktor"><a class="anchor" href="#ktor"></a>4 Ktor Support</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/ktor.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p><a href="https://ktor.io/">Ktor</a> is a Kotlin framework for building connected applications. The <code>micronaut-ktor</code> module includes support for using Ktor as the server instead of Micronaut&#8217;s native HTTP server.</p>
+</div>
+<div class="paragraph">
+<p>This allows users familiar with Ktor to use Micronaut features such as Dependency Injection, AOP, configuration management and so on.</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.kotlin:micronaut-ktor")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-ktor&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-ktor/index.html">Micronaut ktor API Documentation</a>.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See the <a href="https://github.com/micronaut-projects/micronaut-kotlin/tree/master/examples/greeting">Example application</a> which demonstrates how to setup a Micronaut Ktor application
+</td>
+</tr>
+</table>
+</div>
+
+<h2 id="ktorApplication"><a class="anchor" href="#ktorApplication"></a>4.1 The KtorApplication class</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/ktor/ktorApplication.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>The entry point for a Micronaut Ktor application is an <code>Application</code> class. An example class can be seen below:</p>
+</div>
+<div class="listingblock">
+<div class="title">Example <code>Application</code> class</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.server.netty.NettyApplicationEngine
+import io.micronaut.ktor.KtorApplication
+import io.micronaut.ktor.runApplication
+import jakarta.inject.Singleton
+import org.slf4j.LoggerFactory
+
+@Singleton
+class Application : KtorApplication&lt;NettyApplicationEngine.Configuration&gt;({ <i class="conum" data-value="1"></i><b>(1)</b>
+    applicationEngineEnvironment { <i class="conum" data-value="2"></i><b>(2)</b>
+        log = LoggerFactory.getLogger(Application::class.java)
+    }
+
+    applicationEngine { <i class="conum" data-value="3"></i><b>(3)</b>
+        workerGroupSize = 10
+    }
+})
+
+fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)</b>
+    runApplication(args)
+}</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The <code>Application</code> class extends <code>io.micronaut.ktor.KtorApplication</code> and provides the server type (in this case Netty).</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>You can optionally configure the <a href="https://ktor.io/advanced/engines.html">ApplicationEngineEnvironment</a>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>You can optionally configure the <code>ApplicationEngine</code>. In this case <code>NettyApplicationEngine</code> instance&#8217;s <code>workerGroupSize</code> is set to <code>10</code></td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td>A <code>main</code> method is defined for running the application within a runnable JAR</td>
+</tr>
+</table>
+</div>
+
+<h2 id="ktorModules"><a class="anchor" href="#ktorModules"></a>4.2 Defining Ktor Modules</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/ktorModules.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code> to install features or <code>io.micronaut.ktor.KtorRoutingBuilder</code> to configure routes.</p>
+</div>
+<div class="paragraph">
+<p>For example, the following will install the Jackson feature (when <code>ktor-jackson</code> is on the classpath):</p>
+</div>
+<div class="listingblock">
+<div class="title">Installing Features</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import com.fasterxml.jackson.databind.SerializationFeature
+import io.ktor.server.application.install
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.jackson.jackson
+import io.micronaut.ktor.KtorApplicationBuilder
+import jakarta.inject.Singleton
+
+@Singleton
+class GreetingConfiguration : KtorApplicationBuilder({ <i class="conum" data-value="1"></i><b>(1)</b>
+    install(ContentNegotiation) { <i class="conum" data-value="2"></i><b>(2)</b>
+        jackson {
+            enable(SerializationFeature.INDENT_OUTPUT)
+        }
+    }
+})</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The class subclasses <code>KtorApplicationBuilder</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The <code>ContentNegotiation</code> feature is installed and Jackson configured.</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>To build application routes you can use the <code>KtorRoutingBuilder</code>:</p>
+</div>
+<div class="listingblock">
+<div class="title">Defining Routes</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import io.ktor.server.application.call
+import io.ktor.server.request.receive
+import io.ktor.server.response.respond
+import io.ktor.server.routing.*
+import io.micronaut.ktor.KtorRoutingBuilder
+import jakarta.inject.Singleton
+
+@Singleton
+class GreetingRoutes(private val greetingService: GreetingService) : KtorRoutingBuilder({ <i class="conum" data-value="1"></i><b>(1)</b>
+    get("/") {
+        call.respond(greetingService.greet())
+    }
+
+    post("/") {
+        val name = call.receive&lt;CustomGreetingRequest&gt;().name
+
+        call.respond(greetingService.greet(name))
+    }
+})
+
+data class CustomGreetingRequest(val name: String)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>The class subclasses <code>KtorRoutingBuilder</code> and uses dependency injection to reference <code>GreetingService</code>.</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td>The routing DSL is used to build the application routes.</td>
+</tr>
+</table>
+</div>
+
+<h1 id="extensionFunctions"><a class="anchor" href="#extensionFunctions"></a>5 Kotlin Extension Functions</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>The <code>micronaut-kotlin-extension-functions</code> dependency adds a variety of convenience functions to make using
+micronaut with kotlin more user-friendly. For example, <a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters">reified type parameters</a>
+help alleviate the need for using <code>::class.java</code> in many places where it would otherwise be required.</p>
+</div>
+<div class="paragraph">
+<p>        <div class="listingblock multi-language-sample">
+<div class="title"></div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="gradle">implementation(<span class="hljs-string">"io.micronaut.kotlin:micronaut-kotlin-extension-functions")</span></code></pre>
+</div>
+</div>
+<div class="listingblock multi-language-sample">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-xml hljs" data-lang="maven">&lt;dependency&gt;
+    &lt;groupId&gt;io.micronaut.kotlin&lt;/groupId&gt;
+    &lt;artifactId&gt;micronaut-kotlin-extension-functions&lt;/artifactId&gt;
+&lt;/dependency&gt;</code></pre>
+</div>
+</div>
+</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/index.html">Micronaut Kotlin Extension Functions API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+See the guide for <a href="https://guides.micronaut.io/latest/micronaut-kotlin-extension-fns.html">Using Kotlin Extension Functions in the Micronaut Framework</a> to learn more.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+You will need to import the functions like this: <code>import io.micronaut.kotlin.FUNCTION_NAME</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Do be aware when defining extension functions in this project or your own, an extension that shadows a member function may have unexpected behavior, and does not throw a compiler error but rather warns.
+See <a href="https://discuss.kotlinlang.org/t/why-is-shadowed-extension-not-an-error/7209/11">this Kotlin discussion topic</a> for the latest information.
+</td>
+</tr>
+</table>
+</div>
+
+<h2 id="contextExtensions"><a class="anchor" href="#contextExtensions"></a>5.1 Context Extensions</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/contextExtensions.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.context/index.html">Context Extensions API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+
+<h2 id="httpExtensions"><a class="anchor" href="#httpExtensions"></a>5.2 HTTP Extensions</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/httpExtensions.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.http/index.html">Http Extensions API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_blockinghttpclient_extensions">BlockingHttpClient Extensions</h3>
+<div class="sect3">
+<h4 id="_single_response_extensions">Single Response Extensions</h4>
+<div class="listingblock">
+<div class="title">Test Demonstrating Single Response Client Extension usage</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Compare exchange usage
+val exchangeOneConventional: HttpResponse&lt;Hero&gt; = client.exchange(HttpRequest.GET&lt;Any&gt;("/heroes/any"), Argument.of(Hero::class.java))
+val exchangeOneReified: HttpResponse&lt;Hero&gt; = client.exchangeObject&lt;Hero&gt;(HttpRequest.GET("/heroes/any"))
+
+// Compare retrieve usage
+val retrieveOneConventional: Hero = client.retrieve(HttpRequest.GET&lt;Any&gt;("/heroes/any"), Argument.of(Hero::class.java))
+val retrieveOneReified: Hero = client.retrieveObject&lt;Hero&gt;(HttpRequest.GET("/heroes/any"))</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_list_response_extensions">List Response Extensions</h4>
+<div class="listingblock">
+<div class="title">Test Demonstrating List Response Client Extension usage</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Compare exchange usage
+val exchangeListConventional: HttpResponse&lt;MutableList&lt;Hero&gt;&gt; = client.exchange(HttpRequest.GET&lt;Any&gt;("/heroes/list"), Argument.listOf(Hero::class.java))
+val exchangeListReified: HttpResponse&lt;List&lt;Hero&gt;&gt; = client.exchangeList&lt;Hero&gt;(HttpRequest.GET("/heroes/list"))
+
+// Compare retrieve usage
+val retrieveListConventional: MutableList&lt;Hero&gt; = client.retrieve(HttpRequest.GET&lt;Any&gt;("/heroes/list"), Argument.listOf(Hero::class.java))
+val retrieveListReified: List&lt;Hero&gt; = client.retrieveList&lt;Hero&gt;(HttpRequest.GET("/heroes/list"))</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_httpmessage_extensions">HttpMessage Extensions</h3>
+<div class="listingblock">
+<div class="title">Test Demonstrating HttpMessage Extension usage</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Compare body member usage (Not exceptional path)
+val exchangeOneConventionalBody: Hero? = exchangeOneConventional.body.getOrNull()
+val exchangeOneReifiedBody: Hero? = exchangeOneReified.bodyOrNull
+
+// Compare getBody() usage (Exceptional path)
+val exchangeOneConventionalCustomException: HttpClientResponseException = assertThrows&lt;HttpClientResponseException&gt; {
+    client.exchange(HttpRequest.GET&lt;Any&gt;("/heroes/conflict"), Argument.of(Hero::class.java))
+}
+val exchangeOneReifiedCustomException: HttpClientResponseException = assertThrows&lt;HttpClientResponseException&gt; {
+    client.exchangeObject&lt;Hero&gt;(HttpRequest.GET("/heroes/conflict"))
+}
+val exchangeOneConventionalCustomExceptionBody: HeroJsonError? = exchangeOneConventionalCustomException.response.getBody(HeroJsonError::class.java).getOrNull()
+val exchangeOneReifiedCustomExceptionBody: HeroJsonError? = exchangeOneReifiedCustomException.response.getBodyObject&lt;HeroJsonError&gt;()</code></pre>
+</div>
+</div>
+</div>
+
+<h2 id="injectExtensions"><a class="anchor" href="#injectExtensions"></a>5.3 Inject Extensions</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/injectExtensions.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.inject/index.html">Inject Extensions API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+
+<h2 id="runtimeExtensions"><a class="anchor" href="#runtimeExtensions"></a>5.4 Runtime Extensions</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/runtimeExtensions.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.runtime/index.html">Runtime Extensions API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">An Example Application using the extension function.</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">object Application
+
+fun main(args: Array&lt;String&gt;) {
+    startApplication&lt;Application&gt;(*args) {
+        packages("org.example.app")
+        mapError&lt;RuntimeException&gt; { 500 }
+    }
+}</code></pre>
+</div>
+</div>
+
+<h2 id="schedulingExtensions"><a class="anchor" href="#schedulingExtensions"></a>5.5 Scheduling Extensions</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/schedulingExtensions.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.scheduling/index.html">Scheduling Extensions API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+
+<h1 id="breaks"><a class="anchor" href="#breaks"></a>6 Breaking Changes</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/breaks.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>This section documents breaking changes for Kotlin and Ktor versions:</p>
+</div>
+<div class="sect2">
+<h3 id="_micronaut_kotlin_5_0_0_m1">Micronaut Kotlin 5.0.0-M1</h3>
+<div class="paragraph">
+<p>Micronaut Kotlin&#8217;s <code>Ktor</code> module is based on Ktor 2.x, which has breaking changes from Ktor 1.6.x used by previous versions of Micronaut Kotlin.</p>
+</div>
+<div class="paragraph">
+<p>For more information, refer to the following Ktor guide:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://ktor.io/docs/migrating-2.html">Migrating Ktor applications:Migrating from 1.6.x to 2.0.0</a></p>
+</li>
+</ul>
+</div>
+</div>
+
+<h1 id="repository"><a class="anchor" href="#repository"></a>7 Repository</h1>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/repository.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="paragraph">
+<p>You can find the source code of this project in this repository:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/micronaut-projects/micronaut-kotlin">https://github.com/micronaut-projects/micronaut-kotlin</a></p>
+</div>
+
+    </div>
+</div>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>
