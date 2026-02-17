@@ -31,7 +31,7 @@ import kotlin.reflect.KClass
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getStereotypedBeanDefinition(): BeanDefinition<T> =
+inline fun <reified T : Any, reified Q : Annotation> BeanDefinitionRegistry.getStereotypedBeanDefinition(): BeanDefinition<T> =
         getBeanDefinition(T::class.java, qualifierByStereotype<T, Q>())
 
 /**
@@ -42,7 +42,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getStereot
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanDefinitionRegistry.containsBean() = containsBean(T::class.java)
+inline fun <reified T : Any> BeanDefinitionRegistry.containsBean() = containsBean(T::class.java)
 
 /**
  * Extension for [BeanDefinitionRegistry.containsBean] providing a `Foo::class in registry` variant.
@@ -63,7 +63,7 @@ operator fun BeanDefinitionRegistry.contains(t: KClass<out Any>) = containsBean(
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.containsStereotypedBean() =
+inline fun <reified T : Any, reified Q : Annotation> BeanDefinitionRegistry.containsStereotypedBean() =
         containsBean(T::class.java, qualifierByStereotype<T, Q>())
 
 
@@ -76,7 +76,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.containsSt
  * @author James Kleeh
  * @since 3.0.0
  */
-inline fun <reified T> BeanDefinitionRegistry.containsStereotypedBean(name: String) =
+inline fun <reified T : Any> BeanDefinitionRegistry.containsStereotypedBean(name: String) =
         containsBean(T::class.java, qualifierByStereotype<T>(name))
 
 /**
@@ -99,7 +99,7 @@ inline operator fun <reified T: Any, reified Q : Annotation> BeanDefinitionRegis
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findStereotypedBeanDefinition(): BeanDefinition<T>? =
+inline fun <reified T : Any, reified Q : Annotation> BeanDefinitionRegistry.findStereotypedBeanDefinition(): BeanDefinition<T>? =
         findBeanDefinition(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
 
 /**
@@ -110,7 +110,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findStereo
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanDefinitionRegistry.getBeanDefinitions(): Collection<BeanDefinition<T>> = getBeanDefinitions(T::class.java)
+inline fun <reified T : Any> BeanDefinitionRegistry.getBeanDefinitions(): Collection<BeanDefinition<T>> = getBeanDefinitions(T::class.java)
 
 /**
  * Extension for [BeanDefinitionRegistry.getBeanDefinitions] providing a `getStereotypedBeanDefinitions<Bar>()` variant.
@@ -131,7 +131,7 @@ inline fun <reified Q : Annotation> BeanDefinitionRegistry.getStereotypedBeanDef
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanDefinitionRegistry.getBeanRegistrations(): Collection<BeanRegistration<T>> = getBeanRegistrations(T::class.java)
+inline fun <reified T : Any> BeanDefinitionRegistry.getBeanRegistrations(): Collection<BeanRegistration<T>> = getBeanRegistrations(T::class.java)
 
 /**
  * Extension for [BeanDefinitionRegistry.getActiveBeanRegistrations] providing a `getActiveBeanRegistrations<Foo>()` variant.
@@ -141,7 +141,7 @@ inline fun <reified T> BeanDefinitionRegistry.getBeanRegistrations(): Collection
  * @author Alejandro Gomez
  * @since 0.0.6
  */
-inline fun <reified T> BeanDefinitionRegistry.getActiveBeanRegistrations(): Collection<BeanRegistration<T>> =
+inline fun <reified T : Any> BeanDefinitionRegistry.getActiveBeanRegistrations(): Collection<BeanRegistration<T>> =
         getActiveBeanRegistrations(T::class.java)
 
 /**
@@ -164,7 +164,7 @@ inline fun <reified Q : Annotation> BeanDefinitionRegistry.getStereotypedActiveB
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyTargetBeanDefinition(): BeanDefinition<T>? =
+inline fun <reified T : Any, reified Q : Annotation> BeanDefinitionRegistry.findProxyTargetBeanDefinition(): BeanDefinition<T>? =
         findProxyTargetBeanDefinition(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
 
 /**
@@ -176,7 +176,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyT
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyBeanDefinition(): BeanDefinition<T>? =
+inline fun <reified T : Any, reified Q : Annotation> BeanDefinitionRegistry.findProxyBeanDefinition(): BeanDefinition<T>? =
         findProxyBeanDefinition(T::class.java, qualifierByStereotype<T, Q>()).orElse(null)
 
 /**
@@ -188,7 +188,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.findProxyB
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getProxyTargetBeanDefinition(): BeanDefinition<T> =
+inline fun <reified T : Any, reified Q : Annotation> BeanDefinitionRegistry.getProxyTargetBeanDefinition(): BeanDefinition<T> =
         getProxyTargetBeanDefinition(T::class.java, qualifierByStereotype<T, Q>())
 
 /**
@@ -199,7 +199,7 @@ inline fun <reified T, reified Q : Annotation> BeanDefinitionRegistry.getProxyTa
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanDefinitionRegistry.getBeanDefinition(): BeanDefinition<T> = getBeanDefinition(T::class.java)
+inline fun <reified T : Any> BeanDefinitionRegistry.getBeanDefinition(): BeanDefinition<T> = getBeanDefinition(T::class.java)
 
 /**
  * Extension for [BeanDefinitionRegistry.findBeanDefinition] providing a `findBeanDefinition<Bar>()` variant.
@@ -209,7 +209,7 @@ inline fun <reified T> BeanDefinitionRegistry.getBeanDefinition(): BeanDefinitio
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> BeanDefinitionRegistry.findBeanDefinition(): BeanDefinition<T>? = findBeanDefinition(T::class.java).orElse(null)
+inline fun <reified T : Any> BeanDefinitionRegistry.findBeanDefinition(): BeanDefinition<T>? = findBeanDefinition(T::class.java).orElse(null)
 
 /**
  * Extension for [BeanDefinitionRegistry.registerSingleton] providing a `registerStereotypedSingleton<Foo, Bar>(singleton, true)` variant.

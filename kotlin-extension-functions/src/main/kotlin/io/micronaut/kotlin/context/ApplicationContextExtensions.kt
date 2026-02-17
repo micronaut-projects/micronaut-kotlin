@@ -42,7 +42,7 @@ inline fun <reified T : AutoCloseable> run(vararg environments: String): T =
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T : AutoCloseable> run(properties: Map<String, Any?>, vararg environments: String): T =
+inline fun <reified T : AutoCloseable> run(properties: Map<String, Any>, vararg environments: String): T =
         ApplicationContext.run(T::class.java, properties, *environments)
 
 /**
@@ -109,7 +109,7 @@ inline fun <reified T> buildAndStart(vararg environments: String): ApplicationCo
  * @author Alejandro Gomez
  * @since 1.0.0
  */
-inline fun <reified T> buildAndStart(properties: Map<String, Any?>, vararg environments: String): ApplicationContext =
+inline fun <reified T> buildAndStart(properties: Map<String, Any>, vararg environments: String): ApplicationContext =
         ApplicationContext.builder(properties, *environments).mainClass(T::class.java).start()
 
 /**
