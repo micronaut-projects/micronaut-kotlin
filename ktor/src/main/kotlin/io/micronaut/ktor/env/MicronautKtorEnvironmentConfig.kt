@@ -23,6 +23,7 @@ import io.micronaut.context.env.Environment
 import io.micronaut.core.type.Argument
 import java.util.Collections
 import java.util.LinkedHashMap
+import kotlin.jvm.java
 
 /**
  * Implementation of the ApplicationConfig interface for Micronaut Ktor.
@@ -106,7 +107,7 @@ class MicronautKtorEnvironmentConfig(val env: Environment, private val prefix: S
         }
 
         override fun getAs(type: TypeInfo): Any? {
-            val javaType = type.type as? Class<*> ?: return null
+            val javaType = type.type.java
             return env.getProperty(prop, javaType).orElse(null)
         }
     }

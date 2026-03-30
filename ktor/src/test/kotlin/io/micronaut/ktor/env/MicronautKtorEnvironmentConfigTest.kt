@@ -56,6 +56,7 @@ class MicronautKtorEnvironmentConfigTest {
 
         assertNotNull(objectValue.getMap())
         assertEquals("value", scalarValue.getString())
+        assertEquals("value", scalarValue.getAs(typeInfo<String>()))
         assertEquals(listOf("a", "b"), listValue.getList())
     }
 }
