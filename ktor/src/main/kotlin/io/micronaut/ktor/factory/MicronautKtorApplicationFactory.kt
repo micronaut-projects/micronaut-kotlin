@@ -17,7 +17,6 @@ package io.micronaut.ktor.factory
 
 import io.ktor.server.application.Application
 import io.ktor.server.application.ServerConfig
-import io.ktor.server.application.ServerConfigBuilder
 import io.ktor.server.application.serverConfig
 import io.ktor.server.engine.ApplicationEnvironmentBuilder
 import io.ktor.server.engine.EngineConnectorConfig
