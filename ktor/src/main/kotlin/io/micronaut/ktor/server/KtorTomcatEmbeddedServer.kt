@@ -18,8 +18,8 @@ package io.micronaut.ktor.server
 import io.ktor.server.application.ServerConfig
 import io.ktor.server.engine.EngineConnectorConfig
 import io.ktor.server.engine.embeddedServer
-import io.ktor.server.tomcat.Tomcat
-import io.ktor.server.tomcat.TomcatApplicationEngine
+import io.ktor.server.tomcat.jakarta.Tomcat
+import io.ktor.server.tomcat.jakarta.TomcatApplicationEngine
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.server.HttpServerConfiguration

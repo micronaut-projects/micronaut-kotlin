@@ -19,7 +19,7 @@ import io.ktor.server.application.ServerConfig
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.EngineConnectorConfig
 import io.ktor.server.engine.embeddedServer
-import io.ktor.server.jetty.Jetty
+import io.ktor.server.jetty.jakarta.Jetty
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.server.HttpServerConfiguration
