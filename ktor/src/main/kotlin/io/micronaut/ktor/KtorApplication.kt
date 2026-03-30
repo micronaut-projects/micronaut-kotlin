@@ -33,7 +33,11 @@ abstract class KtorApplication<TConfiguration : ApplicationEngine.Configuration>
     internal val modules: MutableList<Application.() -> Unit> = mutableListOf()
 
     fun applicationEngineEnvironment(builder: ApplicationEnvironmentBuilder.() -> Unit): ApplicationEnvironmentBuilder.() -> Unit {
-        environment = builder
+        val previous = environment
+        environment = {
+            previous()
+            builder()
+        }
         return environment
     }
 
