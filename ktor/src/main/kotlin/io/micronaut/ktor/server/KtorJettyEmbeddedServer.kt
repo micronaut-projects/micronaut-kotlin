@@ -15,8 +15,10 @@
  */
 package io.micronaut.ktor.server
 
+import io.ktor.server.application.ServerConfig
 import io.ktor.server.engine.ApplicationEngine
-import io.ktor.server.engine.ApplicationEngineEnvironment
+import io.ktor.server.engine.EngineConnectorConfig
+import io.ktor.server.engine.embeddedServer
 import io.ktor.server.jetty.Jetty
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
@@ -25,14 +27,19 @@ import io.micronaut.ktor.KtorApplication
 import jakarta.inject.Singleton
 
 @Singleton
-@Requires(classes = arrayOf(Jetty::class))
+@Requires(classes = [Jetty::class])
 class KtorJettyEmbeddedServer(
-        override val ctx: ApplicationContext,
-        override val serverConfiguration: HttpServerConfiguration,
-        override val engineEnvironment: ApplicationEngineEnvironment,
-        val ktorApplication: KtorApplication<ApplicationEngine.Configuration>) : AbstractKtorEmbeddedServer(
-        ctx,
-        serverConfiguration,
-        engineEnvironment,
-        Jetty.create(engineEnvironment, ktorApplication.configuration)
+    override val ctx: ApplicationContext,
+    override val serverConfiguration: HttpServerConfiguration,
+    serverConfig: ServerConfig,
+    connectorConfigs: List<EngineConnectorConfig>,
+    val ktorApplication: KtorApplication<ApplicationEngine.Configuration>,
+) : AbstractKtorEmbeddedServer(
+    ctx,
+    serverConfiguration,
+    connectorConfigs.first(),
+    embeddedServer(Jetty, serverConfig, configure = {
+        ktorApplication.configuration(this)
+        connectors = connectorConfigs.toMutableList()
+    }),
 )

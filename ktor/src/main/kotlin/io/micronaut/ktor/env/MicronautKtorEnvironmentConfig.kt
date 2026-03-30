@@ -15,30 +15,28 @@
  */
 package io.micronaut.ktor.env
 
-import io.ktor.server.config.*
+import io.ktor.server.config.ApplicationConfig
+import io.ktor.server.config.ApplicationConfigValue
+import io.ktor.server.config.ApplicationConfigurationException
+import io.ktor.util.reflect.TypeInfo
 import io.micronaut.context.env.Environment
 import io.micronaut.core.type.Argument
-import java.util.*
+import java.util.Collections
+import java.util.LinkedHashMap
 
-/**
- * Implementation of the ApplicationConfig interface for Micronaut Ktor.
- *
- * @author graemerocher
- * @since 1.0
- */
-class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix : String? = "") : ApplicationConfig {
+class MicronautKtorEnvironmentConfig(val env: Environment, private val prefix: String? = "") : ApplicationConfig {
 
     private val configMap: Map<String, Any?>
-            by lazy(LazyThreadSafetyMode.PUBLICATION) {
-                mapOf(env)
-            }
+        by lazy(LazyThreadSafetyMode.PUBLICATION) {
+            mapOf(env)
+        }
 
     override fun config(path: String): ApplicationConfig {
-        if (env.containsProperties(path)) {
-            return MicronautKtorEnvironmentConfig(env, path)
-        } else {
-            throw ApplicationConfigurationException("No configuration found for path: $path")
+        val fullPath = fullPath(path)
+        if (env.containsProperties(fullPath)) {
+            return MicronautKtorEnvironmentConfig(env, fullPath)
         }
+        throw ApplicationConfigurationException("No configuration found for path: $path")
     }
 
     override fun configList(path: String): List<ApplicationConfig> {
@@ -50,8 +48,8 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     }
 
     override fun propertyOrNull(path: String): ApplicationConfigValue? {
-        val fullPath = if(prefix.isNullOrEmpty()) path else "$prefix.$path"
-        return if (env.containsProperty(fullPath)) {
+        val fullPath = fullPath(path)
+        return if (env.containsProperty(fullPath) || env.containsProperties(fullPath)) {
             KtorApplicationConfigValue(fullPath, env)
         } else {
             null
@@ -66,6 +64,8 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
         return Collections.unmodifiableMap(configMap)
     }
 
+    private fun fullPath(path: String): String = if (prefix.isNullOrEmpty()) path else "$prefix.$path"
+
     private fun mapOf(env: Environment): Map<String, Any?> {
         val envMap: MutableMap<String, MutableList<String>> = LinkedHashMap()
         for (ps in env.propertySources) {
@@ -79,14 +79,29 @@ class MicronautKtorEnvironmentConfig(val env : Environment, private val prefix :
     }
 
     @Suppress("UNCHECKED_CAST")
-    class KtorApplicationConfigValue(private val prop : String, private val env: Environment) : ApplicationConfigValue {
+    class KtorApplicationConfigValue(private val prop: String, private val env: Environment) : ApplicationConfigValue {
+        override val type: ApplicationConfigValue.Type
+            get() = when {
+                env.containsProperties(prop) -> ApplicationConfigValue.Type.OBJECT
+                env.getProperty(prop, Argument.LIST_OF_STRING).isPresent -> ApplicationConfigValue.Type.LIST
+                else -> ApplicationConfigValue.Type.SINGLE
+            }
+
         override fun getList(): List<String> {
-            val requiredProperty = env.getProperty(prop, Argument.of(List::class.java, String::class.java))
-            return requiredProperty as List<String>
+            return env.getProperty(prop, Argument.LIST_OF_STRING).orElseGet { emptyList() } as List<String>
         }
 
         override fun getString(): String {
             return env.getRequiredProperty(prop, String::class.java)
+        }
+
+        override fun getMap(): Map<String, Any?> {
+            return env.getProperty(prop, Argument.mapOf(String::class.java, Any::class.java)).orElseGet { emptyMap() }
+        }
+
+        override fun getAs(type: TypeInfo): Any? {
+            val javaType = type.type as? Class<*> ?: return null
+            return env.getProperty(prop, javaType).orElse(null)
         }
     }
 }

@@ -15,7 +15,9 @@
  */
 package io.micronaut.ktor.server
 
-import io.ktor.server.engine.ApplicationEngineEnvironment
+import io.ktor.server.application.ServerConfig
+import io.ktor.server.engine.EngineConnectorConfig
+import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import io.ktor.server.netty.NettyApplicationEngine
 import io.micronaut.context.ApplicationContext
@@ -27,12 +29,17 @@ import jakarta.inject.Singleton
 @Singleton
 @Requires(classes = [Netty::class])
 class KtorNettyEmbeddedServer(
-        override val ctx: ApplicationContext,
-        override val serverConfiguration: HttpServerConfiguration,
-        override val engineEnvironment: ApplicationEngineEnvironment,
-        val ktorApplication: KtorApplication<NettyApplicationEngine.Configuration>) : AbstractKtorEmbeddedServer(
-        ctx,
-        serverConfiguration,
-        engineEnvironment,
-        Netty.create(engineEnvironment, ktorApplication.configuration)
+    override val ctx: ApplicationContext,
+    override val serverConfiguration: HttpServerConfiguration,
+    serverConfig: ServerConfig,
+    connectorConfigs: List<EngineConnectorConfig>,
+    val ktorApplication: KtorApplication<NettyApplicationEngine.Configuration>,
+) : AbstractKtorEmbeddedServer(
+    ctx,
+    serverConfiguration,
+    connectorConfigs.first(),
+    embeddedServer(Netty, serverConfig, configure = {
+        ktorApplication.configuration(this)
+        connectors = connectorConfigs.toMutableList()
+    }),
 )
