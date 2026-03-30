@@ -1,6 +1,6 @@
 To define Ktor modules you can create classes that subclass `io.micronaut.ktor.KtorApplicationBuilder` to install plugins or `io.micronaut.ktor.KtorRoutingBuilder` to configure routes.
 
-For example, the following installs the Jackson plugin when `ktor-jackson` is on the classpath:
+For example, the following installs the Jackson plugin when `ktor-serialization-jackson` is on the classpath:
 
 .Installing Plugins
 [source,kotlin]
