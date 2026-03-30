@@ -15,7 +15,6 @@
  */
 package io.micronaut.ktor
 
-import io.ktor.server.application.Application
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.ApplicationEnvironmentBuilder
 import io.micronaut.runtime.Micronaut
@@ -30,8 +29,6 @@ abstract class KtorApplication<TConfiguration : ApplicationEngine.Configuration>
 
     var environment: ApplicationEnvironmentBuilder.() -> Unit = {}
     var configuration: TConfiguration.() -> Unit = {}
-    internal val modules: MutableList<Application.() -> Unit> = mutableListOf()
-
     fun applicationEngineEnvironment(builder: ApplicationEnvironmentBuilder.() -> Unit): ApplicationEnvironmentBuilder.() -> Unit {
         val previous = environment
         environment = {
@@ -44,10 +41,6 @@ abstract class KtorApplication<TConfiguration : ApplicationEngine.Configuration>
     fun applicationEngine(builder: TConfiguration.() -> Unit): KtorApplication<TConfiguration> {
         configuration = builder
         return this
-    }
-
-    internal fun module(builder: Application.() -> Unit) {
-        modules.add(builder)
     }
 
     fun init() {

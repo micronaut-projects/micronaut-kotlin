@@ -61,7 +61,6 @@ class KtorMicronautApplicationFactory {
         ktorRoutingBuilders: List<KtorRoutingBuilder>,
     ): List<Application.() -> Unit> {
         val modules = mutableListOf<Application.() -> Unit>()
-        modules.addAll(ktorApplication.modules)
         ktorApplicationBuilders.forEach { modules.add(it.builder) }
         ktorRoutingBuilders.forEach { routingBuilder ->
             modules.add {
