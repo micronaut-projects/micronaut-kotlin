@@ -24,6 +24,12 @@ import io.micronaut.core.type.Argument
 import java.util.Collections
 import java.util.LinkedHashMap
 
+/**
+ * Implementation of the ApplicationConfig interface for Micronaut Ktor.
+ *
+ * @author graemerocher
+ * @since 1.0
+ */
 class MicronautKtorEnvironmentConfig(val env: Environment, private val prefix: String? = "") : ApplicationConfig {
 
     private val configMap: Map<String, Any?>
@@ -36,7 +42,7 @@ class MicronautKtorEnvironmentConfig(val env: Environment, private val prefix: S
         if (env.containsProperties(fullPath)) {
             return MicronautKtorEnvironmentConfig(env, fullPath)
         }
-        throw ApplicationConfigurationException("No configuration found for path: $path")
+        throw ApplicationConfigurationException("No configuration found for path: $path (resolved: $fullPath)")
     }
 
     override fun configList(path: String): List<ApplicationConfig> {
