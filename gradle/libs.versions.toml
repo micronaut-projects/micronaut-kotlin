@@ -7,7 +7,7 @@ mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.5"
 micronaut-gradle-plugin = "4.6.2"
 # Micronaut BOMs
-micronaut-reactor = "4.0.0-M1"
+micronaut-reactor = "4.0.0-M2"
 micronaut-serde = "3.0.0-M4"
 [libraries]
 # Core
