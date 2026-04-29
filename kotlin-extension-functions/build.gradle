@@ -17,9 +17,6 @@ dependencies {
 
     api(mn.micronaut.inject)
 
-    implementation(libs.jackson.module.kotlin)
-    implementation(mn.micronaut.jackson.databind)
-
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation(mn.micronaut.http.server)
     testImplementation(mn.micronaut.http.client)
@@ -30,6 +27,8 @@ dependencies {
     testImplementation(mnTest.mockito.junit.jupiter)
     testImplementation(libs.mockito.kotlin)
 
+    testRuntimeOnly(libs.jackson.module.kotlin)
+    testRuntimeOnly(mn.micronaut.jackson.databind)
     testRuntimeOnly(mnLogging.logback.classic)
 }
 
