@@ -359,19 +359,19 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>Application</code> class extends <code>io.micronaut.ktor.KtorApplication</code> and provides the server type (in this case Netty).</td>
+<td>The <code>Application</code> class extends <code>io.micronaut.ktor.KtorApplication</code> and declares the Ktor engine type, in this case Netty.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>You can optionally configure the <a href="https://ktor.io/advanced/engines.html">ApplicationEngineEnvironment</a>.</td>
+<td>The <code>applicationEngineEnvironment { &#8230;&#8203; }</code> block lets you customize Ktor environment settings used by the Micronaut integration, such as logging.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>You can optionally configure the <code>ApplicationEngine</code>. In this case <code>NettyApplicationEngine</code> instance&#8217;s <code>workerGroupSize</code> is set to <code>10</code></td>
+<td>The <code>applicationEngine { &#8230;&#8203; }</code> block configures engine-specific settings. In this example, the Netty engine configuration sets <code>workerGroupSize</code> to <code>10</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>A <code>main</code> method is defined for running the application within a runnable JAR</td>
+<td>A <code>main</code> method is defined for running the application within a runnable JAR.</td>
 </tr>
 </table>
 </div>
@@ -386,13 +386,13 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 
 
 <div class="paragraph">
-<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code> to install features or <code>io.micronaut.ktor.KtorRoutingBuilder</code> to configure routes.</p>
+<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code> to install plugins or <code>io.micronaut.ktor.KtorRoutingBuilder</code> to configure routes.</p>
 </div>
 <div class="paragraph">
-<p>For example, the following will install the Jackson feature (when <code>ktor-jackson</code> is on the classpath):</p>
+<p>For example, the following installs the Jackson plugin when <code>ktor-serialization-jackson</code> is on the classpath:</p>
 </div>
 <div class="listingblock">
-<div class="title">Installing Features</div>
+<div class="title">Installing Plugins</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.server.application.install
@@ -419,7 +419,7 @@ class GreetingConfiguration : KtorApplicationBuilder({ <i class="conum" data-val
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <code>ContentNegotiation</code> feature is installed and Jackson configured.</td>
+<td>The <code>ContentNegotiation</code> plugin is installed and Jackson is configured.</td>
 </tr>
 </table>
 </div>
@@ -738,7 +738,10 @@ fun main(args: Array&lt;String&gt;) {
 <div class="sect2">
 <h3 id="_micronaut_kotlin_5_0_0_snapshot">Micronaut Kotlin 5.0.0-SNAPSHOT</h3>
 <div class="paragraph">
-<p>Micronaut Kotlin&#8217;s <code>Ktor</code> module is based on Ktor 2.x, which has breaking changes from Ktor 1.6.x used by previous versions of Micronaut Kotlin.</p>
+<p>Micronaut Kotlin&#8217;s <code>Ktor</code> module is now based on Ktor 3.x and includes breaking changes relative to the previous Ktor 2-based integration.</p>
+</div>
+<div class="paragraph">
+<p>Key changes include Ktor 3 environment and server bootstrap redesign, including the move from <code>ApplicationEngineEnvironmentBuilder</code> to <code>ApplicationEnvironmentBuilder</code>, the introduction of <code>ServerConfig</code>, and the change in <code>embeddedServer()</code> to return <code>EmbeddedServer</code>.</p>
 </div>
 <div class="paragraph">
 <p>For more information, refer to the following Ktor guide:</p>
@@ -746,7 +749,7 @@ fun main(args: Array&lt;String&gt;) {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://ktor.io/docs/migrating-2.html">Migrating Ktor applications:Migrating from 1.6.x to 2.0.0</a></p>
+<p><a href="https://ktor.io/docs/migrating-3.html">Migrating Ktor applications: Migrating from 2.x to 3.x</a></p>
 </li>
 </ul>
 </div>
