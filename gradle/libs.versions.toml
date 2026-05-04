@@ -2,7 +2,7 @@
 micronaut = "5.0.0-M25"
 micronaut-platform = "5.0.0-M2"
 dokka = "2.2.0"
-managed-ktor = "2.3.13"
+managed-ktor = "3.4.3"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.7"
 micronaut-gradle-plugin = "5.0.0-M1"
@@ -18,9 +18,9 @@ jackson-module-kotlin = { module = "tools.jackson.module:jackson-module-kotlin" 
 ktor-serialization-jackson = { module = "io.ktor:ktor-serialization-jackson", version.ref = "managed-ktor" }
 ktor-server-auth = { module = "io.ktor:ktor-server-auth", version.ref = "managed-ktor" }
 ktor-server-content-negotiation = { module = "io.ktor:ktor-server-content-negotiation", version.ref = "managed-ktor" }
-ktor-server-jetty = { module = "io.ktor:ktor-server-jetty", version.ref = "managed-ktor" }
+ktor-server-jetty = { module = "io.ktor:ktor-server-jetty-jakarta", version.ref = "managed-ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "managed-ktor" }
-ktor-server-tomcat = { module = "io.ktor:ktor-server-tomcat", version.ref = "managed-ktor" }
+ktor-server-tomcat = { module = "io.ktor:ktor-server-tomcat-jakarta", version.ref = "managed-ktor" }
 mockito-kotlin = { module = "com.nhaarman.mockitokotlin2:mockito-kotlin", version.ref = "mockito-kotlin" }
 typesafe-config = { module = "com.typesafe:config", version.ref = "typesafe-config" }
 

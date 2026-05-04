@@ -2,8 +2,10 @@ This section documents breaking changes for Kotlin and Ktor versions:
 
 === Micronaut Kotlin {version}
 
-Micronaut Kotlin's `Ktor` module is based on Ktor 2.x, which has breaking changes from Ktor 1.6.x used by previous versions of Micronaut Kotlin.
+Micronaut Kotlin's `Ktor` module is now based on Ktor 3.x and includes breaking changes relative to the previous Ktor 2-based integration.
+
+Key changes include Ktor 3 environment and server bootstrap redesign, including the move from `ApplicationEngineEnvironmentBuilder` to `ApplicationEnvironmentBuilder`, the introduction of `ServerConfig`, and the change in `embeddedServer()` to return `EmbeddedServer`.
 
 For more information, refer to the following Ktor guide:
 
-- https://ktor.io/docs/migrating-2.html[Migrating Ktor applications:Migrating from 1.6.x to 2.0.0]
+- https://ktor.io/docs/migrating-3.html[Migrating Ktor applications: Migrating from 2.x to 3.x]

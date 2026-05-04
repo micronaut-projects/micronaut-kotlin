@@ -8,8 +8,8 @@ include::examples/greeting/src/main/kotlin/app/Application.kt[tags=imports]
 include::examples/greeting/src/main/kotlin/app/Application.kt[tags=class]
 ----
 
-<1> The `Application` class extends `io.micronaut.ktor.KtorApplication` and provides the server type (in this case Netty).
-<2> You can optionally configure the https://ktor.io/advanced/engines.html[ApplicationEngineEnvironment].
-<3> You can optionally configure the `ApplicationEngine`. In this case `NettyApplicationEngine` instance's `workerGroupSize` is set to `10`
-<4> A `main` method is defined for running the application within a runnable JAR
+<1> The `Application` class extends `io.micronaut.ktor.KtorApplication` and declares the Ktor engine type, in this case Netty.
+<2> The `applicationEngineEnvironment { ... }` block lets you customize Ktor environment settings used by the Micronaut integration, such as logging.
+<3> The `applicationEngine { ... }` block configures engine-specific settings. In this example, the Netty engine configuration sets `workerGroupSize` to `10`.
+<4> A `main` method is defined for running the application within a runnable JAR.
 

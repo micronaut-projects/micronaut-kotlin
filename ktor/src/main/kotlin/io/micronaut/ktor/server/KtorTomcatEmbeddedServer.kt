@@ -15,9 +15,11 @@
  */
 package io.micronaut.ktor.server
 
-import io.ktor.server.engine.ApplicationEngineEnvironment
-import io.ktor.server.tomcat.Tomcat
-import io.ktor.server.tomcat.TomcatApplicationEngine
+import io.ktor.server.application.ServerConfig
+import io.ktor.server.engine.EngineConnectorConfig
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.tomcat.jakarta.Tomcat
+import io.ktor.server.tomcat.jakarta.TomcatApplicationEngine
 import io.micronaut.context.ApplicationContext
 import io.micronaut.context.annotation.Requires
 import io.micronaut.http.server.HttpServerConfiguration
@@ -25,14 +27,19 @@ import io.micronaut.ktor.KtorApplication
 import jakarta.inject.Singleton
 
 @Singleton
-@Requires(classes = arrayOf(Tomcat::class))
+@Requires(classes = [Tomcat::class])
 class KtorTomcatEmbeddedServer(
-        override val ctx: ApplicationContext,
-        override val serverConfiguration: HttpServerConfiguration,
-        override val engineEnvironment: ApplicationEngineEnvironment,
-        val ktorApplication: KtorApplication<TomcatApplicationEngine.Configuration>) : AbstractKtorEmbeddedServer(
-        ctx,
-        serverConfiguration,
-        engineEnvironment,
-        Tomcat.create(engineEnvironment, ktorApplication.configuration)
+    override val ctx: ApplicationContext,
+    override val serverConfiguration: HttpServerConfiguration,
+    serverConfig: ServerConfig,
+    connectorConfigs: List<EngineConnectorConfig>,
+    val ktorApplication: KtorApplication<TomcatApplicationEngine.Configuration>,
+) : AbstractKtorEmbeddedServer(
+    ctx,
+    serverConfiguration,
+    connectorConfigs.first(),
+    embeddedServer(Tomcat, serverConfig, configure = {
+        ktorApplication.configuration(this)
+        connectors = connectorConfigs.toMutableList()
+    }),
 )

@@ -15,8 +15,14 @@
  */
 package io.micronaut.ktor.factory
 
+import io.ktor.server.application.Application
+import io.ktor.server.application.ServerConfig
+import io.ktor.server.application.serverConfig
+import io.ktor.server.engine.ApplicationEnvironmentBuilder
+import io.ktor.server.engine.EngineConnectorConfig
+import io.ktor.server.engine.applicationEnvironment
+import io.ktor.server.engine.connector
 import io.ktor.server.routing.routing
-import io.ktor.server.engine.*
 import io.micronaut.context.annotation.Factory
 import io.micronaut.context.env.Environment
 import io.micronaut.core.annotation.Internal
@@ -27,7 +33,6 @@ import io.micronaut.ktor.KtorApplicationBuilder
 import io.micronaut.ktor.KtorRoutingBuilder
 import io.micronaut.ktor.env.MicronautKtorEnvironmentConfig
 import jakarta.inject.Singleton
-import kotlin.coroutines.EmptyCoroutineContext
 
 /**
  * The Ktor factory
@@ -37,52 +42,68 @@ import kotlin.coroutines.EmptyCoroutineContext
 class KtorMicronautApplicationFactory {
 
     @Singleton
-    fun applicationEngineEnvironmentBuilder(
-            ktorApplication: KtorApplication<*>,
-            ktorApplicationBuilders: List<KtorApplicationBuilder>,
-            ktorRoutingBuilders: List<KtorRoutingBuilder>) : ApplicationEngineEnvironmentBuilder {
+    fun applicationEnvironmentBuilder(
+        ktorApplication: KtorApplication<*>,
+        env: Environment,
+    ): ApplicationEnvironmentBuilder {
         ktorApplication.init()
-
-        ktorApplicationBuilders.forEach {
-            ktorApplication.environment.modules.add(it.builder)
+        return ApplicationEnvironmentBuilder().apply {
+            classLoader = env.classLoader
+            config = MicronautKtorEnvironmentConfig(env = env)
+            ktorApplication.environment(this)
         }
-
-        ktorRoutingBuilders.forEach {
-            ktorApplication.environment.modules.add {
-                routing { it.builder(this) }
-            }
-        }
-
-        return ktorApplication.environment
     }
 
     @Singleton
-    fun applicationEngineEnvironment(
-            builder : ApplicationEngineEnvironmentBuilder,
-            env : Environment,
-            serverConfiguration: HttpServerConfiguration) : ApplicationEngineEnvironment {
-        val connectors = builder.connectors
-        if (connectors.isEmpty()) {
-            var specifiedPort = serverConfiguration.port.orElse(8080)
-            if (specifiedPort == -1) {
-                specifiedPort = SocketUtils.findAvailableTcpPort()
-            }
-            builder.connector {
-                host = serverConfiguration.host.orElse("0.0.0.0")
-                port = specifiedPort
+    fun applicationModules(
+        ktorApplication: KtorApplication<*>,
+        ktorApplicationBuilders: List<KtorApplicationBuilder>,
+        ktorRoutingBuilders: List<KtorRoutingBuilder>,
+    ): List<Application.() -> Unit> {
+        val modules = mutableListOf<Application.() -> Unit>()
+        ktorApplicationBuilders.forEach { modules.add(it.builder) }
+        ktorRoutingBuilders.forEach { routingBuilder ->
+            modules.add {
+                routing { routingBuilder.builder(this) }
             }
         }
-        return ApplicationEngineEnvironmentReloading(
-                env.classLoader,
-                builder.log,
-                MicronautKtorEnvironmentConfig(env = env),
-                connectors,
-                builder.modules,
-                builder.watchPaths,
-                EmptyCoroutineContext,
-            serverConfiguration.contextPath ?: "",
-                false
-        )
+        return modules
     }
-}
 
+    @Singleton
+    fun serverConfig(
+        environmentBuilder: ApplicationEnvironmentBuilder,
+        env: Environment,
+        serverConfiguration: HttpServerConfiguration,
+        applicationModules: List<Application.() -> Unit>,
+    ): ServerConfig {
+        val environment = applicationEnvironment {
+            classLoader = environmentBuilder.classLoader
+            log = environmentBuilder.log
+            config = environmentBuilder.config
+        }
+        return serverConfig(environment) {
+            developmentMode = env.activeNames.contains(Environment.DEVELOPMENT)
+            rootPath = serverConfiguration.contextPath ?: ""
+            applicationModules.forEach { module(it) }
+        }
+    }
+
+    @Singleton
+    fun connectorConfigs(serverConfiguration: HttpServerConfiguration): List<EngineConnectorConfig> {
+        val connectorBuilder = ApplicationEngineConnectorBuilderHolder()
+        val specifiedPort = resolvePort(serverConfiguration)
+        connectorBuilder.connector {
+            host = serverConfiguration.host.orElse("0.0.0.0")
+            port = specifiedPort
+        }
+        return connectorBuilder.connectors
+    }
+
+    private fun resolvePort(serverConfiguration: HttpServerConfiguration): Int {
+        val configuredPort = serverConfiguration.port.orElse(8080)
+        return if (configuredPort == -1) SocketUtils.findAvailableTcpPort() else configuredPort
+    }
+
+    private class ApplicationEngineConnectorBuilderHolder : io.ktor.server.engine.ApplicationEngine.Configuration()
+}
