@@ -7,8 +7,8 @@ mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.7"
 micronaut-gradle-plugin = "5.0.0-M1"
 # Micronaut BOMs
-micronaut-reactor = "4.0.0-RC1"
-micronaut-serde = "3.0.0-RC1"
+micronaut-reactor = "4.0.0"
+micronaut-serde = "3.0.0"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
