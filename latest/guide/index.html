@@ -15,7 +15,7 @@
     <script>hljs.initHighlightingOnLoad();</script>
     <link rel="stylesheet" href="../css/multi-language-sample.css"/>
     <script src="../js/docs.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
     <script type="text/javascript">
         function addJsClass(el) {
             var classes = document.body.className.split(" ");
@@ -23,7 +23,9 @@
             document.body.className = classes.join(" ");
         }
     </script>
-
+    <style type="text/css">
+        .lang-java { display: block }; .lang-python { display: block }; .lang-kotlin { display: block }; .lang-groovy { display: block }; 
+    </style>
 </head>
 
 <body class="body" id="docs" onload="addJsClass();" onhashchange="highlightMenu()">
@@ -125,13 +127,13 @@
         <h1>Micronaut Kotlin Integrations</h1>
         <p></p>
         <p>Includes extensions to Micronaut for Kotlin</p>
-        <p><strong>Version:</strong> 4.7.0 </p>
+        <p><strong>Version:</strong> 5.0.0 </p>
     </div>
     
 <h1 id="introduction"><a class="anchor" href="#introduction"></a>1 Introduction</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/introduction.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/introduction.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -156,7 +158,7 @@
 <h1 id="releaseHistory"><a class="anchor" href="#releaseHistory"></a>2 Release History</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/releaseHistory.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/releaseHistory.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -172,7 +174,7 @@
 <h1 id="runtime"><a class="anchor" href="#runtime"></a>3 Kotlin Runtime Support</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/runtime.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/runtime.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -208,7 +210,8 @@
     &lt;artifactId&gt;micronaut-kotlin-runtime&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
-</div></p>
+</div>
+</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -232,7 +235,7 @@
 <h2 id="config4k"><a class="anchor" href="#config4k"></a>3.1 Config4k</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/runtime/config4k.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/runtime/config4k.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -261,7 +264,7 @@ custom {
 <h1 id="ktor"><a class="anchor" href="#ktor"></a>4 Ktor Support</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/ktor.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/ktor.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -287,7 +290,8 @@ custom {
     &lt;artifactId&gt;micronaut-ktor&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
-</div></p>
+</div>
+</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -317,7 +321,7 @@ See the <a href="https://github.com/micronaut-projects/micronaut-kotlin/tree/mas
 <h2 id="ktorApplication"><a class="anchor" href="#ktorApplication"></a>4.1 The KtorApplication class</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/ktor/ktorApplication.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/ktor/ktorApplication.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -355,19 +359,19 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 <table>
 <tr>
 <td><i class="conum" data-value="1"></i><b>1</b></td>
-<td>The <code>Application</code> class extends <code>io.micronaut.ktor.KtorApplication</code> and provides the server type (in this case Netty).</td>
+<td>The <code>Application</code> class extends <code>io.micronaut.ktor.KtorApplication</code> and declares the Ktor engine type, in this case Netty.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>You can optionally configure the <a href="https://ktor.io/advanced/engines.html">ApplicationEngineEnvironment</a>.</td>
+<td>The <code>applicationEngineEnvironment { &#8230;&#8203; }</code> block lets you customize Ktor environment settings used by the Micronaut integration, such as logging.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="3"></i><b>3</b></td>
-<td>You can optionally configure the <code>ApplicationEngine</code>. In this case <code>NettyApplicationEngine</code> instance&#8217;s <code>workerGroupSize</code> is set to <code>10</code></td>
+<td>The <code>applicationEngine { &#8230;&#8203; }</code> block configures engine-specific settings. In this example, the Netty engine configuration sets <code>workerGroupSize</code> to <code>10</code>.</td>
 </tr>
 <tr>
 <td><i class="conum" data-value="4"></i><b>4</b></td>
-<td>A <code>main</code> method is defined for running the application within a runnable JAR</td>
+<td>A <code>main</code> method is defined for running the application within a runnable JAR.</td>
 </tr>
 </table>
 </div>
@@ -375,20 +379,20 @@ fun main(args: Array&lt;String&gt;) { <i class="conum" data-value="4"></i><b>(4)
 <h2 id="ktorModules"><a class="anchor" href="#ktorModules"></a>4.2 Defining Ktor Modules</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/ktorModules.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/ktorModules.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
 
 
 <div class="paragraph">
-<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code> to install features or <code>io.micronaut.ktor.KtorRoutingBuilder</code> to configure routes.</p>
+<p>To define Ktor modules you can create classes that subclass <code>io.micronaut.ktor.KtorApplicationBuilder</code> to install plugins or <code>io.micronaut.ktor.KtorRoutingBuilder</code> to configure routes.</p>
 </div>
 <div class="paragraph">
-<p>For example, the following will install the Jackson feature (when <code>ktor-jackson</code> is on the classpath):</p>
+<p>For example, the following installs the Jackson plugin when <code>ktor-serialization-jackson</code> is on the classpath:</p>
 </div>
 <div class="listingblock">
-<div class="title">Installing Features</div>
+<div class="title">Installing Plugins</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.server.application.install
@@ -415,7 +419,7 @@ class GreetingConfiguration : KtorApplicationBuilder({ <i class="conum" data-val
 </tr>
 <tr>
 <td><i class="conum" data-value="2"></i><b>2</b></td>
-<td>The <code>ContentNegotiation</code> feature is installed and Jackson configured.</td>
+<td>The <code>ContentNegotiation</code> plugin is installed and Jackson is configured.</td>
 </tr>
 </table>
 </div>
@@ -464,7 +468,7 @@ data class CustomGreetingRequest(val name: String)</code></pre>
 <h1 id="extensionFunctions"><a class="anchor" href="#extensionFunctions"></a>5 Kotlin Extension Functions</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/extensionFunctions.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -489,7 +493,8 @@ help alleviate the need for using <code>::class.java</code> in many places where
     &lt;artifactId&gt;micronaut-kotlin-extension-functions&lt;/artifactId&gt;
 &lt;/dependency&gt;</code></pre>
 </div>
-</div></p>
+</div>
+</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -544,7 +549,7 @@ See <a href="https://discuss.kotlinlang.org/t/why-is-shadowed-extension-not-an-e
 <h2 id="contextExtensions"><a class="anchor" href="#contextExtensions"></a>5.1 Context Extensions</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/extensionFunctions/contextExtensions.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/contextExtensions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -566,7 +571,7 @@ See <a href="https://discuss.kotlinlang.org/t/why-is-shadowed-extension-not-an-e
 <h2 id="httpExtensions"><a class="anchor" href="#httpExtensions"></a>5.2 HTTP Extensions</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/extensionFunctions/httpExtensions.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/httpExtensions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -642,7 +647,7 @@ val exchangeOneReifiedCustomExceptionBody: HeroJsonError? = exchangeOneReifiedCu
 <h2 id="injectExtensions"><a class="anchor" href="#injectExtensions"></a>5.3 Inject Extensions</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/extensionFunctions/injectExtensions.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/injectExtensions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -664,7 +669,7 @@ val exchangeOneReifiedCustomExceptionBody: HeroJsonError? = exchangeOneReifiedCu
 <h2 id="runtimeExtensions"><a class="anchor" href="#runtimeExtensions"></a>5.4 Runtime Extensions</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/extensionFunctions/runtimeExtensions.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/runtimeExtensions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -699,7 +704,7 @@ fun main(args: Array&lt;String&gt;) {
 <h2 id="schedulingExtensions"><a class="anchor" href="#schedulingExtensions"></a>5.5 Scheduling Extensions</h2>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/extensionFunctions/schedulingExtensions.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/extensionFunctions/schedulingExtensions.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -721,7 +726,7 @@ fun main(args: Array&lt;String&gt;) {
 <h1 id="breaks"><a class="anchor" href="#breaks"></a>6 Breaking Changes</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/breaks.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/breaks.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
@@ -731,9 +736,12 @@ fun main(args: Array&lt;String&gt;) {
 <p>This section documents breaking changes for Kotlin and Ktor versions:</p>
 </div>
 <div class="sect2">
-<h3 id="_micronaut_kotlin_4_7_0">Micronaut Kotlin 4.7.0</h3>
+<h3 id="_micronaut_kotlin_5_0_0">Micronaut Kotlin 5.0.0</h3>
 <div class="paragraph">
-<p>Micronaut Kotlin&#8217;s <code>Ktor</code> module is based on Ktor 2.x, which has breaking changes from Ktor 1.6.x used by previous versions of Micronaut Kotlin.</p>
+<p>Micronaut Kotlin&#8217;s <code>Ktor</code> module is now based on Ktor 3.x and includes breaking changes relative to the previous Ktor 2-based integration.</p>
+</div>
+<div class="paragraph">
+<p>Key changes include Ktor 3 environment and server bootstrap redesign, including the move from <code>ApplicationEngineEnvironmentBuilder</code> to <code>ApplicationEnvironmentBuilder</code>, the introduction of <code>ServerConfig</code>, and the change in <code>embeddedServer()</code> to return <code>EmbeddedServer</code>.</p>
 </div>
 <div class="paragraph">
 <p>For more information, refer to the following Ktor guide:</p>
@@ -741,7 +749,7 @@ fun main(args: Array&lt;String&gt;) {
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://ktor.io/docs/migrating-2.html">Migrating Ktor applications:Migrating from 1.6.x to 2.0.0</a></p>
+<p><a href="https://ktor.io/docs/migrating-3.html">Migrating Ktor applications: Migrating from 2.x to 3.x</a></p>
 </li>
 </ul>
 </div>
@@ -750,7 +758,7 @@ fun main(args: Array&lt;String&gt;) {
 <h1 id="repository"><a class="anchor" href="#repository"></a>7 Repository</h1>
 
 <div class='contribute-btn'>
-    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/4.7.x/src/main/docs/guide/repository.adoc"'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.0.x/src/main/docs/guide/repository.adoc"'>
         <i class='fa fa-pencil-square-o'></i> Improve this doc
     </button>
 </div>
