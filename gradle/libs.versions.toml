@@ -2,7 +2,7 @@
 micronaut = "5.0.0"
 micronaut-platform = "5.0.0-RC1"
 dokka = "2.2.0"
-managed-ktor = "3.4.3"
+managed-ktor = "3.5.1"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.7"
 micronaut-gradle-plugin = "5.0.0"
