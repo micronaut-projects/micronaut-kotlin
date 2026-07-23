@@ -115,6 +115,8 @@
         
         <div class="toc-item" style="margin-left:10px" id="toc-item-schedulingExtensions"><a href="#schedulingExtensions"><strong>5.5</strong><span>Scheduling Extensions</span></a></div>
         
+        <div class="toc-item" style="margin-left:10px" id="toc-item-jsonCoreExtensions"><a href="#jsonCoreExtensions"><strong>5.6</strong><span>JSON Extensions</span></a></div>
+        
         <div class="toc-item" style="margin-left:0px" id="toc-item-breaks"><a href="#breaks"><strong>6</strong><span>Breaking Changes</span></a></div>
         
         <div class="toc-item" style="margin-left:0px" id="toc-item-repository"><a href="#repository"><strong>7</strong><span>Repository</span></a></div>
@@ -476,7 +478,7 @@ data class CustomGreetingRequest(val name: String)</code></pre>
 
 <div class="paragraph">
 <p>The <code>micronaut-kotlin-extension-functions</code> dependency adds a variety of convenience functions to make using
-micronaut with kotlin more user-friendly. For example, <a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters">reified type parameters</a>
+Micronaut with Kotlin more user-friendly. For example, <a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters">reified type parameters</a>
 help alleviate the need for using <code>::class.java</code> in many places where it would otherwise be required.</p>
 </div>
 <div class="paragraph">
@@ -721,6 +723,140 @@ fun main(args: Array&lt;String&gt;) {
 </td>
 </tr>
 </table>
+</div>
+
+<h2 id="jsonCoreExtensions"><a class="anchor" href="#jsonCoreExtensions"></a>5.6 JSON Extensions</h2>
+
+<div class='contribute-btn'>
+    <button type='button' class='btn btn-default' onclick='window.location.href="https://github.com/micronaut-projects/micronaut-kotlin/edit/5.1.x/src/main/docs/guide/extensionFunctions/jsonCoreExtensions.adoc"'>
+        <i class='fa fa-pencil-square-o'></i> Improve this doc
+    </button>
+</div>
+
+
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<a href="https://micronaut-projects.github.io/micronaut-kotlin/latest/api/micronaut-kotlin-extension-functions/io.micronaut.kotlin.json/index.html">Serde Extensions API Documentation</a>
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_jsonmapper_extensions">JsonMapper Extensions</h3>
+<div class="paragraph">
+<p>The <code>JsonMapper</code> extension functions provide convenient ways to deserialize JSON from various sources using <a href="https://kotlinlang.org/docs/reference/inline-functions.html#reified-type-parameters">reified type parameters</a>, eliminating the need to explicitly pass type information.</p>
+</div>
+<div class="sect3">
+<h4 id="_deserialize_from_jsonnode">Deserialize from JsonNode</h4>
+<div class="paragraph">
+<p>The <code>readValueFromTree</code> extension allows you to deserialize a <code>JsonNode</code> directly to a typed value without requiring explicit type arguments:</p>
+</div>
+<div class="listingblock">
+<div class="title">Test Demonstrating JsonNode deserialization</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Instead of:
+val value: MyData = jsonMapper.readValueFromTree(node, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValueFromTree&lt;MyData&gt;(node)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is particularly useful when working with the JSON tree API for partial parsing or tree manipulation operations.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deserialize_from_inputstream">Deserialize from InputStream</h4>
+<div class="paragraph">
+<p>The <code>readValue</code> extension for <code>InputStream</code> provides a clean way to parse JSON from a stream:</p>
+</div>
+<div class="listingblock">
+<div class="title">Parsing JSON from an InputStream</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Instead of:
+val value: MyData = jsonMapper.readValue(inputStream, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue&lt;MyData&gt;(inputStream)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deserialize_from_bytearray">Deserialize from ByteArray</h4>
+<div class="paragraph">
+<p>The <code>readValue</code> extension for <code>ByteArray</code> is convenient for parsing JSON from raw bytes:</p>
+</div>
+<div class="listingblock">
+<div class="title">Parsing JSON from a ByteArray</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Instead of:
+val value: MyData = jsonMapper.readValue(jsonBytes, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue&lt;MyData&gt;(jsonBytes)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deserialize_from_readbuffer">Deserialize from ReadBuffer</h4>
+<div class="paragraph">
+<p>For Micronaut&#8217;s <code>ReadBuffer</code> type, the extension provides seamless deserialization:</p>
+</div>
+<div class="listingblock">
+<div class="title">Parsing JSON from a ByteBuffer</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Instead of:
+val value: MyData = jsonMapper.readValue(buffer, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue&lt;MyData&gt;(buffer)</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is especially useful in server implementations that work directly with buffers.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_deserialize_from_string">Deserialize from String</h4>
+<div class="paragraph">
+<p>The <code>readValue</code> extension for <code>String</code> is the most convenient for handling JSON text:</p>
+</div>
+<div class="listingblock">
+<div class="title">Parsing JSON from a String</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">// Instead of:
+val value: MyData = jsonMapper.readValue(jsonString, Argument.of(MyData::class.java))
+
+// You can use:
+val value = jsonMapper.readValue&lt;MyData&gt;(jsonString)</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_null_handling">Null Handling</h4>
+<div class="paragraph">
+<p>All extension functions return a nullable type (<code>T?</code>) to properly handle cases where deserialization results in JSON <code>null</code> values.</p>
+</div>
+<div class="listingblock">
+<div class="title">Handling null values in deserialization</div>
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">val possiblyNull: MyData? = jsonMapper.readValue&lt;MyData&gt;(jsonString)
+
+if (possiblyNull != null) {
+    // Process the deserialized value
+    println(possiblyNull.name)
+} else {
+    // Handle null case
+    println("JSON was null")
+}</code></pre>
+</div>
+</div>
+</div>
 </div>
 
 <h1 id="breaks"><a class="anchor" href="#breaks"></a>6 Breaking Changes</h1>
