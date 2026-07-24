@@ -1,5 +1,5 @@
 [versions]
-micronaut = "5.1.6"
+micronaut = "5.1.10"
 micronaut-platform = "5.0.0-RC1"
 dokka = "2.2.0"
 managed-ktor = "3.5.1"
