@@ -9,8 +9,8 @@ ossIndexAudit {
                 "org.apache.tomcat:tomcat-coyote:9.0.89",
                 "org.apache.tomcat.embed:tomcat-embed-core:11.0.24",
                 "org.apache.tomcat:tomcat-juli:11.0.21",
-                "org.eclipse.jetty:jetty-server:12.1.8",
-                "org.eclipse.jetty:jetty-http:12.1.8",
+                "org.eclipse.jetty:jetty-server:12.1.12",
+                "org.eclipse.jetty:jetty-http:12.1.12",
                 "org.eclipse.jetty:jetty-servlets:11.0.26",
                 "org.eclipse.jetty.http2:http2-common:11.0.26",
         ]
