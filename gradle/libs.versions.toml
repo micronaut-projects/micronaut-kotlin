@@ -1,14 +1,14 @@
 [versions]
-micronaut = "5.2.2"
+micronaut = "5.2.13"
 micronaut-platform = "5.0.0-RC1"
 dokka = "2.2.0"
-managed-ktor = "3.5.2"
+managed-ktor = "3.6.0"
 mockito-kotlin = "2.2.0"
 typesafe-config = "1.4.7"
 micronaut-gradle-plugin = "5.0.2"
 # Micronaut BOMs
-micronaut-reactor = "4.2.0"
-micronaut-serde = "3.1.1"
+micronaut-reactor = "4.3.0"
+micronaut-serde = "3.2.4"
 [libraries]
 # Core
 micronaut-core = { module = 'io.micronaut:micronaut-core-bom', version.ref = 'micronaut' }
