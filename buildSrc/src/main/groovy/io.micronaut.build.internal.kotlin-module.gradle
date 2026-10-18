@@ -11,8 +11,8 @@ ossIndexAudit {
                 "org.apache.tomcat:tomcat-juli:11.0.27",
                 "org.eclipse.jetty:jetty-server:12.1.14",
                 "org.eclipse.jetty:jetty-http:12.1.14",
-                "org.eclipse.jetty:jetty-servlets:11.0.27",
-                "org.eclipse.jetty.http2:http2-common:11.0.27",
+                "org.eclipse.jetty:jetty-servlets:11.0.26",
+                "org.eclipse.jetty.http2:http2-common:11.0.26",
         ]
 }
 
