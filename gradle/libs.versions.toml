@@ -1,10 +1,10 @@
 [versions]
-micronaut = "5.2.20"
+micronaut = "5.2.21"
 micronaut-platform = "5.0.0-RC1"
 dokka = "2.2.0"
-managed-ktor = "3.6.0"
+managed-ktor = "3.6.1"
 mockito-kotlin = "2.2.0"
-typesafe-config = "1.4.7"
+typesafe-config = "1.4.9"
 micronaut-gradle-plugin = "5.0.2"
 # Micronaut BOMs
 micronaut-reactor = "4.3.0"
